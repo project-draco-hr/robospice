@@ -1,0 +1,5 @@
+{
+  super.setUp();
+  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  fileBasedClassCacheManager=new InFileObjectPersisterUnderTest(application);
+}

@@ -1,0 +1,7 @@
+{
+  this.applicationContext=context;
+  this.cacheManager=cacheManager;
+  handlerResponse=new Handler(Looper.getMainLooper());
+  contentServiceListenerSet=Collections.synchronizedSet(new HashSet<ContentServiceListener>());
+  initiateExecutorService(threadCount);
+}

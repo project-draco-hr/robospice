@@ -1,0 +1,7 @@
+{
+  File cachedFile=inputStreamCacheManager.getCacheFile(TEST_CACHE_KEY);
+  Files.write("coucou".getBytes(),cachedFile);
+  InputStream inputStream=inputStreamCacheManager.loadDataFromCache(TEST_CACHE_KEY,DurationInMillis.ALWAYS);
+  byte[] actual=ByteStreams.toByteArray(inputStream);
+  assertTrue(Arrays.equals("coucou".getBytes(),actual));
+}

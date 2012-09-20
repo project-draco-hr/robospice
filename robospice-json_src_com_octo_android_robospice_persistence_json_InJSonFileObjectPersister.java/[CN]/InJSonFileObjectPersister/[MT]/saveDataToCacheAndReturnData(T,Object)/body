@@ -1,0 +1,35 @@
+{
+  try {
+    if (isAsyncSaveEnabled) {
+      new Thread(){
+        @Override public void run(){
+          try {
+            saveData(data,cacheKey);
+          }
+ catch (          IOException e) {
+            Log.e(LOG_CAT,"An error occured on saving request " + cacheKey + " data asynchronously",e);
+          }
+catch (          CacheSavingException e) {
+            Log.e(LOG_CAT,"An error occured on saving request " + cacheKey + " data asynchronously",e);
+          }
+ finally {
+            lock.lock();
+            condition.signal();
+            lock.unlock();
+          }
+        }
+      }
+.start();
+    }
+ else {
+      saveData(data,cacheKey);
+    }
+  }
+ catch (  CacheSavingException e) {
+    throw e;
+  }
+catch (  Exception e) {
+    throw new CacheSavingException(e);
+  }
+  return data;
+}

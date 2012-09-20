@@ -1,0 +1,17 @@
+{
+  try {
+    InputStream is=new URL(url).openStream();
+    cacheFile.setLastModified(System.currentTimeMillis());
+    OutputStream fileOutputStream=new FileOutputStream(cacheFile);
+    ByteStreams.copy(is,fileOutputStream);
+    return new FileInputStream(cacheFile);
+  }
+ catch (  MalformedURLException e) {
+    Log.e(getClass().getName(),"Unable to create image URL",e);
+    return null;
+  }
+catch (  IOException e) {
+    Log.e(getClass().getName(),"Unable to download image",e);
+    return null;
+  }
+}

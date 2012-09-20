@@ -1,0 +1,3 @@
+ContentRequest<RESULT> contentRequest
+String requestCacheKey
+long cacheDuration

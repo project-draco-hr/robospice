@@ -1,0 +1,12 @@
+{
+  if (waitBeforeExecution != 0) {
+    try {
+      Thread.sleep(waitBeforeExecution);
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+  isLoadDataFromNetworkCalled=true;
+  return returnedData;
+}

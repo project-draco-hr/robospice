@@ -1,0 +1,9 @@
+{
+  try {
+    contentManager.start(getInstrumentation().getContext());
+    fail();
+  }
+ catch (  Exception ex) {
+    assertTrue(true);
+  }
+}

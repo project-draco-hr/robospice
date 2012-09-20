@@ -1,0 +1,3 @@
+{
+  return cacheManager.loadDataFromCache(clazz,cacheKey,maxTimeInCacheBeforeExpiry);
+}

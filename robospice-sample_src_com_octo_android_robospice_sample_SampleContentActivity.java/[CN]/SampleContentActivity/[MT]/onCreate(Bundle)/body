@@ -1,0 +1,7 @@
+{
+  super.onCreate(savedInstanceState);
+  Log.i(getClass().getName(),"onCreate");
+  loremRequest=new SimpleTextRequest("http://www.loremipsum.de/downloads/original.txt");
+  weatherRequest=new WeatherRequest("75000");
+  imageRequest=new SmallBinaryRequest("http://earthobservatory.nasa.gov/blogs/elegantfigures/files/2011/10/globe_west_2048.jpg");
+}

@@ -1,0 +1,23 @@
+{
+synchronized (map) {
+    stringBuilder.append(" request count= ");
+    stringBuilder.append(mapRequestToLaunchToRequestListener.keySet().size());
+    stringBuilder.append(", listeners per requests = [");
+    for (    Map.Entry<CachedContentRequest<?>,Set<RequestListener<?>>> entry : map.entrySet()) {
+      stringBuilder.append(entry.getKey().getClass().getName());
+      stringBuilder.append(":");
+      stringBuilder.append(entry.getKey());
+      stringBuilder.append(" --> ");
+      if (entry.getValue() == null) {
+        stringBuilder.append(entry.getValue());
+      }
+ else {
+        stringBuilder.append(entry.getValue().size());
+      }
+      stringBuilder.append(" listeners");
+      stringBuilder.append('\n');
+    }
+    stringBuilder.append(']');
+    stringBuilder.append('\n');
+  }
+}

@@ -1,0 +1,3 @@
+{
+  contentRequest.setFuture(future);
+}

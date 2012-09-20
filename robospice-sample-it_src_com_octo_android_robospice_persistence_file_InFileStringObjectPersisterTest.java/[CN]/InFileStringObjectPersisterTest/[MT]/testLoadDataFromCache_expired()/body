@@ -1,0 +1,7 @@
+{
+  File cachedFile=inFileStringObjectPersister.getCacheFile(TEST_CACHE_KEY);
+  Files.write("coucou",cachedFile,Charset.forName("UTF-8"));
+  cachedFile.setLastModified(System.currentTimeMillis() - 5 * DurationInMillis.ONE_SECOND);
+  String actual=inFileStringObjectPersister.loadDataFromCache(TEST_CACHE_KEY,DurationInMillis.ONE_SECOND);
+  assertNull(actual);
+}

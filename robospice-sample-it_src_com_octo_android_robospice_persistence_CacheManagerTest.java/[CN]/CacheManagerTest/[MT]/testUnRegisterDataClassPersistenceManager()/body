@@ -1,0 +1,14 @@
+{
+  MockDataClassPersistenceManager mockDataClassPersistenceManager=new MockDataClassPersistenceManager();
+  cacheManager.addObjectPersisterFactory(mockDataClassPersistenceManager);
+  ObjectPersister<?> actual=cacheManager.getClassCacheManager(String.class);
+  assertEquals(mockDataClassPersistenceManager,actual);
+  cacheManager.removeObjectPersisterFactory(mockDataClassPersistenceManager);
+  try {
+    cacheManager.getClassCacheManager(String.class);
+    fail("No data class persistence manager should have been found as none had been registered");
+  }
+ catch (  Exception ex) {
+    assertTrue(true);
+  }
+}

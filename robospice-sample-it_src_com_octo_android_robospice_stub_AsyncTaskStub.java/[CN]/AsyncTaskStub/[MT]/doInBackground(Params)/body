@@ -1,0 +1,4 @@
+{
+  isLoadDataFromNetworkCalled=true;
+  return returnedData;
+}

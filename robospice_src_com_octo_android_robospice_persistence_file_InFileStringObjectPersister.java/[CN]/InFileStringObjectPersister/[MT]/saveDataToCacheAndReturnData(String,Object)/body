@@ -1,0 +1,30 @@
+{
+  Log.v(LOG_CAT,"Saving String " + data + " into cacheKey = "+ cacheKey);
+  try {
+    if (isAsyncSaveEnabled) {
+      new Thread(){
+        @Override public void run(){
+          try {
+            Files.write(data,getCacheFile(cacheKey),Charset.forName("UTF-8"));
+          }
+ catch (          IOException e) {
+            Log.e(LOG_CAT,"An error occured on saving request " + cacheKey + " data asynchronously",e);
+          }
+ finally {
+            lock.lock();
+            condition.signal();
+            lock.unlock();
+          }
+        }
+      }
+.start();
+    }
+ else {
+      Files.write(data,getCacheFile(cacheKey),Charset.forName("UTF-8"));
+    }
+  }
+ catch (  Exception e) {
+    throw new CacheSavingException(e);
+  }
+  return data;
+}

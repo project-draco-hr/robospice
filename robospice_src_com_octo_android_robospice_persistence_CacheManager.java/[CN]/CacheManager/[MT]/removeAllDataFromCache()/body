@@ -1,0 +1,5 @@
+{
+  for (  ObjectPersisterFactory factory : this.factoryList) {
+    factory.removeAllDataFromCache();
+  }
+}

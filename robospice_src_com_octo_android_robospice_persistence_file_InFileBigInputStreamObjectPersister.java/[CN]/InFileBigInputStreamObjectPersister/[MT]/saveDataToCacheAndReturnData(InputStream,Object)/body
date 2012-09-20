@@ -1,0 +1,9 @@
+{
+  try {
+    ByteStreams.copy(data,Files.newOutputStreamSupplier(getCacheFile(cacheKey)));
+    return new FileInputStream(getCacheFile(cacheKey));
+  }
+ catch (  IOException e) {
+    throw new CacheSavingException(e);
+  }
+}

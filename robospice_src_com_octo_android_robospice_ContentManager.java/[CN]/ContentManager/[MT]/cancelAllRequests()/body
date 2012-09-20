@@ -1,0 +1,18 @@
+{
+  try {
+    lockSendRequestsToService.lock();
+synchronized (mapRequestToLaunchToRequestListener) {
+      for (      CachedContentRequest<?> cachedContentRequest : mapRequestToLaunchToRequestListener.keySet()) {
+        cachedContentRequest.cancel();
+      }
+    }
+synchronized (mapPendingRequestToRequestListener) {
+      for (      CachedContentRequest<?> cachedContentRequest : mapPendingRequestToRequestListener.keySet()) {
+        cachedContentRequest.cancel();
+      }
+    }
+  }
+  finally {
+    lockSendRequestsToService.unlock();
+  }
+}

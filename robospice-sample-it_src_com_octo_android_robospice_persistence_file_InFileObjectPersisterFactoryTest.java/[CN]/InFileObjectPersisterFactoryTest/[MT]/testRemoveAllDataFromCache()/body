@@ -1,0 +1,15 @@
+{
+  final String TEST_CACHE_KEY="TEST_CACHE_KEY";
+  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  File cacheDir=application.getCacheDir();
+  File testFile1=new File(cacheDir,fileBasedClassCacheManagerFactory.getCachePrefix() + TEST_CACHE_KEY);
+  final String TEST_CACHE_KEY2="TEST_CACHE_KEY2";
+  File testFile2=new File(cacheDir,fileBasedClassCacheManagerFactory.getCachePrefix() + TEST_CACHE_KEY2);
+  Files.touch(testFile1);
+  Files.touch(testFile2);
+  assertTrue(testFile1.exists());
+  assertTrue(testFile2.exists());
+  fileBasedClassCacheManagerFactory.removeAllDataFromCache();
+  assertFalse(testFile1.exists());
+  assertFalse(testFile2.exists());
+}

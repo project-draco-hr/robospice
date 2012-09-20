@@ -1,0 +1,4 @@
+{
+  ContentRequestStub<T> stubContentRequest=new ContentRequestFailingStub<T>(clazz);
+  return new CachedContentRequestStub<T>(stubContentRequest,cacheKey,maxTimeInCache);
+}

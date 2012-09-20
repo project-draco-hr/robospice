@@ -1,0 +1,12 @@
+{
+  Log.d(LOG_TAG,"Waiting for service to be bound.");
+  lockAcquireService.lock();
+  try {
+    while (contentService == null && !isStopped) {
+      conditionServiceAcquired.await();
+    }
+  }
+  finally {
+    lockAcquireService.unlock();
+  }
+}

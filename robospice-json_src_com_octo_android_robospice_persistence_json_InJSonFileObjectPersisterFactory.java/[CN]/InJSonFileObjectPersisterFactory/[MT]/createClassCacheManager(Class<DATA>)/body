@@ -1,0 +1,5 @@
+{
+  InFileObjectPersister inFileObjectPersister=new InJSonFileObjectPersister(getApplication(),clazz,getCachePrefix());
+  inFileObjectPersister.setAsyncSaveEnabled(isAsyncSaveEnabled);
+  return inFileObjectPersister;
+}

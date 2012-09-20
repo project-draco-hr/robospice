@@ -1,0 +1,11 @@
+{
+  contentManager.start(getInstrumentation().getTargetContext());
+  contentManager.shouldStopAndJoin(CONTENT_MANAGER_WAIT_TIMEOUT);
+  try {
+    contentManager.execute(new CachedContentRequest<String>((ContentRequest<String>)null,null,DurationInMillis.ALWAYS),null);
+    fail();
+  }
+ catch (  Exception ex) {
+    assertTrue(true);
+  }
+}

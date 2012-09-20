@@ -1,0 +1,14 @@
+{
+  try {
+    lockAcquireService.lock();
+    if (contentService != null && !isUnbinding) {
+      isUnbinding=true;
+      contentService.removeContentServiceListener(removerContentServiceListener);
+      Log.v(LOG_TAG,"Unbinding from service.");
+      context.unbindService(this.contentServiceConnection);
+    }
+  }
+  finally {
+    lockAcquireService.unlock();
+  }
+}

@@ -1,0 +1,17 @@
+{
+  try {
+    lockSendRequestsToService.lock();
+    boolean requestNotPassedToServiceYet=removeListenersOfCachedRequestToLaunch(request);
+    Log.v(LOG_TAG,"Removed from requests to launch list : " + requestNotPassedToServiceYet);
+    if (!requestNotPassedToServiceYet) {
+      removeListenersOfPendingCachedRequest(request);
+      Log.v(LOG_TAG,"Removed from pending requests list");
+    }
+  }
+ catch (  InterruptedException e) {
+    e.printStackTrace();
+  }
+ finally {
+    lockSendRequestsToService.unlock();
+  }
+}

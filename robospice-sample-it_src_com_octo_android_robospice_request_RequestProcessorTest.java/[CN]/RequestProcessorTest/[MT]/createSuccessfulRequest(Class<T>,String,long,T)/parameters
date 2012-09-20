@@ -1,0 +1,4 @@
+Class<T> clazz
+String cacheKey
+long maxTimeInCache
+T returnedData

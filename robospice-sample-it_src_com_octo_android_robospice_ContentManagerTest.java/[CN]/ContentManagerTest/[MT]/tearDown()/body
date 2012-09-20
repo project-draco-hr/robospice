@@ -1,0 +1,7 @@
+{
+  if (contentManager != null && contentManager.isStarted()) {
+    contentManager.shouldStopAndJoin(CONTENT_MANAGER_WAIT_TIMEOUT);
+    contentManager=null;
+  }
+  super.tearDown();
+}

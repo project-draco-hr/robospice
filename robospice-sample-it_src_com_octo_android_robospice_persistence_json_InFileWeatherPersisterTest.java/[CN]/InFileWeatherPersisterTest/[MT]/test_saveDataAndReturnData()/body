@@ -1,0 +1,5 @@
+{
+  WeatherResult weatherRequestStatus=buildWeather();
+  WeatherResult weatherReturned=dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,"weather.json");
+  assertEquals("28",weatherReturned.getWeather().getCurren_weather().get(0).getTemp());
+}

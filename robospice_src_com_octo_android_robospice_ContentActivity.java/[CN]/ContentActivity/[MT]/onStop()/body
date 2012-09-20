@@ -1,0 +1,4 @@
+{
+  contentManager.shouldStop();
+  super.onStop();
+}

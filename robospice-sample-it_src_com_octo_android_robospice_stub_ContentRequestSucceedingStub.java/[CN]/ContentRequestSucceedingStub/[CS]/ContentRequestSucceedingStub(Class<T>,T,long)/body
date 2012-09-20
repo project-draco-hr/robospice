@@ -1,0 +1,5 @@
+{
+  super(clazz);
+  this.returnedData=returnedData;
+  this.waitBeforeExecution=waitBeforeExecution;
+}

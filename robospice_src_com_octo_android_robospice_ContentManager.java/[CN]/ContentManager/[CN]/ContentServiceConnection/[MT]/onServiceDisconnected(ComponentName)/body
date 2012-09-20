@@ -1,0 +1,12 @@
+{
+  try {
+    lockAcquireService.lock();
+    contentService=null;
+    Log.d(LOG_TAG,"Unbound from service : " + contentService.getClass().getSimpleName());
+    isUnbinding=false;
+    conditionServiceAcquired.signalAll();
+  }
+  finally {
+    lockAcquireService.unlock();
+  }
+}

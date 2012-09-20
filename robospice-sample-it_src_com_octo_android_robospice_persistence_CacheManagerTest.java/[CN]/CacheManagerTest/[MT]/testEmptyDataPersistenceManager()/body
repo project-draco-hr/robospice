@@ -1,0 +1,9 @@
+{
+  try {
+    cacheManager.getClassCacheManager(Object.class);
+    fail("No data class persistence manager should have been found as none had been registered");
+  }
+ catch (  Exception ex) {
+    assertTrue(true);
+  }
+}

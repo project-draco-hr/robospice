@@ -1,0 +1,5 @@
+{
+  super(InputStream.class);
+  this.url=url;
+  this.cacheFile=cacheFile;
+}

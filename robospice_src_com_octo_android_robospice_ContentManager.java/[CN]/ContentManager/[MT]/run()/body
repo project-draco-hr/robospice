@@ -1,0 +1,29 @@
+{
+  bindToService(context);
+  try {
+    waitForServiceToBeBound();
+    while (!isStopped) {
+      try {
+        lockSendRequestsToService.lock();
+        if (!requestQueue.isEmpty()) {
+          CachedContentRequest<?> restRequest;
+          restRequest=requestQueue.take();
+          Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.get(restRequest);
+          mapRequestToLaunchToRequestListener.remove(restRequest);
+          mapPendingRequestToRequestListener.put(restRequest,listRequestListener);
+          Log.d(LOG_TAG,"Sending request to service : " + restRequest.getClass().getSimpleName());
+          contentService.addRequest(restRequest,listRequestListener);
+        }
+      }
+  finally {
+        lockSendRequestsToService.unlock();
+      }
+    }
+  }
+ catch (  InterruptedException e) {
+    Log.e(LOG_TAG,"Interrupted while waiting for acquiring service.");
+  }
+ finally {
+    unbindFromService(context);
+  }
+}

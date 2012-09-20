@@ -1,0 +1,14 @@
+{
+  try {
+    lockAcquireService.lock();
+    if (contentService == null) {
+      Intent intentService=new Intent(context,contentServiceClass);
+      Log.v(LOG_TAG,"Binding to service.");
+      contentServiceConnection=new ContentServiceConnection();
+      context.bindService(intentService,contentServiceConnection,Context.BIND_AUTO_CREATE);
+    }
+  }
+  finally {
+    lockAcquireService.unlock();
+  }
+}

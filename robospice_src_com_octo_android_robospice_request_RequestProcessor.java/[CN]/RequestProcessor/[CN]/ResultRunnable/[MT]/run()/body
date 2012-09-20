@@ -1,0 +1,15 @@
+{
+  if (listeners == null) {
+    return;
+  }
+  String resultMsg=contentManagerException == null ? "success" : "failure";
+  Log.v(LOG_CAT,"Notifying " + listeners.size() + " listeners of request "+ resultMsg);
+  for (  RequestListener<T> listener : listeners) {
+    if (contentManagerException == null) {
+      listener.onRequestSuccess(result);
+    }
+ else {
+      listener.onRequestFailure(contentManagerException);
+    }
+  }
+}

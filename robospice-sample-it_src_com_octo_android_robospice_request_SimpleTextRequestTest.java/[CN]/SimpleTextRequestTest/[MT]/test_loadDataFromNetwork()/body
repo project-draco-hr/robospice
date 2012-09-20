@@ -1,0 +1,4 @@
+{
+  String stringReturned=loremIpsumTextRequest.loadDataFromNetwork();
+  assertTrue(stringReturned.startsWith("Lorem ipsum"));
+}

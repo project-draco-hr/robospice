@@ -1,0 +1,3 @@
+ContentRequestStub<T> contentRequest
+String requestCacheKey
+long cacheDuration

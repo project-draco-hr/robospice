@@ -1,0 +1,12 @@
+{
+  WeatherResult weatherRequestStatus=new WeatherResult();
+  Weather weather=new Weather();
+  List<Curren_weather> currents=new ArrayList<Curren_weather>();
+  Curren_weather current_weather=new Curren_weather();
+  current_weather.setTemp("28");
+  current_weather.setTemp_unit("C");
+  currents.add(current_weather);
+  weather.setCurren_weather(currents);
+  weatherRequestStatus.setWeather(weather);
+  return weatherRequestStatus;
+}

@@ -1,0 +1,4 @@
+{
+  contentManager.start(this);
+  super.onStart();
+}

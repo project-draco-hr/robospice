@@ -1,0 +1,7 @@
+{
+  WeatherResult weatherRequestStatus=buildWeather();
+  dataPersistenceManager.setAsyncSaveEnabled(true);
+  WeatherResult weatherReturned=dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,"weather.json");
+  ((InJSonFileObjectPersister<?>)dataPersistenceManager).awaitForSaveAsyncTermination(500,TimeUnit.MILLISECONDS);
+  assertEquals("28",weatherReturned.getWeather().getCurren_weather().get(0).getTemp());
+}

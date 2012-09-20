@@ -1,0 +1,3 @@
+{
+  super("Network is not available");
+}

@@ -1,0 +1,12 @@
+{
+synchronized (mapRequestToLaunchToRequestListener) {
+    for (    CachedContentRequest<?> cachedContentRequest : mapRequestToLaunchToRequestListener.keySet()) {
+      if (match(cachedContentRequest,request)) {
+        final Set<RequestListener<?>> setRequestListeners=mapRequestToLaunchToRequestListener.get(cachedContentRequest);
+        setRequestListeners.clear();
+        return true;
+      }
+    }
+    return false;
+  }
+}

@@ -1,0 +1,90 @@
+{
+  Log.d(LOG_CAT,"Processing request : " + request);
+  T result=null;
+  Set<RequestListener<?>> requestListeners=mapRequestToRequestListener.get(request);
+  mapRequestToRequestListener.remove(request);
+  if (request.isCancelled()) {
+    Log.d(LOG_CAT,"Not processing request : " + request + " as it is cancelled. ");
+    handlerResponse.post(new ResultRunnable(requestListeners,new RequestCancelledException("Request has been cancelled explicitely.")));
+    return;
+  }
+  if (request.getRequestCacheKey() != null) {
+    try {
+      Log.d(LOG_CAT,"Loading request from cache : " + request);
+      result=loadDataFromCache(request.getResultType(),request.getRequestCacheKey(),request.getCacheDuration());
+    }
+ catch (    CacheLoadingException e) {
+      Log.d(getClass().getName(),"Cache file could not be read.",e);
+      if (failOnCacheError) {
+        fireCacheContentRequestProcessed(request);
+        handlerResponse.post(new ResultRunnable(requestListeners,e));
+        return;
+      }
+    }
+  }
+  if (request.isCancelled()) {
+    Log.d(LOG_CAT,"Not calling network request : " + request + " as it is cancelled. ");
+    fireCacheContentRequestProcessed(request);
+    handlerResponse.post(new ResultRunnable(requestListeners,new RequestCancelledException("Request has been cancelled explicitely.")));
+    return;
+  }
+  if (result == null && !request.isCancelled()) {
+    Log.d(LOG_CAT,"Cache content not available or expired or disabled");
+    if (!isNetworkAvailable(applicationContext)) {
+      Log.e(LOG_CAT,"Network is down.");
+      fireCacheContentRequestProcessed(request);
+      handlerResponse.post(new ResultRunnable(requestListeners,new NoNetworkException()));
+      return;
+    }
+ else {
+      try {
+        Log.d(LOG_CAT,"Calling netwok request.");
+        result=request.loadDataFromNetwork();
+        Log.d(LOG_CAT,"Network request call ended.");
+        if (result == null) {
+          Log.d(LOG_CAT,"Unable to get web service result : " + request.getResultType());
+          fireCacheContentRequestProcessed(request);
+          handlerResponse.post(new ResultRunnable(requestListeners,(T)null));
+          return;
+        }
+      }
+ catch (      Exception e) {
+        if (request.isCancelled()) {
+          Log.d(LOG_CAT,"Request received error and is cancelled.");
+          fireCacheContentRequestProcessed(request);
+          handlerResponse.post(new ResultRunnable(requestListeners,new RequestCancelledException("Request has been cancelled explicitely.",e)));
+          return;
+        }
+        Log.e(LOG_CAT,"An exception occured during request network execution :" + e.getMessage(),e);
+        fireCacheContentRequestProcessed(request);
+        handlerResponse.post(new ResultRunnable(requestListeners,new NetworkException("Exception occured during invocation of web service.",e)));
+        return;
+      }
+      if (request.isCancelled()) {
+        Log.d(LOG_CAT,"Request did not receive error but is cancelled.");
+        fireCacheContentRequestProcessed(request);
+        handlerResponse.post(new ResultRunnable(requestListeners,new RequestCancelledException("Request has been cancelled explicitely.")));
+        return;
+      }
+      if (request.getRequestCacheKey() != null) {
+        try {
+          Log.d(LOG_CAT,"Start caching content...");
+          result=saveDataToCacheAndReturnData(result,request.getRequestCacheKey());
+          fireCacheContentRequestProcessed(request);
+          handlerResponse.post(new ResultRunnable(requestListeners,result));
+          return;
+        }
+ catch (        CacheSavingException e) {
+          Log.d(LOG_CAT,"An exception occured during service execution :" + e.getMessage(),e);
+          if (failOnCacheError) {
+            fireCacheContentRequestProcessed(request);
+            handlerResponse.post(new ResultRunnable(requestListeners,e));
+            return;
+          }
+        }
+      }
+    }
+  }
+  fireCacheContentRequestProcessed(request);
+  handlerResponse.post(new ResultRunnable(requestListeners,result));
+}

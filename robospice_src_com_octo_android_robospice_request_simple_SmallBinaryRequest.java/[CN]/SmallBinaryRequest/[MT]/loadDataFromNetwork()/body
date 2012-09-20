@@ -1,0 +1,15 @@
+{
+  try {
+    InputStream is=new URL(url).openStream();
+    byte[] bytes=ByteStreams.toByteArray(is);
+    return new ByteArrayInputStream(bytes);
+  }
+ catch (  MalformedURLException e) {
+    Log.e(getClass().getName(),"Unable to create image URL",e);
+    return null;
+  }
+catch (  IOException e) {
+    Log.e(getClass().getName(),"Unable to download image",e);
+    return null;
+  }
+}

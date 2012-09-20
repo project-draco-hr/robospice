@@ -1,0 +1,12 @@
+{
+  try {
+    lockAcquireService.lock();
+    contentService=((ContentServiceBinder)service).getContentService();
+    contentService.addContentServiceListener(new RequestRemoverContentServiceListener());
+    Log.d(LOG_TAG,"Bound to service : " + contentService.getClass().getSimpleName());
+    conditionServiceAcquired.signalAll();
+  }
+  finally {
+    lockAcquireService.unlock();
+  }
+}

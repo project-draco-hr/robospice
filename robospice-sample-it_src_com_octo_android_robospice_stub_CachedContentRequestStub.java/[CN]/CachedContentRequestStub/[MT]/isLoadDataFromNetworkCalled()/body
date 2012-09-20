@@ -1,0 +1,3 @@
+{
+  return ((ContentRequestStub<?>)getContentRequest()).isLoadDataFromNetworkCalled();
+}

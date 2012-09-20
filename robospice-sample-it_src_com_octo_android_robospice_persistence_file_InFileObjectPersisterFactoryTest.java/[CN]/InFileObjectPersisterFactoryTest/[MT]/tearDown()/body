@@ -1,0 +1,4 @@
+{
+  fileBasedClassCacheManagerFactory.removeAllDataFromCache();
+  super.tearDown();
+}

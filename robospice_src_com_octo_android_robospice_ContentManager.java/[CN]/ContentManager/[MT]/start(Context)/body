@@ -1,0 +1,13 @@
+{
+  this.context=context;
+  if (runner != null) {
+    throw new IllegalStateException("Already started.");
+  }
+ else {
+    checkServiceIsProperlyDeclaredInAndroidManifest(context);
+    Log.d(LOG_TAG,"Content manager started.");
+    runner=new Thread(this);
+    isStopped=false;
+    runner.start();
+  }
+}
