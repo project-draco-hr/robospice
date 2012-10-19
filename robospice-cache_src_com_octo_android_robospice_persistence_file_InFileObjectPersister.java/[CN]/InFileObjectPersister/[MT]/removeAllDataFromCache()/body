@@ -1,0 +1,12 @@
+{
+  File cacheFolder=getCacheFolder();
+  File[] cacheFileList=cacheFolder.listFiles(new FileFilter(){
+    @Override public boolean accept(    File file){
+      return file.getName().startsWith(getCachePrefix());
+    }
+  }
+);
+  for (  File cacheFile : cacheFileList) {
+    cacheFile.delete();
+  }
+}

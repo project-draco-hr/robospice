@@ -1,4 +1,0 @@
-{
-  this.listeners=listeners;
-  this.contentManagerException=contentManagerException;
-}

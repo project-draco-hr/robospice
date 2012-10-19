@@ -1,1 +1,1 @@
-ServiceTestCase<SampleContentService>
+ServiceTestCase<SampleJsonPersistenceRestContentService>

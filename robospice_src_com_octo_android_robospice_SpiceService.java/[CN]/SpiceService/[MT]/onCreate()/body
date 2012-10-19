@@ -1,0 +1,16 @@
+{
+  super.onCreate();
+  isStarted=true;
+  cacheManager=createCacheManager(getApplication());
+  requestProcessor=new RequestProcessor(getApplicationContext(),cacheManager,getThreadCount(),new RequestProcessorListener(){
+    public void allRequestComplete(){
+      currentPendingRequestCount=0;
+      stopIfNotBoundAndHasNoPendingRequests();
+    }
+  }
+);
+  requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
+  notification=createDefaultNotification();
+  startForeground(notification);
+  Log.d(LOG_CAT,"Content Service instance created.");
+}

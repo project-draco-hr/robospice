@@ -1,0 +1,6 @@
+{
+  Dao<T,?> objectDao=getDao(modelObjectClass);
+  DeleteBuilder<T,?> deleteBuilder=objectDao.deleteBuilder();
+  PreparedDelete<T> allObjectDelete=deleteBuilder.prepare();
+  objectDao.delete(allObjectDelete);
+}

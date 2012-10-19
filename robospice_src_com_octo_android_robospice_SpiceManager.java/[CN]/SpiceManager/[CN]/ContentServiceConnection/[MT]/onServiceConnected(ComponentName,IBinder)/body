@@ -1,0 +1,12 @@
+{
+  try {
+    lockAcquireService.lock();
+    spiceService=((ContentServiceBinder)service).getContentService();
+    spiceService.addContentServiceListener(new RequestRemoverContentServiceListener());
+    Log.d(LOG_TAG,"Bound to service : " + spiceService.getClass().getSimpleName());
+    conditionServiceBound.signalAll();
+  }
+  finally {
+    lockAcquireService.unlock();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.bos=bos;
+  this.total=total;
+}

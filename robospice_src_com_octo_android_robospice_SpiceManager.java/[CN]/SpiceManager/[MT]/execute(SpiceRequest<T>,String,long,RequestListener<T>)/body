@@ -1,0 +1,4 @@
+{
+  CachedSpiceRequest<T> cachedContentRequest=new CachedSpiceRequest<T>(request,requestCacheKey,cacheDuration);
+  execute(cachedContentRequest,requestListener);
+}

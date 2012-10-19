@@ -1,0 +1,9 @@
+{
+  return executorService.submit(new Callable<List<T>>(){
+    public List<T> call() throws Exception {
+      waitForServiceToBeBound();
+      return spiceService.loadAllDataFromCache(clazz);
+    }
+  }
+);
+}

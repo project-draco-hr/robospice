@@ -1,7 +1,7 @@
 {
-  if (contentManager != null && contentManager.isStarted()) {
-    contentManager.shouldStopAndJoin(CONTENT_MANAGER_WAIT_TIMEOUT);
-    contentManager=null;
+  if (spiceManager != null && spiceManager.isStarted()) {
+    spiceManager.shouldStopAndJoin(CONTENT_MANAGER_WAIT_TIMEOUT);
+    spiceManager=null;
   }
   super.tearDown();
 }

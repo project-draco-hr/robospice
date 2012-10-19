@@ -1,9 +1,16 @@
 {
   try {
-    InputStream is=new URL(url).openStream();
+    final HttpURLConnection httpURLConnection=(HttpURLConnection)new URL(url).openConnection();
+    InputSupplier<InputStream> supplier=new InputSupplier<InputStream>(){
+      public InputStream getInput() throws IOException {
+        return httpURLConnection.getInputStream();
+      }
+    }
+;
+    long total=httpURLConnection.getContentLength();
     cacheFile.setLastModified(System.currentTimeMillis());
     OutputStream fileOutputStream=new FileOutputStream(cacheFile);
-    ByteStreams.copy(is,fileOutputStream);
+    ByteStreams.readBytes(supplier,new ProgressByteProcessor(fileOutputStream,total));
     return new FileInputStream(cacheFile);
   }
  catch (  MalformedURLException e) {

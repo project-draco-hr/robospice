@@ -1,6 +1,0 @@
-{
-  super.setUp();
-  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
-  InJSonFileObjectPersisterFactory factory=new InJSonFileObjectPersisterFactory(application);
-  dataPersistenceManager=factory.createClassCacheManager(WeatherResult.class);
-}

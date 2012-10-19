@@ -1,0 +1,3 @@
+SpiceRequest<RESULT> contentRequest
+String requestCacheKey
+long cacheDuration

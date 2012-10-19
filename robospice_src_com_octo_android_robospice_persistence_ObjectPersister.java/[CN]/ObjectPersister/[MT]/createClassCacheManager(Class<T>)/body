@@ -1,3 +1,0 @@
-{
-  return (ObjectPersister<T>)this;
-}

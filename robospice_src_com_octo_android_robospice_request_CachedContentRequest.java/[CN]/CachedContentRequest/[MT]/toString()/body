@@ -1,3 +1,0 @@
-{
-  return "CachedContentRequest [requestCacheKey=" + requestCacheKey + ", cacheDuration="+ cacheDuration+ ", contentRequest="+ contentRequest+ "]";
-}

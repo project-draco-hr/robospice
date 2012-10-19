@@ -1,3 +1,0 @@
-{
-  getClassCacheManager(clazz).removeAllDataFromCache();
-}

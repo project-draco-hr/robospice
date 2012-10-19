@@ -1,0 +1,13 @@
+{
+  try {
+    Log.d(LOG_TAG,"Unbound from service start");
+    lockAcquireService.lock();
+    Log.d(LOG_TAG,"Unbound from service : " + spiceService.getClass().getSimpleName());
+    spiceService=null;
+    isUnbinding=false;
+    conditionServiceUnbound.signalAll();
+  }
+  finally {
+    lockAcquireService.unlock();
+  }
+}

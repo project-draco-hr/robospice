@@ -1,0 +1,14 @@
+{
+  CacheManager cacheManager=new CacheManager();
+  Collection<Class<?>> classCollection=new ArrayList<Class<?>>();
+  classCollection.add(Weather.class);
+  classCollection.add(Curren_weather.class);
+  classCollection.add(Day.class);
+  classCollection.add(Forecast.class);
+  classCollection.add(Night.class);
+  classCollection.add(Wind.class);
+  RoboSpiceDatabaseHelper databaseHelper=new RoboSpiceDatabaseHelper(application,"sample_database.db",1,classCollection);
+  InDatabaseObjectPersisterFactory inDatabaseObjectPersisterFactory=new InDatabaseObjectPersisterFactory(application,databaseHelper);
+  cacheManager.addPersister(inDatabaseObjectPersisterFactory);
+  return cacheManager;
+}

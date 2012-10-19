@@ -1,0 +1,14 @@
+{
+  executorService.execute(new Runnable(){
+    public void run(){
+      try {
+        waitForServiceToBeBound();
+        spiceService.setFailOnCacheError(failOnCacheError);
+      }
+ catch (      InterruptedException e) {
+        Log.e(LOG_TAG,"Interrupted while waiting for acquiring service.");
+      }
+    }
+  }
+);
+}

@@ -1,6 +1,6 @@
 {
   ContentRequestStub<String> contentRequestStub=new ContentRequestSucceedingStub<String>(String.class,TEST_RETURNED_DATA);
-  contentManager.start(getInstrumentation().getTargetContext());
-  contentManager.cancel(contentRequestStub);
+  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.cancel(contentRequestStub);
   assertTrue(contentRequestStub.isCancelled());
 }

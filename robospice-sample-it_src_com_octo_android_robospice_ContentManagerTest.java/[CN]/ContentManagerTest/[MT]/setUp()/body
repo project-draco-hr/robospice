@@ -1,4 +1,4 @@
 {
   super.setUp();
-  contentManager=new ContentManager(SampleContentService.class);
+  spiceManager=new SpiceManager(SampleJsonPersistenceRestContentService.class);
 }

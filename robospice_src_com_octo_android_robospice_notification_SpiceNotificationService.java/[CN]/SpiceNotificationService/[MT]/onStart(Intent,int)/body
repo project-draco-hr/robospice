@@ -1,0 +1,15 @@
+{
+  super.onStart(intent,startId);
+  notificationId=intent.getIntExtra(BUNDLE_KEY_NOTIFICATION_ID,70);
+  requestClass=(Class<?>)intent.getSerializableExtra(BUNDLE_KEY_REQUEST_CLASS);
+  requestCacheKey=intent.getStringExtra(BUNDLE_KEY_REQUEST_CACHE_KEY);
+  contentServiceClass=(Class<? extends SpiceService>)intent.getSerializableExtra(BUNDLE_KEY_SERVICE_CLASS);
+  foreground=intent.getBooleanExtra(BUNDLE_KEY_FOREGROUND,true);
+  spiceManager=new SpiceManager(contentServiceClass);
+  notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+  spiceManager.start(this);
+  spiceManager.addListenerIfPending(requestClass,requestCacheKey,DurationInMillis.ALWAYS,new NotificationRequestListener());
+  if (foreground) {
+    startForeground(startId,onCreateForegroundNotification());
+  }
+}

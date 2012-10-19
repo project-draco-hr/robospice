@@ -1,0 +1,22 @@
+{
+  Map<Field,Collection<?>> mapFieldToCollection=new HashMap<Field,Collection<?>>();
+  for (  Field field : data.getClass().getDeclaredFields()) {
+    if (field.getAnnotation(ForeignCollectionField.class) != null) {
+      field.setAccessible(true);
+      Collection<?> collectionCopy=new ArrayList((Collection<?>)field.get(data));
+      field.set(data,null);
+      mapFieldToCollection.put(field,collectionCopy);
+    }
+  }
+  databaseHelper.createOrUpdateInDatabase(data,(Class<E>)data.getClass());
+  for (  Field field : mapFieldToCollection.keySet()) {
+    field.setAccessible(true);
+    Collection<?> collection=mapFieldToCollection.get(field);
+    ForeignCollection foreignCollection=databaseHelper.getDao(data.getClass()).getEmptyForeignCollection(field.getName());
+    field.set(data,foreignCollection);
+    for (    Object object : collection) {
+      saveAllForeignObjectsToCache(object);
+      foreignCollection.add(object);
+    }
+  }
+}

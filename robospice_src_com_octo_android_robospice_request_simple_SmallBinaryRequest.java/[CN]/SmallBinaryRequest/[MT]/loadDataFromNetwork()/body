@@ -1,7 +1,16 @@
 {
   try {
-    InputStream is=new URL(url).openStream();
-    byte[] bytes=ByteStreams.toByteArray(is);
+    final HttpURLConnection httpURLConnection=(HttpURLConnection)new URL(url).openConnection();
+    InputSupplier<InputStream> supplier=new InputSupplier<InputStream>(){
+      public InputStream getInput() throws IOException {
+        return httpURLConnection.getInputStream();
+      }
+    }
+;
+    long total=httpURLConnection.getContentLength();
+    final ByteArrayOutputStream bos=new ByteArrayOutputStream();
+    ByteStreams.readBytes(supplier,new ProgressByteProcessor(bos,total));
+    byte[] bytes=bos.toByteArray();
     return new ByteArrayInputStream(bytes);
   }
  catch (  MalformedURLException e) {

@@ -1,3 +1,0 @@
-{
-  requestProcessor.addRequest(request,listRequestListener);
-}

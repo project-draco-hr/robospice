@@ -1,2 +1,0 @@
-ContentRequest<?> request
-Collection<RequestListener<?>> listRequestListener

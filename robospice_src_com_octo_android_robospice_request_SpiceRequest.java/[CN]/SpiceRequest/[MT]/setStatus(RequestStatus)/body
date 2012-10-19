@@ -1,0 +1,4 @@
+{
+  this.progress=new RequestProgress(status);
+  publishProgress();
+}

@@ -1,5 +1,10 @@
 {
   super.setUp();
   mockCacheManager=EasyMock.createMock(ICacheManager.class);
-  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,1);
+  requestProcessorListener=new RequestProcessorListener(){
+    @Override public void allRequestComplete(){
+    }
+  }
+;
+  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,1,requestProcessorListener);
 }

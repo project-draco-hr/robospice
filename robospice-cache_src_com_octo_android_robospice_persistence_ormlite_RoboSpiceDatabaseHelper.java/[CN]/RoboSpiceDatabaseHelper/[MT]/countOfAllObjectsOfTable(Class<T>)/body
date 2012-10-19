@@ -1,0 +1,4 @@
+{
+  Dao<T,?> dao=getDao(modelObjectClass);
+  return dao.countOf();
+}

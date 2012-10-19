@@ -1,0 +1,6 @@
+{
+  Log.v(LOG_CAT,"Pending requests : " + currentPendingRequestCount);
+  if (currentPendingRequestCount == 0 && !isBound) {
+    stopSelf();
+  }
+}

@@ -1,0 +1,13 @@
+{
+synchronized (mapPendingRequestToRequestListener) {
+    for (    CachedSpiceRequest<?> cachedContentRequest : mapPendingRequestToRequestListener.keySet()) {
+      if (match(cachedContentRequest,request)) {
+        waitForServiceToBeBound();
+        final Set<RequestListener<?>> setRequestListeners=mapPendingRequestToRequestListener.get(cachedContentRequest);
+        spiceService.dontNotifyRequestListenersForRequest(cachedContentRequest,setRequestListeners);
+        mapPendingRequestToRequestListener.remove(cachedContentRequest);
+        break;
+      }
+    }
+  }
+}

@@ -1,8 +1,0 @@
-{
-  if (contentRequest instanceof CachedContentRequest) {
-    return contentRequest == cachedContentRequest;
-  }
- else {
-    return cachedContentRequest.getContentRequest() == contentRequest;
-  }
-}

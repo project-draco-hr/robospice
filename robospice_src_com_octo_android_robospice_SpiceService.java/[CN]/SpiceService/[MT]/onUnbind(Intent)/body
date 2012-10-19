@@ -1,0 +1,6 @@
+{
+  boolean result=super.onUnbind(intent);
+  isBound=false;
+  stopIfNotBoundAndHasNoPendingRequests();
+  return result;
+}

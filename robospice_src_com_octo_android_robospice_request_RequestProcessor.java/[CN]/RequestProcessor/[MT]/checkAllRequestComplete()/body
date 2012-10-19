@@ -1,0 +1,5 @@
+{
+  if (mapRequestToRequestListener.isEmpty()) {
+    requestProcessorListener.allRequestComplete();
+  }
+}

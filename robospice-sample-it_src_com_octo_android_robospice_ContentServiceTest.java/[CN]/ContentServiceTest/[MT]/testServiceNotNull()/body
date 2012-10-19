@@ -1,6 +1,6 @@
 {
   Intent startIntent=new Intent();
-  startIntent.setClass(getContext(),ContentService.class);
+  startIntent.setClass(getContext(),SampleJsonPersistenceRestContentService.class);
   startService(startIntent);
   assertNotNull(getService());
 }

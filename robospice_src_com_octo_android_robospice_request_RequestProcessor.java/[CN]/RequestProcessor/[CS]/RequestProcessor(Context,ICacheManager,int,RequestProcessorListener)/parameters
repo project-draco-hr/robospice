@@ -1,0 +1,4 @@
+Context context
+ICacheManager cacheManager
+int threadCount
+RequestProcessorListener requestProcessorListener

@@ -6,7 +6,7 @@
   stringBuilder.append(" request count= ");
   stringBuilder.append(mapRequestToRequestListener.keySet().size());
   stringBuilder.append(", listeners per requests = [");
-  for (  Map.Entry<CachedContentRequest<?>,Set<RequestListener<?>>> entry : mapRequestToRequestListener.entrySet()) {
+  for (  Map.Entry<CachedSpiceRequest<?>,Set<RequestListener<?>>> entry : mapRequestToRequestListener.entrySet()) {
     stringBuilder.append(entry.getKey().getClass().getName());
     stringBuilder.append(":");
     stringBuilder.append(entry.getKey());

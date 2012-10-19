@@ -1,8 +1,8 @@
 {
-  contentManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getInstrumentation().getTargetContext());
   ContentRequestStub<String> contentRequestStub=new ContentRequestFailingStub<String>(TEST_CLASS);
   RequestListenerStub<String> requestListenerStub=new RequestListenerStub<String>();
-  contentManager.execute(contentRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
+  spiceManager.execute(contentRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
   requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
   assertTrue(contentRequestStub.isLoadDataFromNetworkCalled());
   assertTrue(requestListenerStub.isExecutedInUIThread());

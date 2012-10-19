@@ -1,0 +1,17 @@
+{
+  this.context=new WeakReference<Context>(context);
+  if (runner != null) {
+    throw new IllegalStateException("Already started.");
+  }
+ else {
+    checkServiceIsProperlyDeclaredInAndroidManifest(context);
+    if (!SpiceService.isStarted()) {
+      Intent intent=new Intent(context,contentServiceClass);
+      context.startService(intent);
+    }
+    runner=new Thread(this);
+    isStopped=false;
+    runner.start();
+    Log.d(LOG_TAG,"Content manager started.");
+  }
+}

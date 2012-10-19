@@ -1,0 +1,3 @@
+String foreignKeyColumnName
+Class<T> modelObjectClass
+Class<FT> foreignObjectClass

@@ -1,0 +1,32 @@
+{
+  T result=null;
+  String resultXml=null;
+  File file=getCacheFile(cacheKey);
+  if (file.exists()) {
+    long timeInCache=System.currentTimeMillis() - file.lastModified();
+    if (maxTimeInCacheBeforeExpiry == 0 || timeInCache <= maxTimeInCacheBeforeExpiry) {
+      try {
+        resultXml=CharStreams.toString(Files.newReader(file,Charset.forName("UTF-8")));
+        if (!Strings.isNullOrEmpty(resultXml)) {
+          result=serializer.read(getHandledClass(),resultXml);
+          return result;
+        }
+        throw new CacheLoadingException("Unable to restore cache content : cache file is empty");
+      }
+ catch (      FileNotFoundException e) {
+        Log.w(LOG_CAT,"file " + file.getAbsolutePath() + " does not exists",e);
+        return null;
+      }
+catch (      CacheLoadingException e) {
+        throw e;
+      }
+catch (      Exception e) {
+        throw new CacheLoadingException(e);
+      }
+    }
+    Log.v(LOG_CAT,"Cache content is expired since " + (maxTimeInCacheBeforeExpiry - timeInCache));
+    return null;
+  }
+  Log.v(LOG_CAT,"file " + file.getAbsolutePath() + " does not exists");
+  return null;
+}

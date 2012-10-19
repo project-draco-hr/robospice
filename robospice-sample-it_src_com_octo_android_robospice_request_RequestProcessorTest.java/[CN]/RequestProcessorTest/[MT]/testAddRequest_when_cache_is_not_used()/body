@@ -1,6 +1,6 @@
 {
   String cacheKey=null;
-  CachedContentRequestStub<String> stubRequest=createSuccessfulRequest(TEST_CLASS,cacheKey,TEST_DURATION,TEST_RETURNED_DATA);
+  CachedSpiceRequestStub<String> stubRequest=createSuccessfulRequest(TEST_CLASS,cacheKey,TEST_DURATION,TEST_RETURNED_DATA);
   RequestListenerStub<String> mockRequestListener=new RequestListenerStub<String>();
   Set<RequestListener<?>> requestListenerSet=new HashSet<RequestListener<?>>();
   requestListenerSet.add(mockRequestListener);

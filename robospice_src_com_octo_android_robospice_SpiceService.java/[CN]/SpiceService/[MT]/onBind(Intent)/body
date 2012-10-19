@@ -1,0 +1,4 @@
+{
+  isBound=true;
+  return mContentServiceBinder;
+}

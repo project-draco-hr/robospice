@@ -1,3 +1,0 @@
-{
-  return getClassCacheManager(clazz).loadDataFromCache(cacheKey,maxTimeInCacheBeforeExpiry);
-}

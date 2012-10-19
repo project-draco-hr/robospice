@@ -1,8 +1,8 @@
 {
   MockDataClassPersistenceManager mockDataClassPersistenceManager=new MockDataClassPersistenceManager();
-  cacheManager.addObjectPersisterFactory(mockDataClassPersistenceManager);
+  cacheManager.addPersister(mockDataClassPersistenceManager);
   MockDataClassPersistenceManager mockDataClassPersistenceManager2=new MockDataClassPersistenceManager();
-  cacheManager.addObjectPersisterFactory(mockDataClassPersistenceManager2);
-  ObjectPersister<?> actual=cacheManager.getClassCacheManager(String.class);
+  cacheManager.addPersister(mockDataClassPersistenceManager2);
+  ObjectPersister<?> actual=cacheManager.getObjectPersister(String.class);
   assertEquals(mockDataClassPersistenceManager,actual);
 }

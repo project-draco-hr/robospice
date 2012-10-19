@@ -1,0 +1,13 @@
+{
+  if (this.runner == null) {
+    throw new IllegalStateException("Not started yet");
+  }
+  Log.d(LOG_TAG,"Content manager stopping. Joining");
+  dontNotifyAnyRequestListenersInternal();
+  unbindFromService(context.get());
+  this.isStopped=true;
+  this.runner.join(timeOut);
+  this.runner=null;
+  this.context.clear();
+  Log.d(LOG_TAG,"Content manager stopped.");
+}

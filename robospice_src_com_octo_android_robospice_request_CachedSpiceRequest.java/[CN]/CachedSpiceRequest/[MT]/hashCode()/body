@@ -1,0 +1,7 @@
+{
+  final int prime=31;
+  int result=1;
+  result=prime * result + (spiceRequest.getResultType() == null ? 0 : spiceRequest.getResultType().hashCode());
+  result=prime * result + (requestCacheKey == null ? 0 : requestCacheKey.hashCode());
+  return result;
+}

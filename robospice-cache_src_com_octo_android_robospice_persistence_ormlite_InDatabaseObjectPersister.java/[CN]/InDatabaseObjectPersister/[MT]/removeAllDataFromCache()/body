@@ -1,0 +1,8 @@
+{
+  try {
+    databaseHelper.clearTableFromDataBase(getHandledClass());
+  }
+ catch (  SQLException e) {
+    Log.e(TAG,"SQL Error",e);
+  }
+}

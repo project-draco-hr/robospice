@@ -1,6 +1,6 @@
 {
   try {
-    contentManager.start(getInstrumentation().getContext());
+    spiceManager.start(getInstrumentation().getContext());
     fail();
   }
  catch (  Exception ex) {

@@ -1,0 +1,7 @@
+{
+  mapRequestToRequestListener.remove(request);
+  checkAllRequestComplete();
+  for (  SpiceServiceServiceListener spiceServiceServiceListener : contentServiceListenerSet) {
+    spiceServiceServiceListener.onRequestProcessed(request);
+  }
+}

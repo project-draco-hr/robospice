@@ -1,0 +1,20 @@
+{
+  if (!(cacheKey instanceof String)) {
+    throw new IllegalArgumentException("cacheKey must be a String");
+  }
+  T result=null;
+  try {
+    CacheEntry cacheEntry=databaseHelper.queryCacheKeyForIdFromDatabase((String)cacheKey);
+    if (cacheEntry == null) {
+      return null;
+    }
+    long timeInCache=System.currentTimeMillis() - cacheEntry.getTimestamp();
+    if (maxTimeInCache == 0 || timeInCache <= maxTimeInCache) {
+      result=databaseHelper.queryForIdFromDatabase(RoboSpiceDatabaseHelper.getIdForCacheKey((String)cacheKey),getHandledClass());
+    }
+  }
+ catch (  SQLException e) {
+    Log.e(TAG,"SQL error",e);
+  }
+  return result;
+}

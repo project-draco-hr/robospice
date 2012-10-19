@@ -1,0 +1,6 @@
+{
+  if (modelObject != null) {
+    Dao<T,?> dao=getDao(modelObjectClass);
+    dao.createOrUpdate(modelObject);
+  }
+}

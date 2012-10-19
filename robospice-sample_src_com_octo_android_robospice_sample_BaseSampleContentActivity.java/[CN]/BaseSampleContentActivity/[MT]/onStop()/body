@@ -1,4 +1,5 @@
 {
-  contentManager.shouldStop();
+  contentManagerJson.shouldStop();
+  contentManagerOrmlite.shouldStop();
   super.onStop();
 }

@@ -1,3 +1,0 @@
-{
-  return createClassCacheManager(clazz).removeDataFromCache(cacheKey);
-}

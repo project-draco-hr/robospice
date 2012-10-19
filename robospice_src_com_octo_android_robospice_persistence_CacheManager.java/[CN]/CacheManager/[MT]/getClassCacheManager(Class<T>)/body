@@ -1,8 +1,0 @@
-{
-  for (  ObjectPersisterFactory factory : this.factoryList) {
-    if (factory.canHandleClass(clazz)) {
-      return factory.createClassCacheManager(clazz);
-    }
-  }
-  throw new IllegalArgumentException("Class " + clazz.getName() + " is not handled by any registered factoryList");
-}

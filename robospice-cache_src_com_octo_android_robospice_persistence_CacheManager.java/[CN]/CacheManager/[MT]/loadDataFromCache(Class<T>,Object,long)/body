@@ -1,0 +1,3 @@
+{
+  return getObjectPersister(clazz).loadDataFromCache(cacheKey,maxTimeInCacheBeforeExpiry);
+}

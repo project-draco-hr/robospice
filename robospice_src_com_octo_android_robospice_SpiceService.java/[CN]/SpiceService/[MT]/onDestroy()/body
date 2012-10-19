@@ -1,0 +1,5 @@
+{
+  Log.d(LOG_CAT,"Content Service instance destroyed.");
+  super.onDestroy();
+  isStarted=false;
+}

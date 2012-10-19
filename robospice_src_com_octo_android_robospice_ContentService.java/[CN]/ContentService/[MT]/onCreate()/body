@@ -1,6 +1,0 @@
-{
-  super.onCreate();
-  requestProcessor=new RequestProcessor(getApplicationContext(),createCacheManager(getApplication()),getThreadCount());
-  requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
-  Log.d(LOG_CAT,"Content Service instance created.");
-}

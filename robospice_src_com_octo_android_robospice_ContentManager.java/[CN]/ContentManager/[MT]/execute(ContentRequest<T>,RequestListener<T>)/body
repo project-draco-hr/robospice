@@ -1,4 +1,0 @@
-{
-  CachedContentRequest<T> cachedContentRequest=new CachedContentRequest<T>(request,null,DurationInMillis.ALWAYS);
-  execute(cachedContentRequest,requestListener);
-}
