@@ -1,0 +1,3 @@
+{
+  spiceManager.cancel(InputStream.class,EARTH_IMAGE_CACHE_KEY);
+}

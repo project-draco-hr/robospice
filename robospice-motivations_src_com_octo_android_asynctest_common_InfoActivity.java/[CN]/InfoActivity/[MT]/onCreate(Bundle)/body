@@ -1,0 +1,4 @@
+{
+  super.onCreate(savedInstanceState);
+  webViewExplanation.loadUrl("file:///android_asset/" + getIntent().getStringExtra(BUNDLE_KEY_INFO_FILE_NAME));
+}

@@ -1,0 +1,4 @@
+{
+  super.onSuccess(t);
+  ((RoboAsyncTaskDemoActivity)getContext()).progressBar.setProgress(MAX_COUNT);
+}

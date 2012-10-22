@@ -1,0 +1,12 @@
+{
+  if (isEmpty(str) || chunkSize == 0) {
+    return new String[0];
+  }
+  final int len=str.length();
+  final int arrayLen=(len - 1) / chunkSize + 1;
+  final String[] array=new String[arrayLen];
+  for (int i=0; i < arrayLen; ++i) {
+    array[i]=str.substring(i * chunkSize,i * chunkSize + chunkSize < len ? i * chunkSize + chunkSize : len);
+  }
+  return array;
+}

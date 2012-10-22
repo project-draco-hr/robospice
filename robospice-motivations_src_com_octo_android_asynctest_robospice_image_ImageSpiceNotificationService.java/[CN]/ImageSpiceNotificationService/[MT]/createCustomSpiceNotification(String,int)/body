@@ -1,0 +1,10 @@
+{
+  Intent intent=new Intent(ImageSpiceNotificationService.this,ImageSpiceActivity.class);
+  intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+  PendingIntent pendingIntent=PendingIntent.getActivity(ImageSpiceNotificationService.this,06,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+  NotificationCompat2.Builder builder=new NotificationCompat2.Builder(ImageSpiceNotificationService.this).setContentTitle("Earth image download").setContentIntent(pendingIntent).setContentText(text).setAutoCancel(true).setSmallIcon(R.drawable.spice);
+  if (progress != 0) {
+    builder.setProgress(100,progress,false);
+  }
+  return builder.build();
+}

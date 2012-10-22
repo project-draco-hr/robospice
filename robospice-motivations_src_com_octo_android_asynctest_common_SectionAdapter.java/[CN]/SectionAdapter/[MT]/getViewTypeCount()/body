@@ -1,0 +1,3 @@
+{
+  return VIEW_TYPE_COUNT;
+}

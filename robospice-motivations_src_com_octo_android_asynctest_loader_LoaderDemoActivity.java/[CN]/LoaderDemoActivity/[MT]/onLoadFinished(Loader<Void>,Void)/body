@@ -1,0 +1,4 @@
+{
+  progressBar.setProgress(MAX_COUNT);
+  Log.d(getClass().getSimpleName(),"Loader finished");
+}

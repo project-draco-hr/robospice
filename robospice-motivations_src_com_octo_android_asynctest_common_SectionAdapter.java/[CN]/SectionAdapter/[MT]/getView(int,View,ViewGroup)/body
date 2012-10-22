@@ -1,0 +1,13 @@
+{
+  SectionItem sectionItem=listSectionItems.get(position);
+  int layoutResId=sectionItem.isTitle ? layoutHeaderResId : layoutItemResId;
+  if (convertView == null) {
+    convertView=LayoutInflater.from(getContext()).inflate(layoutResId,parent,false);
+  }
+  TextView textView=(TextView)convertView.findViewById(android.R.id.text1);
+  String text=listSectionItems.get(position).title;
+  boolean spicy=!sectionItem.isTitle && text.contains("RoboSpice");
+  textView.setText(text);
+  textView.setCompoundDrawablesWithIntrinsicBounds(spicy ? R.drawable.spice : 0,0,0,0);
+  return convertView;
+}

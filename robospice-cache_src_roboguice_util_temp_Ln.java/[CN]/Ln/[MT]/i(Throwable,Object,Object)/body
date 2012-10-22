@@ -1,0 +1,8 @@
+{
+  if (config.minimumLogLevel > Log.INFO) {
+    return 0;
+  }
+  final String s=Strings.toString(s1);
+  final String message=(args.length > 0 ? String.format(s,args) : s) + '\n' + Log.getStackTraceString(throwable);
+  return print.println(Log.INFO,message);
+}

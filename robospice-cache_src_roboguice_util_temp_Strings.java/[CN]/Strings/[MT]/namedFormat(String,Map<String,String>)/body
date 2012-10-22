@@ -1,0 +1,6 @@
+{
+  for (  String key : substitutions.keySet()) {
+    str=str.replace('$' + key,substitutions.get(key));
+  }
+  return str;
+}

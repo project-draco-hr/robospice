@@ -1,0 +1,6 @@
+{
+  super.onDestroy();
+  if (asyncTask != null && asyncTask.get() != null) {
+    asyncTask.get().mActivity=null;
+  }
+}

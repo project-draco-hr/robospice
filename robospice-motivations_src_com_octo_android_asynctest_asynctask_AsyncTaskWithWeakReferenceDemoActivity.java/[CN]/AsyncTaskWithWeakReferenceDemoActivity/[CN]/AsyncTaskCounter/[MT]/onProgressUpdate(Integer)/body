@@ -1,0 +1,6 @@
+{
+  super.onProgressUpdate(values);
+  if (mActivity != null && mActivity.get() != null) {
+    mActivity.get().progressBar.setProgress(values[0]);
+  }
+}

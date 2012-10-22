@@ -1,0 +1,8 @@
+{
+  if (config.minimumLogLevel > Log.WARN) {
+    return 0;
+  }
+  final String s=Strings.toString(s1);
+  final String message=args.length > 0 ? String.format(s,args) : s;
+  return print.println(Log.WARN,message);
+}

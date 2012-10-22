@@ -1,0 +1,5 @@
+{
+  super.onCreate(savedInstanceState);
+  getSupportActionBar().setTitle(getTitle());
+  initializeListAdapter();
+}

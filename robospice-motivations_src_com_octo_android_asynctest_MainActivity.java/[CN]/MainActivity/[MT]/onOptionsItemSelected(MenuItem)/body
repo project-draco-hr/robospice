@@ -1,0 +1,6 @@
+{
+  Intent intent=new Intent(this,InfoActivity.class);
+  intent.putExtra(InfoActivity.BUNDLE_KEY_INFO_FILE_NAME,"info_main.html");
+  startActivity(intent);
+  return true;
+}

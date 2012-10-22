@@ -1,0 +1,3 @@
+{
+  return createCustomSpiceNotification("download in progress",Math.round(progress.getProgress() * MAX_PROGRESS));
+}

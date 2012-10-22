@@ -1,0 +1,4 @@
+{
+  spiceManager.shouldStop();
+  super.onStop();
+}

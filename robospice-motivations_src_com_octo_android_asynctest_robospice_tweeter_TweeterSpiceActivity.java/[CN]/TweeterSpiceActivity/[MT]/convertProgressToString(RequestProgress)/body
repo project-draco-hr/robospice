@@ -1,0 +1,18 @@
+{
+  String status="";
+switch (progress.getStatus()) {
+case READING_FROM_CACHE:
+    status="? cache -->";
+  break;
+case LOADING_FROM_NETWORK:
+status="^ network ^";
+break;
+case WRITING_TO_CACHE:
+status="--> cache";
+break;
+default :
+status="";
+break;
+}
+return status;
+}

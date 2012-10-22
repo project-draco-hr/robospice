@@ -1,0 +1,3 @@
+{
+  return createCustomSpiceNotification("Failure");
+}

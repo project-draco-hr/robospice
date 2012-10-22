@@ -1,0 +1,3 @@
+{
+  return getItemViewType(position) == VIEW_TYPE_ITEM;
+}

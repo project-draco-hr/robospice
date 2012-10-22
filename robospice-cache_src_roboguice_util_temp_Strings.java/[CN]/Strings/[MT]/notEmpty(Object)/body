@@ -1,0 +1,3 @@
+{
+  return toString(o).trim().length() != 0;
+}

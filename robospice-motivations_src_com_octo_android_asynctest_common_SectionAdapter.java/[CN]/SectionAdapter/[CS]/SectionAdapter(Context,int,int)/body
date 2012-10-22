@@ -1,0 +1,5 @@
+{
+  super(context,0);
+  this.layoutHeaderResId=layoutHeaderResId;
+  this.layoutItemResId=layoutItemResId;
+}
