@@ -1,0 +1,16 @@
+{
+  RestTemplate restTemplate=new RestTemplate();
+  HttpComponentsClientHttpRequestFactory httpRequestFactory=new HttpComponentsClientHttpRequestFactory();
+  httpRequestFactory.setReadTimeout(WEBSERVICES_TIMEOUT);
+  httpRequestFactory.setConnectTimeout(WEBSERVICES_TIMEOUT);
+  restTemplate.setRequestFactory(httpRequestFactory);
+  SimpleXmlHttpMessageConverter xmlConverter=new SimpleXmlHttpMessageConverter();
+  FormHttpMessageConverter formHttpMessageConverter=new FormHttpMessageConverter();
+  StringHttpMessageConverter stringHttpMessageConverter=new StringHttpMessageConverter();
+  final List<HttpMessageConverter<?>> listHttpMessageConverters=restTemplate.getMessageConverters();
+  listHttpMessageConverters.add(xmlConverter);
+  listHttpMessageConverters.add(formHttpMessageConverter);
+  listHttpMessageConverters.add(stringHttpMessageConverter);
+  restTemplate.setMessageConverters(listHttpMessageConverters);
+  return restTemplate;
+}

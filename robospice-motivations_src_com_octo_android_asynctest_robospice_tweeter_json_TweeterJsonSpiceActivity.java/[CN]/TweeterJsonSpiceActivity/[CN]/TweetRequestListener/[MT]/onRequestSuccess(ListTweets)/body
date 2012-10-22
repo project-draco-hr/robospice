@@ -1,0 +1,10 @@
+{
+  if (listTweets == null) {
+    return;
+  }
+  mAdapter.clear();
+  for (  Tweet tweet : listTweets.getResults()) {
+    mAdapter.add(tweet.getText());
+  }
+  mAdapter.notifyDataSetChanged();
+}

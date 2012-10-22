@@ -1,0 +1,6 @@
+{
+  super.onStart();
+  spiceManager.start(this);
+  spiceManager.addListenerIfPending(Feed.class,"tweets",DurationInMillis.ALWAYS,new TweetRequestListener());
+  spiceManager.getFromCache(Feed.class,"tweets",DurationInMillis.ALWAYS,new TweetRequestListener());
+}

@@ -1,0 +1,5 @@
+{
+  if (tweetXmlRequest != null) {
+    tweetXmlRequest.cancel();
+  }
+}
