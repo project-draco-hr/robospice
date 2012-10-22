@@ -1,5 +1,5 @@
 {
   long delay=checkBoxDelay.isChecked() ? REQUEST_DELAY : 0;
   tweetXmlRequest=new TweetXmlRequest(delay);
-  spiceManager.execute(tweetXmlRequest,"tweets",DurationInMillis.NEVER,new TweetRequestListener());
+  spiceManager.execute(tweetXmlRequest,XML_CACHE_KEY,DurationInMillis.NEVER,new TweetRequestListener());
 }
