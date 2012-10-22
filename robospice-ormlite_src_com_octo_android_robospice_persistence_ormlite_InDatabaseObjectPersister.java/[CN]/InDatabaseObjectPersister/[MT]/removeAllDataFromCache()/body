@@ -1,8 +1,0 @@
-{
-  try {
-    databaseHelper.clearTableFromDataBase(modelObjectType);
-  }
- catch (  SQLException e) {
-    Log.e(TAG,"SQL Error",e);
-  }
-}

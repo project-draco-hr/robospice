@@ -1,4 +1,0 @@
-{
-  this.cacheKey=cacheKey;
-  this.timestamp=timestamp;
-}

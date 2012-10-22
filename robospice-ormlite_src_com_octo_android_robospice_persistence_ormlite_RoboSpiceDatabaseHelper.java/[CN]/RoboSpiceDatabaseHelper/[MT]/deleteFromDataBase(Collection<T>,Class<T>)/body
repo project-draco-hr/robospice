@@ -1,6 +1,0 @@
-{
-  if (objectList != null && !objectList.isEmpty()) {
-    Dao<T,?> dao=getDao(modelObjectClass);
-    dao.delete(objectList);
-  }
-}

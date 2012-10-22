@@ -1,4 +1,0 @@
-{
-  Dao<CacheEntry,String> dao=getDao(CacheEntry.class);
-  return dao.queryForId(id);
-}

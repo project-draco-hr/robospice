@@ -1,4 +1,0 @@
-Application application
-String databaseName
-int databaseVersion
-Collection<Class<?>> classCollection

@@ -1,3 +1,0 @@
-{
-  return new InDatabaseObjectPersister(getApplication(),databaseHelper,clazz);
-}

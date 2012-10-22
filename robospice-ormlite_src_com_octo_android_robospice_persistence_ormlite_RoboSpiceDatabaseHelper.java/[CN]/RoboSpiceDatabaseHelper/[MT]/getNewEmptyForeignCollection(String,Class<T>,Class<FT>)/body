@@ -1,4 +1,0 @@
-{
-  Dao<T,?> dao=getDao(modelObjectClass);
-  return dao.getEmptyForeignCollection(foreignKeyColumnName);
-}

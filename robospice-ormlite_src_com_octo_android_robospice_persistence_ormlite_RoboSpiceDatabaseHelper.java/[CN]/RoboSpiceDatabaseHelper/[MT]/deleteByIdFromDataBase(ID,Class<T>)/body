@@ -1,4 +1,0 @@
-{
-  Dao<T,ID> dao=getDao(modelObjectClass);
-  dao.deleteById(id);
-}

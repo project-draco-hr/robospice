@@ -1,3 +1,0 @@
-{
-  return clazz.getSimpleName() + "_" + id.toString();
-}

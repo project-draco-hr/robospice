@@ -1,6 +1,0 @@
-{
-  if (modelObjectCollection != null) {
-    Dao<T,?> dao=getDao(modelObjectClass);
-    dao.delete(modelObjectCollection);
-  }
-}

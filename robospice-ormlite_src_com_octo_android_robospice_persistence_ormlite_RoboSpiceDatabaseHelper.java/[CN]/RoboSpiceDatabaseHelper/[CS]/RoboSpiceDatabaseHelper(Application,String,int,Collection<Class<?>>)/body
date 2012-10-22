@@ -1,4 +1,0 @@
-{
-  super(application,databaseName,null,databaseVersion);
-  this.classCollection=classCollection;
-}
