@@ -1,5 +1,0 @@
-{
-  if (tweetRequest != null) {
-    tweetRequest.cancel();
-  }
-}

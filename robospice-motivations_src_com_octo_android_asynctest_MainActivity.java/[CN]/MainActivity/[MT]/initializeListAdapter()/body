@@ -11,6 +11,7 @@
   sectionAdapter.addItem(getString(R.string.text_loader_rest_name));
   sectionAdapter.addSection("RoboSpice examples");
   sectionAdapter.addItem(getString(R.string.text_spice_rest_name));
+  sectionAdapter.addItem(getString(R.string.text_spice_rest_xml_name));
   sectionAdapter.addItem(getString(R.string.text_spice_image_name));
   listViewMain.setAdapter(sectionAdapter);
   listViewMain.setOnItemClickListener(new OnItemClickListener(){

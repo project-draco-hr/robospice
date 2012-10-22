@@ -23,9 +23,12 @@ case 8:
 activityClass=TwitterLoaderActivity.class;
 break;
 case 10:
-activityClass=TweeterSpiceActivity.class;
+activityClass=TweeterJsonSpiceActivity.class;
 break;
 case 11:
+activityClass=TweeterXmlSpiceActivity.class;
+break;
+case 12:
 activityClass=ImageSpiceActivity.class;
 break;
 default :
