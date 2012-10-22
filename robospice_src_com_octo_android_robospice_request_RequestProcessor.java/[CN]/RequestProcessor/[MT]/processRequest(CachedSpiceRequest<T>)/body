@@ -67,7 +67,7 @@
     }
     if (result != null && request.getRequestCacheKey() != null) {
       try {
-        Log.d(LOG_CAT,"Start caching content...");
+        Ln.d("Start caching content...");
         request.setStatus(RequestStatus.WRITING_TO_CACHE);
         result=saveDataToCacheAndReturnData(result,request.getRequestCacheKey());
         notifyListenersOfRequestSuccess(request,result,requestListeners);

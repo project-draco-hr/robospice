@@ -8,7 +8,7 @@
   classCollection.add(Night.class);
   classCollection.add(Wind.class);
   RoboSpiceDatabaseHelper databaseHelper=new RoboSpiceDatabaseHelper(application,"sample_database.db",1,classCollection);
-  InDatabaseObjectPersisterFactory inDatabaseObjectPersisterFactory=new InDatabaseObjectPersisterFactory(application,databaseHelper);
+  InDatabaseObjectPersisterFactory<Integer> inDatabaseObjectPersisterFactory=new InDatabaseObjectPersisterFactory<Integer>(application,databaseHelper,Integer.class);
   cacheManager.addPersister(inDatabaseObjectPersisterFactory);
   return cacheManager;
 }

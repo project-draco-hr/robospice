@@ -8,9 +8,10 @@
     if (cacheEntry == null) {
       return null;
     }
+    Object id=cacheEntry.getResultId();
     long timeInCache=System.currentTimeMillis() - cacheEntry.getTimestamp();
     if (maxTimeInCache == 0 || timeInCache <= maxTimeInCache) {
-      result=databaseHelper.queryForIdFromDatabase(RoboSpiceDatabaseHelper.getIdForCacheKey((String)cacheKey),getHandledClass());
+      result=databaseHelper.queryForIdFromDatabase(id,getHandledClass());
     }
   }
  catch (  SQLException e) {

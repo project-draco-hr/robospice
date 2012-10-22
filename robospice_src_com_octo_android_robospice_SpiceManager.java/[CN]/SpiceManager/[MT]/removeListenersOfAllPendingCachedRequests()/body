@@ -8,6 +8,6 @@ synchronized (mapPendingRequestToRequestListener) {
       spiceService.dontNotifyRequestListenersForRequest(cachedContentRequest,setRequestListeners);
     }
     mapPendingRequestToRequestListener.clear();
-    Log.v(LOG_TAG,"Cleared listeners of all pending requests");
+    Ln.v("Cleared listeners of all pending requests");
   }
 }

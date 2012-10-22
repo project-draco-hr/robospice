@@ -1,6 +1,7 @@
 {
   super(application,modelObjectType);
   this.databaseHelper=databaseHelper;
+  this.idType=idType;
   try {
     TableUtils.createTableIfNotExists(databaseHelper.getConnectionSource(),modelObjectType);
   }

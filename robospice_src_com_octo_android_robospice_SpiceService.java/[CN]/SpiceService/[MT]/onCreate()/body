@@ -12,5 +12,5 @@
   requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
   notification=createDefaultNotification();
   startForeground(notification);
-  Log.d(LOG_CAT,"Content Service instance created.");
+  Ln.d("Content Service instance created.");
 }

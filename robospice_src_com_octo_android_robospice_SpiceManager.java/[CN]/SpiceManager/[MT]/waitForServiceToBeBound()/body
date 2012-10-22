@@ -1,5 +1,5 @@
 {
-  Log.d(LOG_TAG,"Waiting for service to be bound.");
+  Ln.d("Waiting for service to be bound.");
   lockAcquireService.lock();
   try {
     while (spiceService == null && !isStopped) {

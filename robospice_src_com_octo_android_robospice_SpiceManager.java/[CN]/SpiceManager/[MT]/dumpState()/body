@@ -14,7 +14,7 @@
         spiceService.dumpState();
       }
  catch (      InterruptedException e) {
-        Log.e(LOG_TAG,"Interrupted while waiting for acquiring service.");
+        Ln.e(e,"Interrupted while waiting for acquiring service.");
       }
  finally {
         lockSendRequestsToService.unlock();

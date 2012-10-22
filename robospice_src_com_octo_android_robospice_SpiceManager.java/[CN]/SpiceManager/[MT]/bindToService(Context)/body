@@ -6,7 +6,7 @@
     lockAcquireService.lock();
     if (spiceService == null) {
       Intent intentService=new Intent(context,contentServiceClass);
-      Log.v(LOG_TAG,"Binding to service.");
+      Ln.v("Binding to service.");
       contentServiceConnection=new ContentServiceConnection();
       context.getApplicationContext().bindService(intentService,contentServiceConnection,Context.BIND_AUTO_CREATE);
     }

@@ -1,22 +1,45 @@
 {
   Map<Field,Collection<?>> mapFieldToCollection=new HashMap<Field,Collection<?>>();
-  for (  Field field : data.getClass().getDeclaredFields()) {
-    if (field.getAnnotation(ForeignCollectionField.class) != null) {
-      field.setAccessible(true);
-      Collection<?> collectionCopy=new ArrayList((Collection<?>)field.get(data));
-      field.set(data,null);
+  Class<? extends Object> parentClass=data.getClass();
+  for (  Field field : parentClass.getDeclaredFields()) {
+    ForeignCollectionField annotation=field.getAnnotation(ForeignCollectionField.class);
+    if (annotation != null) {
+      Collection<?> collectionCopy=new ArrayList();
+      Method getMethod=DatabaseFieldConfig.findGetMethod(field,true);
+      Collection collectionInObject=(Collection<?>)getMethod.invoke(data);
+      if (collectionInObject != null) {
+        collectionCopy.addAll(collectionInObject);
+      }
+      Method setMethod=DatabaseFieldConfig.findSetMethod(field,true);
+      setMethod.invoke(data,(Object)null);
       mapFieldToCollection.put(field,collectionCopy);
     }
   }
-  databaseHelper.createOrUpdateInDatabase(data,(Class<E>)data.getClass());
+  databaseHelper.createOrUpdateInDatabase(data,(Class<E>)parentClass);
+  databaseHelper.refreshFromDatabase(data,(Class<E>)parentClass);
+  for (  Field field : parentClass.getDeclaredFields()) {
+    if (field.getAnnotation(ForeignCollectionField.class) != null) {
+      Method getMethod=DatabaseFieldConfig.findGetMethod(field,true);
+      Collection collectionInObject=(Collection<?>)getMethod.invoke(data);
+      if (collectionInObject instanceof LazyForeignCollection) {
+        ((LazyForeignCollection)collectionInObject).refreshCollection();
+      }
+      ParameterizedType listType=(ParameterizedType)field.getGenericType();
+      Class<?> itemInListClass=(Class<?>)listType.getActualTypeArguments()[0];
+      databaseHelper.deleteFromDataBase(collectionInObject,itemInListClass);
+    }
+  }
   for (  Field field : mapFieldToCollection.keySet()) {
-    field.setAccessible(true);
     Collection<?> collection=mapFieldToCollection.get(field);
-    ForeignCollection foreignCollection=databaseHelper.getDao(data.getClass()).getEmptyForeignCollection(field.getName());
-    field.set(data,foreignCollection);
+    ConnectionSource connectionSource=databaseHelper.getConnectionSource();
     for (    Object object : collection) {
+      DatabaseTableConfig childDatabaseTableConfig=DatabaseTableConfig.fromClass(connectionSource,object.getClass());
+      for (      FieldType childFieldType : childDatabaseTableConfig.getFieldTypes(null)) {
+        if (parentClass.equals(childFieldType.getType()) && childFieldType.isForeign()) {
+          childFieldType.assignField(object,data,true,null);
+        }
+      }
       saveAllForeignObjectsToCache(object);
-      foreignCollection.add(object);
     }
   }
 }

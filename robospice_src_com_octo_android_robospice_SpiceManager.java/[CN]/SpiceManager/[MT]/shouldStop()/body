@@ -2,7 +2,7 @@
   if (this.runner == null) {
     throw new IllegalStateException("Not started yet");
   }
-  Log.d(LOG_TAG,"Content manager stopping.");
+  Ln.d("Content manager stopping.");
   dontNotifyAnyRequestListenersInternal();
   isUnbinding=false;
   unbindFromService(context.get());
@@ -10,5 +10,5 @@
   this.isStopped=true;
   this.runner=null;
   this.context.clear();
-  Log.d(LOG_TAG,"Content manager stopped.");
+  Ln.d("Content manager stopped.");
 }

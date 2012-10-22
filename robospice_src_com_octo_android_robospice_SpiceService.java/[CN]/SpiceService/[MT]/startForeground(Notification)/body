@@ -4,18 +4,18 @@
     setForegroundMethod.invoke(this,NOTIFICATION_ID,notification);
   }
  catch (  SecurityException e) {
-    Log.e(LOG_CAT,"Unable to start a service in foreground",e);
+    Ln.e(e,"Unable to start a service in foreground");
   }
 catch (  NoSuchMethodException e) {
-    Log.e(LOG_CAT,"Unable to start a service in foreground",e);
+    Ln.e(e,"Unable to start a service in foreground");
   }
 catch (  IllegalArgumentException e) {
-    Log.e(LOG_CAT,"Unable to start a service in foreground",e);
+    Ln.e(e,"Unable to start a service in foreground");
   }
 catch (  IllegalAccessException e) {
-    Log.e(LOG_CAT,"Unable to start a service in foreground",e);
+    Ln.e(e,"Unable to start a service in foreground");
   }
 catch (  InvocationTargetException e) {
-    Log.e(LOG_CAT,"Unable to start a service in foreground",e);
+    Ln.e(e,"Unable to start a service in foreground");
   }
 }

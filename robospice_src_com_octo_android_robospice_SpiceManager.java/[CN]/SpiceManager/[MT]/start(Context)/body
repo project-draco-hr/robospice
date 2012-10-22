@@ -12,6 +12,6 @@
     runner=new Thread(this);
     isStopped=false;
     runner.start();
-    Log.d(LOG_TAG,"Content manager started.");
+    Ln.d("Content manager started.");
   }
 }

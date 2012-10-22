@@ -14,7 +14,7 @@
         throw new CacheLoadingException("Unable to restore cache content : cache file is empty");
       }
  catch (      FileNotFoundException e) {
-        Log.w(LOG_CAT,"file " + file.getAbsolutePath() + " does not exists",e);
+        Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
         return null;
       }
 catch (      CacheLoadingException e) {
@@ -24,9 +24,9 @@ catch (      Exception e) {
         throw new CacheLoadingException(e);
       }
     }
-    Log.v(LOG_CAT,"Cache content is expired since " + (maxTimeInCacheBeforeExpiry - timeInCache));
+    Ln.v("Cache content is expired since " + (maxTimeInCacheBeforeExpiry - timeInCache));
     return null;
   }
-  Log.v(LOG_CAT,"file " + file.getAbsolutePath() + " does not exists");
+  Ln.v("file " + file.getAbsolutePath() + " does not exists");
   return null;
 }

@@ -11,7 +11,7 @@
           Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.get(restRequest);
           mapRequestToLaunchToRequestListener.remove(restRequest);
           mapPendingRequestToRequestListener.put(restRequest,listRequestListener);
-          Log.d(LOG_TAG,"Sending request to service : " + restRequest.getClass().getSimpleName());
+          Ln.d("Sending request to service : " + restRequest.getClass().getSimpleName());
           spiceService.addRequest(restRequest,listRequestListener);
         }
       }
@@ -21,7 +21,7 @@
     }
   }
  catch (  InterruptedException e) {
-    Log.e(LOG_TAG,"Interrupted while waiting for acquiring service.");
+    Ln.e(e,"Interrupted while waiting for acquiring service.");
   }
  finally {
     unbindFromService(context.get());

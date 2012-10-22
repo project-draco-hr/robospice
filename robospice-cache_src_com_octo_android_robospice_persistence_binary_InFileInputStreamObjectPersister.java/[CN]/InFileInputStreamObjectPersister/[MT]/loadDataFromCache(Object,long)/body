@@ -7,11 +7,11 @@
         return new FileInputStream(file);
       }
  catch (      FileNotFoundException e) {
-        Log.w(LOG_CAT,"file " + file.getAbsolutePath() + " does not exists",e);
+        Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
         return null;
       }
     }
   }
-  Log.v(LOG_CAT,"file " + file.getAbsolutePath() + " does not exists");
+  Ln.v("file " + file.getAbsolutePath() + " does not exists");
   return null;
 }
