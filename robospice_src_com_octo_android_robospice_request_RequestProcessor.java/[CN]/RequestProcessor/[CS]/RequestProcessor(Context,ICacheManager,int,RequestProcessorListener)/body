@@ -1,14 +1,4 @@
 {
-  this.applicationContext=context;
-  this.cacheManager=cacheManager;
-  this.requestProcessorListener=requestProcessorListener;
-  handlerResponse=new Handler(Looper.getMainLooper());
-  contentServiceListenerSet=Collections.synchronizedSet(new HashSet<SpiceServiceServiceListener>());
+  this(context,cacheManager,null,requestProcessorListener);
   initiateExecutorService(threadCount);
-  if (!hasNetworkPermission(context)) {
-    throw new SecurityException("Application doesn\'t declare <uses-permission android:name=\"android.permission.INTERNET\" />");
-  }
-  if (!hasNetworkStatePermission(context)) {
-    throw new SecurityException("Application doesn\'t declare <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />");
-  }
 }

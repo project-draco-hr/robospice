@@ -2,13 +2,13 @@
   super.onCreate();
   isStarted=true;
   cacheManager=createCacheManager(getApplication());
-  requestProcessor=new RequestProcessor(getApplicationContext(),cacheManager,getThreadCount(),new RequestProcessorListener(){
-    public void allRequestComplete(){
-      currentPendingRequestCount=0;
-      stopIfNotBoundAndHasNoPendingRequests();
-    }
+  ExecutorService executorService=getExecutorService();
+  if (executorService == null) {
+    requestProcessor=new RequestProcessor(getApplicationContext(),cacheManager,getThreadCount(),requestProcessorListener);
   }
-);
+ else {
+    requestProcessor=new RequestProcessor(getApplicationContext(),cacheManager,executorService,requestProcessorListener);
+  }
   requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
   notification=createDefaultNotification();
   startForeground(notification);

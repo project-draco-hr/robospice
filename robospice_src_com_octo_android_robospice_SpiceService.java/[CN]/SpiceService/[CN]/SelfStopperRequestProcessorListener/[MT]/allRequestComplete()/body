@@ -1,0 +1,4 @@
+{
+  currentPendingRequestCount=0;
+  stopIfNotBoundAndHasNoPendingRequests();
+}
