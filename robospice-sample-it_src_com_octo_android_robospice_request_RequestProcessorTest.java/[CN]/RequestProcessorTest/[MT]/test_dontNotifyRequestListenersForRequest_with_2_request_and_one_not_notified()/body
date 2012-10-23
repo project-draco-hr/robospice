@@ -16,7 +16,6 @@
   stubRequest.await(WAIT_BEFORE_REQUEST_EXECUTION + REQUEST_COMPLETION_TIME_OUT);
   requestListenerStub2.await(REQUEST_COMPLETION_TIME_OUT);
   EasyMock.verify(mockCacheManager);
-  assertTrue(stubRequest.isLoadDataFromNetworkCalled());
   assertTrue(stubRequest2.isLoadDataFromNetworkCalled());
   assertNull(requestListenerStub.isSuccessful());
   assertTrue(requestListenerStub2.isSuccessful());
