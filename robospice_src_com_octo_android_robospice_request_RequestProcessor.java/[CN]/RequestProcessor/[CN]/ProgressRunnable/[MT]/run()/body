@@ -2,7 +2,7 @@
   if (listeners == null) {
     return;
   }
-  Log.v(LOG_CAT,"Notifying " + listeners.size() + " listeners of progress "+ progress);
+  Ln.v("Notifying " + listeners.size() + " listeners of progress "+ progress);
   for (  RequestListener<?> listener : listeners) {
     if (listener instanceof RequestProgressListener) {
       ((RequestProgressListener)listener).onRequestProgressUpdate(progress);

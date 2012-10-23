@@ -24,7 +24,7 @@
     return data;
   }
  catch (  Exception e) {
-    Log.e(TAG,"SQL Error",e);
+    Ln.e(e,"SQL Error");
     return null;
   }
 }

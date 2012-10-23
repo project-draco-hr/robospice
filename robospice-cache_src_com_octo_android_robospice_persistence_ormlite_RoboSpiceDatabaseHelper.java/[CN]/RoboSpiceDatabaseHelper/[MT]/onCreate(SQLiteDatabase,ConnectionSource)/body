@@ -6,6 +6,6 @@
     }
   }
  catch (  SQLException e) {
-    Log.e("RoboSpice","Could not create cache entry table",e);
+    Ln.e(e,"RoboSpice","Could not create cache entry table");
   }
 }

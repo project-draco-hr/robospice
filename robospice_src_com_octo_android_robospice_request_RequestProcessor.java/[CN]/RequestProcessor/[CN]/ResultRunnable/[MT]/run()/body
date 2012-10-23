@@ -3,7 +3,7 @@
     return;
   }
   String resultMsg=spiceException == null ? "success" : "failure";
-  Log.v(LOG_CAT,"Notifying " + listeners.size() + " listeners of request "+ resultMsg);
+  Ln.v("Notifying " + listeners.size() + " listeners of request "+ resultMsg);
   for (  RequestListener<T> listener : listeners) {
     if (spiceException == null) {
       listener.onRequestSuccess(result);

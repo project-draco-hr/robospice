@@ -14,11 +14,11 @@
     return new ByteArrayInputStream(bytes);
   }
  catch (  MalformedURLException e) {
-    Log.e(getClass().getName(),"Unable to create image URL",e);
+    Ln.e(e,"Unable to create image URL");
     return null;
   }
 catch (  IOException e) {
-    Log.e(getClass().getName(),"Unable to download image",e);
+    Ln.e(e,"Unable to download image");
     return null;
   }
 }

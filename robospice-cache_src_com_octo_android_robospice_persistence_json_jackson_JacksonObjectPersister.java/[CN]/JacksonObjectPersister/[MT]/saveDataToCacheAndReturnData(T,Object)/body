@@ -7,10 +7,10 @@
             saveData(data,cacheKey);
           }
  catch (          IOException e) {
-            Log.e(LOG_CAT,"An error occured on saving request " + cacheKey + " data asynchronously",e);
+            Ln.e(e,"An error occured on saving request " + cacheKey + " data asynchronously");
           }
 catch (          CacheSavingException e) {
-            Log.e(LOG_CAT,"An error occured on saving request " + cacheKey + " data asynchronously",e);
+            Ln.e(e,"An error occured on saving request " + cacheKey + " data asynchronously");
           }
  finally {
             lock.lock();

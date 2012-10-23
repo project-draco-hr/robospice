@@ -1,14 +1,14 @@
 {
   try {
-    Log.d(getClass().getName(),"Call web service " + url);
+    Ln.d("Call web service " + url);
     return CharStreams.toString(new InputStreamReader(new URL(url).openStream(),"UTF-8"));
   }
  catch (  MalformedURLException e) {
-    Log.e(getClass().getName(),"Unable to create image URL",e);
+    Ln.e(e,"Unable to create image URL");
     return null;
   }
 catch (  IOException e) {
-    Log.e(getClass().getName(),"Unable to download image",e);
+    Ln.e(e,"Unable to download image");
     return null;
   }
 }

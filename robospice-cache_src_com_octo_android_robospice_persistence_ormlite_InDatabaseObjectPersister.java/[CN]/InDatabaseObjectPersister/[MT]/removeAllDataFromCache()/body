@@ -3,6 +3,6 @@
     databaseHelper.clearTableFromDataBase(getHandledClass());
   }
  catch (  SQLException e) {
-    Log.e(TAG,"SQL Error",e);
+    Ln.e(e,"SQL Error");
   }
 }

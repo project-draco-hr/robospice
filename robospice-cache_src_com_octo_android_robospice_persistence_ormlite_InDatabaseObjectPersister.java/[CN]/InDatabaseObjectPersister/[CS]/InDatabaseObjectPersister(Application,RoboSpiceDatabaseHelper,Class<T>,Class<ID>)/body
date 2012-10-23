@@ -6,12 +6,12 @@
     TableUtils.createTableIfNotExists(databaseHelper.getConnectionSource(),modelObjectType);
   }
  catch (  SQLException e1) {
-    Log.e(TAG,"SQL Error while creating table for " + modelObjectType,e1);
+    Ln.e(e1,"SQL Error while creating table for " + modelObjectType);
   }
   try {
     dao=databaseHelper.getRuntimeExceptionDao(modelObjectType);
   }
  catch (  Throwable e) {
-    Log.e(TAG,"SQL Error",e);
+    Ln.e(e,"SQL Error");
   }
 }

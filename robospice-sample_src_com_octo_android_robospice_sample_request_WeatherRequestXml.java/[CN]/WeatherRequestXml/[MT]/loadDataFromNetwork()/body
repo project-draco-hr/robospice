@@ -1,4 +1,4 @@
 {
-  Log.d(getClass().getName(),"Call web service " + baseUrl);
+  Ln.d("Call web service " + baseUrl);
   return getRestTemplate().getForObject(baseUrl,Weather.class);
 }

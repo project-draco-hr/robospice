@@ -1,6 +1,6 @@
 {
   super.onCreate(savedInstanceState);
-  Log.i(getClass().getName(),"onCreate");
+  Ln.i("onCreate");
   loremRequest=new SimpleTextRequest("http://www.loremipsum.de/downloads/original.txt");
   weatherRequest=new WeatherRequestJson("75000");
   weatherRequestXml=new WeatherRequestXml("75000");

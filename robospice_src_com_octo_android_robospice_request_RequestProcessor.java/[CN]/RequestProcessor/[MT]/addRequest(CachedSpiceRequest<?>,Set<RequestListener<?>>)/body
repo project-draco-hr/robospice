@@ -1,5 +1,5 @@
 {
-  Log.d(LOG_CAT,"Adding request to queue " + hashCode() + ": "+ request+ " size is "+ mapRequestToRequestListener.size());
+  Ln.d("Adding request to queue " + hashCode() + ": "+ request+ " size is "+ mapRequestToRequestListener.size());
   if (request.isCancelled()) {
     for (    CachedSpiceRequest<?> cachedContentRequest : mapRequestToRequestListener.keySet()) {
       if (cachedContentRequest.equals(request)) {
@@ -16,7 +16,7 @@
       this.mapRequestToRequestListener.put(request,listRequestListenerForThisRequest);
     }
  else {
-      Log.d(LOG_CAT,String.format("Request for type %s and cacheKey %s already exists.",request.getResultType(),request.getRequestCacheKey()));
+      Ln.d(String.format("Request for type %s and cacheKey %s already exists.",request.getResultType(),request.getRequestCacheKey()));
       aggregated=true;
     }
     listRequestListenerForThisRequest.addAll(listRequestListener);

@@ -1,5 +1,5 @@
 {
-  Log.v(LOG_CAT,"Loading String for cacheKey = " + cacheKey);
+  Ln.v("Loading String for cacheKey = " + cacheKey);
   File file=getCacheFile(cacheKey);
   if (file.exists()) {
     long timeInCache=System.currentTimeMillis() - file.lastModified();
@@ -8,7 +8,7 @@
         return CharStreams.toString(Files.newReader(file,Charset.forName("UTF-8")));
       }
  catch (      FileNotFoundException e) {
-        Log.w(LOG_CAT,"file " + file.getAbsolutePath() + " does not exists",e);
+        Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
         return null;
       }
 catch (      Exception e) {
@@ -16,6 +16,6 @@ catch (      Exception e) {
       }
     }
   }
-  Log.v(LOG_CAT,"file " + file.getAbsolutePath() + " does not exists");
+  Ln.v("file " + file.getAbsolutePath() + " does not exists");
   return null;
 }

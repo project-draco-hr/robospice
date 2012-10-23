@@ -15,7 +15,7 @@
     }
   }
  catch (  SQLException e) {
-    Log.e(TAG,"SQL error",e);
+    Ln.e(e,"SQL error");
   }
   return result;
 }

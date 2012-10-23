@@ -1,5 +1,5 @@
 {
-  Log.v(LOG_CAT,"Saving String " + data + " into cacheKey = "+ cacheKey);
+  Ln.v("Saving String " + data + " into cacheKey = "+ cacheKey);
   try {
     if (isAsyncSaveEnabled) {
       new Thread(){
@@ -8,7 +8,7 @@
             Files.write(data,getCacheFile(cacheKey),Charset.forName("UTF-8"));
           }
  catch (          IOException e) {
-            Log.e(LOG_CAT,"An error occured on saving request " + cacheKey + " data asynchronously",e);
+            Ln.e(e,"An error occured on saving request " + cacheKey + " data asynchronously");
           }
  finally {
             lock.lock();
