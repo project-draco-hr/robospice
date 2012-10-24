@@ -1,3 +1,3 @@
 {
-  return "spice_rest.html";
+  return "spice_rest_ormlite.html";
 }
