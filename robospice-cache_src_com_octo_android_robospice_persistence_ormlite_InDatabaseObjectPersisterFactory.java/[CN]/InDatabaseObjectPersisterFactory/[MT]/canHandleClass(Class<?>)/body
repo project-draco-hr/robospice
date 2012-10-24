@@ -1,3 +1,0 @@
-{
-  return databaseHelper.getClassCollection().contains(clazz);
-}

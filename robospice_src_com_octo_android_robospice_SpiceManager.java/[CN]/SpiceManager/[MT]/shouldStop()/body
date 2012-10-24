@@ -8,6 +8,7 @@
   unbindFromService(context.get());
   contentServiceConnection=null;
   this.isStopped=true;
+  this.runner.interrupt();
   this.runner=null;
   this.context.clear();
   Ln.d("Content manager stopped.");

@@ -1,2 +1,2 @@
-SQLiteDatabase sqLiteDatabase
+SQLiteDatabase database
 ConnectionSource connectionSource

@@ -1,10 +1,10 @@
 {
   CacheManager cacheManager=new CacheManager();
-  Collection<Class<?>> classCollection=new ArrayList<Class<?>>();
+  List<Class<?>> classCollection=new ArrayList<Class<?>>();
   classCollection.add(Entry.class);
   classCollection.add(Feed.class);
-  RoboSpiceDatabaseHelper databaseHelper=new RoboSpiceDatabaseHelper(application,DATABASE_NAME,DATABASE_VERSION,classCollection);
-  InDatabaseObjectPersisterFactory<String> inDatabaseObjectPersisterFactory=new InDatabaseObjectPersisterFactory<String>(application,databaseHelper,String.class);
+  RoboSpiceDatabaseHelper databaseHelper=new RoboSpiceDatabaseHelper(application,DATABASE_NAME,DATABASE_VERSION);
+  InDatabaseObjectPersisterFactory inDatabaseObjectPersisterFactory=new InDatabaseObjectPersisterFactory(application,databaseHelper,classCollection);
   cacheManager.addPersister(inDatabaseObjectPersisterFactory);
   return cacheManager;
 }

@@ -3,11 +3,10 @@
   try {
     waitForServiceToBeBound();
     while (!isStopped) {
+      CachedSpiceRequest<?> restRequest=requestQueue.take();
       try {
         lockSendRequestsToService.lock();
-        if (!requestQueue.isEmpty()) {
-          CachedSpiceRequest<?> restRequest;
-          restRequest=requestQueue.take();
+        if (restRequest != null) {
           Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.get(restRequest);
           mapRequestToLaunchToRequestListener.remove(restRequest);
           mapPendingRequestToRequestListener.put(restRequest,listRequestListener);
