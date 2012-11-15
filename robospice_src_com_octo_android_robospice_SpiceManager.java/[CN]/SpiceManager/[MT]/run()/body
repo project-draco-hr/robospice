@@ -20,7 +20,7 @@
     }
   }
  catch (  InterruptedException e) {
-    Ln.e(e,"Interrupted while waiting for acquiring service.");
+    Ln.d(e,"Interrupted while waiting for acquiring service.");
   }
  finally {
     unbindFromService(context.get());

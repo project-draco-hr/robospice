@@ -5,6 +5,7 @@
   String resultMsg=spiceException == null ? "success" : "failure";
   Ln.v("Notifying " + listeners.size() + " listeners of request "+ resultMsg);
   for (  RequestListener<T> listener : listeners) {
+    Ln.v("Notifying %s",listener.getClass().getSimpleName());
     if (spiceException == null) {
       listener.onRequestSuccess(result);
     }
