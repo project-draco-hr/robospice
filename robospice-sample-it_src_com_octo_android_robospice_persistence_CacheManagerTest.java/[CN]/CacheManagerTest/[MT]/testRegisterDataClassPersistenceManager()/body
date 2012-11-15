@@ -1,6 +1,6 @@
 {
-  MockDataClassPersistenceManager mockDataClassPersistenceManager=new MockDataClassPersistenceManager();
-  cacheManager.addPersister(mockDataClassPersistenceManager);
+  MockStringPersistenceManager mockStringPersistenceManager=new MockStringPersistenceManager();
+  cacheManager.addPersister(mockStringPersistenceManager);
   ObjectPersister<?> actual=cacheManager.getObjectPersister(String.class);
-  assertEquals(mockDataClassPersistenceManager,actual);
+  assertEquals(mockStringPersistenceManager,actual);
 }

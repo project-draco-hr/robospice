@@ -1,0 +1,9 @@
+{
+  super.setUp();
+  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  SimpleSerializerObjectPersisterFactory factory=new SimpleSerializerObjectPersisterFactory(application);
+  dataPersistenceManager=factory.createObjectPersister(Weather.class);
+  TEST_TEMP.setTemp("28");
+  TEST_TEMP.setTemp_unit("C");
+  TEST_TEMP.setWind(new Wind());
+}

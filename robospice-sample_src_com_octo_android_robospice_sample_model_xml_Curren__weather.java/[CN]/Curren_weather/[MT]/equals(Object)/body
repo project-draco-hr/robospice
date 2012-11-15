@@ -1,0 +1,29 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (obj == null) {
+    return false;
+  }
+  if (getClass() != obj.getClass()) {
+    return false;
+  }
+  Curren_weather other=(Curren_weather)obj;
+  if (temp == null) {
+    if (other.temp != null) {
+      return false;
+    }
+  }
+ else   if (!temp.equals(other.temp)) {
+    return false;
+  }
+  if (temp_unit == null) {
+    if (other.temp_unit != null) {
+      return false;
+    }
+  }
+ else   if (!temp_unit.equals(other.temp_unit)) {
+    return false;
+  }
+  return true;
+}

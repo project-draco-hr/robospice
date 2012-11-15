@@ -1,9 +1,9 @@
 {
-  MockDataClassPersistenceManager mockDataClassPersistenceManager=new MockDataClassPersistenceManager();
-  cacheManager.addPersister(mockDataClassPersistenceManager);
+  MockStringPersistenceManager mockStringPersistenceManager=new MockStringPersistenceManager();
+  cacheManager.addPersister(mockStringPersistenceManager);
   ObjectPersister<?> actual=cacheManager.getObjectPersister(String.class);
-  assertEquals(mockDataClassPersistenceManager,actual);
-  cacheManager.removePersister(mockDataClassPersistenceManager);
+  assertEquals(mockStringPersistenceManager,actual);
+  cacheManager.removePersister(mockStringPersistenceManager);
   try {
     cacheManager.getObjectPersister(String.class);
     fail("No data class persistence manager should have been found as none had been registered");

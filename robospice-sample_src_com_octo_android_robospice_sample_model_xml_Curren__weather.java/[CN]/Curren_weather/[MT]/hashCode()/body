@@ -1,0 +1,7 @@
+{
+  final int prime=31;
+  int result=1;
+  result=prime * result + (temp == null ? 0 : temp.hashCode());
+  result=prime * result + (temp_unit == null ? 0 : temp_unit.hashCode());
+  return result;
+}

@@ -7,6 +7,6 @@
   }
 ;
   ExecutorService executorService=Executors.newSingleThreadExecutor();
-  NetworkStateChecker networkStateChecker=new DefaultNetworkStateChecker();
+  networkStateChecker=new MockNetworkStateChecker();
   requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker);
 }

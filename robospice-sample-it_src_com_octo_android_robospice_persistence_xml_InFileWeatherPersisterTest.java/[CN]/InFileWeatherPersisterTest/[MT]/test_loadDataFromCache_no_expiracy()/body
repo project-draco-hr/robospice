@@ -1,0 +1,7 @@
+{
+  Weather weatherRequestStatus=buildWeather();
+  final String FILE_NAME="toto";
+  dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,FILE_NAME);
+  Weather weatherReturned=dataPersistenceManager.loadDataFromCache(FILE_NAME,DurationInMillis.ALWAYS);
+  assertTrue(weatherReturned.getCurren_weather().contains(TEST_TEMP));
+}
