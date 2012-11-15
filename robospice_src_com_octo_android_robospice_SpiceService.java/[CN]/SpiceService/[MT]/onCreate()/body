@@ -3,12 +3,8 @@
   isStarted=true;
   cacheManager=createCacheManager(getApplication());
   ExecutorService executorService=getExecutorService();
-  if (executorService == null) {
-    requestProcessor=new RequestProcessor(getApplicationContext(),cacheManager,getThreadCount(),requestProcessorListener);
-  }
- else {
-    requestProcessor=new RequestProcessor(getApplicationContext(),cacheManager,executorService,requestProcessorListener);
-  }
+  NetworkStateChecker networkStateChecker=getNetworkStateChecker();
+  requestProcessor=new RequestProcessor(getApplicationContext(),cacheManager,executorService,requestProcessorListener,networkStateChecker);
   requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
   notification=createDefaultNotification();
   startForeground(notification);

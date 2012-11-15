@@ -6,5 +6,7 @@
     }
   }
 ;
-  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,1,requestProcessorListener);
+  ExecutorService executorService=Executors.newSingleThreadExecutor();
+  NetworkStateChecker networkStateChecker=new DefaultNetworkStateChecker();
+  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker);
 }

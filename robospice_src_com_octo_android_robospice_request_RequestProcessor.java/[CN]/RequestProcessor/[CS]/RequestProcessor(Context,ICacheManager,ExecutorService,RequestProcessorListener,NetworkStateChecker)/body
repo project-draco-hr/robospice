@@ -2,6 +2,7 @@
   this.applicationContext=context;
   this.cacheManager=cacheManager;
   this.requestProcessorListener=requestProcessorListener;
+  this.networkStateChecker=networkStateChecker;
   handlerResponse=new Handler(Looper.getMainLooper());
   contentServiceListenerSet=Collections.synchronizedSet(new HashSet<SpiceServiceServiceListener>());
   this.executorService=executorService;

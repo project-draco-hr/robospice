@@ -1,4 +1,0 @@
-{
-  this(context,cacheManager,null,requestProcessorListener);
-  initiateExecutorService(threadCount);
-}
