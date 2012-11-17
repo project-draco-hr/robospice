@@ -1,0 +1,6 @@
+{
+  if (request.getContentRequest() instanceof GoogleHttpClientSpiceRequest) {
+    ((GoogleHttpClientSpiceRequest<?>)request.getContentRequest()).setHttpRequestFactory(httpRequestFactory);
+  }
+  super.addRequest(request,listRequestListener);
+}

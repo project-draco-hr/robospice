@@ -23,13 +23,16 @@ case 8:
 activityClass=TwitterLoaderActivity.class;
 break;
 case 10:
-activityClass=TweeterJsonSpiceActivity.class;
+activityClass=TweeterJsonSpringAndroidSpiceActivity.class;
 break;
 case 11:
 activityClass=TweeterXmlSpiceActivity.class;
 break;
 case 12:
 activityClass=ImageSpiceActivity.class;
+break;
+case 13:
+activityClass=TweeterJsonGoogleHttpClientSpiceActivity.class;
 break;
 default :
 throw new ArrayIndexOutOfBoundsException();

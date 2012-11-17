@@ -1,4 +1,0 @@
-{
-  super.cancel();
-  Ln.w(RestContentRequest.class.getName(),"Cancel can't be invoked directly on " + RestContentRequest.class.getName() + " requests. You must call SpiceManager.cancelAllRequests().");
-}

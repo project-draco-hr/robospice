@@ -1,0 +1,4 @@
+{
+  super.cancel();
+  Ln.w(GoogleHttpClientSpiceRequest.class.getName(),"Cancel can't be invoked directly on " + GoogleHttpClientSpiceRequest.class.getName() + " requests. You must call SpiceManager.cancelAllRequests().");
+}

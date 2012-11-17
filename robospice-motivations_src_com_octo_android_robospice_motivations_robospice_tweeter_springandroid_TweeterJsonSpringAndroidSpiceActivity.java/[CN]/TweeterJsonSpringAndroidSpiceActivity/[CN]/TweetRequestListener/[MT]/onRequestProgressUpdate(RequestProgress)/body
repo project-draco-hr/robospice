@@ -1,0 +1,4 @@
+{
+  String status=convertProgressToString(progress);
+  textViewProgress.setText(status);
+}

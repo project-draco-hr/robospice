@@ -1,5 +1,0 @@
-{
-  long delay=checkBoxDelay.isChecked() ? REQUEST_DELAY : 0;
-  tweetJsonRequest=new TweetJsonRequest(delay);
-  spiceManager.execute(tweetJsonRequest,JSON_CACHE_KEY,DurationInMillis.NEVER,new TweetRequestListener());
-}

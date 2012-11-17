@@ -1,0 +1,4 @@
+{
+  HttpTransport httpTransport=AndroidHttp.newCompatibleTransport();
+  return httpTransport.createRequestFactory();
+}

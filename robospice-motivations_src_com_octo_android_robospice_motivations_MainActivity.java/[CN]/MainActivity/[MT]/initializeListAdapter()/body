@@ -13,6 +13,7 @@
   sectionAdapter.addItem(getString(R.string.text_spice_rest_name));
   sectionAdapter.addItem(getString(R.string.text_spice_rest_xml_name));
   sectionAdapter.addItem(getString(R.string.text_spice_image_name));
+  sectionAdapter.addItem(getString(R.string.text_spice_google_http_client_name));
   listViewMain.setAdapter(sectionAdapter);
   listViewMain.setOnItemClickListener(new OnItemClickListener(){
     @Override public void onItemClick(    AdapterView<?> arg0,    View arg1,    int arg2,    long arg3){

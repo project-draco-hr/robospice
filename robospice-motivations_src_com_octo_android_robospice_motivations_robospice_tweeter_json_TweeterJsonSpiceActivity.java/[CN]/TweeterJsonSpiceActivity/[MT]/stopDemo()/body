@@ -1,5 +1,0 @@
-{
-  if (tweetJsonRequest != null) {
-    tweetJsonRequest.cancel();
-  }
-}
