@@ -1,0 +1,16 @@
+{
+  byte[] buf=new byte[BUF_SIZE];
+  try {
+    int amt;
+    do {
+      amt=in.read(buf);
+      if (amt == -1) {
+        break;
+      }
+    }
+ while (processor.processBytes(buf,0,amt));
+  }
+  finally {
+    IOUtils.closeQuietly(in);
+  }
+}

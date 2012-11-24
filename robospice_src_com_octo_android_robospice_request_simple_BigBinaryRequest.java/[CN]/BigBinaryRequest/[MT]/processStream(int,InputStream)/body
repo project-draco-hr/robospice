@@ -1,0 +1,6 @@
+{
+  cacheFile.setLastModified(System.currentTimeMillis());
+  OutputStream fileOutputStream=new FileOutputStream(cacheFile);
+  readBytes(inputStream,new ProgressByteProcessor(fileOutputStream,contentLength));
+  return new FileInputStream(cacheFile);
+}

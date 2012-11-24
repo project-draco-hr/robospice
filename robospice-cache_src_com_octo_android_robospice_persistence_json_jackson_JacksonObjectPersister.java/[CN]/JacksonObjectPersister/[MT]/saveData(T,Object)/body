@@ -1,8 +1,8 @@
 {
   String resultJson;
   resultJson=mJsonMapper.writeValueAsString(data);
-  if (!Strings.isNullOrEmpty(resultJson)) {
-    Files.write(resultJson,getCacheFile(cacheKey),Charset.forName("UTF-8"));
+  if (!StringUtils.isEmpty(resultJson)) {
+    FileUtils.writeStringToFile(getCacheFile(cacheKey),resultJson,CharEncoding.UTF_8);
   }
  else {
     throw new CacheSavingException("Data was null and could not be serialized in json");

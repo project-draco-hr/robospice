@@ -1,12 +1,12 @@
 {
   final byte[] byteArray;
   try {
-    byteArray=ByteStreams.toByteArray(data);
+    byteArray=IOUtils.toByteArray(data);
     if (isAsyncSaveEnabled) {
       new Thread(){
         @Override public void run(){
           try {
-            ByteStreams.write(byteArray,Files.newOutputStreamSupplier(getCacheFile(cacheKey)));
+            FileUtils.writeByteArrayToFile(getCacheFile(cacheKey),byteArray);
           }
  catch (          IOException e) {
             Ln.e(e,"An error occured on saving request " + cacheKey + " data asynchronously");
@@ -21,7 +21,7 @@
 .start();
     }
  else {
-      ByteStreams.write(byteArray,Files.newOutputStreamSupplier(getCacheFile(cacheKey)));
+      FileUtils.writeByteArrayToFile(getCacheFile(cacheKey),byteArray);
     }
     return new ByteArrayInputStream(byteArray);
   }

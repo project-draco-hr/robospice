@@ -6,8 +6,8 @@
     long timeInCache=System.currentTimeMillis() - file.lastModified();
     if (maxTimeInCacheBeforeExpiry == 0 || timeInCache <= maxTimeInCacheBeforeExpiry) {
       try {
-        resultXml=CharStreams.toString(Files.newReader(file,Charset.forName("UTF-8")));
-        if (!Strings.isNullOrEmpty(resultXml)) {
+        resultXml=FileUtils.readFileToString(file,CharEncoding.UTF_8);
+        if (!StringUtils.isEmpty(resultXml)) {
           result=serializer.read(getHandledClass(),resultXml);
           return result;
         }

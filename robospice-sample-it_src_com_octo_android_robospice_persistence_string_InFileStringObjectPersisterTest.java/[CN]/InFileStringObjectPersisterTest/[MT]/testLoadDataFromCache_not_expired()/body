@@ -1,6 +1,6 @@
 {
   File cachedFile=inFileStringObjectPersister.getCacheFile(TEST_CACHE_KEY);
-  Files.write("coucou",cachedFile,Charset.forName("UTF-8"));
+  IOUtils.write("coucou",new FileOutputStream(cachedFile),CharEncoding.UTF_8);
   String actual=inFileStringObjectPersister.loadDataFromCache(TEST_CACHE_KEY,DurationInMillis.ONE_SECOND);
   assertEquals("coucou",actual);
 }

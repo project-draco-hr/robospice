@@ -5,7 +5,7 @@
     long timeInCache=System.currentTimeMillis() - file.lastModified();
     if (maxTimeInCacheBeforeExpiry == 0 || timeInCache <= maxTimeInCacheBeforeExpiry) {
       try {
-        return CharStreams.toString(Files.newReader(file,Charset.forName("UTF-8")));
+        return FileUtils.readFileToString(file,CharEncoding.UTF_8);
       }
  catch (      FileNotFoundException e) {
         Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
