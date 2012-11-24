@@ -7,8 +7,8 @@
     if (spiceService == null) {
       Intent intentService=new Intent(context,contentServiceClass);
       Ln.v("Binding to service.");
-      contentServiceConnection=new ContentServiceConnection();
-      context.getApplicationContext().bindService(intentService,contentServiceConnection,Context.BIND_AUTO_CREATE);
+      spiceServiceConnection=new SpiceServiceConnection();
+      context.getApplicationContext().bindService(intentService,spiceServiceConnection,Context.BIND_AUTO_CREATE);
     }
   }
   finally {

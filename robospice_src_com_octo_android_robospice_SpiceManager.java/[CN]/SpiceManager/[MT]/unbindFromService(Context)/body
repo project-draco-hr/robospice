@@ -9,7 +9,7 @@
       isUnbinding=true;
       spiceService.removeContentServiceListener(removerContentServiceListener);
       Ln.v("Unbinding from service.");
-      context.getApplicationContext().unbindService(this.contentServiceConnection);
+      context.getApplicationContext().unbindService(this.spiceServiceConnection);
       Ln.d("Unbound from service : " + spiceService.getClass().getSimpleName());
       spiceService=null;
       isUnbinding=false;
