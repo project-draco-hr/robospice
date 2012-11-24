@@ -6,7 +6,7 @@
   dontNotifyAnyRequestListenersInternal();
   isUnbinding=false;
   unbindFromService(context.get());
-  contentServiceConnection=null;
+  spiceServiceConnection=null;
   this.isStopped=true;
   this.runner.interrupt();
   this.runner=null;

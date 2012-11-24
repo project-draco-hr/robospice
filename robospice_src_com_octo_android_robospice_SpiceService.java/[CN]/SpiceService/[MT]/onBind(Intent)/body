@@ -1,4 +1,4 @@
 {
   isBound=true;
-  return mContentServiceBinder;
+  return mSpiceServiceBinder;
 }
