@@ -1,4 +1,4 @@
 {
-  this.listeners=listeners;
+  this.request=request;
   this.spiceException=spiceException;
 }

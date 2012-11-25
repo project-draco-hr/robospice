@@ -1,0 +1,3 @@
+{
+  notifyListenersOfRequestProgress(request,new RequestProgress(status));
+}

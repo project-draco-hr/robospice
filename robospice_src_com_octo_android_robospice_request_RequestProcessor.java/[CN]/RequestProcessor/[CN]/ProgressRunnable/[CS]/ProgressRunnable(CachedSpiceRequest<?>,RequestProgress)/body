@@ -1,4 +1,4 @@
 {
   this.progress=progress;
-  this.listeners=listeners;
+  this.request=request;
 }

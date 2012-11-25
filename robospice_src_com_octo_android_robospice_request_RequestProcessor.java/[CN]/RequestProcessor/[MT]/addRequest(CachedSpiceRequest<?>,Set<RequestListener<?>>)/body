@@ -20,7 +20,7 @@
       aggregated=true;
     }
     listRequestListenerForThisRequest.addAll(listRequestListener);
-    notifyListenersOfRequestProgress(listRequestListener,request.getProgress());
+    notifyListenersOfRequestProgress(request,request.getProgress());
   }
   if (aggregated) {
     return;

@@ -1,5 +1,0 @@
-{
-  notifyOfRequestProcessed(request);
-  handlerResponse.post(new ResultRunnable(requestListeners,e));
-  notifyListenersOfRequestProgress(requestListeners,RequestStatus.COMPLETE);
-}

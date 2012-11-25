@@ -1,16 +1,20 @@
 {
+  Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
   if (listeners == null) {
+    notifyOfRequestProcessed(request);
     return;
   }
   String resultMsg=spiceException == null ? "success" : "failure";
   Ln.v("Notifying " + listeners.size() + " listeners of request "+ resultMsg);
-  for (  RequestListener<T> listener : listeners) {
+  for (  RequestListener<?> listener : listeners) {
+    @SuppressWarnings("unchecked") RequestListener<T> listener2=(RequestListener<T>)listener;
     Ln.v("Notifying %s",listener.getClass().getSimpleName());
     if (spiceException == null) {
-      listener.onRequestSuccess(result);
+      listener2.onRequestSuccess(result);
     }
  else {
       listener.onRequestFailure(spiceException);
     }
   }
+  notifyOfRequestProcessed(request);
 }

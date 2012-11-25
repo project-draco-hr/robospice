@@ -1,0 +1,2 @@
+CachedSpiceRequest<T> request
+T result
