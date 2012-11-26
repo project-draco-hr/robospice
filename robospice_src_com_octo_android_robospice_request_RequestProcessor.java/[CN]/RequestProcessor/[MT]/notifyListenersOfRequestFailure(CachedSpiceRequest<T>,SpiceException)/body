@@ -1,4 +1,4 @@
 {
-  handlerResponse.post(new ResultRunnable(request,e));
   notifyListenersOfRequestProgress(request,RequestStatus.COMPLETE);
+  handlerResponse.post(new ResultRunnable(request,e));
 }

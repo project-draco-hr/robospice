@@ -1,0 +1,5 @@
+{
+  if (progress.getStatus() == RequestStatus.COMPLETE) {
+    isComplete=true;
+  }
+}
