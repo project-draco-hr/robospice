@@ -5,17 +5,22 @@
   try {
     dao.callBatchTasks(new Callable<Void>(){
       @Override public Void call() throws Exception {
-        databaseHelper.createOrUpdateInDatabase(data,getHandledClass());
-        saveAllForeignObjectsToCache(data);
-        Object id=null;
-        @SuppressWarnings("unchecked") DatabaseTableConfig<T> childDatabaseTableConfig=(DatabaseTableConfig<T>)DatabaseTableConfig.fromClass(databaseHelper.getConnectionSource(),data.getClass());
-        for (        FieldType childFieldType : childDatabaseTableConfig.getFieldTypes(null)) {
-          if (childFieldType.isId()) {
-            id=childFieldType.extractJavaFieldValue(data);
+        try {
+          databaseHelper.createOrUpdateInDatabase(data,getHandledClass());
+          saveAllForeignObjectsToCache(data);
+          Object id=null;
+          @SuppressWarnings("unchecked") DatabaseTableConfig<T> childDatabaseTableConfig=(DatabaseTableConfig<T>)DatabaseTableConfig.fromClass(databaseHelper.getConnectionSource(),data.getClass());
+          for (          FieldType childFieldType : childDatabaseTableConfig.getFieldTypes(null)) {
+            if (childFieldType.isId()) {
+              id=childFieldType.extractJavaFieldValue(data);
+            }
           }
+          CacheEntry cacheEntry=new CacheEntry(String.valueOf(cacheKey),System.currentTimeMillis(),id);
+          databaseHelper.createOrUpdateCacheEntryInDatabase(cacheEntry);
         }
-        CacheEntry cacheEntry=new CacheEntry((String)cacheKey,System.currentTimeMillis(),id);
-        databaseHelper.createOrUpdateCacheEntryInDatabase(cacheEntry);
+ catch (        Exception e) {
+          Ln.d(e,"Exception occured during saveDataToCacheAndReturnData");
+        }
         return null;
       }
     }

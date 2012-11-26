@@ -1,4 +1,6 @@
 {
   Dao<T,ID> dao=getDao(modelObjectClass);
-  return dao.queryForId(id);
+  T result=dao.queryForId(id);
+  loadFully(modelObjectClass,result);
+  return result;
 }

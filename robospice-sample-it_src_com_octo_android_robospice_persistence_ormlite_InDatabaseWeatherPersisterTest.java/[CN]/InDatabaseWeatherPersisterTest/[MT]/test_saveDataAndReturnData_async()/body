@@ -1,0 +1,8 @@
+{
+  final int CACHE_KEY=1;
+  Weather weatherRequestStatus=buildWeather(CACHE_KEY);
+  dataPersistenceManager.setAsyncSaveEnabled(true);
+  Weather weatherReturned=dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,1);
+  ((InDatabaseObjectPersister<?,?>)dataPersistenceManager).awaitForSaveAsyncTermination(500,TimeUnit.MILLISECONDS);
+  assertTrue(weatherReturned.getListWeather().contains(TEST_TEMP));
+}

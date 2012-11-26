@@ -2,8 +2,8 @@
   Weather weather=new Weather();
   List<Curren_weather> currents=new ArrayList<Curren_weather>();
   currents.add(TEST_TEMP);
-  weather.setCurren_weather(currents);
+  weather.setListWeather(currents);
   List<Forecast> forecasts=new ArrayList<Forecast>();
-  weather.setForecast(forecasts);
+  weather.setListForecast(forecasts);
   return weather;
 }

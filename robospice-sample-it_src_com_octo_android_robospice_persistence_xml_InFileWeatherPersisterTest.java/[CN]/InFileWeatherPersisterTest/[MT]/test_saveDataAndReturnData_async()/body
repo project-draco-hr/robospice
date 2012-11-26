@@ -3,5 +3,5 @@
   dataPersistenceManager.setAsyncSaveEnabled(true);
   Weather weatherReturned=dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,"weather.xml");
   ((SimpleSerializerObjectPersister<?>)dataPersistenceManager).awaitForSaveAsyncTermination(500,TimeUnit.MILLISECONDS);
-  assertTrue(weatherReturned.getCurren_weather().contains(TEST_TEMP));
+  assertTrue(weatherReturned.getListWeather().contains(TEST_TEMP));
 }

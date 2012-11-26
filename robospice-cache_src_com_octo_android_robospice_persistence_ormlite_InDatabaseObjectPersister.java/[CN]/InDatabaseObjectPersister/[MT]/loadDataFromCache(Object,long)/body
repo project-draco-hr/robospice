@@ -1,10 +1,7 @@
 {
-  if (!(cacheKey instanceof String)) {
-    throw new IllegalArgumentException("cacheKey must be a String");
-  }
   T result=null;
   try {
-    CacheEntry cacheEntry=databaseHelper.queryCacheKeyForIdFromDatabase((String)cacheKey);
+    CacheEntry cacheEntry=databaseHelper.queryCacheKeyForIdFromDatabase(String.valueOf(cacheKey));
     if (cacheEntry == null) {
       return null;
     }
