@@ -1,0 +1,2 @@
+CachedSpiceRequest<?> request
+Set<RequestListener<?>> listeners

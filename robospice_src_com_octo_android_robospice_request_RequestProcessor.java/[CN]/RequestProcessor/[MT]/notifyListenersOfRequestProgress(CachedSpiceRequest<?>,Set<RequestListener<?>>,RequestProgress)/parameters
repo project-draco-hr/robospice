@@ -1,2 +1,3 @@
 CachedSpiceRequest<?> request
+Set<RequestListener<?>> listeners
 RequestProgress progress

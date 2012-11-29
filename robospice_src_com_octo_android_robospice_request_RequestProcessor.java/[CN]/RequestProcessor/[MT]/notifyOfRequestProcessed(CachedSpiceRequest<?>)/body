@@ -1,5 +1,5 @@
 {
-  mapRequestToRequestListener.remove(request);
+  Ln.v("Removing %s  size is %d",request,mapRequestToRequestListener.size());
   checkAllRequestComplete();
 synchronized (contentServiceListenerSet) {
     for (    SpiceServiceServiceListener spiceServiceServiceListener : contentServiceListenerSet) {

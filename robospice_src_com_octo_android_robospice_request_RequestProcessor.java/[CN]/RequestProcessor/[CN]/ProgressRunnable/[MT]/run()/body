@@ -1,5 +1,4 @@
 {
-  Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
   if (listeners == null) {
     return;
   }

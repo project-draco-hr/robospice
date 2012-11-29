@@ -1,5 +1,14 @@
 {
-  if (progress.getStatus() == RequestStatus.COMPLETE) {
-    isComplete=true;
+  lock.lock();
+  try {
+    if (progress.getStatus() == RequestStatus.COMPLETE) {
+      isComplete=true;
+      if (isSuccessful != null) {
+        requestFinishedCondition.signal();
+      }
+    }
+  }
+  finally {
+    lock.unlock();
   }
 }

@@ -1,7 +1,5 @@
 {
-  Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
   if (listeners == null) {
-    notifyOfRequestProcessed(request);
     return;
   }
   String resultMsg=spiceException == null ? "success" : "failure";
@@ -16,5 +14,4 @@
       listener.onRequestFailure(spiceException);
     }
   }
-  notifyOfRequestProcessed(request);
 }

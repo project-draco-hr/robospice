@@ -1,4 +1,0 @@
-{
-  handlerResponse.post(new ProgressRunnable(request,progress));
-  checkAllRequestComplete();
-}

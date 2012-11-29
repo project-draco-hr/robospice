@@ -1,6 +1,3 @@
 {
   this.isCanceled=true;
-  if (future != null) {
-    future.cancel(true);
-  }
 }

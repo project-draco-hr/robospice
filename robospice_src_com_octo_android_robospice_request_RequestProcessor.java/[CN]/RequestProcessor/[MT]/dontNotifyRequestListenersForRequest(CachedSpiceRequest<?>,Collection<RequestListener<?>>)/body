@@ -1,4 +1,5 @@
 {
+  handlerResponse.removeCallbacksAndMessages(request.getRequestCacheKey());
   Set<RequestListener<?>> setRequestListener=mapRequestToRequestListener.get(request);
   if (setRequestListener != null && listRequestListener != null) {
     setRequestListener.removeAll(listRequestListener);
