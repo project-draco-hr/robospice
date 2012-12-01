@@ -1,13 +1,12 @@
 {
-  if (!request.isProcessable()) {
-    mapRequestToRequestListener.remove(request);
-    notifyOfRequestProcessed(request);
-    return;
-  }
   Ln.d("Processing request : " + request);
   T result=null;
   final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
   mapRequestToRequestListener.remove(request);
+  if (!request.isProcessable()) {
+    notifyOfRequestProcessed(request);
+    return;
+  }
   RequestProgressListener requestProgressListener=new RequestProgressListener(){
     public void onRequestProgressUpdate(    RequestProgress progress){
       notifyListenersOfRequestProgress(request,listeners,progress);
@@ -37,19 +36,11 @@
       }
     }
   }
-  if (request.isCancelled()) {
-    notifyListenersOfRequestCancellation(request,listeners);
-    return;
-  }
   if (result == null) {
     Ln.d("Cache content not available or expired or disabled");
     if (!isNetworkAvailable(applicationContext)) {
       Ln.e("Network is down.");
       notifyListenersOfRequestFailure(request,listeners,new NoNetworkException());
-      return;
-    }
-    if (request.isCancelled()) {
-      notifyListenersOfRequestCancellation(request,listeners);
       return;
     }
     try {
@@ -59,16 +50,8 @@
       Ln.d("Network request call ended.");
     }
  catch (    Exception e) {
-      if (request.isCancelled()) {
-        notifyListenersOfRequestCancellation(request,listeners);
-        return;
-      }
       Ln.e(e,"An exception occured during request network execution :" + e.getMessage());
       notifyListenersOfRequestFailure(request,listeners,new NetworkException("Exception occured during invocation of web service.",e));
-      return;
-    }
-    if (request.isCancelled()) {
-      notifyListenersOfRequestCancellation(request,listeners);
       return;
     }
     if (result != null && request.getRequestCacheKey() != null) {

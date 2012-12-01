@@ -25,6 +25,14 @@
   if (aggregated) {
     return;
   }
+  RequestCancellationListener requestCancellationListener=new RequestCancellationListener(){
+    public void onRequestCancelled(){
+      mapRequestToRequestListener.remove(request);
+      notifyListenersOfRequestCancellation(request,listRequestListener);
+    }
+  }
+;
+  request.setRequestCancellationListener(requestCancellationListener);
   Future<?> future=executorService.submit(new Runnable(){
     public void run(){
       processRequest(request);
