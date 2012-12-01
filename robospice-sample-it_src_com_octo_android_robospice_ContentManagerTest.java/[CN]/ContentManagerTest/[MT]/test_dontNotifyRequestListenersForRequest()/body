@@ -9,8 +9,6 @@
   spiceManager.execute(contentRequestStub2,TEST_CACHE_KEY2,TEST_DURATION,requestListenerStub2);
   contentRequestStub.await(WAIT_BEFORE_EXECUTING_REQUEST + REQUEST_COMPLETION_TIME_OUT);
   contentRequestStub2.await(REQUEST_COMPLETION_TIME_OUT);
-  assertTrue(contentRequestStub.isLoadDataFromNetworkCalled());
-  assertTrue(contentRequestStub2.isLoadDataFromNetworkCalled());
   assertNull(requestListenerStub.isSuccessful());
   assertFalse(requestListenerStub2.isSuccessful());
 }

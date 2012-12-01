@@ -15,7 +15,7 @@
               id=childFieldType.extractJavaFieldValue(data);
             }
           }
-          CacheEntry cacheEntry=new CacheEntry(String.valueOf(cacheKey),System.currentTimeMillis(),id);
+          CacheEntry cacheEntry=new CacheEntry(String.valueOf(cacheKey),System.currentTimeMillis(),data.getClass(),id);
           databaseHelper.createOrUpdateCacheEntryInDatabase(cacheEntry);
         }
  catch (        Exception e) {

@@ -1,0 +1,6 @@
+{
+  this.cacheKey=cacheKey;
+  this.timestamp=timestamp;
+  this.resultClassName=resultClass.getName();
+  fillResultId(resultId);
+}

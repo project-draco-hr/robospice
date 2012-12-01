@@ -1,5 +1,5 @@
 {
-  WeatherResult weatherRequestStatus=buildWeather();
+  WeatherResult weatherRequestStatus=buildWeather(TEST_TEMP2,TEST_TEMP_UNIT);
   final String FILE_NAME="toto";
   dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,FILE_NAME);
   File cachedFile=((JacksonObjectPersister<?>)dataPersistenceManager).getCacheFile(FILE_NAME);

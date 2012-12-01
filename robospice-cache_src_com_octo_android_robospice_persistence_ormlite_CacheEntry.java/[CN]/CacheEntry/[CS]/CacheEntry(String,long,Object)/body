@@ -1,5 +1,0 @@
-{
-  this.cacheKey=cacheKey;
-  this.timestamp=timestamp;
-  fillResultId(resultId);
-}

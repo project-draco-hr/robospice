@@ -1,3 +1,5 @@
 {
-  spiceManager.cancel(InputStream.class,EARTH_IMAGE_CACHE_KEY);
+  if (imageRequest != null) {
+    imageRequest.cancel();
+  }
 }

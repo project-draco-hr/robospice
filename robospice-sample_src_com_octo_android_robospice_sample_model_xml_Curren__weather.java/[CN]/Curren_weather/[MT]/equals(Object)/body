@@ -9,6 +9,25 @@
     return false;
   }
   Curren_weather other=(Curren_weather)obj;
+  if (humidity == null) {
+    if (other.humidity != null) {
+      return false;
+    }
+  }
+ else   if (!humidity.equals(other.humidity)) {
+    return false;
+  }
+  if (id != other.id) {
+    return false;
+  }
+  if (pressure == null) {
+    if (other.pressure != null) {
+      return false;
+    }
+  }
+ else   if (!pressure.equals(other.pressure)) {
+    return false;
+  }
   if (temp == null) {
     if (other.temp != null) {
       return false;
@@ -23,6 +42,30 @@
     }
   }
  else   if (!temp_unit.equals(other.temp_unit)) {
+    return false;
+  }
+  if (weather_code == null) {
+    if (other.weather_code != null) {
+      return false;
+    }
+  }
+ else   if (!weather_code.equals(other.weather_code)) {
+    return false;
+  }
+  if (weather_text == null) {
+    if (other.weather_text != null) {
+      return false;
+    }
+  }
+ else   if (!weather_text.equals(other.weather_text)) {
+    return false;
+  }
+  if (wind == null) {
+    if (other.wind != null) {
+      return false;
+    }
+  }
+ else   if (!wind.equals(other.wind)) {
     return false;
   }
   return true;

@@ -13,7 +13,7 @@
   requestProcessorUnderTest.addRequest(stubRequest,requestListenerSet);
   requestProcessorUnderTest.dontNotifyRequestListenersForRequest(stubRequest,requestListenerSet);
   requestProcessorUnderTest.addRequest(stubRequest2,requestListenerSet2);
-  stubRequest.await(WAIT_BEFORE_REQUEST_EXECUTION + REQUEST_COMPLETION_TIME_OUT);
+  stubRequest.await(REQUEST_COMPLETION_TIME_OUT);
   requestListenerStub2.await(REQUEST_COMPLETION_TIME_OUT);
   EasyMock.verify(mockCacheManager);
   assertTrue(stubRequest2.isLoadDataFromNetworkCalled());

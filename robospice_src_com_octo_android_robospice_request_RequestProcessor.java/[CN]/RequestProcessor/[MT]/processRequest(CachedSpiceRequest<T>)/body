@@ -1,5 +1,6 @@
 {
   if (!request.isProcessable()) {
+    mapRequestToRequestListener.remove(request);
     notifyOfRequestProcessed(request);
     return;
   }
