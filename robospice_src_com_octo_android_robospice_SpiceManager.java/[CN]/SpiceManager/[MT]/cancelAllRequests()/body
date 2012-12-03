@@ -1,19 +1,8 @@
 {
-  try {
-    lockSendRequestsToService.lock();
-synchronized (mapRequestToLaunchToRequestListener) {
-      for (      CachedSpiceRequest<?> cachedContentRequest : mapRequestToLaunchToRequestListener.keySet()) {
-        cachedContentRequest.cancel();
-      }
-    }
-synchronized (mapPendingRequestToRequestListener) {
-      List<CachedSpiceRequest<?>> listDuplicate=new ArrayList<CachedSpiceRequest<?>>(mapPendingRequestToRequestListener.keySet());
-      for (      CachedSpiceRequest<?> cachedContentRequest : listDuplicate) {
-        cachedContentRequest.cancel();
-      }
+  executorService.execute(new Runnable(){
+    public void run(){
+      cancelAllRequestsInternal();
     }
   }
-  finally {
-    lockSendRequestsToService.unlock();
-  }
+);
 }

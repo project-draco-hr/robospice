@@ -1,9 +1,7 @@
 {
   handlerResponse.removeCallbacksAndMessages(request.getRequestCacheKey());
   Set<RequestListener<?>> setRequestListener=mapRequestToRequestListener.get(request);
-synchronized (setRequestListener) {
-    if (setRequestListener != null && listRequestListener != null) {
-      setRequestListener.removeAll(listRequestListener);
-    }
+  if (setRequestListener != null && listRequestListener != null) {
+    setRequestListener.removeAll(listRequestListener);
   }
 }

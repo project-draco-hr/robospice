@@ -4,11 +4,6 @@
     throw new IllegalStateException("Already started.");
   }
  else {
-    checkServiceIsProperlyDeclaredInAndroidManifest(context);
-    if (!SpiceService.isStarted()) {
-      Intent intent=new Intent(context,contentServiceClass);
-      context.startService(intent);
-    }
     runner=new Thread(this);
     isStopped=false;
     runner.start();
