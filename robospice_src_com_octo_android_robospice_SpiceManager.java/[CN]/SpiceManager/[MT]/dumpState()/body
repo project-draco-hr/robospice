@@ -6,7 +6,7 @@
         StringBuilder stringBuilder=new StringBuilder();
         stringBuilder.append("[SpiceManager : ");
         stringBuilder.append("Requests to be launched : \n");
-        dumpMap(stringBuilder,mapPendingRequestToRequestListener);
+        dumpMap(stringBuilder,mapRequestToLaunchToRequestListener);
         stringBuilder.append("Pending requests : \n");
         dumpMap(stringBuilder,mapPendingRequestToRequestListener);
         stringBuilder.append(']');

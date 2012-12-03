@@ -1,7 +1,9 @@
 {
   try {
     lockSendRequestsToService.lock();
-    mapPendingRequestToRequestListener.remove(contentRequest);
+synchronized (mapPendingRequestToRequestListener) {
+      mapPendingRequestToRequestListener.remove(contentRequest);
+    }
   }
   finally {
     lockSendRequestsToService.unlock();

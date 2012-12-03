@@ -7,7 +7,8 @@ synchronized (mapRequestToLaunchToRequestListener) {
       }
     }
 synchronized (mapPendingRequestToRequestListener) {
-      for (      CachedSpiceRequest<?> cachedContentRequest : mapPendingRequestToRequestListener.keySet()) {
+      List<CachedSpiceRequest<?>> listDuplicate=new ArrayList<CachedSpiceRequest<?>>(mapPendingRequestToRequestListener.keySet());
+      for (      CachedSpiceRequest<?> cachedContentRequest : listDuplicate) {
         cachedContentRequest.cancel();
       }
     }
