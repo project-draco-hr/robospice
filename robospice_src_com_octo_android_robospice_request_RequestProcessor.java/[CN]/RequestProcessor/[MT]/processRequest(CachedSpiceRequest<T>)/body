@@ -34,6 +34,8 @@
         notifyListenersOfRequestFailure(request,listeners,e);
         return;
       }
+      cacheManager.removeDataFromCache(request.getResultType(),request.getRequestCacheKey());
+      Ln.d(e,"Cache file deleted.");
     }
   }
   if (result == null) {
@@ -71,6 +73,8 @@
  else {
           notifyListenersOfRequestSuccess(request,listeners,result);
         }
+        cacheManager.removeDataFromCache(request.getResultType(),request.getRequestCacheKey());
+        Ln.d(e,"Cache file deleted.");
       }
     }
  else {
