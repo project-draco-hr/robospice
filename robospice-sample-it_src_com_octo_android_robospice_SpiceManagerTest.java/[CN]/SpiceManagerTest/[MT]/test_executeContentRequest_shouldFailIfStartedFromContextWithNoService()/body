@@ -1,9 +1,4 @@
 {
-  try {
-    spiceManager.start(getInstrumentation().getContext());
-    fail();
-  }
- catch (  Exception ex) {
-    assertTrue(true);
-  }
+  spiceManager.start(getInstrumentation().getContext());
+  assertNotNull(spiceManager.getException());
 }

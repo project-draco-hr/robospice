@@ -1,0 +1,10 @@
+{
+  spiceManager.start(getInstrumentation().getTargetContext());
+  ContentRequestStub<String> contentRequestStub=new ContentRequestFailingStub<String>(TEST_CLASS);
+  RequestListenerWithProgressStub<String> requestListenerStub=new RequestListenerWithProgressStub<String>();
+  spiceManager.addListenerIfPending(TEST_CLASS,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
+  contentRequestStub.await(WAIT_BEFORE_EXECUTING_REQUEST + REQUEST_COMPLETION_TIME_OUT);
+  assertNull(requestListenerStub.isSuccessful());
+  assertFalse(requestListenerStub.isComplete());
+  assertNull(requestListenerStub.getReceivedException());
+}
