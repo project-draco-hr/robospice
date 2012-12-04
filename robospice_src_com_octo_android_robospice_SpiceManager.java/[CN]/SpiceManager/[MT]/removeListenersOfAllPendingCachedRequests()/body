@@ -2,6 +2,9 @@
 synchronized (mapPendingRequestToRequestListener) {
     if (!mapPendingRequestToRequestListener.isEmpty()) {
       waitForServiceToBeBound();
+      if (spiceService == null) {
+        return;
+      }
     }
     for (    CachedSpiceRequest<?> cachedContentRequest : mapPendingRequestToRequestListener.keySet()) {
       final Set<RequestListener<?>> setRequestListeners=mapPendingRequestToRequestListener.get(cachedContentRequest);

@@ -11,6 +11,9 @@
         dumpMap(stringBuilder,mapPendingRequestToRequestListener);
         stringBuilder.append(']');
         waitForServiceToBeBound();
+        if (spiceService == null) {
+          return;
+        }
         spiceService.dumpState();
       }
  catch (      InterruptedException e) {

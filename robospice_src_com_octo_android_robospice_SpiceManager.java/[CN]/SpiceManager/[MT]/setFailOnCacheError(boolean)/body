@@ -3,6 +3,9 @@
     public void run(){
       try {
         waitForServiceToBeBound();
+        if (spiceService == null) {
+          return;
+        }
         spiceService.setFailOnCacheError(failOnCacheError);
       }
  catch (      InterruptedException e) {
