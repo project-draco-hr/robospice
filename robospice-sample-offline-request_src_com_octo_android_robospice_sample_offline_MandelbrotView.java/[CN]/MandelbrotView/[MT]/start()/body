@@ -1,0 +1,7 @@
+{
+  Log.d("MandelbrotView","starting...");
+  fractalRequest=new FractalRequest(x0,y0,width,height,scale,fractalOperator,mBitmap);
+  spiceManager.execute(fractalRequest,new FractalResultListener());
+  invalidate();
+  Log.d("MandelbrotView","started...");
+}

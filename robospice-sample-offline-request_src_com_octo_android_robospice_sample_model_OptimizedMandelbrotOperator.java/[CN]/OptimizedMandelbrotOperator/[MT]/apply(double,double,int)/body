@@ -1,0 +1,11 @@
+{
+  double x=0;
+  double y=0;
+  int v=0;
+  for (; v < maxiter && x * x + y * y < omega; v++) {
+    double t=x0 + x * x - y * y;
+    y=y0 + x * y * 2f;
+    x=t;
+  }
+  return v;
+}
