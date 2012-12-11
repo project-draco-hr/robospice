@@ -5,6 +5,6 @@
   spiceManager.execute(contentRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
   requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
   assertTrue(contentRequestStub.isLoadDataFromNetworkCalled());
-  assertTrue(requestListenerStub.isExecutedInUIThread());
   assertTrue(requestListenerStub.isSuccessful());
+  assertTrue(requestListenerStub.isExecutedInUIThread());
 }

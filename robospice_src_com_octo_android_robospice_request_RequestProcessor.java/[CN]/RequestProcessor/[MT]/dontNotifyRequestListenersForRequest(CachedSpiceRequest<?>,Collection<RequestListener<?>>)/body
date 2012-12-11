@@ -2,6 +2,7 @@
   handlerResponse.removeCallbacksAndMessages(request.getRequestCacheKey());
   Set<RequestListener<?>> setRequestListener=mapRequestToRequestListener.get(request);
   if (setRequestListener != null && listRequestListener != null) {
+    Ln.d("Removing listeners of request : " + request.toString() + " : "+ setRequestListener.size());
     setRequestListener.removeAll(listRequestListener);
   }
 }

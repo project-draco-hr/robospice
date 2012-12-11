@@ -8,15 +8,15 @@
   try {
     waitForServiceToBeBound();
     while (!isStopped) {
-      CachedSpiceRequest<?> restRequest=requestQueue.take();
+      CachedSpiceRequest<?> spiceRequest=requestQueue.take();
       try {
         lockSendRequestsToService.lock();
-        if (restRequest != null) {
-          Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.get(restRequest);
-          mapRequestToLaunchToRequestListener.remove(restRequest);
-          mapPendingRequestToRequestListener.put(restRequest,listRequestListener);
-          Ln.d("Sending request to service : " + restRequest.getClass().getSimpleName());
-          spiceService.addRequest(restRequest,listRequestListener);
+        if (spiceRequest != null) {
+          Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.get(spiceRequest);
+          mapRequestToLaunchToRequestListener.remove(spiceRequest);
+          mapPendingRequestToRequestListener.put(spiceRequest,listRequestListener);
+          Ln.d("Sending request to service : " + spiceRequest.getClass().getSimpleName());
+          spiceService.addRequest(spiceRequest,listRequestListener);
         }
       }
   finally {

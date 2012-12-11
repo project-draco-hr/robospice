@@ -1,0 +1,14 @@
+{
+  lock.lock();
+  isLoadDataFromNetworkCalled=true;
+  try {
+    requestFinishedCondition.signal();
+  }
+  finally {
+    lock.unlock();
+  }
+  if (waitBeforeExecution != 0) {
+    Thread.sleep(waitBeforeExecution);
+  }
+  return null;
+}

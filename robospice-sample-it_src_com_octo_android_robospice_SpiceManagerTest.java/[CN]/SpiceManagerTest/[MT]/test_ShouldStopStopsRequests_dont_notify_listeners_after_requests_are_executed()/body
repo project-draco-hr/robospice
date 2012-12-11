@@ -1,0 +1,18 @@
+{
+  spiceManager.start(getInstrumentation().getTargetContext());
+  ContentRequestWaitingStub<String> contentRequestStub=new ContentRequestWaitingStub<String>(TEST_CLASS,WAIT_BEFORE_EXECUTING_REQUEST);
+  ContentRequestWaitingStub<String> contentRequestStub2=new ContentRequestWaitingStub<String>(TEST_CLASS,WAIT_BEFORE_EXECUTING_REQUEST);
+  RequestListenerStub<String> requestListenerStub=new RequestListenerStub<String>();
+  RequestListenerStub<String> requestListenerStub2=new RequestListenerStub<String>();
+  spiceManager.execute(contentRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
+  spiceManager.execute(contentRequestStub2,TEST_CACHE_KEY2,TEST_DURATION,requestListenerStub2);
+  contentRequestStub.await(REQUEST_COMPLETION_TIME_OUT);
+  contentRequestStub2.await(REQUEST_COMPLETION_TIME_OUT);
+  spiceManager.shouldStop();
+  requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
+  requestListenerStub2.await(REQUEST_COMPLETION_TIME_OUT);
+  assertTrue(contentRequestStub.isLoadDataFromNetworkCalled());
+  assertTrue(contentRequestStub2.isLoadDataFromNetworkCalled());
+  assertNull(requestListenerStub.isSuccessful());
+  assertNull(requestListenerStub2.isSuccessful());
+}

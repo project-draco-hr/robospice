@@ -1,16 +1,16 @@
 {
 synchronized (mapPendingRequestToRequestListener) {
     if (!mapPendingRequestToRequestListener.isEmpty()) {
-      waitForServiceToBeBound();
       if (spiceService == null) {
         return;
       }
+      for (      CachedSpiceRequest<?> cachedContentRequest : mapPendingRequestToRequestListener.keySet()) {
+        final Set<RequestListener<?>> setRequestListeners=mapPendingRequestToRequestListener.get(cachedContentRequest);
+        Ln.d("Removing listeners of request : " + cachedContentRequest.toString() + " : "+ setRequestListeners.size());
+        spiceService.dontNotifyRequestListenersForRequest(cachedContentRequest,setRequestListeners);
+      }
+      mapPendingRequestToRequestListener.clear();
     }
-    for (    CachedSpiceRequest<?> cachedContentRequest : mapPendingRequestToRequestListener.keySet()) {
-      final Set<RequestListener<?>> setRequestListeners=mapPendingRequestToRequestListener.get(cachedContentRequest);
-      spiceService.dontNotifyRequestListenersForRequest(cachedContentRequest,setRequestListeners);
-    }
-    mapPendingRequestToRequestListener.clear();
     Ln.v("Cleared listeners of all pending requests");
   }
 }

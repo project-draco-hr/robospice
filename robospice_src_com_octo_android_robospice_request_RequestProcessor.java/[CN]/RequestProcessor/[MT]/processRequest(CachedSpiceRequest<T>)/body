@@ -2,7 +2,6 @@
   Ln.d("Processing request : " + request);
   T result=null;
   final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
-  mapRequestToRequestListener.remove(request);
   if (!request.isProcessable()) {
     notifyOfRequestProcessed(request);
     return;
@@ -24,14 +23,14 @@
       request.setStatus(RequestStatus.READING_FROM_CACHE);
       result=loadDataFromCache(request.getResultType(),request.getRequestCacheKey(),request.getCacheDuration());
       if (result != null) {
-        notifyListenersOfRequestSuccess(request,listeners,result);
+        notifyListenersOfRequestSuccess(request,result);
         return;
       }
     }
  catch (    CacheLoadingException e) {
       Ln.d(e,"Cache file could not be read.");
       if (failOnCacheError) {
-        notifyListenersOfRequestFailure(request,listeners,e);
+        notifyListenersOfRequestFailure(request,e);
         return;
       }
       cacheManager.removeDataFromCache(request.getResultType(),request.getRequestCacheKey());
@@ -42,7 +41,7 @@
     Ln.d("Cache content not available or expired or disabled");
     if (!isNetworkAvailable(applicationContext)) {
       Ln.e("Network is down.");
-      notifyListenersOfRequestFailure(request,listeners,new NoNetworkException());
+      notifyListenersOfRequestFailure(request,new NoNetworkException());
       return;
     }
     try {
@@ -53,7 +52,7 @@
     }
  catch (    Exception e) {
       Ln.e(e,"An exception occured during request network execution :" + e.getMessage());
-      notifyListenersOfRequestFailure(request,listeners,new NetworkException("Exception occured during invocation of web service.",e));
+      notifyListenersOfRequestFailure(request,new NetworkException("Exception occured during invocation of web service.",e));
       return;
     }
     if (result != null && request.getRequestCacheKey() != null) {
@@ -61,24 +60,24 @@
         Ln.d("Start caching content...");
         request.setStatus(RequestStatus.WRITING_TO_CACHE);
         result=saveDataToCacheAndReturnData(result,request.getRequestCacheKey());
-        notifyListenersOfRequestSuccess(request,listeners,result);
+        notifyListenersOfRequestSuccess(request,result);
         return;
       }
  catch (      CacheSavingException e) {
         Ln.d("An exception occured during service execution :" + e.getMessage(),e);
         if (failOnCacheError) {
-          notifyListenersOfRequestFailure(request,listeners,e);
+          notifyListenersOfRequestFailure(request,e);
           return;
         }
  else {
-          notifyListenersOfRequestSuccess(request,listeners,result);
+          notifyListenersOfRequestSuccess(request,result);
         }
         cacheManager.removeDataFromCache(request.getResultType(),request.getRequestCacheKey());
         Ln.d(e,"Cache file deleted.");
       }
     }
  else {
-      notifyListenersOfRequestSuccess(request,listeners,result);
+      notifyListenersOfRequestSuccess(request,result);
       return;
     }
   }
