@@ -1,22 +1,18 @@
 {
   Ln.d("Processing request : " + request);
   T result=null;
-  final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
   if (!request.isProcessable()) {
     notifyOfRequestProcessed(request);
     return;
   }
   RequestProgressListener requestProgressListener=new RequestProgressListener(){
     public void onRequestProgressUpdate(    RequestProgress progress){
+      Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
       notifyListenersOfRequestProgress(request,listeners,progress);
     }
   }
 ;
   request.setRequestProgressListener(requestProgressListener);
-  if (request.isCancelled()) {
-    notifyListenersOfRequestCancellation(request,listeners);
-    return;
-  }
   if (request.getRequestCacheKey() != null) {
     try {
       Ln.d("Loading request from cache : " + request);
