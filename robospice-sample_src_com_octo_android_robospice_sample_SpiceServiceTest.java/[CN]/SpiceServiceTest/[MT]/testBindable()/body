@@ -1,0 +1,6 @@
+{
+  Intent startIntent=new Intent();
+  startIntent.setClass(getContext(),SampleJsonPersistenceRestContentService.class);
+  IBinder service=bindService(startIntent);
+  assertNotNull(service);
+}

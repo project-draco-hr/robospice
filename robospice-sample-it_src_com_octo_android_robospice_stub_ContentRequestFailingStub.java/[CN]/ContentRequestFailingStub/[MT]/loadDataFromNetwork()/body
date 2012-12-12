@@ -1,7 +1,0 @@
-{
-  if (sleepTimeBeforeAnswering != 0) {
-    Thread.sleep(sleepTimeBeforeAnswering);
-  }
-  isLoadDataFromNetworkCalled=true;
-  throw new Exception();
-}

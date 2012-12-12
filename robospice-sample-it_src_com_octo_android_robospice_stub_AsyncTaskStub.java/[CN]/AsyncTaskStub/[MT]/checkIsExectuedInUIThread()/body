@@ -1,5 +1,0 @@
-{
-  if (Looper.myLooper() != null && Looper.myLooper() == Looper.getMainLooper()) {
-    isExecutedInUIThread=true;
-  }
-}

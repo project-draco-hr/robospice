@@ -1,3 +1,3 @@
 {
-  ((ContentRequestStub<?>)getContentRequest()).await(millisecond);
+  ((SpiceRequestStub<?>)getContentRequest()).awaitForLoadDataFromNetworkIsCalled(millisecond);
 }

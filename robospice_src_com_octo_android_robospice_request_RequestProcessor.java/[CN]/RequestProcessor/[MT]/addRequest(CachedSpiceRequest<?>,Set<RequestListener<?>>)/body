@@ -36,6 +36,7 @@
 ;
   request.setRequestCancellationListener(requestCancellationListener);
   if (request.isCancelled()) {
+    mapRequestToRequestListener.remove(request);
     notifyListenersOfRequestCancellation(request,listRequestListener);
     return;
   }
