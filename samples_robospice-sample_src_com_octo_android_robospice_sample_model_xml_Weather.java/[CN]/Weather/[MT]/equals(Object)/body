@@ -1,0 +1,54 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (obj == null) {
+    return false;
+  }
+  if (getClass() != obj.getClass()) {
+    return false;
+  }
+  Weather other=(Weather)obj;
+  if (emptyField == null) {
+    if (other.emptyField != null) {
+      return false;
+    }
+  }
+ else   if (!emptyField.equals(other.emptyField)) {
+    return false;
+  }
+  if (id != other.id) {
+    return false;
+  }
+  if (listForecast == null) {
+    if (other.listForecast != null) {
+      return false;
+    }
+  }
+ else {
+    if (other.listForecast == null) {
+      return false;
+    }
+    Collection<Forecast> collectionForecast=new ArrayList<Forecast>(listForecast);
+    Collection<Forecast> otherCollectionForecast=new ArrayList<Forecast>(other.listForecast);
+    if (!collectionForecast.equals(otherCollectionForecast)) {
+      return false;
+    }
+  }
+  if (listWeather == null) {
+    if (other.listWeather != null) {
+      return false;
+    }
+  }
+ else {
+    if (other.listWeather == null) {
+      return false;
+    }
+    Collection<Curren_weather> collectionCurren_Weather=new ArrayList<Curren_weather>(listWeather);
+    Collection<Curren_weather> otherCollectionCurren_Weather=new ArrayList<Curren_weather>(other.listWeather);
+    if (!collectionCurren_Weather.equals(otherCollectionCurren_Weather)) {
+      return false;
+    }
+  }
+  return true;
+}

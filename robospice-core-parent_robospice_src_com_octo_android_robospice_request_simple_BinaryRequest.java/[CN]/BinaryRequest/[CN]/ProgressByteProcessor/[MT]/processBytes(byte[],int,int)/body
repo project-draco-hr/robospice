@@ -1,0 +1,6 @@
+{
+  bos.write(buffer,offset,length);
+  progress+=length - offset;
+  publishProgress((float)progress / total);
+  return !Thread.interrupted();
+}

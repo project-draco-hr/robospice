@@ -1,0 +1,4 @@
+Application application
+RoboSpiceDatabaseHelper databaseHelper
+Class<T> modelObjectType
+Class<ID> idType

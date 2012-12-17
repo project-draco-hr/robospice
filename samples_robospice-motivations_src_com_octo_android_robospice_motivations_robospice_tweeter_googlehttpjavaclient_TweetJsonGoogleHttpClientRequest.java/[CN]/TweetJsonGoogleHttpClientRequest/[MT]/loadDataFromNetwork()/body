@@ -1,0 +1,15 @@
+{
+  if (delay != 0) {
+    Log.d("request","delaying loading from network");
+    try {
+      Thread.sleep(delay);
+    }
+ catch (    InterruptedException e) {
+      Log.e("request","Exception while delaying request",e);
+    }
+  }
+  Log.d("request","loading from network");
+  HttpRequest request=getHttpRequestFactory().buildGetRequest(new GenericUrl("http://search.twitter.com/search.json?q=android&rpp=20"));
+  request.setParser(new JacksonFactory().createJsonObjectParser());
+  return request.execute().parseAs(ListTweets.class);
+}

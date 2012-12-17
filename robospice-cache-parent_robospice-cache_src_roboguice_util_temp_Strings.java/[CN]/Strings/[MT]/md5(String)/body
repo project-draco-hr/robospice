@@ -1,0 +1,20 @@
+{
+  try {
+    final byte[] hash=MessageDigest.getInstance("MD5").digest(s.getBytes(CharEncoding.UTF_8));
+    final StringBuilder hashString=new StringBuilder();
+    for (    byte aHash : hash) {
+      String hex=Integer.toHexString(aHash);
+      if (hex.length() == 1) {
+        hashString.append('0');
+        hashString.append(hex.charAt(hex.length() - 1));
+      }
+ else {
+        hashString.append(hex.substring(hex.length() - 2));
+      }
+    }
+    return hashString.toString();
+  }
+ catch (  Exception e) {
+    throw new RuntimeException(e);
+  }
+}

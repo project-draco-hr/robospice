@@ -1,0 +1,25 @@
+{
+  canvas.drawBitmap(mBitmap,xoffset,yoffset,mBitmapPaint);
+  Paint paintBlue=new Paint();
+  paintBlue.setStyle(Paint.Style.STROKE);
+  paintBlue.setStrokeWidth(3);
+  paintBlue.setTextSize(ROW_HEIGHT);
+  paintBlue.setColor(Color.WHITE);
+  canvas.drawText("X:" + x0,10,VERTICAL_MARGIN,paintBlue);
+  canvas.drawText("Y:" + y0,10,VERTICAL_MARGIN + 32,paintBlue);
+  canvas.drawText("scale:" + scale,10,VERTICAL_MARGIN + 32 * 2,paintBlue);
+  if (mode == ZOOM) {
+    float w=width / scaleFactor;
+    float h=height / scaleFactor;
+    Paint paint=new Paint();
+    paint.setStyle(Paint.Style.STROKE);
+    paint.setStrokeWidth(3);
+    paint.setTextSize(ROW_HEIGHT);
+    paint.setColor(Color.RED);
+    canvas.drawCircle(mid.x,mid.y,Math.min(w,h),paint);
+    canvas.drawCircle(mid.x,mid.y,5,paint);
+    canvas.drawText("Scale:" + scale * scaleFactor,width / 2,height * 0.95f,paint);
+    canvas.drawText("Mid:" + mid.x + ","+ mid.y,width / 2,height * 0.95f + ROW_HEIGHT,paint);
+  }
+  invalidate();
+}

@@ -1,0 +1,4 @@
+{
+  dataPersistenceManager.removeAllDataFromCache();
+  super.tearDown();
+}

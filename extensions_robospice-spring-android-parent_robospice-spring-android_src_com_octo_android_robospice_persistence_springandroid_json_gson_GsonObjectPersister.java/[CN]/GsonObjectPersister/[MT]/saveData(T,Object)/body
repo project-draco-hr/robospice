@@ -1,0 +1,10 @@
+{
+  String resultJson;
+  resultJson=gson.toJson(data);
+  if (!StringUtils.isEmpty(resultJson)) {
+    FileUtils.writeStringToFile(getCacheFile(cacheKey),resultJson,CharEncoding.UTF_8);
+  }
+ else {
+    throw new CacheSavingException("Data was null and could not be serialized in json");
+  }
+}

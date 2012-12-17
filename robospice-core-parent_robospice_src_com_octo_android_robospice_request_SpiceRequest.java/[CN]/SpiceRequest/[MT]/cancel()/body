@@ -1,0 +1,9 @@
+{
+  this.isCanceled=true;
+  if (future != null) {
+    future.cancel(true);
+  }
+  if (this.requestCancellationListener != null) {
+    this.requestCancellationListener.onRequestCancelled();
+  }
+}

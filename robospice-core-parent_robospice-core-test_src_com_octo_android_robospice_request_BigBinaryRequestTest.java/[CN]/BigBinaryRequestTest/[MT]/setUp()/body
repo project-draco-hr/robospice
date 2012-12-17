@@ -1,0 +1,6 @@
+{
+  super.setUp();
+  mockWebServer=new MockWebServer();
+  cacheFile=new File(getInstrumentation().getContext().getCacheDir(),"test");
+  cacheFile.delete();
+}

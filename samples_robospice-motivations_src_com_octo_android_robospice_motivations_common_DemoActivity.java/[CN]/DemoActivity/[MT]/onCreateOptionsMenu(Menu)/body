@@ -1,0 +1,4 @@
+{
+  getSupportMenuInflater().inflate(R.menu.activity_demo,menu);
+  return true;
+}

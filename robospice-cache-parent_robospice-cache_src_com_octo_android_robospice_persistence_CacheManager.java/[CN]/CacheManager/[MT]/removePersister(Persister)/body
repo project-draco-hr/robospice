@@ -1,0 +1,6 @@
+{
+  listPersister.remove(persister);
+  if (persister instanceof ObjectPersisterFactory) {
+    mapFactoryToPersister.remove(persister);
+  }
+}

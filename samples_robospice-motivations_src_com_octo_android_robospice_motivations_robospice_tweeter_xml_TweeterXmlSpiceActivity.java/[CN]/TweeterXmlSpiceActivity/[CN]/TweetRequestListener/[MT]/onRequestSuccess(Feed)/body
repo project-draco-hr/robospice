@@ -1,0 +1,10 @@
+{
+  if (feed == null) {
+    return;
+  }
+  mAdapter.clear();
+  for (  Entry entry : feed.getListEntry()) {
+    mAdapter.add(entry.getTitle());
+  }
+  mAdapter.notifyDataSetChanged();
+}

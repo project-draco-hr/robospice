@@ -1,0 +1,8 @@
+{
+  String loremIpsum=IOUtils.toString(getInstrumentation().getContext().getResources().openRawResource(R.raw.lorem_ipsum));
+  mockWebServer.enqueue(new MockResponse().setBody(loremIpsum));
+  mockWebServer.play();
+  SimpleTextRequest loremIpsumTextRequest=new SimpleTextRequest(mockWebServer.getUrl("/").toString());
+  String stringReturned=loremIpsumTextRequest.loadDataFromNetwork();
+  assertTrue(stringReturned.startsWith("Lorem ipsum"));
+}

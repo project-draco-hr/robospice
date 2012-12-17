@@ -1,0 +1,3 @@
+HttpRequestBase request
+Uri uri
+Bundle params

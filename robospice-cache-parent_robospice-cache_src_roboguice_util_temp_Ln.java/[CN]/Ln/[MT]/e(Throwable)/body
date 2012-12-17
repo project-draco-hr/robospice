@@ -1,0 +1,3 @@
+{
+  return config.minimumLogLevel <= Log.ERROR ? print.println(Log.ERROR,Log.getStackTraceString(t)) : 0;
+}

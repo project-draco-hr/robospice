@@ -1,0 +1,10 @@
+{
+  ConnectivityManager connectivityManager=(ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+  NetworkInfo[] allNetworkInfos=connectivityManager.getAllNetworkInfo();
+  for (  NetworkInfo networkInfo : allNetworkInfos) {
+    if (networkInfo.getState() == NetworkInfo.State.CONNECTED || networkInfo.getState() == NetworkInfo.State.CONNECTING) {
+      return true;
+    }
+  }
+  return false;
+}

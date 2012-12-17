@@ -1,0 +1,12 @@
+{
+  return executorService.submit(new Callable<List<T>>(){
+    @Override public List<T> call() throws Exception {
+      waitForServiceToBeBound();
+      if (spiceService == null) {
+        return new ArrayList<T>();
+      }
+      return spiceService.loadAllDataFromCache(clazz);
+    }
+  }
+);
+}

@@ -1,0 +1,14 @@
+{
+  try {
+    lockSendRequestsToService.lock();
+    mapRequestToLaunchToRequestListener.clear();
+    Ln.v("Cleared listeners of all requests to launch");
+    removeListenersOfAllPendingCachedRequests();
+  }
+ catch (  InterruptedException e) {
+    e.printStackTrace();
+  }
+ finally {
+    lockSendRequestsToService.unlock();
+  }
+}

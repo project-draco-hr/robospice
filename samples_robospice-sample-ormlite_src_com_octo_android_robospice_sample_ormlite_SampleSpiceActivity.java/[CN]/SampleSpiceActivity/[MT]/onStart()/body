@@ -1,0 +1,6 @@
+{
+  super.onStart();
+  setProgressBarIndeterminate(false);
+  setProgressBarVisibility(true);
+  getSpiceManager().execute(weatherRequest,new Integer(0),DurationInMillis.ONE_MINUTE,new WeatherRequestListener());
+}

@@ -1,0 +1,5 @@
+{
+  super(context);
+  mVerb=verb;
+  mAction=action;
+}

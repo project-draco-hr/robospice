@@ -1,0 +1,7 @@
+double x0
+double y0
+int width
+int height
+double scale
+FractalOperator fractalOperator
+Bitmap bitmap

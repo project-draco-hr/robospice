@@ -1,0 +1,9 @@
+{
+  if (inputStream == null) {
+    setImageVisible(false);
+    return;
+  }
+  setImageVisible(true);
+  Drawable drawable=new BitmapDrawable(getResources(),BitmapFactory.decodeStream(inputStream));
+  imageView.setImageDrawable(drawable);
+}

@@ -1,0 +1,24 @@
+{
+  StringBuilder stringBuilder=new StringBuilder();
+  stringBuilder.append('[');
+  stringBuilder.append(getClass().getName());
+  stringBuilder.append(" : ");
+  stringBuilder.append(" request count= ");
+  stringBuilder.append(mapRequestToRequestListener.keySet().size());
+  stringBuilder.append(", listeners per requests = [");
+  for (  Map.Entry<CachedSpiceRequest<?>,Set<RequestListener<?>>> entry : mapRequestToRequestListener.entrySet()) {
+    stringBuilder.append(entry.getKey().getClass().getName());
+    stringBuilder.append(":");
+    stringBuilder.append(entry.getKey());
+    stringBuilder.append(" --> ");
+    if (entry.getValue() == null) {
+      stringBuilder.append(entry.getValue());
+    }
+ else {
+      stringBuilder.append(entry.getValue().size());
+    }
+  }
+  stringBuilder.append(']');
+  stringBuilder.append(']');
+  return stringBuilder.toString();
+}

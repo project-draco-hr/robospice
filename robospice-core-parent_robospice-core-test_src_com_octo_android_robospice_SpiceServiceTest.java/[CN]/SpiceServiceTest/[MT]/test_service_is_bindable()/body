@@ -1,0 +1,6 @@
+{
+  Intent startIntent=new Intent();
+  startIntent.setClass(getContext(),SpiceTestService.class);
+  IBinder service=bindService(startIntent);
+  assertNotNull(service);
+}

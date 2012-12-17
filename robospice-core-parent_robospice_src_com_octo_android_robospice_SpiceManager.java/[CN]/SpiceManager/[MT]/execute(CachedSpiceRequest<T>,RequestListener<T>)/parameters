@@ -1,0 +1,2 @@
+CachedSpiceRequest<T> cachedContentRequest
+RequestListener<T> requestListener

@@ -1,0 +1,3 @@
+{
+  Ln.d("Binary progress : %s = %d",progress.getStatus(),Math.round(100 * progress.getProgress()));
+}

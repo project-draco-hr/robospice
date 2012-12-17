@@ -1,0 +1,15 @@
+{
+  this.applicationContext=context;
+  this.cacheManager=cacheManager;
+  this.requestProcessorListener=requestProcessorListener;
+  this.networkStateChecker=networkStateChecker;
+  handlerResponse=new Handler(Looper.getMainLooper());
+  contentServiceListenerSet=Collections.synchronizedSet(new HashSet<SpiceServiceServiceListener>());
+  this.executorService=executorService;
+  if (!hasNetworkPermission(context)) {
+    throw new SecurityException("Application doesn\'t declare <uses-permission android:name=\"android.permission.INTERNET\" />");
+  }
+  if (!hasNetworkStatePermission(context)) {
+    throw new SecurityException("Application doesn\'t declare <uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />");
+  }
+}

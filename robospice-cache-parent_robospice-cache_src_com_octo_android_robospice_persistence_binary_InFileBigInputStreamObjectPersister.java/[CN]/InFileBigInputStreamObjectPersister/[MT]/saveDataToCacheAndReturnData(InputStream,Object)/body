@@ -1,0 +1,11 @@
+{
+  try {
+    FileOutputStream output=new FileOutputStream(getCacheFile(cacheKey));
+    IOUtils.copy(data,output);
+    IOUtils.closeQuietly(output);
+    return new FileInputStream(getCacheFile(cacheKey));
+  }
+ catch (  IOException e) {
+    throw new CacheSavingException(e);
+  }
+}

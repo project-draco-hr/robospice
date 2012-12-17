@@ -1,0 +1,21 @@
+{
+  try {
+    Method setForegroundMethod=Service.class.getMethod("startForeground",int.class,Notification.class);
+    setForegroundMethod.invoke(this,NOTIFICATION_ID,notification);
+  }
+ catch (  SecurityException e) {
+    Ln.e(e,"Unable to start a service in foreground");
+  }
+catch (  NoSuchMethodException e) {
+    Ln.e(e,"Unable to start a service in foreground");
+  }
+catch (  IllegalArgumentException e) {
+    Ln.e(e,"Unable to start a service in foreground");
+  }
+catch (  IllegalAccessException e) {
+    Ln.e(e,"Unable to start a service in foreground");
+  }
+catch (  InvocationTargetException e) {
+    Ln.e(e,"Unable to start a service in foreground");
+  }
+}

@@ -1,0 +1,10 @@
+{
+  byte[] data=IOUtils.toByteArray(getInstrumentation().getContext().getResources().openRawResource(R.raw.binary));
+  mockWebServer.enqueue(new MockResponse().setBody(data));
+  mockWebServer.play();
+  BigBinaryRequest binaryRequest=new BigBinaryRequest(mockWebServer.getUrl("/").toString(),cacheFile);
+  InputStream binaryReturned=binaryRequest.loadDataFromNetwork();
+  InputStream cacheInputStream=new FileInputStream(cacheFile);
+  assertTrue(IOUtils.contentEquals(binaryReturned,getInstrumentation().getContext().getResources().openRawResource(R.raw.binary)));
+  assertTrue(IOUtils.contentEquals(cacheInputStream,getInstrumentation().getContext().getResources().openRawResource(R.raw.binary)));
+}

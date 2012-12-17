@@ -1,0 +1,3 @@
+{
+  return context.getPackageManager().checkPermission("android.permission.INTERNET",context.getPackageName()) == PackageManager.PERMISSION_GRANTED;
+}

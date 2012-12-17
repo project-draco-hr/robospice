@@ -1,0 +1,5 @@
+{
+  Toast.makeText(SampleContentActivity.this,"success json",Toast.LENGTH_SHORT).show();
+  String originalText=mCurrentWeatherJsonTextView.getText().toString();
+  mCurrentWeatherJsonTextView.setText(originalText + result.toString());
+}

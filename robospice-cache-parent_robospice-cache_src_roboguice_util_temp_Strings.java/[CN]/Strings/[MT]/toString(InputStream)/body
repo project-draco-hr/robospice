@@ -1,0 +1,5 @@
+{
+  StringWriter sw=new StringWriter();
+  copy(new InputStreamReader(input),sw);
+  return sw.toString();
+}

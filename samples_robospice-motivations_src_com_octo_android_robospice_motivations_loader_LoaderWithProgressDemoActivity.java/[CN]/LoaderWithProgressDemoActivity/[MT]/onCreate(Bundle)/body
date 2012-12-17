@@ -1,0 +1,5 @@
+{
+  super.onCreate(savedInstanceState);
+  getSupportLoaderManager();
+  AsyncTaskCounter.mActivity=new WeakReference<LoaderWithProgressDemoActivity>(this);
+}

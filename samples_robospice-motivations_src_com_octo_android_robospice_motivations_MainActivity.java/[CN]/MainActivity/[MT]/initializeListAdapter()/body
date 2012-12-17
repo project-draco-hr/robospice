@@ -1,0 +1,24 @@
+{
+  sectionAdapter=new SectionAdapter(this,R.layout.view_header,R.layout.view_item);
+  sectionAdapter.addSection("Why asynctasks are flawed");
+  sectionAdapter.addItem(getString(R.string.text_basic_async_task_name));
+  sectionAdapter.addItem(getString(R.string.text_async_task_static_inner_class_name));
+  sectionAdapter.addItem(getString(R.string.text_async_task_weakreference_name));
+  sectionAdapter.addItem(getString(R.string.text_roboasynctask_name));
+  sectionAdapter.addSection("Why loaders don't fit networking");
+  sectionAdapter.addItem(getString(R.string.text_loader_name));
+  sectionAdapter.addItem(getString(R.string.text_loader_with_progress_name));
+  sectionAdapter.addItem(getString(R.string.text_loader_rest_name));
+  sectionAdapter.addSection("RoboSpice examples");
+  sectionAdapter.addItem(getString(R.string.text_spice_rest_name));
+  sectionAdapter.addItem(getString(R.string.text_spice_rest_xml_name));
+  sectionAdapter.addItem(getString(R.string.text_spice_image_name));
+  sectionAdapter.addItem(getString(R.string.text_spice_google_http_client_name));
+  listViewMain.setAdapter(sectionAdapter);
+  listViewMain.setOnItemClickListener(new OnItemClickListener(){
+    @Override public void onItemClick(    AdapterView<?> arg0,    View arg1,    int arg2,    long arg3){
+      displayDemo(arg2);
+    }
+  }
+);
+}

@@ -1,0 +1,25 @@
+{
+  for (  Persister persister : this.listPersister) {
+    if (persister.canHandleClass(clazz)) {
+      if (persister instanceof ObjectPersister) {
+        return (ObjectPersister<T>)persister;
+      }
+ else       if (persister instanceof ObjectPersisterFactory) {
+        ObjectPersisterFactory factory=(ObjectPersisterFactory)persister;
+        List<ObjectPersister<?>> listPersister=null;
+        if (factory.canHandleClass(clazz)) {
+          listPersister=mapFactoryToPersister.get(factory);
+          for (          ObjectPersister<?> objectPersister : listPersister) {
+            if (objectPersister.canHandleClass(clazz)) {
+              return (ObjectPersister<T>)objectPersister;
+            }
+          }
+          ObjectPersister<T> newPersister=factory.createObjectPersister(clazz);
+          listPersister.add(newPersister);
+          return newPersister;
+        }
+      }
+    }
+  }
+  throw new RuntimeException("Class " + clazz.getName() + " is not handled by any registered factoryList");
+}

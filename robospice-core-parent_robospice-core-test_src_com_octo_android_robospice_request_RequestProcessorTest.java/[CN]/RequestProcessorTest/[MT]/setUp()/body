@@ -1,0 +1,12 @@
+{
+  super.setUp();
+  mockCacheManager=EasyMock.createMock(ICacheManager.class);
+  requestProcessorListener=new RequestProcessorListener(){
+    @Override public void allRequestComplete(){
+    }
+  }
+;
+  ExecutorService executorService=Executors.newSingleThreadExecutor();
+  networkStateChecker=new MockNetworkStateChecker();
+  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker);
+}

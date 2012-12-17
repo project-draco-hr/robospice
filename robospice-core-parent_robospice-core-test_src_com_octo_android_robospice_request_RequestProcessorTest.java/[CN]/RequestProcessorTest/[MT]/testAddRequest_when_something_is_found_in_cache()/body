@@ -1,0 +1,15 @@
+{
+  CachedSpiceRequestStub<String> stubRequest=createSuccessfulRequest(TEST_CLASS,TEST_CACHE_KEY,TEST_DURATION,TEST_RETURNED_DATA);
+  RequestListenerWithProgressStub<String> mockRequestListener=new RequestListenerWithProgressStub<String>();
+  Set<RequestListener<?>> requestListenerSet=new HashSet<RequestListener<?>>();
+  requestListenerSet.add(mockRequestListener);
+  EasyMock.expect(mockCacheManager.loadDataFromCache(EasyMock.eq(TEST_CLASS),EasyMock.eq(TEST_CACHE_KEY),EasyMock.eq(TEST_DURATION))).andReturn(TEST_RETURNED_DATA);
+  EasyMock.replay(mockCacheManager);
+  requestProcessorUnderTest.addRequest(stubRequest,requestListenerSet);
+  mockRequestListener.await(REQUEST_COMPLETION_TIME_OUT);
+  EasyMock.verify(mockCacheManager);
+  assertFalse(stubRequest.isLoadDataFromNetworkCalled());
+  assertTrue(mockRequestListener.isExecutedInUIThread());
+  assertTrue(mockRequestListener.isSuccessful());
+  assertTrue(mockRequestListener.isComplete());
+}

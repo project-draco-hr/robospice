@@ -1,0 +1,54 @@
+{
+  ImageView view=(ImageView)v;
+  view.setScaleType(ImageView.ScaleType.MATRIX);
+  dumpState();
+  dumpEvent(event);
+switch (event.getAction() & MotionEvent.ACTION_MASK) {
+case MotionEvent.ACTION_DOWN:
+    start.set(event.getX(),event.getY());
+  Log.d(TAG,"mode=DRAG");
+mode=DRAG;
+break;
+case MotionEvent.ACTION_UP:
+case MotionEvent.ACTION_POINTER_UP:
+if (mode == ZOOM) {
+stop();
+zoom(scaleFactor);
+moveTo(mid.x,mid.y);
+scaleFactor=1.0f;
+start();
+}
+ else if (mode == DRAG) {
+stop();
+moveBy(event.getX(),event.getY());
+Log.d(TAG,"x0=" + x0);
+Log.d(TAG,"y0=" + y0);
+start();
+}
+mode=NONE;
+Log.d(TAG,"mode=NONE");
+break;
+case MotionEvent.ACTION_POINTER_DOWN:
+oldDist=spacing(event);
+Log.d(TAG,"oldDist=" + oldDist);
+if (oldDist > 5f) {
+mode=ZOOM;
+oldScale=scale;
+Log.d(TAG,"mode=ZOOM");
+}
+break;
+case MotionEvent.ACTION_MOVE:
+if (mode == DRAG) {
+}
+ else if (mode == ZOOM) {
+float newDist=spacing(event);
+Log.d(TAG,"newDist=" + newDist);
+if (newDist > 5f) {
+midPoint(mid,event);
+scaleFactor=newDist / oldDist;
+}
+}
+break;
+}
+return true;
+}

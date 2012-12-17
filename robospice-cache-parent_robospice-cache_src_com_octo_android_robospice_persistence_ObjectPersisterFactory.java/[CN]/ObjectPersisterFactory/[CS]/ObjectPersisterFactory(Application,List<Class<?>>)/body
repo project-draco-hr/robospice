@@ -1,0 +1,4 @@
+{
+  this.mApplication=application;
+  this.listHandledClasses=listHandledClasses;
+}

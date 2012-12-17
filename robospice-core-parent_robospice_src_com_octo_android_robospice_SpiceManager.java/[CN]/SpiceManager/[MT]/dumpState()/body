@@ -1,0 +1,28 @@
+{
+  executorService.execute(new Runnable(){
+    @Override public void run(){
+      try {
+        lockSendRequestsToService.lock();
+        StringBuilder stringBuilder=new StringBuilder();
+        stringBuilder.append("[SpiceManager : ");
+        stringBuilder.append("Requests to be launched : \n");
+        dumpMap(stringBuilder,mapRequestToLaunchToRequestListener);
+        stringBuilder.append("Pending requests : \n");
+        dumpMap(stringBuilder,mapPendingRequestToRequestListener);
+        stringBuilder.append(']');
+        waitForServiceToBeBound();
+        if (spiceService == null) {
+          return;
+        }
+        spiceService.dumpState();
+      }
+ catch (      InterruptedException e) {
+        Ln.e(e,"Interrupted while waiting for acquiring service.");
+      }
+ finally {
+        lockSendRequestsToService.unlock();
+      }
+    }
+  }
+);
+}

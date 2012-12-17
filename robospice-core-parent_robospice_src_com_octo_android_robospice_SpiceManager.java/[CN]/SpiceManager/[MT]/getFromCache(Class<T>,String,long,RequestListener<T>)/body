@@ -1,0 +1,13 @@
+{
+  SpiceRequest<T> request=new SpiceRequest<T>(clazz){
+    @Override public T loadDataFromNetwork() throws Exception {
+      return null;
+    }
+    @Override public boolean isAggregatable(){
+      return false;
+    }
+  }
+;
+  CachedSpiceRequest<T> cachedContentRequest=new CachedSpiceRequest<T>(request,requestCacheKey,cacheDuration);
+  execute(cachedContentRequest,requestListener);
+}

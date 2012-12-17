@@ -1,0 +1,18 @@
+{
+  requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
+  super.onCreate(savedInstanceState);
+  getSupportLoaderManager();
+  mAdapter=new ArrayAdapter<String>(this,R.layout.view_item_white);
+  listView.setAdapter(mAdapter);
+  getSupportActionBar().setTitle(getDemoTitle());
+  getSupportActionBar().setSubtitle(getDemoSubtitle());
+  webViewExplanation.loadUrl("file:///android_asset/" + getDemoExplanation());
+  setTaskProgressVisible(savedInstanceState != null && savedInstanceState.getBoolean(BUNDLE_KEY_INDETERMINATE_PROGRESS_VISIBLE,false));
+  ActivityManager activityManager=(ActivityManager)getSystemService(ACTIVITY_SERVICE);
+  MemoryInfo mi=new MemoryInfo();
+  activityManager.getMemoryInfo(mi);
+  bufferToFillMemoryFaster=new byte[(int)Math.max(mi.availMem / 100,SIZE_OF_BUFFER_SO_SIMULATE_OUT_OF_MEMORY)];
+  Log.v(getClass().getSimpleName(),"Keeping buffer in memory, size= " + bufferToFillMemoryFaster.length);
+  textViewMemory.setText(getString(R.string.text_available_memory,mi.availMem / 1024));
+  startDemo();
+}

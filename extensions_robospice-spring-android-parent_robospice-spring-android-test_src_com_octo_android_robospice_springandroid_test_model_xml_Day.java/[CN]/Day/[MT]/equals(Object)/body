@@ -1,0 +1,40 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (obj == null) {
+    return false;
+  }
+  if (getClass() != obj.getClass()) {
+    return false;
+  }
+  Day other=(Day)obj;
+  if (id != other.id) {
+    return false;
+  }
+  if (weather_code == null) {
+    if (other.weather_code != null) {
+      return false;
+    }
+  }
+ else   if (!weather_code.equals(other.weather_code)) {
+    return false;
+  }
+  if (weather_text == null) {
+    if (other.weather_text != null) {
+      return false;
+    }
+  }
+ else   if (!weather_text.equals(other.weather_text)) {
+    return false;
+  }
+  if (wind == null) {
+    if (other.wind != null) {
+      return false;
+    }
+  }
+ else   if (!wind.equals(other.wind)) {
+    return false;
+  }
+  return true;
+}

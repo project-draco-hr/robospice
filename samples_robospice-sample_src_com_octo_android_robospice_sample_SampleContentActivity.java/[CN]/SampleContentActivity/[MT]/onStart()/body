@@ -1,0 +1,7 @@
+{
+  super.onStart();
+  getJsonContentManager().execute(loremRequest,"lorem.txt",DurationInMillis.ONE_DAY,new LoremRequestListener());
+  getJsonContentManager().execute(weatherRequest,"75000.json",DurationInMillis.ONE_DAY,new WeatherRequestJsonListener());
+  getJsonContentManager().execute(weatherRequestXml,"75000.xml",DurationInMillis.ONE_DAY,new WeatherRequestXmlListener());
+  getJsonContentManager().execute(imageRequest,"logo",DurationInMillis.ONE_DAY,new ImageRequestListener());
+}

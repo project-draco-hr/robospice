@@ -1,0 +1,9 @@
+{
+  WeatherResult weatherRequestStatus=buildWeather(TEST_TEMP,TEST_TEMP_UNIT);
+  final String FILE_NAME="toto";
+  dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,FILE_NAME);
+  List<WeatherResult> listWeatherResult=dataPersistenceManager.loadAllDataFromCache();
+  assertNotNull(listWeatherResult);
+  assertEquals(1,listWeatherResult.size());
+  assertEquals(weatherRequestStatus,listWeatherResult.get(0));
+}

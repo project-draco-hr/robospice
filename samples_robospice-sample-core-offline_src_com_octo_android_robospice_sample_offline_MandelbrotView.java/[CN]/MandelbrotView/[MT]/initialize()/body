@@ -1,0 +1,6 @@
+{
+  rescale(getWidth(),getHeight());
+  mBitmapPaint=new Paint(Paint.DITHER_FLAG);
+  mCanvas.drawARGB(0xff,10,10,10);
+  setOnTouchListener(this);
+}

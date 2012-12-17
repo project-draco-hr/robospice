@@ -1,0 +1,9 @@
+{
+  Intent intent=new Intent(context,clazz);
+  intent.putExtra(BUNDLE_KEY_NOTIFICATION_ID,notificationId);
+  intent.putExtra(BUNDLE_KEY_SERVICE_CLASS,contentServiceClass);
+  intent.putExtra(BUNDLE_KEY_REQUEST_CLASS,requestResultType);
+  intent.putExtra(BUNDLE_KEY_REQUEST_CACHE_KEY,cacheKey);
+  intent.putExtra(BUNDLE_KEY_FOREGROUND,foreground);
+  return intent;
+}

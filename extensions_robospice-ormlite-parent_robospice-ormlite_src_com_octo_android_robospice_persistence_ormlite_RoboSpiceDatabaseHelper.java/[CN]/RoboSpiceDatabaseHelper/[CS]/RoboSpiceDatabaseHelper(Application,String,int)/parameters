@@ -1,0 +1,3 @@
+Application application
+String databaseName
+int databaseVersion

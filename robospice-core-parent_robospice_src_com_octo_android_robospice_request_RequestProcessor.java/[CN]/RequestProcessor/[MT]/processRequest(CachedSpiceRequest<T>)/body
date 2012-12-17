@@ -1,0 +1,80 @@
+{
+  Ln.d("Processing request : " + request);
+  T result=null;
+  if (!request.isProcessable()) {
+    notifyOfRequestProcessed(request);
+    return;
+  }
+  RequestProgressListener requestProgressListener=new RequestProgressListener(){
+    public void onRequestProgressUpdate(    RequestProgress progress){
+      Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
+      notifyListenersOfRequestProgress(request,listeners,progress);
+    }
+  }
+;
+  request.setRequestProgressListener(requestProgressListener);
+  if (request.getRequestCacheKey() != null) {
+    try {
+      Ln.d("Loading request from cache : " + request);
+      request.setStatus(RequestStatus.READING_FROM_CACHE);
+      result=loadDataFromCache(request.getResultType(),request.getRequestCacheKey(),request.getCacheDuration());
+      if (result != null) {
+        notifyListenersOfRequestSuccess(request,result);
+        return;
+      }
+    }
+ catch (    CacheLoadingException e) {
+      Ln.d(e,"Cache file could not be read.");
+      if (failOnCacheError) {
+        notifyListenersOfRequestFailure(request,e);
+        return;
+      }
+      cacheManager.removeDataFromCache(request.getResultType(),request.getRequestCacheKey());
+      Ln.d(e,"Cache file deleted.");
+    }
+  }
+  if (result == null) {
+    Ln.d("Cache content not available or expired or disabled");
+    if (!isNetworkAvailable(applicationContext)) {
+      Ln.e("Network is down.");
+      notifyListenersOfRequestFailure(request,new NoNetworkException());
+      return;
+    }
+    try {
+      Ln.d("Calling netwok request.");
+      request.setStatus(RequestStatus.LOADING_FROM_NETWORK);
+      result=request.loadDataFromNetwork();
+      Ln.d("Network request call ended.");
+    }
+ catch (    Exception e) {
+      Ln.e(e,"An exception occured during request network execution :" + e.getMessage());
+      notifyListenersOfRequestFailure(request,new NetworkException("Exception occured during invocation of web service.",e));
+      return;
+    }
+    if (result != null && request.getRequestCacheKey() != null) {
+      try {
+        Ln.d("Start caching content...");
+        request.setStatus(RequestStatus.WRITING_TO_CACHE);
+        result=saveDataToCacheAndReturnData(result,request.getRequestCacheKey());
+        notifyListenersOfRequestSuccess(request,result);
+        return;
+      }
+ catch (      CacheSavingException e) {
+        Ln.d("An exception occured during service execution :" + e.getMessage(),e);
+        if (failOnCacheError) {
+          notifyListenersOfRequestFailure(request,e);
+          return;
+        }
+ else {
+          notifyListenersOfRequestSuccess(request,result);
+        }
+        cacheManager.removeDataFromCache(request.getResultType(),request.getRequestCacheKey());
+        Ln.d(e,"Cache file deleted.");
+      }
+    }
+ else {
+      notifyListenersOfRequestSuccess(request,result);
+      return;
+    }
+  }
+}

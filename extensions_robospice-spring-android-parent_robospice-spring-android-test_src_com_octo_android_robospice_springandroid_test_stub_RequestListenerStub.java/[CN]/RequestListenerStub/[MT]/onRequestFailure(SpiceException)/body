@@ -1,0 +1,12 @@
+{
+  lock.lock();
+  try {
+    checkIsExectuedInUIThread();
+    isSuccessful=false;
+    this.exception=exception;
+    requestFinishedCondition.signal();
+  }
+  finally {
+    lock.unlock();
+  }
+}

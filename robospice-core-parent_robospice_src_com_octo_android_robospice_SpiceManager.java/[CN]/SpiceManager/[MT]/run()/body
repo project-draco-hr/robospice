@@ -1,0 +1,33 @@
+{
+  checkServiceIsProperlyDeclaredInAndroidManifest(context.get());
+  if (!SpiceService.isStarted()) {
+    Intent intent=new Intent(context.get(),contentServiceClass);
+    context.get().startService(intent);
+  }
+  bindToService(context.get());
+  try {
+    waitForServiceToBeBound();
+    while (!isStopped) {
+      CachedSpiceRequest<?> spiceRequest=requestQueue.take();
+      try {
+        lockSendRequestsToService.lock();
+        if (spiceRequest != null) {
+          Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.get(spiceRequest);
+          mapRequestToLaunchToRequestListener.remove(spiceRequest);
+          mapPendingRequestToRequestListener.put(spiceRequest,listRequestListener);
+          Ln.d("Sending request to service : " + spiceRequest.getClass().getSimpleName());
+          spiceService.addRequest(spiceRequest,listRequestListener);
+        }
+      }
+  finally {
+        lockSendRequestsToService.unlock();
+      }
+    }
+  }
+ catch (  InterruptedException e) {
+    Ln.d(e,"Interrupted while waiting for acquiring service.");
+  }
+ finally {
+    unbindFromService(context.get());
+  }
+}

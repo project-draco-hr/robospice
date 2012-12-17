@@ -1,0 +1,5 @@
+{
+  mockWebServer.shutdown();
+  cacheFile.delete();
+  super.tearDown();
+}

@@ -1,0 +1,3 @@
+{
+  getSupportLoaderManager().destroyLoader(LOADER_TWITTER_SEARCH);
+}

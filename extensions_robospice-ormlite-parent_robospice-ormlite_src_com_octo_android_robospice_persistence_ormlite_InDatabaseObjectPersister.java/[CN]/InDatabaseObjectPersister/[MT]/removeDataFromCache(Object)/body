@@ -1,0 +1,21 @@
+{
+  try {
+    String id=cacheKey.toString();
+    CacheEntry cacheEntry=databaseHelper.queryCacheKeyForIdFromDatabase(id);
+    if (cacheEntry == null) {
+      return false;
+    }
+    Class<?> clazz=Class.forName(cacheEntry.getResultClassName());
+    databaseHelper.deleteByIdFromDataBase(cacheEntry.getResultId(),clazz);
+    databaseHelper.deleteFromDataBase(cacheEntry,CacheEntry.class);
+    return true;
+  }
+ catch (  SQLException e) {
+    Ln.d(e);
+    return false;
+  }
+catch (  ClassNotFoundException e) {
+    Ln.d(e);
+    return false;
+  }
+}

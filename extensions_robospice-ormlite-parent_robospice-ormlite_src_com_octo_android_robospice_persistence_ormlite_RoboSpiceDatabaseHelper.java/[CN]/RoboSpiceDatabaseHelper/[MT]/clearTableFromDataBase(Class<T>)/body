@@ -1,0 +1,8 @@
+{
+  try {
+    clearTable(modelObjectClass);
+  }
+ catch (  Exception ex) {
+    Ln.d(ex,"An exception occurred when cleaning table");
+  }
+}

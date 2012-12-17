@@ -1,0 +1,14 @@
+{
+  try {
+    List<CacheEntry> listCacheEntry=databaseHelper.queryForAllFromDatabase(CacheEntry.class);
+    List<T> listObjectInCache=new ArrayList<T>();
+    for (    CacheEntry cacheEntry : listCacheEntry) {
+      listObjectInCache.add(loadDataFromCache(cacheEntry.getCacheKey(),DurationInMillis.ALWAYS));
+    }
+    return listObjectInCache;
+  }
+ catch (  SQLException e) {
+    Ln.d(e);
+    return null;
+  }
+}

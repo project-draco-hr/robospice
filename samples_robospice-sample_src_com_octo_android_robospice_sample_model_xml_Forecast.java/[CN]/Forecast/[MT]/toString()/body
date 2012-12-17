@@ -1,0 +1,3 @@
+{
+  return "Forecast [date=" + date + ", day="+ listDay+ ", day_max_temp="+ day_max_temp+ ", night="+ listNight+ ", night_min_temp="+ night_min_temp+ ", temp_unit="+ temp_unit+ "]";
+}

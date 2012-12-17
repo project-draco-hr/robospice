@@ -1,0 +1,9 @@
+{
+  if (mRestResponse != null) {
+    super.deliverResult(mRestResponse);
+  }
+  if (mRestResponse == null || System.currentTimeMillis() - mLastLoad >= STALE_DELTA) {
+    forceLoad();
+  }
+  mLastLoad=System.currentTimeMillis();
+}

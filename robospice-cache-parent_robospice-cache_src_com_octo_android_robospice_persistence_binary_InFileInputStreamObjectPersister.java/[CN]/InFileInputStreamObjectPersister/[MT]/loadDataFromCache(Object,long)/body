@@ -1,0 +1,17 @@
+{
+  File file=getCacheFile(cacheKey);
+  if (file.exists()) {
+    long timeInCache=System.currentTimeMillis() - file.lastModified();
+    if (maxTimeInCacheBeforeExpiry == 0 || timeInCache <= maxTimeInCacheBeforeExpiry) {
+      try {
+        return new FileInputStream(file);
+      }
+ catch (      FileNotFoundException e) {
+        Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
+        return null;
+      }
+    }
+  }
+  Ln.v("file " + file.getAbsolutePath() + " does not exists");
+  return null;
+}

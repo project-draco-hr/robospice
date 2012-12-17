@@ -1,0 +1,3 @@
+{
+  return Strings.toString(a).toLowerCase().equals(Strings.toString(b).toLowerCase());
+}

@@ -1,0 +1,19 @@
+{
+  super.setUp();
+  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  List<Class<?>> classCollection=new ArrayList<Class<?>>();
+  classCollection.add(Weather.class);
+  classCollection.add(Curren_weather.class);
+  classCollection.add(Day.class);
+  classCollection.add(Forecast.class);
+  classCollection.add(Night.class);
+  classCollection.add(Wind.class);
+  RoboSpiceDatabaseHelper databaseHelper=new RoboSpiceDatabaseHelper(application,"sample_database.db",1);
+  databaseHelper.clearTableFromDataBase(Weather.class);
+  InDatabaseObjectPersisterFactory inDatabaseObjectPersisterFactory=new InDatabaseObjectPersisterFactory(application,databaseHelper,classCollection);
+  dataPersistenceManager=inDatabaseObjectPersisterFactory.createObjectPersister(Weather.class);
+  TEST_TEMP.setTemp("28");
+  TEST_TEMP.setTemp_unit("C");
+  TEST_TEMP2.setTemp("30");
+  TEST_TEMP2.setTemp_unit("C");
+}

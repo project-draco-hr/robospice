@@ -1,0 +1,3 @@
+{
+  this(clazz,returnedData,0);
+}

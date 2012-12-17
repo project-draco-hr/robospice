@@ -1,0 +1,14 @@
+{
+  try {
+    final HttpURLConnection httpURLConnection=(HttpURLConnection)new URL(url).openConnection();
+    return processStream(httpURLConnection.getContentLength(),httpURLConnection.getInputStream());
+  }
+ catch (  MalformedURLException e) {
+    Ln.e(e,"Unable to create URL");
+    return null;
+  }
+catch (  IOException e) {
+    Ln.e(e,"Unable to download binary");
+    return null;
+  }
+}

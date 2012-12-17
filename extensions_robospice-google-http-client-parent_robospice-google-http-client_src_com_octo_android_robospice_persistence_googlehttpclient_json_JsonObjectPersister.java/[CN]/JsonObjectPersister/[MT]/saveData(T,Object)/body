@@ -1,0 +1,6 @@
+{
+  JsonGenerator jsonGenerator=jsonFactory.createJsonGenerator(new FileWriter(getCacheFile(cacheKey)));
+  jsonGenerator.serialize(data);
+  jsonGenerator.flush();
+  jsonGenerator.close();
+}

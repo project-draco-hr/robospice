@@ -1,0 +1,7 @@
+{
+  Bitmap bitmap=BitmapFactory.decodeStream(result);
+  BitmapDrawable drawable=new BitmapDrawable(bitmap);
+  Toast.makeText(SampleContentActivity.this,"success",Toast.LENGTH_SHORT).show();
+  mImageTextView.setBackgroundDrawable(drawable);
+  mImageTextView.setText("");
+}

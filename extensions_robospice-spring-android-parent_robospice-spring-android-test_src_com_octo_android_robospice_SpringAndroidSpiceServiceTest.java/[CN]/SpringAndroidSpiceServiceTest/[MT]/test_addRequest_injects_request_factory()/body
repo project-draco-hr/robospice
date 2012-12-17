@@ -1,0 +1,7 @@
+{
+  spiceManager.start(getContext());
+  SpringAndroidSpiceRequestStub googleHttpClientSpiceRequest=new SpringAndroidSpiceRequestStub(Weather.class);
+  spiceManager.execute(googleHttpClientSpiceRequest,new RequestListenerStub<Weather>());
+  googleHttpClientSpiceRequest.await(REQUEST_COMPLETION_TIMEOUT);
+  assertNotNull(googleHttpClientSpiceRequest.getRestTemplate());
+}

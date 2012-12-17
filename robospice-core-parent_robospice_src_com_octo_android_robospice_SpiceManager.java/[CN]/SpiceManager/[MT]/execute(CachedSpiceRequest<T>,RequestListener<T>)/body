@@ -1,0 +1,4 @@
+{
+  addRequestListenerToListOfRequestListeners(cachedContentRequest,requestListener);
+  this.requestQueue.add(cachedContentRequest);
+}

@@ -1,0 +1,4 @@
+{
+  inFileObjectPersister.removeAllDataFromCache();
+  super.tearDown();
+}

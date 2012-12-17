@@ -1,0 +1,24 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (obj == null) {
+    return false;
+  }
+  if (getClass() != obj.getClass()) {
+    return false;
+  }
+  WeatherResult other=(WeatherResult)obj;
+  if (id != other.id) {
+    return false;
+  }
+  if (weather == null) {
+    if (other.weather != null) {
+      return false;
+    }
+  }
+ else   if (!weather.equals(other.weather)) {
+    return false;
+  }
+  return true;
+}

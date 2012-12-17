@@ -1,0 +1,6 @@
+{
+  super.onReset();
+  onStopLoading();
+  mRestResponse=null;
+  mLastLoad=0;
+}

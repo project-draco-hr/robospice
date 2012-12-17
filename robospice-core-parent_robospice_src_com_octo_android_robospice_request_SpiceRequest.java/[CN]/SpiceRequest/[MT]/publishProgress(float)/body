@@ -1,0 +1,5 @@
+{
+  this.progress.setStatus(RequestStatus.LOADING_FROM_NETWORK);
+  this.progress.setProgress(progress);
+  publishProgress();
+}

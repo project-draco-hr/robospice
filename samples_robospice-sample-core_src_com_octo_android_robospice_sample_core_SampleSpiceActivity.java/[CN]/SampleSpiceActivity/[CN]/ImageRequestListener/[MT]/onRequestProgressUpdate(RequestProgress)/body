@@ -1,0 +1,11 @@
+{
+switch (progress.getStatus()) {
+case LOADING_FROM_NETWORK:
+    setProgressBarIndeterminate(false);
+  setProgress((int)(progress.getProgress() * 10000));
+break;
+default :
+break;
+}
+Ln.d("Binary progress : %s = %d",progress.getStatus(),Math.round(100 * progress.getProgress()));
+}

@@ -1,0 +1,7 @@
+{
+  Intent intentCheck=new Intent(context,contentServiceClass);
+  if (context.getPackageManager().queryIntentServices(intentCheck,0).isEmpty()) {
+    shouldStop();
+    throw new RuntimeException("Impossible to start content manager as no service of class : " + contentServiceClass.getName() + " is registered in AndroidManifest.xml file !");
+  }
+}

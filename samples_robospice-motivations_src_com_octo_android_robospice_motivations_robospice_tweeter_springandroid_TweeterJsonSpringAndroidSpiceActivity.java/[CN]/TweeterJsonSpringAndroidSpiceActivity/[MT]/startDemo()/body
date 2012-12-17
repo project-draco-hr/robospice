@@ -1,0 +1,5 @@
+{
+  long delay=checkBoxDelay.isChecked() ? REQUEST_DELAY : 0;
+  tweetJsonSpringAndroidRequest=new TweetJsonSpringAndroidRequest(delay);
+  spiceManager.execute(tweetJsonSpringAndroidRequest,JSON_CACHE_KEY,DurationInMillis.NEVER,new TweetRequestListener());
+}

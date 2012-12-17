@@ -1,0 +1,7 @@
+{
+  super.onStart();
+  setProgressBarIndeterminate(false);
+  setProgressBarVisibility(true);
+  getSpiceManager().execute(loremRequest,"txt",DurationInMillis.ONE_MINUTE,new LoremRequestListener());
+  getSpiceManager().execute(imageRequest,"image",DurationInMillis.ONE_MINUTE,new ImageRequestListener());
+}

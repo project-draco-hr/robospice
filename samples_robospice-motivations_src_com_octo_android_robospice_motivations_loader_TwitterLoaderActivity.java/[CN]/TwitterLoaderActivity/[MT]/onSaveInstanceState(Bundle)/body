@@ -1,0 +1,4 @@
+{
+  outState.putBoolean(BUNDLE_KEY_INDETERMINATE_PROGRESS_VISIBLE,this.taskProgressVisibility);
+  super.onSaveInstanceState(outState);
+}

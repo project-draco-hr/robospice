@@ -1,0 +1,6 @@
+{
+  Ln.d("Call web service " + baseUrl);
+  HttpRequest request=getHttpRequestFactory().buildGetRequest(new GenericUrl(baseUrl));
+  request.setParser(new JacksonFactory().createJsonObjectParser());
+  return request.execute().parseAs(getResultType());
+}

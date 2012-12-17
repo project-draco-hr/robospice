@@ -1,0 +1,10 @@
+{
+  CacheManager cacheManager=new CacheManager();
+  InFileStringObjectPersister inFileStringObjectPersister=new InFileStringObjectPersister(application);
+  InFileInputStreamObjectPersister inFileInputStreamObjectPersister=new InFileInputStreamObjectPersister(application);
+  inFileStringObjectPersister.setAsyncSaveEnabled(true);
+  inFileInputStreamObjectPersister.setAsyncSaveEnabled(true);
+  cacheManager.addPersister(inFileStringObjectPersister);
+  cacheManager.addPersister(inFileInputStreamObjectPersister);
+  return cacheManager;
+}

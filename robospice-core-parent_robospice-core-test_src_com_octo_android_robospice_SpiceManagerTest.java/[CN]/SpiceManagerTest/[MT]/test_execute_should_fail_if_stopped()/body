@@ -1,0 +1,11 @@
+{
+  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.shouldStopAndJoin(CONTENT_MANAGER_WAIT_TIMEOUT);
+  try {
+    spiceManager.execute(new CachedSpiceRequest<String>((SpiceRequest<String>)null,null,DurationInMillis.ALWAYS),null);
+    fail();
+  }
+ catch (  Exception ex) {
+    assertTrue(true);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  List<Weather> listWeatherResult=dataPersistenceManager.loadAllDataFromCache();
+  assertNotNull(listWeatherResult);
+  assertTrue(listWeatherResult.isEmpty());
+}

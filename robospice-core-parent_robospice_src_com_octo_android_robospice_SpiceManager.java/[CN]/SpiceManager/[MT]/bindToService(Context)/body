@@ -1,0 +1,17 @@
+{
+  if (context == null) {
+    return;
+  }
+  try {
+    lockAcquireService.lock();
+    if (spiceService == null) {
+      Intent intentService=new Intent(context,contentServiceClass);
+      Ln.v("Binding to service.");
+      spiceServiceConnection=new SpiceServiceConnection();
+      context.getApplicationContext().bindService(intentService,spiceServiceConnection,Context.BIND_AUTO_CREATE);
+    }
+  }
+  finally {
+    lockAcquireService.unlock();
+  }
+}

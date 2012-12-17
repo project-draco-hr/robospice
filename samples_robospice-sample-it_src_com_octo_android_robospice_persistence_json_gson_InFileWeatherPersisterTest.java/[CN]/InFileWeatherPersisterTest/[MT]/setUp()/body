@@ -1,0 +1,6 @@
+{
+  super.setUp();
+  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  GsonObjectPersisterFactory factory=new GsonObjectPersisterFactory(application);
+  dataPersistenceManager=factory.createObjectPersister(WeatherResult.class);
+}

@@ -1,0 +1,11 @@
+{
+  if (!isAllTableCreated) {
+    createTableIfNotExists(CacheEntry.class);
+    if (getListHandledClasses() != null) {
+      for (      Class<?> clazz : getListHandledClasses()) {
+        createTableIfNotExists(clazz);
+      }
+    }
+    isAllTableCreated=true;
+  }
+}

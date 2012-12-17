@@ -1,0 +1,15 @@
+{
+  setTaskProgressVisible(false);
+  int code=data.getCode();
+  String json=data.getData();
+  if (code == 200 && !json.equals("")) {
+    List<String> tweets=getTweetsFromJson(json);
+    mAdapter.clear();
+    for (    String tweet : tweets) {
+      mAdapter.add(tweet);
+    }
+  }
+ else {
+    Toast.makeText(this,"Failed to load Twitter data. Check your internet settings.",Toast.LENGTH_SHORT).show();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  mockWebServer.shutdown();
+  super.tearDown();
+}

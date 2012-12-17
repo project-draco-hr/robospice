@@ -1,0 +1,8 @@
+{
+  final Class<?> TEST_CLASS=String.class;
+  final String TEST_CACHE_KEY="12345";
+  EasyMock.expect(mockCacheManager.removeDataFromCache(TEST_CLASS,TEST_CACHE_KEY)).andReturn(true);
+  EasyMock.replay(mockCacheManager);
+  requestProcessorUnderTest.removeDataFromCache(TEST_CLASS,TEST_CACHE_KEY);
+  EasyMock.verify(mockCacheManager);
+}

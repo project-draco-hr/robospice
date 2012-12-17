@@ -1,0 +1,8 @@
+{
+  if (contentRequest instanceof CachedSpiceRequest) {
+    return contentRequest == cachedContentRequest;
+  }
+ else {
+    return cachedContentRequest.getContentRequest() == contentRequest;
+  }
+}

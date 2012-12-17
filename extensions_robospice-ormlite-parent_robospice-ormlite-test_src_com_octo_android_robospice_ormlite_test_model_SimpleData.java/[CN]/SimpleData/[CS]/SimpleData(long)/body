@@ -1,0 +1,6 @@
+{
+  this.date=new Date(millis);
+  this.string=millis % 1000 + "ms";
+  this.millis=millis;
+  this.even=millis % 2 == 0;
+}

@@ -1,0 +1,6 @@
+{
+  if (cacheEntry != null) {
+    Dao<CacheEntry,?> dao=getDao(CacheEntry.class);
+    dao.createOrUpdate(cacheEntry);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  checkInnerClassDeclarationToPreventMemoryLeak();
+  this.resultType=clazz;
+}

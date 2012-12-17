@@ -1,0 +1,9 @@
+{
+  Uri twitterSearchUri=Uri.parse("http://search.twitter.com/search.json");
+  Bundle params=new Bundle();
+  params.putString("q","android");
+  Bundle args=new Bundle();
+  args.putParcelable(ARGS_URI,twitterSearchUri);
+  args.putParcelable(ARGS_PARAMS,params);
+  getSupportLoaderManager().initLoader(LOADER_TWITTER_SEARCH,args,this);
+}

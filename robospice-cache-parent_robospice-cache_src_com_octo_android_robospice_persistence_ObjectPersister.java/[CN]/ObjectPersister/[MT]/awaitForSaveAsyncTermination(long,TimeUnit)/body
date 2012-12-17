@@ -1,0 +1,5 @@
+{
+  lock.lock();
+  condition.await(time,timeUnit);
+  lock.unlock();
+}

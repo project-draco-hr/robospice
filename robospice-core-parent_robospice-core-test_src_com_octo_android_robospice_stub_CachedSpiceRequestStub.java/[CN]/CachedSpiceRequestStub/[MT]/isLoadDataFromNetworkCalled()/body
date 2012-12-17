@@ -1,0 +1,3 @@
+{
+  return ((SpiceRequestStub<?>)getContentRequest()).isLoadDataFromNetworkCalled();
+}

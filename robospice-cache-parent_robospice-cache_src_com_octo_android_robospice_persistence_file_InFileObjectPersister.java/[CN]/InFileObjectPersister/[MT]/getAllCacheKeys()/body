@@ -1,0 +1,14 @@
+{
+  final String prefix=getCachePrefix();
+  String[] cacheFileNameList=getCacheFolder().list(new FilenameFilter(){
+    @Override public boolean accept(    File dir,    String filename){
+      return filename.startsWith(prefix);
+    }
+  }
+);
+  List<Object> result=new ArrayList<Object>();
+  for (  String cacheFileName : cacheFileNameList) {
+    result.add(cacheFileName.substring(prefix.length()));
+  }
+  return result;
+}

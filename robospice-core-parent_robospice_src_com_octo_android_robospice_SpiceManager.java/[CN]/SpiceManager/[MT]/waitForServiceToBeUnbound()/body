@@ -1,0 +1,12 @@
+{
+  Ln.d("Waiting for service to be unbound.");
+  lockAcquireService.lock();
+  try {
+    while (spiceService != null) {
+      conditionServiceUnbound.await();
+    }
+  }
+  finally {
+    lockAcquireService.unlock();
+  }
+}

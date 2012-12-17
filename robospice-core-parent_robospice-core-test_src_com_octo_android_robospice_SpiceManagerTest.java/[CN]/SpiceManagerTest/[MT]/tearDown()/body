@@ -1,0 +1,10 @@
+{
+  if (spiceManager != null && spiceManager.isStarted()) {
+    spiceManager.cancelAllRequests();
+    spiceManager.removeAllDataFromCache();
+    spiceManager.shouldStopAndJoin(CONTENT_MANAGER_WAIT_TIMEOUT);
+    spiceManager=null;
+  }
+  getInstrumentation().getTargetContext().stopService(new Intent(getInstrumentation().getTargetContext(),SpiceTestService.class));
+  super.tearDown();
+}

@@ -1,0 +1,4 @@
+{
+  boolean canHandleClientWeatherResult=inFileObjectPersister.canHandleClass(WeatherResult.class);
+  assertEquals(true,canHandleClientWeatherResult);
+}

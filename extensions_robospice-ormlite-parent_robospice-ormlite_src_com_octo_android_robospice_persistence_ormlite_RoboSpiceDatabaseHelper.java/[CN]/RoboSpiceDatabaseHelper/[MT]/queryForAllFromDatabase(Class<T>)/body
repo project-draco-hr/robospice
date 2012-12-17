@@ -1,0 +1,6 @@
+{
+  List<T> allObjectsInTable=new ArrayList<T>();
+  Dao<T,?> dao=getDao(modelObjectClass);
+  allObjectsInTable.addAll(dao.queryForAll());
+  return allObjectsInTable;
+}

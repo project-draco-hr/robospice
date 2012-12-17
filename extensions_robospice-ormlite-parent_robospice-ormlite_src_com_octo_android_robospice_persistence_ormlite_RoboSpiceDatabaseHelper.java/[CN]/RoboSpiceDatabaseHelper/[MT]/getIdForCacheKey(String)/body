@@ -1,0 +1,3 @@
+{
+  return cacheKey.substring(cacheKey.indexOf('_') + 1);
+}
