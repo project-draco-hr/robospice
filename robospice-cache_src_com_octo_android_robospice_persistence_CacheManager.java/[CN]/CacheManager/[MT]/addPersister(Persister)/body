@@ -1,9 +1,0 @@
-{
-  listPersister.add(persister);
-  if (persister instanceof ObjectPersisterFactory) {
-    mapFactoryToPersister.put((ObjectPersisterFactory)persister,new ArrayList<ObjectPersister<?>>());
-  }
- else   if (!(persister instanceof ObjectPersister)) {
-    throw new RuntimeException(getClass().getSimpleName() + " only supports " + ObjectPersister.class.getSimpleName()+ " or "+ ObjectPersisterFactory.class.getSimpleName()+ " instances.");
-  }
-}

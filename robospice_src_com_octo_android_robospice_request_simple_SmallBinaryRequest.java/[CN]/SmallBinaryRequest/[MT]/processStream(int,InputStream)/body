@@ -1,6 +1,0 @@
-{
-  final ByteArrayOutputStream bos=new ByteArrayOutputStream();
-  readBytes(inputStream,new ProgressByteProcessor(bos,contentLength));
-  byte[] bytes=bos.toByteArray();
-  return new ByteArrayInputStream(bytes);
-}

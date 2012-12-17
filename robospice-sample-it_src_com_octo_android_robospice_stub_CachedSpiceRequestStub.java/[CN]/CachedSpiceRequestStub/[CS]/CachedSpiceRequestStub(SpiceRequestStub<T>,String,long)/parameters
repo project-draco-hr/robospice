@@ -1,3 +1,0 @@
-SpiceRequestStub<T> contentRequest
-String requestCacheKey
-long cacheDuration

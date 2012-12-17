@@ -1,4 +1,0 @@
-SpiceRequest<T> request
-String requestCacheKey
-long cacheDuration
-RequestListener<T> requestListener

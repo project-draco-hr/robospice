@@ -1,4 +1,0 @@
-{
-  runner.join();
-  return ex;
-}

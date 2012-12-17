@@ -1,4 +1,0 @@
-{
-  Ln.d("Call web service " + baseUrl);
-  return getRestTemplate().getForObject(baseUrl,WeatherResult.class);
-}

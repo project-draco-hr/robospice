@@ -1,6 +1,0 @@
-{
-  Ln.v("Pending requests : " + currentPendingRequestCount);
-  if (currentPendingRequestCount == 0 && !isBound) {
-    stopSelf();
-  }
-}

@@ -1,6 +1,0 @@
-{
-  super(contentRequest.getResultType());
-  this.requestCacheKey=requestCacheKey;
-  this.cacheDuration=cacheDuration;
-  this.spiceRequest=contentRequest;
-}

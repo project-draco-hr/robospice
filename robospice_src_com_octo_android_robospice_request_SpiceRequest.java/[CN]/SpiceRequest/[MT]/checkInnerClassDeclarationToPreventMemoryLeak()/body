@@ -1,5 +1,0 @@
-{
-  if (getClass().isMemberClass() && Context.class.isAssignableFrom(getClass().getDeclaringClass()) && !Modifier.isStatic(getClass().getModifiers())) {
-    throw new IllegalArgumentException("Requests must be either non-inner classes or a static inner member class of Context : " + getClass());
-  }
-}

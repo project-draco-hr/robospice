@@ -1,3 +1,0 @@
-{
-  throw new RuntimeException("If you use foreground = true, then you must override onCreateForegroundNotification().");
-}

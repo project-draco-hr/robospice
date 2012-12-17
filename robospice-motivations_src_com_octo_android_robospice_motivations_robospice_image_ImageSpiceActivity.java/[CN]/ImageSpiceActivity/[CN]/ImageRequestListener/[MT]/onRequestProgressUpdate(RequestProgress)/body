@@ -1,3 +1,0 @@
-{
-  progressBar.setProgress(Math.round(progress.getProgress() * MAX_PROGRESS));
-}

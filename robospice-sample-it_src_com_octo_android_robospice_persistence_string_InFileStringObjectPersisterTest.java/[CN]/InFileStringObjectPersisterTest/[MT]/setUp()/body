@@ -1,5 +1,0 @@
-{
-  super.setUp();
-  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
-  inFileStringObjectPersister=new InFileStringObjectPersister(application);
-}

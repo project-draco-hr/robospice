@@ -1,4 +1,0 @@
-{
-  SpiceRequestStub<T> stubContentRequest=new SpiceRequestSucceedingStub<T>(clazz,returnedData,waitBeforeExecution);
-  return new CachedSpiceRequestStub<T>(stubContentRequest,cacheKey,maxTimeInCache);
-}

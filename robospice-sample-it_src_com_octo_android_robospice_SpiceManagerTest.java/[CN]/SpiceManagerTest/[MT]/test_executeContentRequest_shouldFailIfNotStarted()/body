@@ -1,9 +1,0 @@
-{
-  try {
-    spiceManager.execute(new CachedSpiceRequest<String>((SpiceRequest<String>)null,null,DurationInMillis.ALWAYS),null);
-    fail();
-  }
- catch (  Exception ex) {
-    assertTrue(true);
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return config.minimumLogLevel <= Log.INFO ? print.println(Log.INFO,Log.getStackTraceString(t)) : 0;
-}

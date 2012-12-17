@@ -1,8 +1,0 @@
-{
-  if (config.minimumLogLevel > Log.VERBOSE) {
-    return 0;
-  }
-  final String s=Strings.toString(s1);
-  final String message=(args.length > 0 ? String.format(s,args) : s) + '\n' + Log.getStackTraceString(throwable);
-  return print.println(Log.VERBOSE,message);
-}

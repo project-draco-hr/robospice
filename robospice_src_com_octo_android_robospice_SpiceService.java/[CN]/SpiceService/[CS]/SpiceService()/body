@@ -1,3 +1,0 @@
-{
-  mSpiceServiceBinder=new SpiceServiceBinder(this);
-}

@@ -1,5 +1,0 @@
-{
-synchronized (mapPendingRequestToRequestListener) {
-    mapPendingRequestToRequestListener.remove(contentRequest);
-  }
-}

@@ -1,8 +1,0 @@
-{
-  StringBuilder sb=new StringBuilder();
-  sb.append("x0=" + x0).append("\ny0=" + y0);
-  sb.append("\nscale=" + scale).append("\noldScale=" + oldScale);
-  sb.append("\nscaleFactor=" + scaleFactor);
-  sb.append("\nmidPoint=" + mid.x + " "+ mid.y);
-  Log.d("Fractal state ---------",sb.toString());
-}

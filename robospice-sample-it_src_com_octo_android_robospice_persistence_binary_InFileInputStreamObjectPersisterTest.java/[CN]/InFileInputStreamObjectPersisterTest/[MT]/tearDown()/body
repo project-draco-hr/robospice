@@ -1,4 +1,0 @@
-{
-  inputStreamCacheManager.removeAllDataFromCache();
-  super.tearDown();
-}

@@ -1,5 +1,0 @@
-{
-  super(application,clazz);
-  this.serializer=new Persister();
-  this.mFactoryPrefix=factoryPrefix;
-}

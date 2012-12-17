@@ -1,5 +1,0 @@
-{
-  if (isAsyncSaveEnabled) {
-    throw new IllegalStateException("Asynchronous saving operation not supported.");
-  }
-}

@@ -1,4 +1,0 @@
-{
-  scale*=factor;
-  Log.d(TAG,"Zooming factor :" + factor);
-}

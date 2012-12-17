@@ -1,4 +1,0 @@
-{
-  boolean canHandleClientWeather=dataPersistenceManager.canHandleClass(Weather.class);
-  assertEquals(true,canHandleClientWeather);
-}

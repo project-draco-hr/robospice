@@ -1,3 +1,0 @@
-{
-  return requestProcessor.isFailOnCacheError();
-}

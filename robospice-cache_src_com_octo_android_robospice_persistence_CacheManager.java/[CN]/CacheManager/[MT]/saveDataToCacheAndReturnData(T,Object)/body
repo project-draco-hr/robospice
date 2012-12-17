@@ -1,4 +1,0 @@
-{
-  ObjectPersister<T> classCacheManager=getObjectPersister((Class<T>)data.getClass());
-  return classCacheManager.saveDataToCacheAndReturnData(data,cacheKey);
-}

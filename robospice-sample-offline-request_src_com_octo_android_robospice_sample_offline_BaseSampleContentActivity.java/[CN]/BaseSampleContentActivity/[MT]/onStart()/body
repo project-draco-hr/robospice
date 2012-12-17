@@ -1,4 +1,0 @@
-{
-  contentManagerJson.start(this);
-  super.onStart();
-}

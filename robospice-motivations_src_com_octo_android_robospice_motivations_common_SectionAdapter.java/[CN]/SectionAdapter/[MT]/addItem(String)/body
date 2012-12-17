@@ -1,3 +1,0 @@
-{
-  listSectionItems.add(new SectionItem(item,false));
-}

@@ -1,9 +1,0 @@
-{
-  try {
-    getCacheFile(cacheKey).createNewFile();
-  }
- catch (  IOException e) {
-    throw new CacheSavingException(e);
-  }
-  return data;
-}

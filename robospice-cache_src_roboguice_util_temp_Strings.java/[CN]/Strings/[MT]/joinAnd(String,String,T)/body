@@ -1,3 +1,0 @@
-{
-  return joinAnd(delimiter,lastDelimiter,Arrays.asList(objs));
-}

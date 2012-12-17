@@ -1,6 +1,0 @@
-{
-  mockCacheManager.removeAllDataFromCache();
-  EasyMock.replay(mockCacheManager);
-  requestProcessorUnderTest.removeAllDataFromCache();
-  EasyMock.verify(mockCacheManager);
-}

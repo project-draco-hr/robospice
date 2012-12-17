@@ -1,4 +1,0 @@
-{
-  this.spiceException=spiceException;
-  this.listeners=listeners;
-}

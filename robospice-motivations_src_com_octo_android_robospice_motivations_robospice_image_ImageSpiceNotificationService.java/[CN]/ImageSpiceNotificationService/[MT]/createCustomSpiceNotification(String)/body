@@ -1,3 +1,0 @@
-{
-  return createCustomSpiceNotification(text,0);
-}

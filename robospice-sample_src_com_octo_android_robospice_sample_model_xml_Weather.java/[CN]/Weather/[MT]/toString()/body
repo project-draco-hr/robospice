@@ -1,3 +1,0 @@
-{
-  return "Weather [curren_weather=" + listWeather + ", forecast="+ listForecast+ "]";
-}

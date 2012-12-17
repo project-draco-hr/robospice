@@ -1,8 +1,0 @@
-{
-  inFileStringObjectPersister.saveDataToCacheAndReturnData("coucou",TEST_CACHE_KEY);
-  File cachedFile=inFileStringObjectPersister.getCacheFile(TEST_CACHE_KEY);
-  assertTrue(cachedFile.exists());
-  @SuppressWarnings("unchecked") List<String> actual=IOUtils.readLines(new FileInputStream(cachedFile),CharEncoding.UTF_8);
-  assertEquals(1,actual.size());
-  assertEquals("coucou",actual.get(0));
-}

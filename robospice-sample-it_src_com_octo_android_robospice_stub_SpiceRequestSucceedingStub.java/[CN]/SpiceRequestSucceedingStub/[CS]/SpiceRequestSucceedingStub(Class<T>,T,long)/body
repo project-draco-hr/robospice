@@ -1,5 +1,0 @@
-{
-  super(clazz);
-  this.returnedData=returnedData;
-  this.sleepTimeBeforeAnswering=sleepTimeBeforeAnswering;
-}

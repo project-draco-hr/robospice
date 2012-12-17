@@ -1,8 +1,0 @@
-{
-  isLoadDataFromNetworkCalled=true;
-  signalStopWaiting();
-  if (sleepTimeBeforeAnswering != 0) {
-    Thread.sleep(sleepTimeBeforeAnswering);
-  }
-  return returnedData;
-}

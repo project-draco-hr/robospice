@@ -1,4 +1,0 @@
-{
-  String actual=fileBasedClassCacheManagerFactory.getCachePrefix();
-  assertEquals(FileBaseClassCacheManagerFactoryUnderTest.class.getSimpleName() + "_",actual);
-}

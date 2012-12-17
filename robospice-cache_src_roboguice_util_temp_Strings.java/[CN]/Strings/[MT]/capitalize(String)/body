@@ -1,4 +1,0 @@
-{
-  final String c=Strings.toString(s);
-  return c.length() >= 2 ? c.substring(0,1).toUpperCase() + c.substring(1) : c.length() >= 1 ? c.toUpperCase() : c;
-}

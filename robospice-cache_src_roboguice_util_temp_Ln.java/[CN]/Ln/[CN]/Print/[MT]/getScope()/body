@@ -1,7 +1,0 @@
-{
-  if (config.minimumLogLevel <= Log.DEBUG) {
-    final StackTraceElement trace=Thread.currentThread().getStackTrace()[5];
-    return config.scope + "/" + trace.getFileName()+ ":"+ trace.getLineNumber();
-  }
-  return config.scope;
-}

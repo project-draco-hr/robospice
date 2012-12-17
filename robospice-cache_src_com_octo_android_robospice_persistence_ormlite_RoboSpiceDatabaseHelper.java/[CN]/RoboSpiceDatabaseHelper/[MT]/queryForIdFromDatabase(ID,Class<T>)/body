@@ -1,5 +1,0 @@
-{
-  Dao<T,ID> dao=getDao(modelObjectClass);
-  T result=dao.queryForId(id);
-  return result;
-}

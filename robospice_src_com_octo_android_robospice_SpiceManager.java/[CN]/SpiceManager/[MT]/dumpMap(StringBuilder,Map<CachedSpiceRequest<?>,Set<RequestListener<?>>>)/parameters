@@ -1,2 +1,0 @@
-StringBuilder stringBuilder
-Map<CachedSpiceRequest<?>,Set<RequestListener<?>>> map

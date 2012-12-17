@@ -1,3 +1,0 @@
-{
-  requestProcessor.dontNotifyRequestListenersForRequest(request,listRequestListener);
-}

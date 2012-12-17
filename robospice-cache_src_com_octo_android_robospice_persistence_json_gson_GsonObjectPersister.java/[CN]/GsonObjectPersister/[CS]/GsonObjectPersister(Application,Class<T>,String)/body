@@ -1,5 +1,0 @@
-{
-  super(application,clazz);
-  this.gson=new Gson();
-  this.mFactoryPrefix=factoryPrefix;
-}

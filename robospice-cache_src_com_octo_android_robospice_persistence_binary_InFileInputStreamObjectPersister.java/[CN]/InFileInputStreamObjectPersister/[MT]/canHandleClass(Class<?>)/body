@@ -1,9 +1,0 @@
-{
-  try {
-    clazz.asSubclass(InputStream.class);
-    return true;
-  }
- catch (  ClassCastException ex) {
-    return false;
-  }
-}

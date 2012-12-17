@@ -1,4 +1,0 @@
-{
-  mRestResponse=data;
-  super.deliverResult(data);
-}

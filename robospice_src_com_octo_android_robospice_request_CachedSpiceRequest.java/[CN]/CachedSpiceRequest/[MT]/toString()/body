@@ -1,3 +1,0 @@
-{
-  return "CachedSpiceRequest [requestCacheKey=" + requestCacheKey + ", cacheDuration="+ cacheDuration+ ", spiceRequest="+ spiceRequest+ "]";
-}

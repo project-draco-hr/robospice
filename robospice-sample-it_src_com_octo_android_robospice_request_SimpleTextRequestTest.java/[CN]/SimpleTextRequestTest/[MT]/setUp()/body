@@ -1,4 +1,0 @@
-{
-  super.setUp();
-  loremIpsumTextRequest=new SimpleTextRequest("http://www.loremipsum.de/downloads/original.txt");
-}

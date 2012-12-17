@@ -1,4 +1,0 @@
-{
-  spiceManager.start(getInstrumentation().getContext());
-  assertNotNull(spiceManager.getException());
-}

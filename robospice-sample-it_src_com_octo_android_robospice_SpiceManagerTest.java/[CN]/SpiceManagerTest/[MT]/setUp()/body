@@ -1,4 +1,0 @@
-{
-  super.setUp();
-  spiceManager=new SpiceManagerUnderTest(SampleJsonPersistenceRestContentService.class);
-}

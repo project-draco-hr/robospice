@@ -1,7 +1,0 @@
-{
-  SpiceRequestStub<String> contentRequestStub=new SpiceRequestSucceedingStub<String>(String.class,TEST_RETURNED_DATA);
-  spiceManager.start(getInstrumentation().getTargetContext());
-  spiceManager.cancel(contentRequestStub);
-  Thread.sleep(REQUEST_COMPLETION_TIME_OUT);
-  assertTrue(contentRequestStub.isCancelled());
-}

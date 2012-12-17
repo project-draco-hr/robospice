@@ -1,4 +1,0 @@
-Context context
-String databaseName
-SQLiteDatabase.CursorFactory factory
-int databaseVersion

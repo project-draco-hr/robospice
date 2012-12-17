@@ -1,6 +1,0 @@
-{
-  Ln.d("Not calling network request : " + request + " as it is cancelled. ");
-  notifyListenersOfRequestProgress(request,listeners,RequestStatus.COMPLETE);
-  post(new ResultRunnable(listeners,new RequestCancelledException("Request has been cancelled explicitely.")),request.getRequestCacheKey());
-  notifyOfRequestProcessed(request);
-}

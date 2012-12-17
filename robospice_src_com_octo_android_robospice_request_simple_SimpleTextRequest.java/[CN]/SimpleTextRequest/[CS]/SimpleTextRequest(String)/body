@@ -1,4 +1,0 @@
-{
-  super(String.class);
-  this.url=url;
-}

@@ -1,4 +1,0 @@
-{
-  super(InputStream.class);
-  this.url=url;
-}

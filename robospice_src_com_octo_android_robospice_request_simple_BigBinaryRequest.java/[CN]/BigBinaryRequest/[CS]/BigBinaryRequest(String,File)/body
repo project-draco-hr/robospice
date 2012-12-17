@@ -1,4 +1,0 @@
-{
-  super(url);
-  this.cacheFile=cacheFile;
-}

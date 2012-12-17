@@ -1,3 +1,0 @@
-{
-  requestProcessor.setFailOnCacheError(failOnCacheError);
-}

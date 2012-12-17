@@ -1,5 +1,0 @@
-{
-  contentManagerJson.start(this);
-  contentManagerOrmlite.start(this);
-  super.onStart();
-}

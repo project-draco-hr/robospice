@@ -1,5 +1,0 @@
-{
-  if (!(arg0 instanceof RequestCancelledException)) {
-    Toast.makeText(TweeterXmlSpiceActivity.this,"Failed to load Twitter data.",Toast.LENGTH_SHORT).show();
-  }
-}

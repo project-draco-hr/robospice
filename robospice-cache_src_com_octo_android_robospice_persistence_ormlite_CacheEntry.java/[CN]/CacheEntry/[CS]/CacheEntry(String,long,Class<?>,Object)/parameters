@@ -1,4 +1,0 @@
-String cacheKey
-long timestamp
-Class<?> resultClass
-Object resultId

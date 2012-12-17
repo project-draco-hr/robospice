@@ -1,3 +1,0 @@
-{
-  return getClass().getSimpleName() + CACHE_PREFIX_END;
-}

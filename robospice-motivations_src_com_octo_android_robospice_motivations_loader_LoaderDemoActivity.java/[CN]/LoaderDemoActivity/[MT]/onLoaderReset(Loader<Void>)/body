@@ -1,4 +1,0 @@
-{
-  progressBar.setProgress(0);
-  Log.d(getClass().getSimpleName(),"Loader reset");
-}

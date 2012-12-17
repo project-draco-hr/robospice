@@ -1,8 +1,0 @@
-{
-  if (listHandledClasses == null) {
-    return true;
-  }
- else {
-    return listHandledClasses.contains(clazz);
-  }
-}

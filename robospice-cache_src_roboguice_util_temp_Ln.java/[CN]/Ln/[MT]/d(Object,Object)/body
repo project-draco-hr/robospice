@@ -1,8 +1,0 @@
-{
-  if (config.minimumLogLevel > Log.DEBUG) {
-    return 0;
-  }
-  final String s=Strings.toString(s1);
-  final String message=args.length > 0 ? String.format(s,args) : s;
-  return print.println(Log.DEBUG,message);
-}

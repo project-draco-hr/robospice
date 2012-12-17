@@ -1,4 +1,0 @@
-{
-  isBound=true;
-  return mSpiceServiceBinder;
-}

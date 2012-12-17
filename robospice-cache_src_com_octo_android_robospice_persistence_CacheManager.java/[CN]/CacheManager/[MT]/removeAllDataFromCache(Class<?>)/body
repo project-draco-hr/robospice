@@ -1,3 +1,0 @@
-{
-  getObjectPersister(clazz).removeAllDataFromCache();
-}

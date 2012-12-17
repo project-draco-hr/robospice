@@ -1,8 +1,0 @@
-{
-  Weather weather=new Weather();
-  List<Curren_weather> currents=new ArrayList<Curren_weather>();
-  currents.add(curren_weather);
-  weather.setListWeather(currents);
-  weather.setListForecast(null);
-  return weather;
-}

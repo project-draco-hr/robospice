@@ -1,9 +1,0 @@
-{
-  try {
-    databaseHelper.clearTableFromDataBase(getHandledClass());
-    databaseHelper.clearTableFromDataBase(CacheEntry.class);
-  }
- catch (  SQLException e) {
-    Ln.d(e,"SQL Error");
-  }
-}

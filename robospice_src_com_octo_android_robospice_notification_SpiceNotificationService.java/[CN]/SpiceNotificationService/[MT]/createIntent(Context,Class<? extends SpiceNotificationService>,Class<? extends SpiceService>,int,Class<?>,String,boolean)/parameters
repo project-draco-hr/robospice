@@ -1,7 +1,0 @@
-Context context
-Class<? extends SpiceNotificationService> clazz
-Class<? extends SpiceService> contentServiceClass
-int notificationId
-Class<?> requestResultType
-String cacheKey
-boolean foreground

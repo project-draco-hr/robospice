@@ -1,8 +1,0 @@
-{
-  final String TEST_CACHE_KEY="TEST_CACHE_KEY";
-  fileBasedClassCacheManager.saveDataToCacheAndReturnData(new Object(),TEST_CACHE_KEY);
-  File cacheFile=fileBasedClassCacheManager.getCacheFile(TEST_CACHE_KEY);
-  assertTrue(cacheFile.exists());
-  fileBasedClassCacheManager.removeDataFromCache(TEST_CACHE_KEY);
-  assertFalse(cacheFile.exists());
-}

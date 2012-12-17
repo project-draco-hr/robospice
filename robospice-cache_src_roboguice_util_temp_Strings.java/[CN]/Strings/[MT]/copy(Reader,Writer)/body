@@ -1,4 +1,0 @@
-{
-  long count=copyLarge(input,output);
-  return count > Integer.MAX_VALUE ? -1 : (int)count;
-}

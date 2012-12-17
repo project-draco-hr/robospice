@@ -1,3 +1,0 @@
-{
-  return Log.println(priority,getScope(),processMessage(msg));
-}

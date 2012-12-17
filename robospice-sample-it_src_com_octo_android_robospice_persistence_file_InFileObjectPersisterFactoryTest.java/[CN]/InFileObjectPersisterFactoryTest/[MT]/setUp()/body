@@ -1,5 +1,0 @@
-{
-  super.setUp();
-  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
-  fileBasedClassCacheManagerFactory=new FileBaseClassCacheManagerFactoryUnderTest(application);
-}
