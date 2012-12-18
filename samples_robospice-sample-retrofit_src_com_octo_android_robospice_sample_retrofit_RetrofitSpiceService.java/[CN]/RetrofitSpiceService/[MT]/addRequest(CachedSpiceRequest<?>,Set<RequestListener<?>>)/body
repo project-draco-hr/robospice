@@ -1,0 +1,6 @@
+{
+  if (request.getContentRequest() instanceof RetrofitSpiceRequest) {
+    ((RetrofitSpiceRequest<?>)request.getContentRequest()).setRestAdapterBuilder(restAdapterBuilder);
+  }
+  super.addRequest(request,listRequestListener);
+}

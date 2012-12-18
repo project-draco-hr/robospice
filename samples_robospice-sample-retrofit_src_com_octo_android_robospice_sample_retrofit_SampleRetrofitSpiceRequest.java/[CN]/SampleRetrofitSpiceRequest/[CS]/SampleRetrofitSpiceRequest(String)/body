@@ -1,0 +1,4 @@
+{
+  super(ListTweet.class);
+  this.userName=userName;
+}

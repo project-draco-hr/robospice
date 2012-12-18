@@ -1,0 +1,6 @@
+{
+  super.onStart();
+  setProgressBarIndeterminate(false);
+  setProgressBarVisibility(true);
+  getSpiceManager().execute(weatherRequest,"json",DurationInMillis.ONE_MINUTE,new ListTweetRequestListener());
+}

@@ -1,0 +1,4 @@
+{
+  TypedBytes typedBytes=converter.from(data);
+  typedBytes.writeTo(new FileOutputStream(getCacheFile(cacheKey)));
+}

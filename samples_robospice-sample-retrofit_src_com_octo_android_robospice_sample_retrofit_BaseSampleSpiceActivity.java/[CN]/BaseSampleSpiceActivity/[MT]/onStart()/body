@@ -1,0 +1,4 @@
+{
+  spiceManager.start(this);
+  super.onStart();
+}
