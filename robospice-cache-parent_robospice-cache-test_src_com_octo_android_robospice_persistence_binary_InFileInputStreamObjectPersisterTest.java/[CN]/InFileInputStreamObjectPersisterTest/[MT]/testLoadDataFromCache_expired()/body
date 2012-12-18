@@ -1,6 +1,8 @@
 {
   File cachedFile=inputStreamCacheManager.getCacheFile(TEST_CACHE_KEY);
-  IOUtils.write("coucou",new FileOutputStream(cachedFile));
+  FileOutputStream fileOutputStream=new FileOutputStream(cachedFile);
+  IOUtils.write("coucou",fileOutputStream);
+  IOUtils.closeQuietly(fileOutputStream);
   cachedFile.setLastModified(System.currentTimeMillis() - 5 * DurationInMillis.ONE_SECOND);
   InputStream inputStream=inputStreamCacheManager.loadDataFromCache(TEST_CACHE_KEY,DurationInMillis.ONE_SECOND);
   assertNull(inputStream);
