@@ -1,5 +1,0 @@
-{
-  Toast.makeText(SampleContentActivity.this,"success xml",Toast.LENGTH_SHORT).show();
-  String originalText=mCurrentWeatherXmlTextView.getText().toString();
-  mCurrentWeatherXmlTextView.setText(originalText + result.toString());
-}

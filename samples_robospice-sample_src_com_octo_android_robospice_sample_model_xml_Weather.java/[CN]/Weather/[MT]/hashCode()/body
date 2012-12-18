@@ -1,9 +1,0 @@
-{
-  final int prime=31;
-  int result=1;
-  result=prime * result + (emptyField == null ? 0 : emptyField.hashCode());
-  result=prime * result + id;
-  result=prime * result + (listForecast == null ? 0 : listForecast.hashCode());
-  result=prime * result + (listWeather == null ? 0 : listWeather.hashCode());
-  return result;
-}

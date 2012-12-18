@@ -1,3 +1,0 @@
-{
-  Toast.makeText(SampleContentActivity.this,"failure json",Toast.LENGTH_SHORT).show();
-}

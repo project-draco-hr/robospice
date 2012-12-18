@@ -1,3 +1,0 @@
-{
-  return "Wind [dir=" + dir + ", speed="+ speed+ ", wind_unit="+ wind_unit+ "]";
-}

@@ -1,9 +1,0 @@
-{
-  Weather weatherRequestStatus=buildWeather(TEST_TEMP);
-  final String FILE_NAME="toto";
-  dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,FILE_NAME);
-  File cachedFile=((SimpleSerializerObjectPersister<?>)dataPersistenceManager).getCacheFile(FILE_NAME);
-  cachedFile.setLastModified(System.currentTimeMillis() - 5 * DurationInMillis.ONE_SECOND);
-  Weather weatherReturned=dataPersistenceManager.loadDataFromCache(FILE_NAME,DurationInMillis.ONE_SECOND);
-  assertNull(weatherReturned);
-}
