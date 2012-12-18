@@ -1,0 +1,6 @@
+{
+  Intent startIntent=new Intent();
+  startIntent.setClass(getContext(),RetrofitSpiceTestService.class);
+  startService(startIntent);
+  assertNotNull(getService().createRestAdapterBuilder());
+}

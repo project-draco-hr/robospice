@@ -1,7 +1,0 @@
-{
-  spiceManager.start(getContext());
-  GoogleHttpClientSpiceRequestStub googleHttpClientSpiceRequest=new GoogleHttpClientSpiceRequestStub(Weather.class);
-  spiceManager.execute(googleHttpClientSpiceRequest,new RequestListenerStub<Weather>());
-  googleHttpClientSpiceRequest.await(REQUEST_COMPLETION_TIMEOUT);
-  assertNotNull(googleHttpClientSpiceRequest.getHttpRequestFactory());
-}

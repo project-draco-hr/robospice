@@ -1,0 +1,10 @@
+{
+  try {
+    reentrantLock.lock();
+    loadDataFromNetworkHasBeenExecuted.signal();
+  }
+  finally {
+    reentrantLock.unlock();
+  }
+  return new WeatherResult();
+}

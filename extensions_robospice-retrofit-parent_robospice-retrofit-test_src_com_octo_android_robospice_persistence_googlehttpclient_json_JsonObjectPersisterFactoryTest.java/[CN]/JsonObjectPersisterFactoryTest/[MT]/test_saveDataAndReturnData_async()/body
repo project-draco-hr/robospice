@@ -1,7 +1,0 @@
-{
-  WeatherResult weatherRequestStatus=buildWeather(TEST_TEMP,TEST_TEMP_UNIT);
-  inFileObjectPersister.setAsyncSaveEnabled(true);
-  WeatherResult weatherReturned=inFileObjectPersister.saveDataToCacheAndReturnData(weatherRequestStatus,"weather.json");
-  ((JsonObjectPersister<?>)inFileObjectPersister).awaitForSaveAsyncTermination(500,TimeUnit.MILLISECONDS);
-  assertEquals(TEST_TEMP,weatherReturned.getWeather().getCurren_weather().get(0).getTemp());
-}

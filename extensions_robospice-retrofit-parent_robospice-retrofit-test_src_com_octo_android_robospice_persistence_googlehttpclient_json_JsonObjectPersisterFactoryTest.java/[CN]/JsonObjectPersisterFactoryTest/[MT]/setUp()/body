@@ -1,6 +1,0 @@
-{
-  super.setUp();
-  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
-  JsonObjectPersisterFactory factory=getJsonObjectPersisterFactory(application);
-  inFileObjectPersister=factory.createObjectPersister(WeatherResult.class);
-}
