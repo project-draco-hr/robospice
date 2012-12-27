@@ -2,7 +2,7 @@
   if (this.runner == null) {
     throw new IllegalStateException("Not started yet");
   }
-  Ln.d("Content manager stopping.");
+  Ln.d("SpiceManager stopping.");
   dontNotifyAnyRequestListenersInternal();
   isUnbinding=false;
   unbindFromService(context.get());
@@ -11,5 +11,5 @@
   this.runner.interrupt();
   this.runner=null;
   this.context.clear();
-  Ln.d("Content manager stopped.");
+  Ln.d("SpiceManager stopped.");
 }

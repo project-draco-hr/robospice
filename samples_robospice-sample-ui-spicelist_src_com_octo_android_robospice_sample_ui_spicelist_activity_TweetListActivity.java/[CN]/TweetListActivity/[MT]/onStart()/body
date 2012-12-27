@@ -1,0 +1,6 @@
+{
+  super.onStart();
+  spiceManagerJson.start(this);
+  spiceManagerBinary.start(this);
+  loadListTweets();
+}

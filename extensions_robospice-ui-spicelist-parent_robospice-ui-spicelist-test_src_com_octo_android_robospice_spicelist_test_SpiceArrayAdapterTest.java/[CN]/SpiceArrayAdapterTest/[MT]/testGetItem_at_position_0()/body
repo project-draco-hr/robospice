@@ -1,0 +1,3 @@
+{
+  assertEquals("data1 was expected.",data1.foo,adapter.getItem(0).foo);
+}

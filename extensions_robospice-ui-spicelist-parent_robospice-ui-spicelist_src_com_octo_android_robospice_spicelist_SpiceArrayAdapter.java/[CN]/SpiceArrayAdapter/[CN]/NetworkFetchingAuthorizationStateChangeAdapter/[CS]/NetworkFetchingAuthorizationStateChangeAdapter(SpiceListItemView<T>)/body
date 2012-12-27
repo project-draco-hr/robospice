@@ -1,0 +1,3 @@
+{
+  this.weakReferenceSpiceListItemView=new WeakReference<SpiceListItemView<T>>(spiceListItemView);
+}

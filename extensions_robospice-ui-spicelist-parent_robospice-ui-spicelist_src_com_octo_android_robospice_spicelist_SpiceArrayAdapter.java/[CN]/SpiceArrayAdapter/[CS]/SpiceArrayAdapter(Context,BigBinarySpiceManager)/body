@@ -1,0 +1,5 @@
+{
+  super(context,0);
+  this.spiceManagerBinary=spiceManagerBinary;
+  defaultUserDrawable=context.getResources().getDrawable(android.R.drawable.picture_frame);
+}

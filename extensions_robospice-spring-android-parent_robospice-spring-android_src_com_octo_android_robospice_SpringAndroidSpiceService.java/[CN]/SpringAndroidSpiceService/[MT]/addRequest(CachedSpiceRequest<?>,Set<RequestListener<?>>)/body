@@ -1,6 +1,6 @@
 {
-  if (request.getContentRequest() instanceof SpringAndroidSpiceRequest) {
-    ((SpringAndroidSpiceRequest<?>)request.getContentRequest()).setRestTemplate(restTemplate);
+  if (request.getSpiceRequest() instanceof SpringAndroidSpiceRequest) {
+    ((SpringAndroidSpiceRequest<?>)request.getSpiceRequest()).setRestTemplate(restTemplate);
   }
   super.addRequest(request,listRequestListener);
 }

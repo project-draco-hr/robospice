@@ -1,0 +1,8 @@
+{
+  RestTemplate restTemplate=new RestTemplate();
+  MappingJacksonHttpMessageConverter jsonConverter=new MappingJacksonHttpMessageConverter();
+  final List<HttpMessageConverter<?>> listHttpMessageConverters=restTemplate.getMessageConverters();
+  listHttpMessageConverters.add(jsonConverter);
+  restTemplate.setMessageConverters(listHttpMessageConverters);
+  return restTemplate;
+}

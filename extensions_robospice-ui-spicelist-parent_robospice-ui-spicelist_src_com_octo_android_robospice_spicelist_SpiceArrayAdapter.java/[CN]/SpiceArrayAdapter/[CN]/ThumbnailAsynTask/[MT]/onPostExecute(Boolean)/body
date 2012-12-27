@@ -1,0 +1,8 @@
+{
+  if (isImageAvailableInCache) {
+    loadBitmapAsynchronously(octo,spiceListItemView.getImageView(),tempThumbnailImageFileName);
+  }
+ else {
+    spiceListItemView.getImageView().setImageDrawable(defaultUserDrawable);
+  }
+}

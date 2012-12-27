@@ -1,0 +1,6 @@
+{
+  this.octo=octo;
+  this.spiceListItemView=spiceListItemView;
+  this.thumbImageView=spiceListItemView.getImageView();
+  this.imageFileName=imageFileName;
+}

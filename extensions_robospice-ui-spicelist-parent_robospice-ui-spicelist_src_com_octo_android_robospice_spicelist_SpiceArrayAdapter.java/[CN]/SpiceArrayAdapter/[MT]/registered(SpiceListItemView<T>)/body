@@ -1,0 +1,8 @@
+{
+  for (  NetworkFetchingAuthorizationStateChangeAdapter listener : networkFetchingAuthorizationStateChangeListenerList) {
+    if (listener.getView() == view) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,8 @@
+{
+  boolean changed=isNetworkFetchingAllowed != this.isNetworkFetchingAllowed;
+  this.isNetworkFetchingAllowed=isNetworkFetchingAllowed;
+  if (isNetworkFetchingAllowed && changed) {
+    fireOnNetworkFetchingAllowedChange();
+    Ln.d("calling state change listeners");
+  }
+}

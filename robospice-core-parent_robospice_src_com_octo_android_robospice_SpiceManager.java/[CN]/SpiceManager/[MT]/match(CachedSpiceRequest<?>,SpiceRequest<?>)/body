@@ -1,8 +1,8 @@
 {
-  if (contentRequest instanceof CachedSpiceRequest) {
-    return contentRequest == cachedContentRequest;
+  if (spiceRequest instanceof CachedSpiceRequest) {
+    return spiceRequest == cachedSpiceRequest;
   }
  else {
-    return cachedContentRequest.getContentRequest() == contentRequest;
+    return cachedSpiceRequest.getSpiceRequest() == spiceRequest;
   }
 }

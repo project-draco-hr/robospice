@@ -1,0 +1,18 @@
+{
+  super.setUp();
+  cacheFile=new File(getInstrumentation().getTargetContext().getCacheDir(),"Foo");
+  cacheFile.delete();
+  mockWebServer=new MockWebServer();
+  spiceManager=new BigBinarySpiceManager();
+  spiceManager.start(getInstrumentation().getTargetContext());
+  data=new ArrayList<DataUnderTest>();
+  data1=new DataUnderTest();
+  data1.foo="data1";
+  data1.imageUrl="data1.png";
+  data2=new DataUnderTest();
+  data2.foo="data2";
+  data2.imageUrl="data2.png";
+  data.add(data1);
+  data.add(data2);
+  adapter=new SpiceArrayAdapterUnderTest(getInstrumentation().getTargetContext(),spiceManager,data);
+}

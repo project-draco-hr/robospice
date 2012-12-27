@@ -2,8 +2,8 @@
   Ln.v("Removing %s  size is %d",request,mapRequestToRequestListener.size());
   mapRequestToRequestListener.remove(request);
   checkAllRequestComplete();
-synchronized (contentServiceListenerSet) {
-    for (    SpiceServiceServiceListener spiceServiceServiceListener : contentServiceListenerSet) {
+synchronized (spiceServiceListenerSet) {
+    for (    SpiceServiceServiceListener spiceServiceServiceListener : spiceServiceListenerSet) {
       spiceServiceServiceListener.onRequestProcessed(request);
     }
   }

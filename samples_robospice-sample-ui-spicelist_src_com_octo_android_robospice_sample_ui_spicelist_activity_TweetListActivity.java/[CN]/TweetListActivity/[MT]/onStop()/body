@@ -1,0 +1,5 @@
+{
+  spiceManagerJson.shouldStop();
+  spiceManagerBinary.shouldStop();
+  super.onStop();
+}

@@ -1,0 +1,5 @@
+{
+  if (getAdapter() != null) {
+    getAdapter().setNetworkFetchingAllowed(scrollState == SCROLL_STATE_IDLE);
+  }
+}

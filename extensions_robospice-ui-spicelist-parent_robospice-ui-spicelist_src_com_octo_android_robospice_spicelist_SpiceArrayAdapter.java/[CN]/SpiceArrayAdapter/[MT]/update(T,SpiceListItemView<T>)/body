@@ -1,0 +1,6 @@
+{
+  if (!registered(view)) {
+    addSpiceListItemView(view);
+  }
+  new ThumbnailAsynTask(createRequest(data)).execute(data,view);
+}

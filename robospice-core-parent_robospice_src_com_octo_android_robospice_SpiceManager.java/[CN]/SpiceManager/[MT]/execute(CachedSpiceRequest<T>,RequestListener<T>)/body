@@ -1,4 +1,4 @@
 {
-  addRequestListenerToListOfRequestListeners(cachedContentRequest,requestListener);
-  this.requestQueue.add(cachedContentRequest);
+  addRequestListenerToListOfRequestListeners(cachedSpiceRequest,requestListener);
+  this.requestQueue.add(cachedSpiceRequest);
 }

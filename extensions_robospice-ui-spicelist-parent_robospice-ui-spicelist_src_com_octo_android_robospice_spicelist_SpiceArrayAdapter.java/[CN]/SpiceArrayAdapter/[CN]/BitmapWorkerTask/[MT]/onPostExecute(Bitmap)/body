@@ -1,0 +1,22 @@
+{
+  if (isCancelled()) {
+    if (data.toString().equals("JFA")) {
+      Ln.d(data.toString() + " : cancel decoding bitmap");
+    }
+    bitmap=null;
+  }
+  if (imageViewReference != null && bitmap != null) {
+    if (data.toString().equals("JFA")) {
+      Ln.d(data.toString() + " : bitmapworkertask");
+    }
+    final ImageView imageView=imageViewReference.get();
+    final BitmapWorkerTask bitmapWorkerTask=getBitmapWorkerTask(imageView);
+    if (this == bitmapWorkerTask && imageView != null) {
+      if (freshDrawableSet.contains(data)) {
+        freshDrawableSet.remove(data);
+        imageView.startAnimation(animation);
+      }
+      imageView.setImageBitmap(bitmap);
+    }
+  }
+}

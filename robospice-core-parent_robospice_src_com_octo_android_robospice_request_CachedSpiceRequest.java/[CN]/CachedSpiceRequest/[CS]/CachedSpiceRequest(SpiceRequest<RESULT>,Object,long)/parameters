@@ -1,3 +1,3 @@
-SpiceRequest<RESULT> contentRequest
+SpiceRequest<RESULT> spiceRequest
 Object requestCacheKey
 long cacheDuration

@@ -3,5 +3,5 @@
   requestWindowFeature(Window.FEATURE_PROGRESS);
   setContentView(R.layout.main);
   mLoremTextView=(TextView)findViewById(R.id.textview_lorem_ipsum);
-  weatherRequest=new SampleGoogleHttpClientSpiceRequest("75000");
+  weatherRequest=new SampleSpiceRequest("75000");
 }

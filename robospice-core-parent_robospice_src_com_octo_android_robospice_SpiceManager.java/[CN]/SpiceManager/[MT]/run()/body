@@ -1,7 +1,7 @@
 {
   checkServiceIsProperlyDeclaredInAndroidManifest(context.get());
   if (!SpiceService.isStarted()) {
-    Intent intent=new Intent(context.get(),contentServiceClass);
+    Intent intent=new Intent(context.get(),spiceServiceClass);
     context.get().startService(intent);
   }
   bindToService(context.get());

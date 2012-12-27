@@ -1,0 +1,7 @@
+{
+  SpiceListItemView<T> spiceListItemView=weakReferenceSpiceListItemView.get();
+  if (spiceListItemView != null) {
+    T data=spiceListItemView.getData();
+    new ThumbnailAsynTask(createRequest(data)).execute(data,spiceListItemView);
+  }
+}

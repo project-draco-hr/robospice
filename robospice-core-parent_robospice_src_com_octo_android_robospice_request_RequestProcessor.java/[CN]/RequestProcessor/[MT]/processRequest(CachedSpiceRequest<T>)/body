@@ -6,7 +6,7 @@
     return;
   }
   RequestProgressListener requestProgressListener=new RequestProgressListener(){
-    public void onRequestProgressUpdate(    RequestProgress progress){
+    @Override public void onRequestProgressUpdate(    RequestProgress progress){
       Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
       notifyListenersOfRequestProgress(request,listeners,progress);
     }

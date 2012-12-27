@@ -1,0 +1,15 @@
+{
+  if (thumbImageView.getTag() != null && thumbImageView.getTag().equals(tempThumbnailImageFileName)) {
+    return;
+  }
+  if (cancelPotentialWork(tempThumbnailImageFileName,thumbImageView)) {
+    final BitmapWorkerTask task=new BitmapWorkerTask(thumbImageView,octo);
+    task.fileName=tempThumbnailImageFileName;
+    final AsyncDrawable asyncDrawable=new AsyncDrawable(getContext().getResources(),task);
+    thumbImageView.setImageDrawable(asyncDrawable);
+    thumbImageView.setTag(tempThumbnailImageFileName);
+    int width=Math.round(convertDpToPixel(45,getContext()));
+    int height=width;
+    task.execute(tempThumbnailImageFileName,String.valueOf(width),String.valueOf(height));
+  }
+}

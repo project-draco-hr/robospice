@@ -1,0 +1,8 @@
+{
+synchronized (networkFetchingAuthorizationStateChangeListenerList) {
+    for (    NetworkFetchingAuthorizationStateChangeAdapter networkFetchingAuthorizationStateChangeListener : networkFetchingAuthorizationStateChangeListenerList) {
+      Ln.d("calling state change listener");
+      networkFetchingAuthorizationStateChangeListener.onNetworkFetchingAllowedChange(isNetworkFetchingAllowed);
+    }
+  }
+}

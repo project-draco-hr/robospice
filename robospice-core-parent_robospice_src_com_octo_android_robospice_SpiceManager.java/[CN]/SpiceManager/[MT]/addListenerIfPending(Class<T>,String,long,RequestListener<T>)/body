@@ -5,7 +5,7 @@
     }
   }
 ;
-  CachedSpiceRequest<T> cachedContentRequest=new CachedSpiceRequest<T>(request,requestCacheKey,cacheDuration);
-  cachedContentRequest.setProcessable(false);
-  execute(cachedContentRequest,requestListener);
+  CachedSpiceRequest<T> cachedSpiceRequest=new CachedSpiceRequest<T>(request,requestCacheKey,cacheDuration);
+  cachedSpiceRequest.setProcessable(false);
+  execute(cachedSpiceRequest,requestListener);
 }

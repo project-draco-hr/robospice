@@ -1,0 +1,3 @@
+{
+  assertEquals("Wrong ID.",0,adapter.getItemId(0));
+}

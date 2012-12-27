@@ -1,6 +1,6 @@
 Context context
 Class<? extends SpiceNotificationService> clazz
-Class<? extends SpiceService> contentServiceClass
+Class<? extends SpiceService> spiceServiceClass
 int notificationId
 Class<?> requestResultType
 String cacheKey

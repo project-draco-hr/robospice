@@ -1,0 +1,13 @@
+{
+  View view;
+  DataUnderTest currentData=data.get(position);
+  if (convertView != null) {
+    view=convertView;
+  }
+ else {
+    view=new StubbedView(getContext());
+  }
+  ((StubbedView)view).setDataUnderTest(currentData);
+  update(currentData,(SpiceListItemView<DataUnderTest>)view);
+  return view;
+}

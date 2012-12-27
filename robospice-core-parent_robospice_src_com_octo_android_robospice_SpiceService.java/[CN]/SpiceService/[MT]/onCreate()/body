@@ -8,5 +8,5 @@
   requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
   notification=createDefaultNotification();
   startForeground(notification);
-  Ln.d("Content Service instance created.");
+  Ln.d("SpiceService instance created.");
 }

@@ -1,0 +1,3 @@
+{
+  super.setOnScrollListener(new SpiceListScrollListener());
+}

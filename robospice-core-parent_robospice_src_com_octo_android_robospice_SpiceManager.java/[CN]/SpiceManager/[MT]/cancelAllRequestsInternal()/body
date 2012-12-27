@@ -2,13 +2,13 @@
   try {
     lockSendRequestsToService.lock();
 synchronized (mapRequestToLaunchToRequestListener) {
-      for (      CachedSpiceRequest<?> cachedContentRequest : mapRequestToLaunchToRequestListener.keySet()) {
-        cachedContentRequest.cancel();
+      for (      CachedSpiceRequest<?> cachedSpiceRequest : mapRequestToLaunchToRequestListener.keySet()) {
+        cachedSpiceRequest.cancel();
       }
     }
     List<CachedSpiceRequest<?>> listDuplicate=new ArrayList<CachedSpiceRequest<?>>(mapPendingRequestToRequestListener.keySet());
-    for (    CachedSpiceRequest<?> cachedContentRequest : listDuplicate) {
-      cachedContentRequest.cancel();
+    for (    CachedSpiceRequest<?> cachedSpiceRequest : listDuplicate) {
+      cachedSpiceRequest.cancel();
     }
   }
   finally {

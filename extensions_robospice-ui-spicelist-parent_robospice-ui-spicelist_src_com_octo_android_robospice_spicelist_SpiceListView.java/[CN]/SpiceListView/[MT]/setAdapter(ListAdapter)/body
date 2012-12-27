@@ -1,0 +1,6 @@
+{
+  if (!(adapter instanceof SpiceArrayAdapter)) {
+    throw new IllegalArgumentException("SpiceLists only support SpiceArrayAdapters.");
+  }
+  super.setAdapter(adapter);
+}

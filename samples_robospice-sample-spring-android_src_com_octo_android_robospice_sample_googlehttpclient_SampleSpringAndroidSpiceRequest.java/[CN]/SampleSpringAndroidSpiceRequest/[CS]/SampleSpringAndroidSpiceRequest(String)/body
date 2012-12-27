@@ -1,4 +1,0 @@
-{
-  super(WeatherResult.class);
-  this.baseUrl=String.format("http://www.myweather2.com/developer/forecast.ashx?uac=AQmS68n6Ku&query=%s&output=json",zipCode);
-}

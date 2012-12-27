@@ -1,0 +1,4 @@
+{
+  setProgressBarIndeterminateVisibility(false);
+  Toast.makeText(TweetListActivity.this,"Impossible to get the list of tweets",Toast.LENGTH_SHORT).show();
+}

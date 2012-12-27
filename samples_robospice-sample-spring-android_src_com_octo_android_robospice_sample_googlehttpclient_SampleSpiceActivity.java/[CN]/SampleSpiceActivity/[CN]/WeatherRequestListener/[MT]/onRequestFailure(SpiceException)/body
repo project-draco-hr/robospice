@@ -1,3 +1,0 @@
-{
-  Toast.makeText(SampleSpiceActivity.this,"failure",Toast.LENGTH_SHORT).show();
-}

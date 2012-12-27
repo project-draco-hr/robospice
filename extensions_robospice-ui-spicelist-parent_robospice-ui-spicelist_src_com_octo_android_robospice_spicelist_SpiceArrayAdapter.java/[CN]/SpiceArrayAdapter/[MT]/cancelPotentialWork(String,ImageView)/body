@@ -1,0 +1,13 @@
+{
+  final BitmapWorkerTask bitmapWorkerTask=getBitmapWorkerTask(imageView);
+  if (bitmapWorkerTask != null) {
+    final String bitmapFileName=bitmapWorkerTask.fileName;
+    if (bitmapFileName == null || !bitmapFileName.equals(fileName)) {
+      bitmapWorkerTask.cancel(true);
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

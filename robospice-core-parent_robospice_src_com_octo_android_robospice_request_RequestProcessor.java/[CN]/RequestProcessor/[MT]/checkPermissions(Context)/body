@@ -1,0 +1,3 @@
+{
+  networkStateChecker.checkPermissions(context);
+}

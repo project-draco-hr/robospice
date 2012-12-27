@@ -1,0 +1,5 @@
+{
+synchronized (mapPendingRequestToRequestListener) {
+    mapPendingRequestToRequestListener.remove(cachedSpiceRequest);
+  }
+}

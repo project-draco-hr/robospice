@@ -1,0 +1,4 @@
+{
+  checkHasPermission(context,Manifest.permission.ACCESS_NETWORK_STATE);
+  checkHasPermission(context,Manifest.permission.INTERNET);
+}

@@ -1,0 +1,13 @@
+{
+  View view;
+  Tweet currentItem=tweets.getResults().get(position);
+  if (convertView != null) {
+    view=convertView;
+  }
+ else {
+    view=new TweetListItemView(getContext());
+  }
+  ((TweetListItemView)view).updateView(currentItem);
+  update(currentItem,(SpiceListItemView<Tweet>)view);
+  return view;
+}

@@ -1,0 +1,8 @@
+{
+  animation=AnimationUtils.loadAnimation(getContext(),android.R.anim.fade_in);
+  animation.setDuration(getContext().getResources().getInteger(android.R.integer.config_mediumAnimTime));
+  fileName=params[0];
+  int width=Integer.valueOf(params[1]);
+  int height=Integer.valueOf(params[2]);
+  return decodeSampledBitmapFromResource(fileName,width,height);
+}

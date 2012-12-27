@@ -1,0 +1,15 @@
+{
+  octo=params[0];
+  spiceListItemView=(SpiceListItemView<T>)params[1];
+  File tempThumbnailImageFile=request.getCacheFile();
+  tempThumbnailImageFileName=tempThumbnailImageFile.getAbsolutePath();
+  Ln.d("Filename : " + tempThumbnailImageFileName);
+  if (!tempThumbnailImageFile.exists()) {
+    if (isNetworkFetchingAllowed) {
+      OctoImageRequestListener octoImageRequestListener=new OctoImageRequestListener(octo,spiceListItemView,tempThumbnailImageFileName);
+      spiceManagerBinary.execute(request,"THUMB_IMAGE_" + octo.hashCode(),DurationInMillis.NEVER,octoImageRequestListener);
+    }
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  return (SpiceArrayAdapter<?>)super.getAdapter();
+}

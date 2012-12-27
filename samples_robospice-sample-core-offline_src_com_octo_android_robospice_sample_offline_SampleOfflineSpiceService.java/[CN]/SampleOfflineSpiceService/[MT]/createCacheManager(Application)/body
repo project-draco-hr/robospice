@@ -1,4 +1,3 @@
 {
-  CacheManager cacheManager=new CacheManager();
-  return cacheManager;
+  return new CacheManager();
 }

@@ -1,0 +1,4 @@
+{
+  imageViewReference=new WeakReference<ImageView>(imageView);
+  this.data=data;
+}

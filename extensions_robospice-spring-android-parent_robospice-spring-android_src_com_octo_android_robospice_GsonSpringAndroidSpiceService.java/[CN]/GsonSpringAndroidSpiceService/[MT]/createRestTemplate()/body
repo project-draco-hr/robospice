@@ -1,0 +1,8 @@
+{
+  RestTemplate restTemplate=new RestTemplate();
+  GsonHttpMessageConverter jsonConverter=new GsonHttpMessageConverter();
+  final List<HttpMessageConverter<?>> listHttpMessageConverters=restTemplate.getMessageConverters();
+  listHttpMessageConverters.add(jsonConverter);
+  restTemplate.setMessageConverters(listHttpMessageConverters);
+  return restTemplate;
+}

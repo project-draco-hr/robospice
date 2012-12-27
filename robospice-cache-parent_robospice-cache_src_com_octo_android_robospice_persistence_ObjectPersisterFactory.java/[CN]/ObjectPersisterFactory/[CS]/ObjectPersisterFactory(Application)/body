@@ -1,3 +1,3 @@
 {
-  this.mApplication=application;
+  this(application,null);
 }

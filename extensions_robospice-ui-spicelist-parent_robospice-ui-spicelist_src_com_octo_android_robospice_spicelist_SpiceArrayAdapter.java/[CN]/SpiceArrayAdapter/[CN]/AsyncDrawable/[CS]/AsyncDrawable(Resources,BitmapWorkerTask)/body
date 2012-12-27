@@ -1,0 +1,4 @@
+{
+  super(res);
+  bitmapWorkerTaskReference=new WeakReference<BitmapWorkerTask>(bitmapWorkerTask);
+}

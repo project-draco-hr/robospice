@@ -1,9 +1,9 @@
 {
 synchronized (mapRequestToLaunchToRequestListener) {
-    Set<RequestListener<?>> listeners=mapRequestToLaunchToRequestListener.get(cachedContentRequest);
+    Set<RequestListener<?>> listeners=mapRequestToLaunchToRequestListener.get(cachedSpiceRequest);
     if (listeners == null) {
       listeners=new HashSet<RequestListener<?>>();
-      this.mapRequestToLaunchToRequestListener.put(cachedContentRequest,listeners);
+      this.mapRequestToLaunchToRequestListener.put(cachedSpiceRequest,listeners);
     }
     if (!listeners.contains(requestListener)) {
       listeners.add(requestListener);

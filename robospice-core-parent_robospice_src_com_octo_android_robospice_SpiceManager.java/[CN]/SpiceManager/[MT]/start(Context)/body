@@ -7,6 +7,6 @@
     runner=new Thread(this);
     isStopped=false;
     runner.start();
-    Ln.d("Content manager started.");
+    Ln.d("SpiceManager started.");
   }
 }

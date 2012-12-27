@@ -1,0 +1,3 @@
+{
+  assertEquals("Contacts amount incorrect.",data.size(),adapter.getCount());
+}
