@@ -1,0 +1,4 @@
+{
+  Ln.d("Call web service " + baseUrl);
+  return getRestTemplate().getForObject(new URI(baseUrl),getResultType());
+}
