@@ -1,4 +1,3 @@
 {
-  super(context,spiceManagerBinary);
-  this.tweets=tweets;
+  super(context,spiceManagerBinary,tweets.getResults());
 }

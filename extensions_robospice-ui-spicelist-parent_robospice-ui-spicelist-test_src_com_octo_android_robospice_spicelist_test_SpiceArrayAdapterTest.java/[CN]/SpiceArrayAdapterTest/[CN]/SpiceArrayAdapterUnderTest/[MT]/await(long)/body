@@ -1,0 +1,9 @@
+{
+  reentrantLock.lock();
+  try {
+    loadBitmapHasBeenCalledCondition.await(millisecond,TimeUnit.MILLISECONDS);
+  }
+  finally {
+    reentrantLock.unlock();
+  }
+}

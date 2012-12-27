@@ -1,0 +1,10 @@
+{
+  lock.lock();
+  try {
+    isSuccessful=true;
+    requestFinishedCondition.signal();
+  }
+  finally {
+    lock.unlock();
+  }
+}

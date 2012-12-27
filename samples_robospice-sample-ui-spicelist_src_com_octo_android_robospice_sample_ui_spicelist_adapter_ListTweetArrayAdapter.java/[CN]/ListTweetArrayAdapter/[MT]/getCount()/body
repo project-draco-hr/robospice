@@ -1,3 +1,0 @@
-{
-  return tweets.getResults().size();
-}

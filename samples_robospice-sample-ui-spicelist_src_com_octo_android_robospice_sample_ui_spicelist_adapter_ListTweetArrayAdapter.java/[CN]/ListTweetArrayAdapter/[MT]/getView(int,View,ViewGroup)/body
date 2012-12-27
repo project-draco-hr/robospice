@@ -1,6 +1,6 @@
 {
   View view;
-  Tweet currentItem=tweets.getResults().get(position);
+  Tweet currentItem=getItem(position);
   if (convertView != null) {
     view=convertView;
   }
@@ -8,6 +8,6 @@
     view=new TweetListItemView(getContext());
   }
   ((TweetListItemView)view).updateView(currentItem);
-  update(currentItem,(SpiceListItemView<Tweet>)view);
+  updateListItemViewAsynchronously(currentItem,(SpiceListItemView<Tweet>)view);
   return view;
 }

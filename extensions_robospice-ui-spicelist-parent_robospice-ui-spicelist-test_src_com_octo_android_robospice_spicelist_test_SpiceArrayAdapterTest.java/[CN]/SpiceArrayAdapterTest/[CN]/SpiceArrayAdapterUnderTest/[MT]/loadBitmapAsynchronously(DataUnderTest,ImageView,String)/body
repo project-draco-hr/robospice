@@ -1,0 +1,11 @@
+{
+  super.loadBitmapAsynchronously(octo,thumbImageView,tempThumbnailImageFileName);
+  reentrantLock.lock();
+  try {
+    loadBitmapHasBeenCalled=true;
+    loadBitmapHasBeenCalledCondition.signal();
+  }
+  finally {
+    reentrantLock.unlock();
+  }
+}

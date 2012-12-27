@@ -3,6 +3,6 @@
     loadBitmapAsynchronously(octo,spiceListItemView.getImageView(),tempThumbnailImageFileName);
   }
  else {
-    spiceListItemView.getImageView().setImageDrawable(defaultUserDrawable);
+    spiceListItemView.getImageView().setImageDrawable(defaultDrawable);
   }
 }

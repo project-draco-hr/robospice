@@ -5,9 +5,9 @@
     view=convertView;
   }
  else {
-    view=new StubbedView(getContext());
+    view=new ListItemViewStub(getContext());
   }
-  ((StubbedView)view).setDataUnderTest(currentData);
-  update(currentData,(SpiceListItemView<DataUnderTest>)view);
+  ((ListItemViewStub)view).setDataUnderTest(currentData);
+  updateListItemViewAsynchronously(currentData,(SpiceListItemView<DataUnderTest>)view);
   return view;
 }

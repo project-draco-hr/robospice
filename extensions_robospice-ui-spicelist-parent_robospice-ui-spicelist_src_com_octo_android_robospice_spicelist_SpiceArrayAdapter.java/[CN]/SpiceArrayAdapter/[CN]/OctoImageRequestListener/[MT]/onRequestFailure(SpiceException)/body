@@ -1,4 +1,4 @@
 {
   Ln.e(SpiceListItemView.class.getName(),"Unable to retrive image",spiceException);
-  thumbImageView.setImageDrawable(defaultUserDrawable);
+  thumbImageView.setImageDrawable(defaultDrawable);
 }

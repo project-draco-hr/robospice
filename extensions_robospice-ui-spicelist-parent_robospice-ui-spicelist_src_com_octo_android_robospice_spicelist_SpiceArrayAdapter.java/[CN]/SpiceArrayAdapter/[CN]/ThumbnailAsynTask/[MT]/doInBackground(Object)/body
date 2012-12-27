@@ -1,5 +1,5 @@
 {
-  octo=params[0];
+  octo=(T)params[0];
   spiceListItemView=(SpiceListItemView<T>)params[1];
   File tempThumbnailImageFile=request.getCacheFile();
   tempThumbnailImageFileName=tempThumbnailImageFile.getAbsolutePath();
