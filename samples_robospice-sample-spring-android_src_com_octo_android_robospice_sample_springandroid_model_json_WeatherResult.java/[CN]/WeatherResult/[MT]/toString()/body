@@ -1,3 +1,0 @@
-{
-  return "WeatherResult [weather=" + weather + "]";
-}

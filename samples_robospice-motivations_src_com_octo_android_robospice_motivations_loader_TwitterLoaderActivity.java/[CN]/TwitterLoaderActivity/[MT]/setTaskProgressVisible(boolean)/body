@@ -1,4 +1,0 @@
-{
-  setProgressBarIndeterminateVisibility(visible);
-  taskProgressVisibility=visible;
-}

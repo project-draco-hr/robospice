@@ -1,4 +1,0 @@
-{
-  asyncTask=new AsyncTaskCounter(this);
-  asyncTask.execute();
-}

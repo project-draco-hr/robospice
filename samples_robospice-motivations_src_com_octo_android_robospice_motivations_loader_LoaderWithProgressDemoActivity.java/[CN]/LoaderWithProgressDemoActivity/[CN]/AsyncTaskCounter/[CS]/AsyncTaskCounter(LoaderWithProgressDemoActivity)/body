@@ -1,4 +1,0 @@
-{
-  super(activity);
-  mActivity=new WeakReference<LoaderWithProgressDemoActivity>(activity);
-}

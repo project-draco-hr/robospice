@@ -1,7 +1,0 @@
-{
-  Log.d("MandelbrotView","stoping...");
-  if (fractalRequest != null) {
-    fractalRequest.cancel();
-  }
-  Log.d("MandelbrotView","stoped...");
-}

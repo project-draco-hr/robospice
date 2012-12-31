@@ -1,3 +1,0 @@
-{
-  Toast.makeText(SampleOfflineActivity.this,"failure",Toast.LENGTH_SHORT).show();
-}

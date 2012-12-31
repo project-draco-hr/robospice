@@ -1,5 +1,0 @@
-{
-  if (imageRequest != null) {
-    imageRequest.cancel();
-  }
-}

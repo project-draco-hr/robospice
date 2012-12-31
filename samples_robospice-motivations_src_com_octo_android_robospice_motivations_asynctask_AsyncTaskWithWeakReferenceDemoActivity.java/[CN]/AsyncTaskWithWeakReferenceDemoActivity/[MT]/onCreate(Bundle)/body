@@ -1,7 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  asyncTask=(WeakReference<AsyncTaskCounter>)getLastCustomNonConfigurationInstance();
-  if (asyncTask != null && asyncTask.get() != null) {
-    asyncTask.get().mActivity=new WeakReference<AsyncTaskWithWeakReferenceDemoActivity>(this);
-  }
-}

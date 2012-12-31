@@ -1,5 +1,0 @@
-{
-  spiceManager.removeDataFromCache(InputStream.class,EARTH_IMAGE_CACHE_KEY);
-  imageView.setImageDrawable(null);
-  setImageVisible(false);
-}

@@ -1,4 +1,0 @@
-{
-  setProgressBarIndeterminateVisibility(false);
-  updateListViewContent(result);
-}

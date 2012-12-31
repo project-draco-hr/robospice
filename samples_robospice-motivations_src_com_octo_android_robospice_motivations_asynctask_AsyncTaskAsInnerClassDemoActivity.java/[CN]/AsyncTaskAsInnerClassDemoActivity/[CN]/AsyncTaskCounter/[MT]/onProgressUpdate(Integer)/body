@@ -1,4 +1,0 @@
-{
-  super.onProgressUpdate(values);
-  progressBar.setProgress(values[0]);
-}

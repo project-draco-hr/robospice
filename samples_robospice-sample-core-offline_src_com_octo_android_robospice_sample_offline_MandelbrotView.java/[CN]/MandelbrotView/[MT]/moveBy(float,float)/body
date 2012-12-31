@@ -1,6 +1,0 @@
-{
-  float translateX=(float)((x - start.x) / scale);
-  float translateY=(float)((y - start.y) / scale);
-  x0-=translateX;
-  y0-=translateY;
-}

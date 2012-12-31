@@ -1,5 +1,0 @@
-{
-  AsyncTaskLoader<Void> asyncTaskLoader=new AsyncTaskCounter(this);
-  asyncTaskLoader.forceLoad();
-  return asyncTaskLoader;
-}

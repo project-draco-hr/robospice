@@ -1,5 +1,0 @@
-{
-  if (asyncTask != null) {
-    asyncTask.cancel(true);
-  }
-}

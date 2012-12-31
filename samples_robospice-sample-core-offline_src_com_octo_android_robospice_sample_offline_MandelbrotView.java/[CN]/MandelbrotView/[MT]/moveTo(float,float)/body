@@ -1,4 +1,0 @@
-{
-  x0+=(float)((x - width / 2) / scale);
-  y0+=(float)((y - height / 2) / scale);
-}

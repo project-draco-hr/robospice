@@ -1,6 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  setContentView(R.layout.main);
-  mandelbrotview=(MandelbrotView)findViewById(R.id.mandelbrotview);
-  mandelbrotview.setSpiceManager(getSpiceManager());
-}

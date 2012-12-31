@@ -1,4 +1,0 @@
-{
-  super(Feed.class);
-  this.delay=delay;
-}

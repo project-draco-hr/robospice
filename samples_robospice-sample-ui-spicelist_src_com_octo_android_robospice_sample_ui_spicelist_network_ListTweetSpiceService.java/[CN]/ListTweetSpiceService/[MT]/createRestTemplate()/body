@@ -1,8 +1,0 @@
-{
-  RestTemplate restTemplate=super.createRestTemplate();
-  HttpComponentsClientHttpRequestFactory httpRequestFactory=new HttpComponentsClientHttpRequestFactory();
-  httpRequestFactory.setReadTimeout(WEBSERVICES_TIMEOUT);
-  httpRequestFactory.setConnectTimeout(WEBSERVICES_TIMEOUT);
-  restTemplate.setRequestFactory(httpRequestFactory);
-  return restTemplate;
-}

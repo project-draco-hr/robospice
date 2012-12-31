@@ -1,5 +1,0 @@
-{
-  Toast.makeText(SampleSpiceActivity.this,"success",Toast.LENGTH_SHORT).show();
-  String originalText=getString(R.string.textview_text);
-  mLoremTextView.setText(originalText + result.getListWeather().iterator().next().getTemp());
-}

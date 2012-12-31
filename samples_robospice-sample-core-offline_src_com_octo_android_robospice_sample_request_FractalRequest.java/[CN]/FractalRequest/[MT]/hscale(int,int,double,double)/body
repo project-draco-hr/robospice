@@ -1,3 +1,0 @@
-{
-  return (i - width / 2) / scale + x0;
-}

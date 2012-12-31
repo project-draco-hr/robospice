@@ -1,4 +1,0 @@
-{
-  contentManagerJson.shouldStop();
-  super.onStop();
-}

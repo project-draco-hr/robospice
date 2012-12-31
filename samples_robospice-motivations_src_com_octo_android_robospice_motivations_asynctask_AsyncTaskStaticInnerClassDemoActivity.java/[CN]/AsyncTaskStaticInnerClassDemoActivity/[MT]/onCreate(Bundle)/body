@@ -1,7 +1,0 @@
-{
-  super.onCreate(savedInstanceState);
-  asyncTask=(AsyncTaskCounter)getLastCustomNonConfigurationInstance();
-  if (asyncTask != null) {
-    asyncTask.mActivity=this;
-  }
-}

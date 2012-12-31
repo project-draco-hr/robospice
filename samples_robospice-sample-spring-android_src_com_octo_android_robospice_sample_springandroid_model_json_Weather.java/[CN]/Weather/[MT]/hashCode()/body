@@ -1,7 +1,0 @@
-{
-  final int prime=31;
-  int result=1;
-  result=prime * result + (curren_weather == null ? 0 : curren_weather.hashCode());
-  result=prime * result + (forecast == null ? 0 : forecast.hashCode());
-  return result;
-}

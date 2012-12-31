@@ -1,3 +1,0 @@
-{
-  return listSectionItems.get(position).isTitle ? VIEW_TYPE_HEADER : VIEW_TYPE_ITEM;
-}

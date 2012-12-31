@@ -1,5 +1,0 @@
-{
-  this.tweet=tweet;
-  userNameTextView.setText(tweet.getFrom_user());
-  tweetContentTextView.setText(tweet.getText());
-}

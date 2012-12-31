@@ -1,3 +1,0 @@
-{
-  getSupportLoaderManager().initLoader(0,(Bundle)null,this);
-}

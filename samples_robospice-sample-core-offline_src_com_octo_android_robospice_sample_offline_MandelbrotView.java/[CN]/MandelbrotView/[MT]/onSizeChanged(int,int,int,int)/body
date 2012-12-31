@@ -1,9 +1,0 @@
-{
-  Log.d("MandelbrotView","onSizeChanged begin...");
-  Log.d("MandelbrotView","Size: " + w + "x"+ h);
-  super.onSizeChanged(w,h,oldw,oldh);
-  stop();
-  rescale(w,h);
-  start();
-  Log.d("MandelbrotView","onSizeChanged end...");
-}

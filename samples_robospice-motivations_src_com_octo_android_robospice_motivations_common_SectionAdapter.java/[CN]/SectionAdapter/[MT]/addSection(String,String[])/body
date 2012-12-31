@@ -1,4 +1,0 @@
-{
-  addSection(section);
-  addItems(listItemPerSection);
-}

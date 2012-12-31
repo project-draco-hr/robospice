@@ -1,5 +1,0 @@
-{
-  if (tweetJsonSpringAndroidRequest != null) {
-    tweetJsonSpringAndroidRequest.cancel();
-  }
-}

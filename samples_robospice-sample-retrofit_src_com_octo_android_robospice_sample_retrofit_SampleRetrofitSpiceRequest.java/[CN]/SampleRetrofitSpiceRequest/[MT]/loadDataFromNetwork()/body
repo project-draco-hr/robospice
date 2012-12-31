@@ -1,5 +1,0 @@
-{
-  Ln.d("Call web service " + BASE_URL);
-  Twitter twitter=getRestAdapterBuilder().setServer(new Server(BASE_URL)).build().create(Twitter.class);
-  return twitter.tweets(userName);
-}

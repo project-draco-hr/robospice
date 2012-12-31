@@ -1,5 +1,0 @@
-{
-  Tweet tweet=data;
-  File tempFile=new File(getContext().getCacheDir(),"THUMB_IMAGE_TEMP_" + tweet.getFrom_user());
-  return new BigBinaryRequest(tweet.getProfile_image_url(),tempFile);
-}

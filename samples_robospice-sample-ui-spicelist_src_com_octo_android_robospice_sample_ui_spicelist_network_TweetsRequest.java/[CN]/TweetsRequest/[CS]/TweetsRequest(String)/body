@@ -1,4 +1,0 @@
-{
-  super(ListTweets.class);
-  this.keyword=keyword;
-}

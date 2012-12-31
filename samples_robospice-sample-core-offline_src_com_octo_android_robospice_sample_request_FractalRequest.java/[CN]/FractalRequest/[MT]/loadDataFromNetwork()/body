@@ -1,4 +1,0 @@
-{
-  runMandelbrot(width,height,scale,x0,y0,fractalOperator,bitmap);
-  return bitmap;
-}

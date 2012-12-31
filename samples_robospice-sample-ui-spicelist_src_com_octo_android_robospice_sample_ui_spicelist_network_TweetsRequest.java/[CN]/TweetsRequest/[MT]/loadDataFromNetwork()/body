@@ -1,8 +1,0 @@
-{
-  Uri.Builder uriBuilder=Uri.parse("http://search.twitter.com/search.json").buildUpon();
-  uriBuilder.appendQueryParameter("q",keyword);
-  uriBuilder.appendQueryParameter("rpp","100");
-  uriBuilder.appendQueryParameter("lang","en");
-  String url=uriBuilder.build().toString();
-  return getRestTemplate().getForObject(url,ListTweets.class);
-}

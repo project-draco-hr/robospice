@@ -1,6 +1,0 @@
-{
-  listTweetArrayAdapter=new ListTweetArrayAdapter(this,spiceManagerBinary,listTweets);
-  octoListView.setAdapter(listTweetArrayAdapter);
-  loadingView.setVisibility(View.GONE);
-  octoListView.setVisibility(View.VISIBLE);
-}

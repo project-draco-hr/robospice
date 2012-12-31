@@ -1,4 +1,0 @@
-{
-  setProgressBarIndeterminateVisibility(true);
-  spiceManagerJson.execute(new TweetsRequest("android"),"tweets",DurationInMillis.ONE_SECOND * 10,new OctosListListener());
-}

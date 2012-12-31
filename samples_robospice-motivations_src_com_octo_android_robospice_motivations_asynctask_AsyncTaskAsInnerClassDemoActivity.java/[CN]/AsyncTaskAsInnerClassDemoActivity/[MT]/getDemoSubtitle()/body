@@ -1,3 +1,0 @@
-{
-  return getString(R.string.text_basic_async_task_name);
-}

@@ -1,5 +1,0 @@
-{
-  if (asyncTask != null && asyncTask.get() != null) {
-    asyncTask.get().cancel(true);
-  }
-}

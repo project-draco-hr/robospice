@@ -1,5 +1,0 @@
-{
-  if (tweetJsonGoogleHttpClientRequest != null) {
-    tweetJsonGoogleHttpClientRequest.cancel();
-  }
-}

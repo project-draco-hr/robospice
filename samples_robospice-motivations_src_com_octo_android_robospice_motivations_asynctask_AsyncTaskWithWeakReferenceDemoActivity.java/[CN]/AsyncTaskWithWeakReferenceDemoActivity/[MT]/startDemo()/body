@@ -1,5 +1,0 @@
-{
-  AsyncTaskCounter task=new AsyncTaskCounter(this);
-  task.execute();
-  asyncTask=new WeakReference<AsyncTaskCounter>(task);
-}

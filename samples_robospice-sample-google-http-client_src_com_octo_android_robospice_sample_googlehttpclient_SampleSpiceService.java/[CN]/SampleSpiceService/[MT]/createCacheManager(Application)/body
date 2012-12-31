@@ -1,6 +1,0 @@
-{
-  CacheManager cacheManager=new CacheManager();
-  JacksonObjectPersisterFactory jacksonObjectPersisterFactory=new JacksonObjectPersisterFactory(application);
-  cacheManager.addPersister(jacksonObjectPersisterFactory);
-  return cacheManager;
-}

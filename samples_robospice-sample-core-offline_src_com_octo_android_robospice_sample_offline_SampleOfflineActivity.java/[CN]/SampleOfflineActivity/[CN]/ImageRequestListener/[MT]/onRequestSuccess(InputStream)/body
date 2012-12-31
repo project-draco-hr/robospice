@@ -1,6 +1,0 @@
-{
-  Bitmap bitmap=BitmapFactory.decodeStream(result);
-  BitmapDrawable drawable=new BitmapDrawable(bitmap);
-  Toast.makeText(SampleOfflineActivity.this,"success",Toast.LENGTH_SHORT).show();
-  mandelbrotview.setBackgroundDrawable(drawable);
-}
