@@ -3,10 +3,10 @@
   cacheManager.addPersister(mockStringPersistenceManager);
   MockIntegerPersistenceManager mockIntegerPersistenceManager=new MockIntegerPersistenceManager();
   cacheManager.addPersister(mockIntegerPersistenceManager);
-  ObjectPersister<?> actual=cacheManager.getObjectPersister(String.class);
-  assertEquals(mockStringPersistenceManager,actual);
-  actual=cacheManager.getObjectPersister(Integer.class);
-  assertEquals(mockIntegerPersistenceManager,actual);
+  ObjectPersister<?> persisterString=cacheManager.getObjectPersister(String.class);
+  ObjectPersister<?> persisterInteger=cacheManager.getObjectPersister(Integer.class);
+  assertEquals(mockStringPersistenceManager,persisterString);
+  assertEquals(mockIntegerPersistenceManager,persisterInteger);
   cacheManager.removePersister(mockStringPersistenceManager);
   try {
     cacheManager.getObjectPersister(String.class);
@@ -15,6 +15,6 @@
  catch (  Exception ex) {
     assertTrue(true);
   }
-  actual=cacheManager.getObjectPersister(Integer.class);
-  assertEquals(mockIntegerPersistenceManager,actual);
+  persisterInteger=cacheManager.getObjectPersister(Integer.class);
+  assertEquals(mockIntegerPersistenceManager,persisterInteger);
 }

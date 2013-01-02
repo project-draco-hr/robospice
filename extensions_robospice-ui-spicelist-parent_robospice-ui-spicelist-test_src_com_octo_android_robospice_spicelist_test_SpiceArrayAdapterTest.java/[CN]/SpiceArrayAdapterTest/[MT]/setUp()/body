@@ -3,7 +3,7 @@
   cacheFile=new File(getInstrumentation().getTargetContext().getCacheDir(),"Foo");
   cacheFile.delete();
   mockWebServer=new MockWebServer();
-  spiceManager=new BigBinarySpiceManager();
+  spiceManager=new BigBinarySpiceManagerUnderTest();
   spiceManager.start(getInstrumentation().getTargetContext());
   data=new ArrayList<DataUnderTest>();
   data1=new DataUnderTest();
