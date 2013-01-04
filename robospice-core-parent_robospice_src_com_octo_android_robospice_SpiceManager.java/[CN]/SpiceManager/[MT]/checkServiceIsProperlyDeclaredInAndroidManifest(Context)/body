@@ -1,5 +1,5 @@
 {
-  Intent intentCheck=new Intent(context,spiceServiceClass);
+  final Intent intentCheck=new Intent(context,spiceServiceClass);
   if (context.getPackageManager().queryIntentServices(intentCheck,0).isEmpty()) {
     shouldStop();
     throw new RuntimeException("Impossible to start SpiceManager as no service of class : " + spiceServiceClass.getName() + " is registered in AndroidManifest.xml file !");

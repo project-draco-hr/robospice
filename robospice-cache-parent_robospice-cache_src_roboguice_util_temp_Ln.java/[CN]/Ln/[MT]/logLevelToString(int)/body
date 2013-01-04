@@ -12,6 +12,7 @@ case Log.ERROR:
 return "ERROR";
 case Log.ASSERT:
 return "ASSERT";
-}
+default :
 return "UNKNOWN";
+}
 }

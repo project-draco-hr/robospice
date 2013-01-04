@@ -2,8 +2,8 @@
   super.onCreate();
   isStarted=true;
   cacheManager=createCacheManager(getApplication());
-  ExecutorService executorService=getExecutorService();
-  NetworkStateChecker networkStateChecker=getNetworkStateChecker();
+  final ExecutorService executorService=getExecutorService();
+  final NetworkStateChecker networkStateChecker=getNetworkStateChecker();
   requestProcessor=new RequestProcessor(getApplicationContext(),cacheManager,executorService,requestProcessorListener,networkStateChecker);
   requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
   notification=createDefaultNotification();

@@ -8,7 +8,7 @@
         }
         spiceService.removeAllDataFromCache(clazz);
       }
- catch (      InterruptedException e) {
+ catch (      final InterruptedException e) {
         Ln.e(e,"Interrupted while waiting for acquiring service.");
       }
     }

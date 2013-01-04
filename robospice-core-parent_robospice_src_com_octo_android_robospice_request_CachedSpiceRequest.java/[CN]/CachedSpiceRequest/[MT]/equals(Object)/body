@@ -8,7 +8,7 @@
   if (getClass() != obj.getClass()) {
     return false;
   }
-  CachedSpiceRequest<?> other=(CachedSpiceRequest<?>)obj;
+  final CachedSpiceRequest<?> other=(CachedSpiceRequest<?>)obj;
   if (spiceRequest.getResultType() == null) {
     if (other.spiceRequest.getResultType() != null) {
       return false;

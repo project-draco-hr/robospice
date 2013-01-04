@@ -3,7 +3,7 @@
     @Override public void run(){
       try {
         lockSendRequestsToService.lock();
-        StringBuilder stringBuilder=new StringBuilder();
+        final StringBuilder stringBuilder=new StringBuilder();
         stringBuilder.append("[SpiceManager : ");
         stringBuilder.append("Requests to be launched : \n");
         dumpMap(stringBuilder,mapRequestToLaunchToRequestListener);
@@ -16,7 +16,7 @@
         }
         spiceService.dumpState();
       }
- catch (      InterruptedException e) {
+ catch (      final InterruptedException e) {
         Ln.e(e,"Interrupted while waiting for acquiring service.");
       }
  finally {

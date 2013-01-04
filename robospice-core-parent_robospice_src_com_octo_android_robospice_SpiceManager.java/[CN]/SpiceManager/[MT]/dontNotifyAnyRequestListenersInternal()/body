@@ -5,7 +5,7 @@
     Ln.v("Cleared listeners of all requests to launch");
     removeListenersOfAllPendingCachedRequests();
   }
- catch (  InterruptedException e) {
+ catch (  final InterruptedException e) {
     e.printStackTrace();
   }
  finally {

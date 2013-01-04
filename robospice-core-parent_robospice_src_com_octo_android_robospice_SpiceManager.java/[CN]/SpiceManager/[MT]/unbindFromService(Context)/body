@@ -15,7 +15,7 @@
       isUnbinding=false;
     }
   }
- catch (  Exception e) {
+ catch (  final Exception e) {
     Ln.e(e,"Could not unbind from service.");
   }
  finally {

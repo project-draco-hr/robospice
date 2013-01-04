@@ -3,7 +3,7 @@
   mapRequestToRequestListener.remove(request);
   checkAllRequestComplete();
 synchronized (spiceServiceListenerSet) {
-    for (    SpiceServiceServiceListener spiceServiceServiceListener : spiceServiceListenerSet) {
+    for (    final SpiceServiceServiceListener spiceServiceServiceListener : spiceServiceListenerSet) {
       spiceServiceServiceListener.onRequestProcessed(request);
     }
   }

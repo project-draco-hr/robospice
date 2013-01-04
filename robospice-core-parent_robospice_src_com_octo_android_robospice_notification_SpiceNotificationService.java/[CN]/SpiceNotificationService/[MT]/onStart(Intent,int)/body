@@ -1,6 +1,6 @@
 {
   super.onStart(intent,startId);
-  notificationId=intent.getIntExtra(BUNDLE_KEY_NOTIFICATION_ID,70);
+  notificationId=intent.getIntExtra(BUNDLE_KEY_NOTIFICATION_ID,DEFAULT_ROBOSPICE_NOTIFICATION_ID);
   requestClass=(Class<?>)intent.getSerializableExtra(BUNDLE_KEY_REQUEST_CLASS);
   requestCacheKey=intent.getStringExtra(BUNDLE_KEY_REQUEST_CACHE_KEY);
   spiceServiceClass=(Class<? extends SpiceService>)intent.getSerializableExtra(BUNDLE_KEY_SERVICE_CLASS);

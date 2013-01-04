@@ -1,6 +1,6 @@
 {
 synchronized (mapRequestToLaunchToRequestListener) {
-    for (    CachedSpiceRequest<?> cachedSpiceRequest : mapRequestToLaunchToRequestListener.keySet()) {
+    for (    final CachedSpiceRequest<?> cachedSpiceRequest : mapRequestToLaunchToRequestListener.keySet()) {
       if (match(cachedSpiceRequest,request)) {
         final Set<RequestListener<?>> setRequestListeners=mapRequestToLaunchToRequestListener.get(cachedSpiceRequest);
         setRequestListeners.clear();

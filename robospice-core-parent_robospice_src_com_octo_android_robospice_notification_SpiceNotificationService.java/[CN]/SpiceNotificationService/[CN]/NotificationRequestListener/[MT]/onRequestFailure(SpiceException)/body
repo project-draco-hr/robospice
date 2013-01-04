@@ -1,5 +1,5 @@
 {
-  Notification notification=onCreateNotificationForRequestFailure(arg0);
+  final Notification notification=onCreateNotificationForRequestFailure(arg0);
   notificationManager.notify(notificationId,notification);
   stopSelf();
 }

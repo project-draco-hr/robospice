@@ -5,9 +5,9 @@
     notifyOfRequestProcessed(request);
     return;
   }
-  RequestProgressListener requestProgressListener=new RequestProgressListener(){
-    @Override public void onRequestProgressUpdate(    RequestProgress progress){
-      Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
+  final RequestProgressListener requestProgressListener=new RequestProgressListener(){
+    @Override public void onRequestProgressUpdate(    final RequestProgress progress){
+      final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
       notifyListenersOfRequestProgress(request,listeners,progress);
     }
   }
@@ -24,7 +24,7 @@
         return;
       }
     }
- catch (    CacheLoadingException e) {
+ catch (    final CacheLoadingException e) {
       Ln.d(e,"Cache file could not be read.");
       if (failOnCacheError) {
         notifyListenersOfRequestFailure(request,e);
@@ -47,7 +47,7 @@
       result=request.loadDataFromNetwork();
       Ln.d("Network request call ended.");
     }
- catch (    Exception e) {
+ catch (    final Exception e) {
       Ln.e(e,"An exception occured during request network execution :" + e.getMessage());
       notifyListenersOfRequestFailure(request,new NetworkException("Exception occured during invocation of web service.",e));
       return;
@@ -60,7 +60,7 @@
         notifyListenersOfRequestSuccess(request,result);
         return;
       }
- catch (      CacheSavingException e) {
+ catch (      final CacheSavingException e) {
         Ln.d("An exception occured during service execution :" + e.getMessage(),e);
         if (failOnCacheError) {
           notifyListenersOfRequestFailure(request,e);

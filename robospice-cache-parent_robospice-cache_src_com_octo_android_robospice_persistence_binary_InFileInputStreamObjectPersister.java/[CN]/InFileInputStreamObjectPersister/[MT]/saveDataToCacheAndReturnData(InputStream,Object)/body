@@ -3,7 +3,7 @@
   try {
     byteArray=IOUtils.toByteArray(data);
     if (isAsyncSaveEnabled) {
-      new Thread(){
+      Thread t=new Thread(){
         @Override public void run(){
           try {
             FileUtils.writeByteArrayToFile(getCacheFile(cacheKey),byteArray);
@@ -18,7 +18,8 @@
           }
         }
       }
-.start();
+;
+      t.start();
     }
  else {
       FileUtils.writeByteArrayToFile(getCacheFile(cacheKey),byteArray);

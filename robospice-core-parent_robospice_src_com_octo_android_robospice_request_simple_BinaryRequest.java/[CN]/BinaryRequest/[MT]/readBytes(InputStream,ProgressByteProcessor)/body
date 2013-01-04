@@ -1,5 +1,5 @@
 {
-  byte[] buf=new byte[BUF_SIZE];
+  final byte[] buf=new byte[BUF_SIZE];
   try {
     int amt;
     do {

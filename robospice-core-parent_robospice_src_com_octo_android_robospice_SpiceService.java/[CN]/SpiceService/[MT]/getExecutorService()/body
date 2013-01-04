@@ -1,6 +1,6 @@
 {
   ExecutorService executorService;
-  int threadCount=getThreadCount();
+  final int threadCount=getThreadCount();
   if (threadCount <= 0) {
     throw new IllegalArgumentException("Thread count must be >= 1");
   }
@@ -9,7 +9,7 @@
   }
  else {
     executorService=Executors.newFixedThreadPool(threadCount,new ThreadFactory(){
-      @Override public Thread newThread(      Runnable r){
+      @Override public Thread newThread(      final Runnable r){
         return new Thread(r);
       }
     }

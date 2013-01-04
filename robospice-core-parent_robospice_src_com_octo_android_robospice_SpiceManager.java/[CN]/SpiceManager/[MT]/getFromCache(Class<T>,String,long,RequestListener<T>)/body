@@ -1,5 +1,5 @@
 {
-  SpiceRequest<T> request=new SpiceRequest<T>(clazz){
+  final SpiceRequest<T> request=new SpiceRequest<T>(clazz){
     @Override public T loadDataFromNetwork() throws Exception {
       return null;
     }
@@ -8,6 +8,6 @@
     }
   }
 ;
-  CachedSpiceRequest<T> cachedSpiceRequest=new CachedSpiceRequest<T>(request,requestCacheKey,cacheDuration);
+  final CachedSpiceRequest<T> cachedSpiceRequest=new CachedSpiceRequest<T>(request,requestCacheKey,cacheDuration);
   execute(cachedSpiceRequest,requestListener);
 }

@@ -1,5 +1,5 @@
 {
-  Intent intent=new Intent(context,clazz);
+  final Intent intent=new Intent(context,clazz);
   intent.putExtra(BUNDLE_KEY_NOTIFICATION_ID,notificationId);
   intent.putExtra(BUNDLE_KEY_SERVICE_CLASS,spiceServiceClass);
   intent.putExtra(BUNDLE_KEY_REQUEST_CLASS,requestResultType);

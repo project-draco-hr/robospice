@@ -1,5 +1,5 @@
 {
-  Notification notification=onCreateNotificationForRequestProgress(progress);
+  final Notification notification=onCreateNotificationForRequestProgress(progress);
   notificationManager.notify(notificationId,notification);
   if (progress.getStatus() == RequestStatus.COMPLETE) {
     stopSelf();

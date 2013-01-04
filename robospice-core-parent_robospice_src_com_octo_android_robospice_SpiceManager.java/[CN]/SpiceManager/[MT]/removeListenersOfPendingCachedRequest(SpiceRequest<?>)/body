@@ -1,6 +1,6 @@
 {
 synchronized (mapPendingRequestToRequestListener) {
-    for (    CachedSpiceRequest<?> cachedSpiceRequest : mapPendingRequestToRequestListener.keySet()) {
+    for (    final CachedSpiceRequest<?> cachedSpiceRequest : mapPendingRequestToRequestListener.keySet()) {
       if (match(cachedSpiceRequest,request)) {
         waitForServiceToBeBound();
         if (spiceService == null) {

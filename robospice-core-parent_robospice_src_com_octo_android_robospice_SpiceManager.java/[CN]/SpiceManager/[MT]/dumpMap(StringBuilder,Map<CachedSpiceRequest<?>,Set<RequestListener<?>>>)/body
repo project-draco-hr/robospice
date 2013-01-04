@@ -3,7 +3,7 @@ synchronized (map) {
     stringBuilder.append(" request count= ");
     stringBuilder.append(mapRequestToLaunchToRequestListener.keySet().size());
     stringBuilder.append(", listeners per requests = [");
-    for (    Map.Entry<CachedSpiceRequest<?>,Set<RequestListener<?>>> entry : map.entrySet()) {
+    for (    final Map.Entry<CachedSpiceRequest<?>,Set<RequestListener<?>>> entry : map.entrySet()) {
       stringBuilder.append(entry.getKey().getClass().getName());
       stringBuilder.append(":");
       stringBuilder.append(entry.getKey());

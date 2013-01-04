@@ -2,7 +2,7 @@
   Ln.v("Saving String " + data + " into cacheKey = "+ cacheKey);
   try {
     if (isAsyncSaveEnabled) {
-      new Thread(){
+      Thread t=new Thread(){
         @Override public void run(){
           try {
             FileUtils.writeStringToFile(getCacheFile(cacheKey),data,CharEncoding.UTF_8);
@@ -17,7 +17,8 @@
           }
         }
       }
-.start();
+;
+      t.start();
     }
  else {
       FileUtils.writeStringToFile(getCacheFile(cacheKey),data,CharEncoding.UTF_8);

@@ -2,10 +2,10 @@
   if (listeners == null) {
     return;
   }
-  String resultMsg=spiceException == null ? "success" : "failure";
+  final String resultMsg=spiceException == null ? "success" : "failure";
   Ln.v("Notifying " + listeners.size() + " listeners of request "+ resultMsg);
-  for (  RequestListener<?> listener : listeners) {
-    @SuppressWarnings("unchecked") RequestListener<T> listener2=(RequestListener<T>)listener;
+  for (  final RequestListener<?> listener : listeners) {
+    @SuppressWarnings("unchecked") final RequestListener<T> listener2=(RequestListener<T>)listener;
     Ln.v("Notifying %s",listener.getClass().getSimpleName());
     if (spiceException == null) {
       listener2.onRequestSuccess(result);
