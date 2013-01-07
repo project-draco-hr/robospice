@@ -1,4 +1,4 @@
 {
   this.dataUnderTest=dataUnderTest;
-  userNameTextView.setText(dataUnderTest.foo);
+  userNameTextView.setText(dataUnderTest.getFoo());
 }

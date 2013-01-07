@@ -10,10 +10,10 @@
   assertNotNull("View is null. ",view);
   assertNotNull("Name TextView is null. ",nameView);
   assertNotNull("Photo ImageView is null. ",photoView);
-  assertEquals("Names doesn't match.",data1.foo,nameView.getText());
+  assertEquals("Names doesn't match.",data1.getFoo(),nameView.getText());
   assertEquals(1,mockWebServer.getRequestCount());
   RecordedRequest first=mockWebServer.takeRequest();
-  assertEquals("GET /" + data1.imageUrl + " HTTP/1.1",first.getRequestLine());
+  assertEquals("GET /" + data1.getImageUrl() + " HTTP/1.1",first.getRequestLine());
   InputStream cacheInputStream=new FileInputStream(cacheFile);
   assertTrue(IOUtils.contentEquals(cacheInputStream,getInstrumentation().getContext().getResources().openRawResource(R.raw.binary)));
 }

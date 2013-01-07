@@ -1,6 +1,6 @@
 {
   Resources resources=context.getResources();
   DisplayMetrics metrics=resources.getDisplayMetrics();
-  float px=dp * (metrics.densityDpi / 160f);
+  float px=dp * (metrics.densityDpi / DP_TO_PX_CONVERSION_FACTOR);
   return px;
 }

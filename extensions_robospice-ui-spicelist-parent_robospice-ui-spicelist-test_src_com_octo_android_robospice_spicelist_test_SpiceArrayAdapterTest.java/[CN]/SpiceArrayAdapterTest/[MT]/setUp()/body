@@ -7,11 +7,11 @@
   spiceManager.start(getInstrumentation().getTargetContext());
   data=new ArrayList<DataUnderTest>();
   data1=new DataUnderTest();
-  data1.foo="data1";
-  data1.imageUrl="data1.png";
+  data1.setFoo("data1");
+  data1.setImageUrl("data1.png");
   data2=new DataUnderTest();
-  data2.foo="data2";
-  data2.imageUrl="data2.png";
+  data2.setFoo("data2");
+  data2.setImageUrl("data2.png");
   data.add(data1);
   data.add(data2);
   adapter=new SpiceArrayAdapterUnderTest(getInstrumentation().getTargetContext(),spiceManager,data);
