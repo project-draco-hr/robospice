@@ -1,7 +1,7 @@
 {
   inFileStringObjectPersister.setAsyncSaveEnabled(true);
   inFileStringObjectPersister.saveDataToCacheAndReturnData("coucou",TEST_CACHE_KEY);
-  inFileStringObjectPersister.awaitForSaveAsyncTermination(500,TimeUnit.MILLISECONDS);
+  inFileStringObjectPersister.awaitForSaveAsyncTermination(FIVE_HUNDRED,TimeUnit.MILLISECONDS);
   File cachedFile=inFileStringObjectPersister.getCacheFile(TEST_CACHE_KEY);
   assertTrue(cachedFile.exists());
   @SuppressWarnings("unchecked") List<String> actual=IOUtils.readLines(new FileInputStream(cachedFile),CharEncoding.UTF_8);

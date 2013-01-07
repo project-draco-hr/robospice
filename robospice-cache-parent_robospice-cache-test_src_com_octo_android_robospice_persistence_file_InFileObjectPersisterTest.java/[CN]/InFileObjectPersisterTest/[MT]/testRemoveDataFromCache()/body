@@ -1,5 +1,4 @@
 {
-  final String TEST_CACHE_KEY="TEST_CACHE_KEY";
   inFileObjectPersister.saveDataToCacheAndReturnData(new Object(),TEST_CACHE_KEY);
   File cacheFile=inFileObjectPersister.getCacheFile(TEST_CACHE_KEY);
   assertTrue(cacheFile.exists());
