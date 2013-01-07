@@ -1,5 +1,4 @@
 {
-  final Class<?> TEST_CLASS=String.class;
   mockCacheManager.removeAllDataFromCache(TEST_CLASS);
   EasyMock.replay(mockCacheManager);
   requestProcessorUnderTest.removeAllDataFromCache(TEST_CLASS);
