@@ -1,6 +1,5 @@
 {
   WeatherResult weatherRequestStatus=buildWeather(TEST_TEMP,TEST_TEMP_UNIT);
-  final String FILE_NAME="toto";
   inFileObjectPersister.saveDataToCacheAndReturnData(weatherRequestStatus,FILE_NAME);
   List<WeatherResult> listWeatherResult=inFileObjectPersister.loadAllDataFromCache();
   assertNotNull(listWeatherResult);
