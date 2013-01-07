@@ -1,0 +1,11 @@
+{
+  try {
+    Intent startIntent=new Intent();
+    startIntent.setClass(getContext(),InvalidSpiceTestService.class);
+    startService(startIntent);
+    fail("Should return IllegalArgumentException");
+  }
+ catch (  IllegalArgumentException e) {
+    assertEquals("createCacheManager() can't create a null cacheManager",e.getMessage());
+  }
+}
