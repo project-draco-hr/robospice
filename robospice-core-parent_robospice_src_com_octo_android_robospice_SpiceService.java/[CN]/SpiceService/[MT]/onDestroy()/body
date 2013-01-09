@@ -1,5 +1,4 @@
 {
-  SpiceService.isStarted=false;
   Ln.d("SpiceService instance destroyed.");
   super.onDestroy();
 }
