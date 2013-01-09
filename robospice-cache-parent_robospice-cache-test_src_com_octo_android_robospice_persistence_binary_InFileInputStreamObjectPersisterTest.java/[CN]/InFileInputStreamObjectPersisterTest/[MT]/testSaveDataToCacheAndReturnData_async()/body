@@ -1,7 +1,7 @@
 {
   inputStreamCacheManager.setAsyncSaveEnabled(true);
   inputStreamCacheManager.saveDataToCacheAndReturnData(new ByteArrayInputStream("coucou".getBytes()),TEST_CACHE_KEY);
-  assertTrue(inputStreamCacheManager.awaitForSaveAsyncTermination(FIVE_HUNDRED,TimeUnit.MILLISECONDS));
+  assertTrue(inputStreamCacheManager.awaitForSaveAsyncTermination(SAVE_TIMEOUT,TimeUnit.MILLISECONDS));
   File cachedFile=inputStreamCacheManager.getCacheFile(TEST_CACHE_KEY);
   assertTrue(cachedFile.exists());
   ByteArrayOutputStream bos=new ByteArrayOutputStream();

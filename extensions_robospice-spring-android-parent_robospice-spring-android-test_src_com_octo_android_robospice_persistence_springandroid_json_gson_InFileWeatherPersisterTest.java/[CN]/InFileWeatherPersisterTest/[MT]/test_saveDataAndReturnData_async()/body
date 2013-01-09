@@ -2,6 +2,6 @@
   WeatherResult weatherRequestStatus=buildWeather(TEST_TEMP,TEST_TEMP_UNIT);
   dataPersistenceManager.setAsyncSaveEnabled(true);
   WeatherResult weatherReturned=dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,"weather.json");
-  assertTrue(((GsonObjectPersister<?>)dataPersistenceManager).awaitForSaveAsyncTermination(FIVE_HUNDRED,TimeUnit.MILLISECONDS));
+  assertTrue(((GsonObjectPersister<?>)dataPersistenceManager).awaitForSaveAsyncTermination(SAVE_TIMEOUT,TimeUnit.MILLISECONDS));
   assertEquals(TEST_TEMP,weatherReturned.getWeather().getCurren_weather().get(0).getTemp());
 }

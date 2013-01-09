@@ -2,6 +2,6 @@
   Weather weatherRequestStatus=buildWeather(TEST_TEMP);
   dataPersistenceManager.setAsyncSaveEnabled(true);
   Weather weatherReturned=dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,"weather.xml");
-  assertTrue(((SimpleSerializerObjectPersister<?>)dataPersistenceManager).awaitForSaveAsyncTermination(FIVE_HUNDRED,TimeUnit.MILLISECONDS));
+  assertTrue(((SimpleSerializerObjectPersister<?>)dataPersistenceManager).awaitForSaveAsyncTermination(SAVE_TIMEOUT,TimeUnit.MILLISECONDS));
   assertTrue(weatherReturned.getListWeather().contains(TEST_TEMP));
 }
