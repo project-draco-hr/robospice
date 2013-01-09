@@ -1,8 +1,8 @@
 {
   executorService.execute(new Runnable(){
     @Override public void run(){
+      lockSendRequestsToService.lock();
       try {
-        lockSendRequestsToService.lock();
         final StringBuilder stringBuilder=new StringBuilder();
         stringBuilder.append("[SpiceManager : ");
         stringBuilder.append("Requests to be launched : \n");

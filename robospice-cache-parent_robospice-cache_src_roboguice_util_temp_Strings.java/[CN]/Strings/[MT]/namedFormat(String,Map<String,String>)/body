@@ -1,6 +1,6 @@
 {
-  for (  String key : substitutions.keySet()) {
-    str=str.replace('$' + key,substitutions.get(key));
+  for (  Map.Entry<String,String> entry : substitutions.entrySet()) {
+    str=str.replace('$' + entry.getKey(),entry.getValue());
   }
   return str;
 }

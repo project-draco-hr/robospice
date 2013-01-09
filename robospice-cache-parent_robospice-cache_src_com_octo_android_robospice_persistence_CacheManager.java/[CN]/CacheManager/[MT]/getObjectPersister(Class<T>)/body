@@ -4,18 +4,17 @@
       if (persister instanceof ObjectPersister) {
         return (ObjectPersister<T>)persister;
       }
- else       if (persister instanceof ObjectPersisterFactory) {
+      if (persister instanceof ObjectPersisterFactory) {
         ObjectPersisterFactory factory=(ObjectPersisterFactory)persister;
-        List<ObjectPersister<?>> listPersister=null;
         if (factory.canHandleClass(clazz)) {
-          listPersister=mapFactoryToPersister.get(factory);
-          for (          ObjectPersister<?> objectPersister : listPersister) {
+          List<ObjectPersister<?>> listPersisterForFactory=mapFactoryToPersister.get(factory);
+          for (          ObjectPersister<?> objectPersister : listPersisterForFactory) {
             if (objectPersister.canHandleClass(clazz)) {
               return (ObjectPersister<T>)objectPersister;
             }
           }
           ObjectPersister<T> newPersister=factory.createObjectPersister(clazz);
-          listPersister.add(newPersister);
+          listPersisterForFactory.add(newPersister);
           return newPersister;
         }
       }

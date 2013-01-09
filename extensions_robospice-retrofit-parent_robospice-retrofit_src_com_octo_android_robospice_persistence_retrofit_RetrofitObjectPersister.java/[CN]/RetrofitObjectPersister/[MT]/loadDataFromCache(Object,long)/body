@@ -4,7 +4,7 @@
     long timeInCache=System.currentTimeMillis() - file.lastModified();
     if (maxTimeInCacheBeforeExpiry == 0 || timeInCache <= maxTimeInCacheBeforeExpiry) {
       try {
-        byte[] body=IOUtils.toByteArray(new FileReader(getCacheFile(cacheKey)));
+        byte[] body=IOUtils.toByteArray(new FileReader(getCacheFile(cacheKey)),"utf-8");
         return (T)converter.to(body,getHandledClass());
       }
  catch (      FileNotFoundException e) {

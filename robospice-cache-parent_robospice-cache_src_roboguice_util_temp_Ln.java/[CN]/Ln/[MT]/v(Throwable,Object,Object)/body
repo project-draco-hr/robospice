@@ -1,5 +1,5 @@
 {
-  if (config.minimumLogLevel > Log.VERBOSE) {
+  if (CONFIG.minimumLogLevel > Log.VERBOSE) {
     return 0;
   }
   final String s=Strings.toString(s1);

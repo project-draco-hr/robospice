@@ -29,8 +29,8 @@
       databaseHelper.deleteFromDataBase(collectionInObject,itemInListClass);
     }
   }
-  for (  Field field : mapFieldToCollection.keySet()) {
-    Collection<?> collection=mapFieldToCollection.get(field);
+  for (  Map.Entry<Field,Collection<?>> entry : mapFieldToCollection.entrySet()) {
+    Collection<?> collection=entry.getValue();
     ConnectionSource connectionSource=databaseHelper.getConnectionSource();
     for (    Object object : collection) {
       DatabaseTableConfig childDatabaseTableConfig=DatabaseTableConfig.fromClass(connectionSource,object.getClass());

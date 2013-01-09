@@ -1,5 +1,5 @@
 {
   StringWriter sw=new StringWriter();
-  copy(new InputStreamReader(input),sw);
+  copy(new InputStreamReader(input,Charset.forName("UTF-8")),sw);
   return sw.toString();
 }

@@ -5,8 +5,6 @@ synchronized (mapRequestToLaunchToRequestListener) {
       listeners=new HashSet<RequestListener<?>>();
       this.mapRequestToLaunchToRequestListener.put(cachedSpiceRequest,listeners);
     }
-    if (!listeners.contains(requestListener)) {
-      listeners.add(requestListener);
-    }
+    listeners.add(requestListener);
   }
 }

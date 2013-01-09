@@ -1,3 +1,3 @@
 {
-  return config.minimumLogLevel <= Log.DEBUG ? print.println(Log.DEBUG,Log.getStackTraceString(t)) : 0;
+  return CONFIG.minimumLogLevel <= Log.DEBUG ? print.println(Log.DEBUG,Log.getStackTraceString(t)) : 0;
 }

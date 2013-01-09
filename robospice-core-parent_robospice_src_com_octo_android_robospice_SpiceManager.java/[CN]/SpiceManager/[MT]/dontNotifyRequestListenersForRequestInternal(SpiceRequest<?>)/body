@@ -9,7 +9,7 @@
     }
   }
  catch (  final InterruptedException e) {
-    e.printStackTrace();
+    Ln.e(e,"Interrupted while removing listeners.");
   }
  finally {
     lockSendRequestsToService.unlock();

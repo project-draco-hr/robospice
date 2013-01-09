@@ -5,8 +5,8 @@
     }
  else     if (persister instanceof ObjectPersisterFactory) {
       ObjectPersisterFactory factory=(ObjectPersisterFactory)persister;
-      List<ObjectPersister<?>> listPersister=mapFactoryToPersister.get(factory);
-      for (      ObjectPersister<?> objectPersister : listPersister) {
+      List<ObjectPersister<?>> listPersisterForFactory=mapFactoryToPersister.get(factory);
+      for (      ObjectPersister<?> objectPersister : listPersisterForFactory) {
         objectPersister.removeAllDataFromCache();
       }
     }

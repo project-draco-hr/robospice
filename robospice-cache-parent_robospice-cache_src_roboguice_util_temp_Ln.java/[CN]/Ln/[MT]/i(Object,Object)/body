@@ -1,5 +1,5 @@
 {
-  if (config.minimumLogLevel > Log.INFO) {
+  if (CONFIG.minimumLogLevel > Log.INFO) {
     return 0;
   }
   final String s=Strings.toString(s1);

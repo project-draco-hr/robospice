@@ -6,7 +6,11 @@
     }
   }
 );
+  boolean allDeleted=true;
   for (  File cacheFile : cacheFileList) {
-    cacheFile.delete();
+    allDeleted=allDeleted || cacheFile.delete();
+  }
+  if (allDeleted) {
+    Ln.d("Some file could not be deleted from cache.");
   }
 }

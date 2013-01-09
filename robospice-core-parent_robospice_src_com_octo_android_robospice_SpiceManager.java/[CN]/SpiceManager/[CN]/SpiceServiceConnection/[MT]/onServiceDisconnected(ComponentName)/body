@@ -1,8 +1,7 @@
 {
+  lockAcquireService.lock();
   try {
-    Ln.d("Unbound from service start");
-    lockAcquireService.lock();
-    Ln.d("Unbound from service : " + spiceService.getClass().getSimpleName());
+    Ln.d("Unbound from service start : " + spiceService.getClass().getSimpleName());
     spiceService=null;
     isUnbinding=false;
     conditionServiceUnbound.signalAll();

@@ -13,8 +13,12 @@
           }
  finally {
             lock.lock();
-            condition.signal();
-            lock.unlock();
+            try {
+              condition.signal();
+            }
+  finally {
+              lock.unlock();
+            }
           }
         }
       }

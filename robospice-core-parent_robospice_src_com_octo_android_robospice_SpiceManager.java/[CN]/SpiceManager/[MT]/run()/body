@@ -1,19 +1,26 @@
 {
   checkServiceIsProperlyDeclaredInAndroidManifest(context.get());
   if (!SpiceService.isStarted()) {
-    final Intent intent=new Intent(context.get(),spiceServiceClass);
-    context.get().startService(intent);
+    if (context.get() != null) {
+      final Intent intent=new Intent(context.get(),spiceServiceClass);
+      context.get().startService(intent);
+    }
+ else {
+      Ln.d("Service was not started as Activity died prematurely");
+    }
   }
   bindToService(context.get());
   try {
     waitForServiceToBeBound();
+    if (spiceService == null) {
+      return;
+    }
     while (!isStopped) {
       final CachedSpiceRequest<?> spiceRequest=requestQueue.take();
       try {
         lockSendRequestsToService.lock();
         if (spiceRequest != null) {
-          final Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.get(spiceRequest);
-          mapRequestToLaunchToRequestListener.remove(spiceRequest);
+          final Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.remove(spiceRequest);
           mapPendingRequestToRequestListener.put(spiceRequest,listRequestListener);
           Ln.d("Sending request to service : " + spiceRequest.getClass().getSimpleName());
           spiceService.addRequest(spiceRequest,listRequestListener);

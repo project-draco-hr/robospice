@@ -1,7 +1,7 @@
 {
-  if (config.minimumLogLevel <= Log.DEBUG) {
+  if (CONFIG.minimumLogLevel <= Log.DEBUG) {
     final StackTraceElement trace=Thread.currentThread().getStackTrace()[DEFAULT_STACK_TRACE_LINE_COUNT];
-    return config.scope + "/" + trace.getFileName()+ ":"+ trace.getLineNumber();
+    return CONFIG.scope + "/" + trace.getFileName()+ ":"+ trace.getLineNumber();
   }
-  return config.scope;
+  return CONFIG.scope;
 }
