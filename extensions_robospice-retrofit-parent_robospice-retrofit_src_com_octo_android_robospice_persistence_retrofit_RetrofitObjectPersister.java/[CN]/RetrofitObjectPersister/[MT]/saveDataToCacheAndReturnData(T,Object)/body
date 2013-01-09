@@ -1,7 +1,7 @@
 {
   try {
     if (isAsyncSaveEnabled) {
-      new Thread(){
+      Thread t=new Thread(){
         @Override public void run(){
           try {
             saveData(data,cacheKey);
@@ -23,7 +23,8 @@ catch (          CacheSavingException e) {
           }
         }
       }
-.start();
+;
+      t.start();
     }
  else {
       saveData(data,cacheKey);
