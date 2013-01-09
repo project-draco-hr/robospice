@@ -1,6 +1,6 @@
 {
   try {
-    if (isAsyncSaveEnabled) {
+    if (isAsyncSaveEnabled()) {
       Thread t=new Thread(){
         @Override public void run(){
           try {
@@ -11,15 +11,6 @@
           }
 catch (          CacheSavingException e) {
             Ln.e(e,"An error occured on saving request " + cacheKey + " data asynchronously");
-          }
- finally {
-            lock.lock();
-            try {
-              condition.signal();
-            }
-  finally {
-              lock.unlock();
-            }
           }
         }
       }

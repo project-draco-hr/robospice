@@ -1,0 +1,8 @@
+{
+  try {
+    return serializer.read(getHandledClass(),xml);
+  }
+ catch (  Exception e) {
+    throw new CacheLoadingException(e);
+  }
+}

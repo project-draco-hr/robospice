@@ -1,5 +1,4 @@
 {
-  super(application,clazz);
+  super(application,clazz,factoryPrefix);
   this.gson=new Gson();
-  this.mFactoryPrefix=factoryPrefix;
 }

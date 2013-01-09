@@ -1,9 +1,0 @@
-{
-  lock.lock();
-  try {
-    return condition.await(time,timeUnit);
-  }
-  finally {
-    lock.unlock();
-  }
-}

@@ -1,5 +1,4 @@
 {
-  super(application,clazz);
+  super(application,clazz,factoryPrefix);
   this.serializer=new Persister();
-  this.mFactoryPrefix=factoryPrefix;
 }
