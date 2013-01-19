@@ -9,12 +9,12 @@
     return false;
   }
   Weather other=(Weather)obj;
-  if (curren_weather == null) {
-    if (other.curren_weather != null) {
+  if (currenWeather == null) {
+    if (other.currenWeather != null) {
       return false;
     }
   }
- else   if (!curren_weather.equals(other.curren_weather)) {
+ else   if (!currenWeather.equals(other.currenWeather)) {
     return false;
   }
   if (forecast == null) {

@@ -3,7 +3,7 @@
   Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
   List<Class<?>> classCollection=new ArrayList<Class<?>>();
   classCollection.add(Weather.class);
-  classCollection.add(Curren_weather.class);
+  classCollection.add(CurrenWeather.class);
   classCollection.add(Day.class);
   classCollection.add(Forecast.class);
   classCollection.add(Night.class);
