@@ -1,4 +1,4 @@
 {
-  final CachedSpiceRequest<T> cachedSpiceRequest=new CachedSpiceRequest<T>(request,requestCacheKey,cacheDuration);
+  final CachedSpiceRequest<T> cachedSpiceRequest=new CachedSpiceRequest<T>(request,requestCacheKey,cacheExpiryDuration);
   execute(cachedSpiceRequest,requestListener);
 }

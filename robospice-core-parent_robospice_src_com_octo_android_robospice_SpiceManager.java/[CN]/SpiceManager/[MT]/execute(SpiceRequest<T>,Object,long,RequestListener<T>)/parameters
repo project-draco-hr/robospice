@@ -1,4 +1,4 @@
 SpiceRequest<T> request
 Object requestCacheKey
-long cacheDuration
+long cacheExpiryDuration
 RequestListener<T> requestListener
