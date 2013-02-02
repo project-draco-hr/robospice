@@ -1,0 +1,24 @@
+{
+  CachedSpiceRequestStub<String> stubRequest1=createSuccessfulRequest(TEST_CLASS,null,TEST_DURATION,TEST_RETURNED_DATA);
+  CachedSpiceRequestStub<String> stubRequest2=createSuccessfulRequest(TEST_CLASS,null,TEST_DURATION,TEST_RETURNED_DATA);
+  RequestListenerWithProgressStub<String> mockRequestListener1=new RequestListenerWithProgressStub<String>();
+  Set<RequestListener<?>> requestListenerSet1=new HashSet<RequestListener<?>>();
+  requestListenerSet1.add(mockRequestListener1);
+  RequestListenerWithProgressStub<String> mockRequestListener2=new RequestListenerWithProgressStub<String>();
+  Set<RequestListener<?>> requestListenerSet2=new HashSet<RequestListener<?>>();
+  requestListenerSet2.add(mockRequestListener2);
+  EasyMock.replay(mockCacheManager);
+  requestProcessorUnderTest.addRequest(stubRequest1,requestListenerSet1);
+  requestProcessorUnderTest.addRequest(stubRequest2,requestListenerSet2);
+  mockRequestListener1.await(REQUEST_COMPLETION_TIME_OUT);
+  mockRequestListener2.await(REQUEST_COMPLETION_TIME_OUT);
+  EasyMock.verify(mockCacheManager);
+  assertTrue(stubRequest1.isLoadDataFromNetworkCalled());
+  assertTrue(stubRequest2.isLoadDataFromNetworkCalled());
+  assertTrue(mockRequestListener1.isExecutedInUIThread());
+  assertTrue(mockRequestListener2.isExecutedInUIThread());
+  assertTrue(mockRequestListener1.isSuccessful());
+  assertTrue(mockRequestListener2.isSuccessful());
+  assertTrue(mockRequestListener1.isComplete());
+  assertTrue(mockRequestListener2.isComplete());
+}
