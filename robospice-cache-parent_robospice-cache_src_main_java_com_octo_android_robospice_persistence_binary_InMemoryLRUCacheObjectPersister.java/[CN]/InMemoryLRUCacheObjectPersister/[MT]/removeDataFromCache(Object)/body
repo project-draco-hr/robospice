@@ -1,0 +1,3 @@
+{
+  return (getMemoryCache().remove((String)o) != null);
+}

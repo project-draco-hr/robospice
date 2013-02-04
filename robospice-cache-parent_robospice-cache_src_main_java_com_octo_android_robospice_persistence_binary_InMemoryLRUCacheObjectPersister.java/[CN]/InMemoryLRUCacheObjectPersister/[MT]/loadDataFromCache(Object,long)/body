@@ -1,0 +1,15 @@
+{
+  String keyString=(String)cacheKey;
+  CacheItem<T> cacheItem=getMemoryCache().get(keyString);
+  String errorMsg=String.format(CACHE_MISS_NOT_FOUND,cacheKey);
+  if (cacheItem != null) {
+    long timeInCache=SystemClock.elapsedRealtime() - cacheItem.created;
+    if (timeInCache > maxTimeInCacheBeforeExpiry) {
+      errorMsg=String.format(CACHE_MISS_EXPIRED,cacheKey);
+    }
+ else {
+      return cacheItem.data;
+    }
+  }
+  throw new CacheLoadingException(errorMsg);
+}

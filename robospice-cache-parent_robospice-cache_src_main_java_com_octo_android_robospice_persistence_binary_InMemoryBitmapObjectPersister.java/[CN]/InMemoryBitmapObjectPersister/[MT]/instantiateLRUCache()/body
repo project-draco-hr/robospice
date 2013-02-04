@@ -1,0 +1,11 @@
+{
+  return new LruCache<String,CacheItem<Bitmap>>(cacheSize){
+    @Override protected int sizeOf(    String key,    CacheItem<Bitmap> value){
+      return value.data.getRowBytes() * value.data.getHeight();
+    }
+    @Override protected void entryRemoved(    boolean evicted,    String key,    CacheItem<Bitmap> oldValue,    CacheItem<Bitmap> newValue){
+      super.entryRemoved(evicted,key,oldValue,newValue);
+    }
+  }
+;
+}
