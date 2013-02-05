@@ -5,6 +5,6 @@
   }
  else {
     int memClass=((ActivityManager)application.getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
-    this.cacheSize=1024 * 1024 * 4* (memClass / 16);
+    this.cacheSize=DEFAULT_CACHE_SIZE * (memClass / BASELINE_MEMCLASS);
   }
 }
