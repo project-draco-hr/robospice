@@ -1,5 +1,5 @@
 {
   CacheItem<T> itemToCache=new CacheItem<T>(SystemClock.elapsedRealtime(),bitmap);
-  getMemoryCache().put((String)cacheKey,itemToCache);
+  getMemoryCache().put(cacheKey,itemToCache);
   return bitmap;
 }

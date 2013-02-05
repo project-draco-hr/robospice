@@ -1,5 +1,5 @@
 {
-  Map<String,CacheItem<T>> cacheMap=getMemoryCache().snapshot();
+  Map<Object,CacheItem<T>> cacheMap=getMemoryCache().snapshot();
   ArrayList<T> allData=new ArrayList<T>();
   for (  CacheItem<T> item : cacheMap.values()) {
     allData.add(item.data);

@@ -1,5 +1,5 @@
 {
-  String keyString=(String)cacheKey;
+  String keyString=cacheKey.toString();
   CacheItem<T> cacheItem=getMemoryCache().get(keyString);
   String errorMsg=String.format(CACHE_MISS_NOT_FOUND,cacheKey);
   if (cacheItem != null) {
