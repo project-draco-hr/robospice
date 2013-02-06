@@ -3,8 +3,9 @@
   CacheItem<T> cacheItem=getMemoryCache().get(keyString);
   String errorMsg=String.format(CACHE_MISS_NOT_FOUND,cacheKey);
   if (cacheItem != null) {
+    boolean doesExpire=maxTimeInCacheBeforeExpiry != DurationInMillis.ALWAYS;
     long timeInCache=SystemClock.elapsedRealtime() - cacheItem.created;
-    if (timeInCache > maxTimeInCacheBeforeExpiry) {
+    if (doesExpire && timeInCache > maxTimeInCacheBeforeExpiry) {
       errorMsg=String.format(CACHE_MISS_EXPIRED,cacheKey);
     }
  else {
