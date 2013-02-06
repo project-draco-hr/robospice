@@ -1,0 +1,10 @@
+{
+  super.setUp();
+  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  testPersister=new InMemoryLRUCacheObjectPersister<Object>(application,Object.class){
+    @Override protected LruCache<Object,CacheItem<Object>> instantiateLRUCache(){
+      return new LruCache<Object,CacheItem<Object>>(CACHE_SIZE);
+    }
+  }
+;
+}

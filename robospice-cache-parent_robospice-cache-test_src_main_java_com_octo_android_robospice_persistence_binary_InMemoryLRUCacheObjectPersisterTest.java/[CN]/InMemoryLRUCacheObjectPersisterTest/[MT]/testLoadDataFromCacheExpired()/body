@@ -1,0 +1,10 @@
+{
+  testPersister.saveDataToCacheAndReturnData(GENERIC_DATA,CACHE_KEY_1);
+  Thread.sleep(ONE_MILLISECOND);
+  try {
+    Object data=testPersister.loadDataFromCache(CACHE_KEY_1,ONE_MILLISECOND);
+    throw new Exception(EXPIRED_DATA_MSG);
+  }
+ catch (  CacheLoadingException e) {
+  }
+}

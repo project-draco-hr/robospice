@@ -1,0 +1,4 @@
+{
+  testPersister.saveDataToCacheAndReturnData(GENERIC_DATA,CACHE_KEY_1);
+  assertNotNull(testPersister.getMemoryCache().get(CACHE_KEY_1));
+}
