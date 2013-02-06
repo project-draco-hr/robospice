@@ -1,0 +1,8 @@
+{
+  CacheItem<T> itemToCache=new CacheItem<T>(SystemClock.elapsedRealtime(),data);
+  getMemoryCache().put(cacheKey,itemToCache);
+  if (fallbackPersister != null) {
+    fallbackPersister.saveDataToCacheAndReturnData(data,cacheKey);
+  }
+  return data;
+}

@@ -1,0 +1,23 @@
+{
+  try {
+    String errorMsg=null;
+    File cacheFile=getCacheFile(cacheKey);
+    BufferedOutputStream out=new BufferedOutputStream(new FileOutputStream(cacheFile));
+    boolean didCompress=data.compress(Bitmap.CompressFormat.PNG,100,out);
+    if (!didCompress) {
+      errorMsg=String.format(ERROR_COULD_NOT_COMPRESS_BITMAP,getCacheFile(cacheKey).getAbsolutePath());
+    }
+    out.flush();
+    out.close();
+    if (errorMsg != null) {
+      throw new CacheSavingException(errorMsg);
+    }
+    return data;
+  }
+ catch (  FileNotFoundException e) {
+    throw new CacheSavingException(e);
+  }
+catch (  IOException e) {
+    throw new CacheSavingException(e);
+  }
+}

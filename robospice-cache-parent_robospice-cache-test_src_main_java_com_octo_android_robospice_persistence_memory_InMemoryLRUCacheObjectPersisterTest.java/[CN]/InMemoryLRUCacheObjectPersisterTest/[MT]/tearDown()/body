@@ -1,0 +1,3 @@
+{
+  testPersisterWithFallback.getFallbackPersister().removeAllDataFromCache();
+}

@@ -1,0 +1,10 @@
+{
+  super(application,Bitmap.class,fallbackPersister);
+  if (cacheSize > 0) {
+    this.cacheSize=cacheSize;
+  }
+ else {
+    int memClass=((ActivityManager)application.getSystemService(Context.ACTIVITY_SERVICE)).getMemoryClass();
+    this.cacheSize=DEFAULT_CACHE_SIZE * (memClass / BASELINE_MEMCLASS);
+  }
+}

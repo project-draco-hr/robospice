@@ -1,0 +1,5 @@
+{
+  testPersisterWithFallback.saveDataToCacheAndReturnData(GENERIC_DATA,CACHE_KEY_1);
+  testPersisterWithFallback.getMemoryCache().evictAll();
+  assertNotNull(testPersisterWithFallback.loadDataFromCache(CACHE_KEY_1,DurationInMillis.ALWAYS));
+}

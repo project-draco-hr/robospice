@@ -1,0 +1,6 @@
+{
+  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  testPersister=new TestLRUPersister(application);
+  InFileStringObjectPersister fallbackPersister=new InFileStringObjectPersister(application);
+  testPersisterWithFallback=new TestLRUPersister(application,fallbackPersister);
+}

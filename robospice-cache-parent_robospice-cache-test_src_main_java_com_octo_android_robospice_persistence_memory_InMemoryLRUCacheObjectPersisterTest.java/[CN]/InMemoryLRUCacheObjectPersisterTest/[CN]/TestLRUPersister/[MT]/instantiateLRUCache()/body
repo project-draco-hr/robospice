@@ -1,0 +1,3 @@
+{
+  return new LruCache<Object,CacheItem<String>>(CACHE_SIZE);
+}

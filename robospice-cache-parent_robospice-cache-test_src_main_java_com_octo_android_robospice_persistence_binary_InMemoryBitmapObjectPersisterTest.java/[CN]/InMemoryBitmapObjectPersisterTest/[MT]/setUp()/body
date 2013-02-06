@@ -1,5 +1,5 @@
 {
   super.setUp();
   Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
-  testPersister=new InMemoryBitmapObjectPersister(application,CACHE_SIZE);
+  testPersister=new TestBitmapPersister(application,CACHE_SIZE);
 }
