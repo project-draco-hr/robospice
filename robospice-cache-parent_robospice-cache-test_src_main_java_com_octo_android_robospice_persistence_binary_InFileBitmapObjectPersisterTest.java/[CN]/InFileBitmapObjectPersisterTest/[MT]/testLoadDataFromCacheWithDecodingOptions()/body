@@ -1,6 +1,9 @@
 {
+  BitmapFactory.Options opts=new BitmapFactory.Options();
+  opts.inSampleSize=2;
+  testPersister.setDecodingOptions(opts);
   testPersister.saveDataToCacheAndReturnData(testBitmapLarge,CACHE_KEY_1);
   Bitmap data=testPersister.loadDataFromCache(CACHE_KEY_1,DurationInMillis.ALWAYS);
   assertNotNull(data);
-  assertBitmapSizeEquals(data,LARGE_BITMAP_SIZE);
+  assertBitmapSizeEquals(data,LARGE_BITMAP_SIZE / 4);
 }

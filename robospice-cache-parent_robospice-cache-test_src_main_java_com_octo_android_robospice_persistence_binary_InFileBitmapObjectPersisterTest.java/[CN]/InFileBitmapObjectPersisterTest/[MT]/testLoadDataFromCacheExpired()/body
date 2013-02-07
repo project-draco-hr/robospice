@@ -1,5 +1,5 @@
 {
-  testPersister.saveDataToCacheAndReturnData(testBitmap,CACHE_KEY_1);
+  testPersister.saveDataToCacheAndReturnData(testBitmapLarge,CACHE_KEY_1);
   Thread.sleep(ONE_MILLISECOND);
   try {
     testPersister.loadDataFromCache(CACHE_KEY_1,ONE_MILLISECOND);

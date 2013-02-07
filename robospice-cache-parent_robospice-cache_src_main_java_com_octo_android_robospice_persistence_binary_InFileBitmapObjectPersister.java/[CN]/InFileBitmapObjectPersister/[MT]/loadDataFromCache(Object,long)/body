@@ -11,7 +11,7 @@
     String errorMsg=String.format(ERROR_CACHE_MISS_EXPIRED,cachedFile.getAbsolutePath());
     throw new CacheLoadingException(errorMsg);
   }
-  Bitmap data=BitmapFactory.decodeFile(cachedFile.getAbsolutePath());
+  Bitmap data=BitmapFactory.decodeFile(cachedFile.getAbsolutePath(),decodingOptions);
   boolean bitmapNotLoaded=data == null;
   if (bitmapNotLoaded) {
     String errorMsg=String.format(ERROR_COULD_NOT_DECODE_BITMAP,cachedFile.getAbsolutePath());

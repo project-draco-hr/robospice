@@ -3,7 +3,7 @@
     String errorMsg=null;
     File cacheFile=getCacheFile(cacheKey);
     BufferedOutputStream out=new BufferedOutputStream(new FileOutputStream(cacheFile));
-    boolean didCompress=data.compress(Bitmap.CompressFormat.PNG,100,out);
+    boolean didCompress=data.compress(Bitmap.CompressFormat.PNG,compressionQuality,out);
     if (!didCompress) {
       errorMsg=String.format(ERROR_COULD_NOT_COMPRESS_BITMAP,getCacheFile(cacheKey).getAbsolutePath());
     }

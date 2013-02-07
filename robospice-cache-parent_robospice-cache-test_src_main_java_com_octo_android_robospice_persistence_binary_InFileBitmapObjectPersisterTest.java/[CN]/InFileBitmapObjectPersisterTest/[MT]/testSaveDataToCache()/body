@@ -1,4 +1,4 @@
 {
-  assertNotNull(testPersister.saveDataToCacheAndReturnData(testBitmap,CACHE_KEY_1));
+  assertNotNull(testPersister.saveDataToCacheAndReturnData(testBitmapLarge,CACHE_KEY_1));
   assertTrue(testPersister.getCacheFile(CACHE_KEY_1).exists());
 }
