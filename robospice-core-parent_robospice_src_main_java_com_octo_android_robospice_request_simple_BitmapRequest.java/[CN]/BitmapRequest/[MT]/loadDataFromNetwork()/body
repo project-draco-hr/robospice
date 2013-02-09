@@ -1,0 +1,25 @@
+{
+  try {
+    final HttpURLConnection httpURLConnection=(HttpURLConnection)new URL(url).openConnection();
+    processStream(httpURLConnection.getContentLength(),httpURLConnection.getInputStream());
+    if (width != -1 && height != -1) {
+      this.options=new BitmapFactory.Options();
+      options.inJustDecodeBounds=true;
+      BitmapFactory.decodeFile(cacheFile.getAbsolutePath(),options);
+      options.inSampleSize=calculateInSampleSize(options,width,height);
+      options.inJustDecodeBounds=false;
+      return BitmapFactory.decodeFile(cacheFile.getAbsolutePath(),options);
+    }
+ else {
+      return BitmapFactory.decodeFile(cacheFile.getAbsolutePath(),options);
+    }
+  }
+ catch (  final MalformedURLException e) {
+    Ln.e(e,"Unable to create URL");
+    return null;
+  }
+catch (  final IOException e) {
+    Ln.e(e,"Unable to download binary");
+    return null;
+  }
+}

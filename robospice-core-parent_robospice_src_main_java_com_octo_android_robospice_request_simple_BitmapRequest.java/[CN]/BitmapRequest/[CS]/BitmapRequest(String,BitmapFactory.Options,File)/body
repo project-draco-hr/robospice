@@ -1,0 +1,6 @@
+{
+  super(Bitmap.class);
+  this.url=url;
+  this.options=options;
+  this.cacheFile=cacheFile;
+}

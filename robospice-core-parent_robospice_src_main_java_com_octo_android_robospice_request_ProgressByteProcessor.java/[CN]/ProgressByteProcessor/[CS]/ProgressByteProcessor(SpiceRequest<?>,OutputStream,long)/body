@@ -1,4 +1,5 @@
 {
   this.bos=bos;
   this.total=total;
+  this.spiceRequest=spiceRequest;
 }

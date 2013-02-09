@@ -7,7 +7,6 @@
     }
     fileOutputStream=new FileOutputStream(cacheFile);
     readBytes(inputStream,new ProgressByteProcessor(this,fileOutputStream,contentLength));
-    return new FileInputStream(cacheFile);
   }
   finally {
     IOUtils.closeQuietly(fileOutputStream);
