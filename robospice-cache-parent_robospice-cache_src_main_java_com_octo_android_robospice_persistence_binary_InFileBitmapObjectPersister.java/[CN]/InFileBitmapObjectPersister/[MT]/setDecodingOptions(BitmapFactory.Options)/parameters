@@ -1,1 +1,1 @@
-BitmapFactory.Options opts
+BitmapFactory.Options decodingOptions

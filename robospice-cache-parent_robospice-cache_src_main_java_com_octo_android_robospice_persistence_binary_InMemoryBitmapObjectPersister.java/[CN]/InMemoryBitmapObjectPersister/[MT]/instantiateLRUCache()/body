@@ -1,9 +1,0 @@
-{
-  return new LruCache<Object,CacheItem<Bitmap>>(cacheSize){
-    @Override protected int sizeOf(    Object key,    CacheItem<Bitmap> value){
-      Bitmap data=value.getData();
-      return data.getRowBytes() * data.getHeight();
-    }
-  }
-;
-}

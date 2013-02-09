@@ -1,0 +1,4 @@
+{
+  testPersister.saveDataToCacheAndReturnData(TEST_DATA,TEST_CACHE_KEY_1);
+  assertNotNull(testPersister.loadDataFromCache(TEST_CACHE_KEY_1,DurationInMillis.ALWAYS));
+}

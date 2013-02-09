@@ -1,0 +1,5 @@
+{
+  testPersister.saveDataToCacheAndReturnData(TEST_DATA,TEST_CACHE_KEY_1);
+  Thread.sleep(TEST_EXPIRATION_DURATION_LONG);
+  assertNull(testPersister.loadDataFromCache(TEST_CACHE_KEY_1,TEST_EXPIRATION_DURATION_SHORT));
+}

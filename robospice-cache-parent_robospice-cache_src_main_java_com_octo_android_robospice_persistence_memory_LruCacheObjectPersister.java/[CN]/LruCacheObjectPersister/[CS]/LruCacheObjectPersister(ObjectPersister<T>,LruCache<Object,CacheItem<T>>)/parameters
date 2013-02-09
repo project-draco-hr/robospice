@@ -1,0 +1,2 @@
+ObjectPersister<T> decoratedPersister
+LruCache<Object,CacheItem<T>> lruCache

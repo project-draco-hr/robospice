@@ -1,0 +1,8 @@
+{
+  try {
+    return getCacheFile(cacheKey).lastModified();
+  }
+ catch (  Exception e) {
+    throw new CacheLoadingException("Data could not be found in cache for cacheKey=" + cacheKey);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  CacheItem<T> itemToCache=new CacheItem<T>(data);
+  lruCache.put(cacheKey,itemToCache);
+  if (decoratedPersister != null) {
+    decoratedPersister.saveDataToCacheAndReturnData(data,cacheKey);
+  }
+  return data;
+}

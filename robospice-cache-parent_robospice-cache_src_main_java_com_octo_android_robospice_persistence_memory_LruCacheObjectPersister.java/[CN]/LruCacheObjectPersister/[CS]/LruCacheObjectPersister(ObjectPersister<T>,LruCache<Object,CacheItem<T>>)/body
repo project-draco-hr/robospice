@@ -1,0 +1,5 @@
+{
+  super(decoratedPersister.getApplication(),decoratedPersister.getHandledClass());
+  this.decoratedPersister=decoratedPersister;
+  this.lruCache=lruCache;
+}

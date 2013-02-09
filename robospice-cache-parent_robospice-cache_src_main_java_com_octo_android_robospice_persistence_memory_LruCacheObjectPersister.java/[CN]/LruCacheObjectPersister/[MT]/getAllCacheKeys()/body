@@ -1,0 +1,8 @@
+{
+  if (decoratedPersister != null) {
+    return decoratedPersister.getAllCacheKeys();
+  }
+ else {
+    return new ArrayList<Object>(lruCache.snapshot().keySet());
+  }
+}

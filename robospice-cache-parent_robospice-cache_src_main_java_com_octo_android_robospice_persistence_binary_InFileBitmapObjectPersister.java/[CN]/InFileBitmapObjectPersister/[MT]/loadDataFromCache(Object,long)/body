@@ -1,21 +1,11 @@
 {
-  File cachedFile=getCacheFile(cacheKey);
-  boolean dataIsMissing=!cachedFile.exists();
-  if (dataIsMissing) {
-    String errorMsg=String.format(ERROR_CACHE_MISS_NOT_FOUND,cachedFile.getAbsolutePath());
-    throw new CacheLoadingException(errorMsg);
+  File file=getCacheFile(cacheKey);
+  if (isCachedAndNotExpired(file,maxTimeInCacheBeforeExpiry)) {
+    Bitmap data=BitmapFactory.decodeFile(file.getAbsolutePath(),decodingOptions);
+    if (data == null) {
+      throw new CacheLoadingException(String.format("Found the file %s but could not decode bitmap.",file.getAbsolutePath()));
+    }
+    return data;
   }
-  boolean dataDoesExpire=maxTimeInCache != DurationInMillis.ALWAYS;
-  boolean dataIsStale=System.currentTimeMillis() - cachedFile.lastModified() > maxTimeInCache;
-  if (dataDoesExpire && dataIsStale) {
-    String errorMsg=String.format(ERROR_CACHE_MISS_EXPIRED,cachedFile.getAbsolutePath());
-    throw new CacheLoadingException(errorMsg);
-  }
-  Bitmap data=BitmapFactory.decodeFile(cachedFile.getAbsolutePath(),decodingOptions);
-  boolean bitmapNotLoaded=data == null;
-  if (bitmapNotLoaded) {
-    String errorMsg=String.format(ERROR_COULD_NOT_DECODE_BITMAP,cachedFile.getAbsolutePath());
-    throw new CacheLoadingException(errorMsg);
-  }
-  return data;
+  return null;
 }

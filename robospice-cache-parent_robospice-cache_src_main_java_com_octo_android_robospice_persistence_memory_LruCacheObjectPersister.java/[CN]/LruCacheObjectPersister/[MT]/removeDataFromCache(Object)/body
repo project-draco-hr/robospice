@@ -1,0 +1,7 @@
+{
+  boolean result=false;
+  if (decoratedPersister != null) {
+    result=decoratedPersister.removeDataFromCache(cacheKey);
+  }
+  return result || lruCache.remove(cacheKey) != null;
+}

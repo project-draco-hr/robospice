@@ -1,0 +1,11 @@
+{
+  testPersister.saveDataToCacheAndReturnData(TEST_BITMAP_LARGE,TEST_CACHE_KEY);
+  Thread.sleep(TEST_EXPIRATION_DURATION);
+  try {
+    Bitmap data=testPersister.loadDataFromCache(TEST_CACHE_KEY,TEST_EXPIRATION_DURATION);
+    assertNull(data);
+  }
+ catch (  CacheLoadingException e) {
+    fail("A cache miss should not throw exception ");
+  }
+}

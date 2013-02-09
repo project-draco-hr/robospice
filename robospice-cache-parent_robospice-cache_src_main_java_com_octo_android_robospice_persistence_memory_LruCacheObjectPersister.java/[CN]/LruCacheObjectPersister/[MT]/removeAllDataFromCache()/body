@@ -1,0 +1,6 @@
+{
+  lruCache.evictAll();
+  if (decoratedPersister != null) {
+    decoratedPersister.removeAllDataFromCache();
+  }
+}

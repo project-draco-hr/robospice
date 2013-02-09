@@ -1,4 +1,0 @@
-{
-  super(application,clazz);
-  this.fallbackPersister=fallback;
-}

@@ -1,0 +1,4 @@
+{
+  testPersister.removeAllDataFromCache();
+  super.tearDown();
+}

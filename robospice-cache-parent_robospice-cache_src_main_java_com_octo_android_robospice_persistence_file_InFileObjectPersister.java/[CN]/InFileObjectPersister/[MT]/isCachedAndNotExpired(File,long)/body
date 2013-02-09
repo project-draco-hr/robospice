@@ -1,0 +1,9 @@
+{
+  if (cacheFile.exists()) {
+    long timeInCache=System.currentTimeMillis() - cacheFile.lastModified();
+    if (maxTimeInCacheBeforeExpiry == DurationInMillis.ALWAYS || timeInCache <= maxTimeInCacheBeforeExpiry) {
+      return true;
+    }
+  }
+  return false;
+}

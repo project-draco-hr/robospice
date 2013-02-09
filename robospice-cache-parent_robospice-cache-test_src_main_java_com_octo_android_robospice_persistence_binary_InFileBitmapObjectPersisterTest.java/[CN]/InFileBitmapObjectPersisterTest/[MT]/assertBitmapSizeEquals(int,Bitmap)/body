@@ -1,0 +1,3 @@
+{
+  assertEquals(expectedBitmapSize,bitmap.getRowBytes() * bitmap.getHeight());
+}

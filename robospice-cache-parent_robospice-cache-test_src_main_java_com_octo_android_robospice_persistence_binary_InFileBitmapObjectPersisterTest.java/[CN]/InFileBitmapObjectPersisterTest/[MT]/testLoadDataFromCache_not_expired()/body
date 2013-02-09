@@ -1,0 +1,6 @@
+{
+  testPersister.saveDataToCacheAndReturnData(TEST_BITMAP_LARGE,TEST_CACHE_KEY);
+  Bitmap data=testPersister.loadDataFromCache(TEST_CACHE_KEY,Long.MAX_VALUE);
+  assertNotNull(data);
+  assertBitmapSizeEquals(TEST_BITMAP_LARGE_SIZE,data);
+}

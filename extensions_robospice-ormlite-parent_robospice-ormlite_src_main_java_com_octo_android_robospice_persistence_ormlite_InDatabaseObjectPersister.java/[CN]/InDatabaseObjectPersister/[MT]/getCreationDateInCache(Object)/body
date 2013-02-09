@@ -1,0 +1,13 @@
+{
+  CacheEntry cacheEntry=null;
+  try {
+    cacheEntry=databaseHelper.queryCacheKeyForIdFromDatabase(String.valueOf(cacheKey));
+  }
+ catch (  SQLException e) {
+    throw new CacheLoadingException("Data could not be found in cache for cacheKey=" + cacheKey,e);
+  }
+  if (cacheEntry == null) {
+    throw new CacheLoadingException("Data could not be found in cache for cacheKey=" + cacheKey);
+  }
+  return cacheEntry.getTimestamp();
+}

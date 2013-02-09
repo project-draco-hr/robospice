@@ -1,0 +1,9 @@
+{
+  Bitmap data=value.getData();
+  if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB_MR1) {
+    return data.getRowBytes() * data.getHeight();
+  }
+ else {
+    return data.getByteCount();
+  }
+}

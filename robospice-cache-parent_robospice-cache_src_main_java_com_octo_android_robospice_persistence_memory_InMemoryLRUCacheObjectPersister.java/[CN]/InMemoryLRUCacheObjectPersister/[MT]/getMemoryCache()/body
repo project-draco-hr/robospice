@@ -1,6 +1,0 @@
-{
-  if (memoryCache == null) {
-    memoryCache=instantiateLRUCache();
-  }
-  return memoryCache;
-}

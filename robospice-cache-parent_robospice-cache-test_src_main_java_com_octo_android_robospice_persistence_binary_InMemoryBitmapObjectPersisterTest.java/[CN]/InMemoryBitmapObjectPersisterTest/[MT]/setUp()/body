@@ -1,5 +1,0 @@
-{
-  super.setUp();
-  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
-  testPersister=new TestBitmapPersister(application,CACHE_SIZE);
-}

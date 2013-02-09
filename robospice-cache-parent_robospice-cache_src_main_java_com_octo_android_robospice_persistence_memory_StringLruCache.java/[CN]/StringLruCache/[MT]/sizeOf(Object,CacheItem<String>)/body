@@ -1,0 +1,4 @@
+{
+  String data=value.getData();
+  return data.length();
+}

@@ -1,4 +1,0 @@
-{
-  testPersister.saveDataToCacheAndReturnData(testBitmap,CACHE_KEY_1);
-  assertEquals(testPersister.getMemoryCache().size(),BITMAP_SIZE);
-}

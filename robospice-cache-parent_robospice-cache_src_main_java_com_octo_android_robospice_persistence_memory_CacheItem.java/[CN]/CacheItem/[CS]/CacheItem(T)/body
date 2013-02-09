@@ -1,0 +1,4 @@
+{
+  this.creationDate=System.currentTimeMillis();
+  this.data=data;
+}
