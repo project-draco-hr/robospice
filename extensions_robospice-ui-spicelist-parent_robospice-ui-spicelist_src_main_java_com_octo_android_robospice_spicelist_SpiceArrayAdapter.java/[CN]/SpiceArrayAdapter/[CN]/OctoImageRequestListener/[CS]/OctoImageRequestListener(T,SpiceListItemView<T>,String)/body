@@ -1,5 +1,5 @@
 {
-  this.octo=octo;
+  this.data=data;
   this.spiceListItemView=spiceListItemView;
   this.thumbImageView=spiceListItemView.getImageView();
   this.imageFileName=imageFileName;

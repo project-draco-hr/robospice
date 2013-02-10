@@ -1,6 +1,8 @@
 {
-  if (!registered(view)) {
-    addSpiceListItemView(view);
+  if (!registered(spiceListItemView)) {
+    addSpiceListItemView(spiceListItemView);
   }
-  new ThumbnailAsynTask(createRequest(data)).execute(data,view);
+  imageWidth=Math.max(imageWidth,spiceListItemView.getImageView().getWidth());
+  imageHeight=Math.max(imageHeight,spiceListItemView.getImageView().getHeight());
+  new ThumbnailAsynTask(createRequest(data,imageWidth,imageHeight)).execute(data,spiceListItemView);
 }

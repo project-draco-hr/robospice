@@ -1,0 +1,4 @@
+{
+  this(context,spiceManagerBinary,Arrays.asList(objects));
+  initialize(context,spiceManagerBinary);
+}

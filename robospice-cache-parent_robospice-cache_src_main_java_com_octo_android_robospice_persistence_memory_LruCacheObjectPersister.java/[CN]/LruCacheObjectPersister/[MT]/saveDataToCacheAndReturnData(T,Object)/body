@@ -1,6 +1,7 @@
 {
   CacheItem<T> itemToCache=new CacheItem<T>(data);
   lruCache.put(cacheKey,itemToCache);
+  Ln.d("Put in lru cache for %s",cacheKey);
   if (decoratedPersister != null) {
     decoratedPersister.saveDataToCacheAndReturnData(data,cacheKey);
   }

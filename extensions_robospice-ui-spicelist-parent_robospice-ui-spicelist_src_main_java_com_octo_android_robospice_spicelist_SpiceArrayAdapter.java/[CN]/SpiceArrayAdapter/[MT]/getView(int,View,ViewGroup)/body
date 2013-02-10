@@ -1,0 +1,13 @@
+{
+  SpiceListItemView<T> spiceListItemView;
+  T currentItem=getItem(position);
+  if (convertView != null) {
+    spiceListItemView=(SpiceListItemView<T>)convertView;
+  }
+ else {
+    spiceListItemView=createView(getContext());
+  }
+  spiceListItemView.update(currentItem);
+  updateListItemViewAsynchronously(currentItem,spiceListItemView);
+  return (View)spiceListItemView;
+}

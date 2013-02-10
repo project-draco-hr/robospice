@@ -1,6 +1,0 @@
-{
-  CacheManager cacheManager=new CacheManager();
-  InFileBigInputStreamObjectPersister inFileInputStreamObjectPersister=new InFileBigInputStreamObjectPersister(application);
-  cacheManager.addPersister(inFileInputStreamObjectPersister);
-  return cacheManager;
-}

@@ -1,0 +1,3 @@
+{
+  return new BitmapRequest(mockWebServer.getUrl("/" + data.getImageUrl()).toString(),reqWidth,reqHeight,cacheFile);
+}

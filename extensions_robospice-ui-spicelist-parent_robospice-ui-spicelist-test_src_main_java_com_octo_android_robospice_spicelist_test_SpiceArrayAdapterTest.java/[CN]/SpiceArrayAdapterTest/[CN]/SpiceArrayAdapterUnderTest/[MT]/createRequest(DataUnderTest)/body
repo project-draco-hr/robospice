@@ -1,3 +1,0 @@
-{
-  return new BigBinaryRequest(mockWebServer.getUrl("/" + data.getImageUrl()).toString(),cacheFile);
-}

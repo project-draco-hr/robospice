@@ -8,8 +8,6 @@
     final AsyncDrawable asyncDrawable=new AsyncDrawable(getContext().getResources(),task);
     thumbImageView.setImageDrawable(asyncDrawable);
     thumbImageView.setTag(tempThumbnailImageFileName);
-    int width=Math.round(convertDpToPixel(IMG_WIDTH,getContext()));
-    int height=width;
-    task.execute(tempThumbnailImageFileName,String.valueOf(width),String.valueOf(height));
+    task.execute(tempThumbnailImageFileName);
   }
 }

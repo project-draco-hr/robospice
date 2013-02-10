@@ -1,6 +1,0 @@
-{
-  freshDrawableSet.add(this.octo);
-  if (this.octo.equals(spiceListItemView.getData())) {
-    loadBitmapAsynchronously(octo,thumbImageView,imageFileName);
-  }
-}

@@ -1,6 +1,6 @@
 {
   if (isImageAvailableInCache) {
-    loadBitmapAsynchronously(octo,spiceListItemView.getImageView(),tempThumbnailImageFileName);
+    loadBitmapAsynchronously(data,spiceListItemView.getImageView(),tempThumbnailImageFileName);
   }
  else {
     spiceListItemView.getImageView().setImageDrawable(defaultDrawable);

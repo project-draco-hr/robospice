@@ -1,3 +1,0 @@
-{
-  this(context,spiceManagerBinary,new ArrayList<T>());
-}

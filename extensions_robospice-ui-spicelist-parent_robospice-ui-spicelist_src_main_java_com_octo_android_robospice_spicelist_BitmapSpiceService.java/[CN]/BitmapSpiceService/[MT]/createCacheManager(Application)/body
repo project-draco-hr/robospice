@@ -1,0 +1,6 @@
+{
+  CacheManager cacheManager=new CacheManager();
+  InFileBitmapObjectPersister inFileBitmapObjectPersister=new InFileBitmapObjectPersister(application);
+  cacheManager.addPersister(inFileBitmapObjectPersister);
+  return cacheManager;
+}

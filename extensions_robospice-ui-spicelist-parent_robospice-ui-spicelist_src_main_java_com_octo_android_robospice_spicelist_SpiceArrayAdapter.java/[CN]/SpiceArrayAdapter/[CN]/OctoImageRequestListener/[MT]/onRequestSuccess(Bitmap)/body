@@ -1,0 +1,6 @@
+{
+  freshDrawableSet.add(data);
+  if (this.data.equals(spiceListItemView.getData())) {
+    loadBitmapAsynchronously(data,thumbImageView,imageFileName);
+  }
+}

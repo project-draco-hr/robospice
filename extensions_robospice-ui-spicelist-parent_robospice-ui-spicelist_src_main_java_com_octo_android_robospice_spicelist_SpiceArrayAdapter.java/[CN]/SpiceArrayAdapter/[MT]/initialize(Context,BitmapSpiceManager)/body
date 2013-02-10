@@ -1,6 +1,6 @@
 {
+  this.spiceManagerBinary=spiceManagerBinary;
+  defaultDrawable=context.getResources().getDrawable(android.R.drawable.picture_frame);
   animation=AnimationUtils.loadAnimation(getContext(),android.R.anim.fade_in);
   animation.setDuration(getContext().getResources().getInteger(android.R.integer.config_mediumAnimTime));
-  fileName=params[0];
-  return BitmapFactory.decodeFile(fileName,null);
 }
