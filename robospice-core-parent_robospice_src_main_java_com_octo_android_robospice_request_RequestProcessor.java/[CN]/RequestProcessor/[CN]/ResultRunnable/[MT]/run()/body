@@ -5,13 +5,15 @@
   final String resultMsg=spiceException == null ? "success" : "failure";
   Ln.v("Notifying " + listeners.size() + " listeners of request "+ resultMsg);
   for (  final RequestListener<?> listener : listeners) {
-    @SuppressWarnings("unchecked") final RequestListener<T> listener2=(RequestListener<T>)listener;
-    Ln.v("Notifying %s",listener.getClass().getSimpleName());
-    if (spiceException == null) {
-      listener2.onRequestSuccess(result);
-    }
+    if (listener != null) {
+      @SuppressWarnings("unchecked") final RequestListener<T> listenerOfT=(RequestListener<T>)listener;
+      Ln.v("Notifying %s",listener.getClass().getSimpleName());
+      if (spiceException == null) {
+        listenerOfT.onRequestSuccess(result);
+      }
  else {
-      listener.onRequestFailure(spiceException);
+        listener.onRequestFailure(spiceException);
+      }
     }
   }
 }

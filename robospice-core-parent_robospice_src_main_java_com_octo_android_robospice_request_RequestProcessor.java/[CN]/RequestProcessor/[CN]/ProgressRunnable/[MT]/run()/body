@@ -4,7 +4,7 @@
   }
   Ln.v("Notifying " + listeners.size() + " listeners of progress "+ progress);
   for (  final RequestListener<?> listener : listeners) {
-    if (listener instanceof RequestProgressListener) {
+    if (listener != null && listener instanceof RequestProgressListener) {
       Ln.v("Notifying %s",listener.getClass().getSimpleName());
       ((RequestProgressListener)listener).onRequestProgressUpdate(progress);
     }

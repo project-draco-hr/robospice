@@ -1,3 +1,4 @@
 {
+  signalStopWaiting();
   return isLoadDataFromNetworkCalled;
 }
