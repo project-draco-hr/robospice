@@ -2,31 +2,25 @@
   T result=null;
   String resultJson=null;
   File file=getCacheFile(cacheKey);
-  if (file.exists()) {
-    long timeInCache=System.currentTimeMillis() - file.lastModified();
-    if (maxTimeInCacheBeforeExpiry == 0 || timeInCache <= maxTimeInCacheBeforeExpiry) {
-      try {
-        resultJson=FileUtils.readFileToString(file,CharEncoding.UTF_8);
-        if (!StringUtils.isEmpty(resultJson)) {
-          result=deserializeData(resultJson);
-          return result;
-        }
-        throw new CacheLoadingException("Unable to restore cache content : cache file is empty");
+  if (isCachedAndNotExpired(file,maxTimeInCacheBeforeExpiry)) {
+    try {
+      resultJson=FileUtils.readFileToString(file,CharEncoding.UTF_8);
+      if (!StringUtils.isEmpty(resultJson)) {
+        result=deserializeData(resultJson);
+        return result;
       }
- catch (      FileNotFoundException e) {
-        Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
-        return null;
-      }
-catch (      CacheLoadingException e) {
-        throw e;
-      }
-catch (      Exception e) {
-        throw new CacheLoadingException(e);
-      }
+      throw new CacheLoadingException("Unable to restore cache content : cache file is empty");
     }
-    Ln.v("Cache content is expired since " + (maxTimeInCacheBeforeExpiry - timeInCache));
-    return null;
+ catch (    FileNotFoundException e) {
+      Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
+      return null;
+    }
+catch (    CacheLoadingException e) {
+      throw e;
+    }
+catch (    Exception e) {
+      throw new CacheLoadingException(e);
+    }
   }
-  Ln.v("file " + file.getAbsolutePath() + " does not exists");
   return null;
 }

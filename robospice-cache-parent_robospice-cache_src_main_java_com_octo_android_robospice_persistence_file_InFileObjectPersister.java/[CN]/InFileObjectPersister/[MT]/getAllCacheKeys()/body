@@ -6,7 +6,7 @@
     }
   }
 );
-  List<Object> result=new ArrayList<Object>();
+  List<Object> result=new ArrayList<Object>(cacheFileNameList.length);
   for (  String cacheFileName : cacheFileNameList) {
     result.add(cacheFileName.substring(prefix.length()));
   }

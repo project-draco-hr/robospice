@@ -1,6 +1,7 @@
 {
-  List<T> result=new ArrayList<T>();
-  for (  Object key : getAllCacheKeys()) {
+  List<Object> allCacheKeys=getAllCacheKeys();
+  List<T> result=new ArrayList<T>(allCacheKeys.size());
+  for (  Object key : allCacheKeys) {
     result.add(loadDataFromCache(key,DurationInMillis.ALWAYS));
   }
   return result;
