@@ -1,0 +1,7 @@
+{
+  File file=getCacheFile(cacheKey);
+  if (isCachedAndNotExpired(file,maxTimeInCache)) {
+    return readCacheDataFromFile(file);
+  }
+  return null;
+}

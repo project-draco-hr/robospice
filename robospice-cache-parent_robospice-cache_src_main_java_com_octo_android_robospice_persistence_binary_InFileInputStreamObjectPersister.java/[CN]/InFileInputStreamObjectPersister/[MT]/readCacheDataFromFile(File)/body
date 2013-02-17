@@ -1,0 +1,9 @@
+{
+  try {
+    return new FileInputStream(file);
+  }
+ catch (  FileNotFoundException e) {
+    Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
+    return null;
+  }
+}

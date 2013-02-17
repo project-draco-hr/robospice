@@ -1,0 +1,15 @@
+{
+  try {
+    JsonParser jsonParser=jsonFactory.createJsonParser(new FileReader(file));
+    T result=jsonParser.parse(getHandledClass(),null);
+    jsonParser.close();
+    return result;
+  }
+ catch (  FileNotFoundException e) {
+    Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
+    return null;
+  }
+catch (  Exception e) {
+    throw new CacheLoadingException(e);
+  }
+}

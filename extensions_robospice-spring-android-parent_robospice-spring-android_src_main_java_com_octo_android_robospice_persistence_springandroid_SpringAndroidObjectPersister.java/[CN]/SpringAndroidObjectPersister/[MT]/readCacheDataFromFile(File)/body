@@ -1,0 +1,20 @@
+{
+  try {
+    String resultJson=FileUtils.readFileToString(file,CharEncoding.UTF_8);
+    if (!StringUtils.isEmpty(resultJson)) {
+      T result=deserializeData(resultJson);
+      return result;
+    }
+    throw new CacheLoadingException("Unable to restore cache content : cache file is empty");
+  }
+ catch (  FileNotFoundException e) {
+    Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
+    return null;
+  }
+catch (  CacheLoadingException e) {
+    throw e;
+  }
+catch (  Exception e) {
+    throw new CacheLoadingException(e);
+  }
+}
