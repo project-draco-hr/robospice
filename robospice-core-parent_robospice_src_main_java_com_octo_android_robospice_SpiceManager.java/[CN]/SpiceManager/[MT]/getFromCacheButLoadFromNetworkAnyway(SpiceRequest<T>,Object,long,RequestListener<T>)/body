@@ -1,0 +1,4 @@
+{
+  getFromCache(request.getResultType(),requestCacheKey,cacheExpiryDuration,requestListener);
+  execute(request,requestListener);
+}

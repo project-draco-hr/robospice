@@ -1,15 +1,15 @@
 {
   spiceManager.start(getInstrumentation().getTargetContext());
-  SpiceRequestStub<String> contentRequestStub=new SpiceRequestFailingStub<String>(TEST_CLASS);
-  SpiceRequestStub<String> contentRequestStub2=new SpiceRequestFailingStub<String>(TEST_CLASS);
+  SpiceRequestFailingStub<String> spiceRequestStub=new SpiceRequestFailingStub<String>(TEST_CLASS,WAIT_BEFORE_EXECUTING_REQUEST_SHORT);
+  SpiceRequestFailingStub<String> spiceRequestStub2=new SpiceRequestFailingStub<String>(TEST_CLASS,WAIT_BEFORE_EXECUTING_REQUEST_SHORT);
   RequestListenerStub<String> requestListenerStub=new RequestListenerStub<String>();
   RequestListenerStub<String> requestListenerStub2=new RequestListenerStub<String>();
-  spiceManager.execute(contentRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
-  spiceManager.execute(contentRequestStub2,TEST_CACHE_KEY2,TEST_DURATION,requestListenerStub2);
+  spiceManager.execute(spiceRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
+  spiceManager.execute(spiceRequestStub2,TEST_CACHE_KEY2,TEST_DURATION,requestListenerStub2);
   spiceManager.dontNotifyAnyRequestListenersInternal();
   spiceManager.dumpState();
-  contentRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
-  contentRequestStub2.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
+  spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
+  spiceRequestStub2.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
   assertNull(requestListenerStub.isSuccessful());
   assertNull(requestListenerStub2.isSuccessful());
 }

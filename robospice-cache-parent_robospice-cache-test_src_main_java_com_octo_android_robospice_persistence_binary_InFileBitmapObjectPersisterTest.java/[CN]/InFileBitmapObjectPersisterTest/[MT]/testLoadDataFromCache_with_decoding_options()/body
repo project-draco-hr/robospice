@@ -5,7 +5,7 @@
   testPersister.setDecodingOptions(decodingOptions);
   testPersister.removeAllDataFromCache();
   testPersister.saveDataToCacheAndReturnData(TEST_BITMAP_LARGE,TEST_CACHE_KEY);
-  Bitmap data=testPersister.loadDataFromCache(TEST_CACHE_KEY,DurationInMillis.ALWAYS);
+  Bitmap data=testPersister.loadDataFromCache(TEST_CACHE_KEY,DurationInMillis.ALWAYS_RETURNED);
   assertNotNull(data);
   assertBitmapSizeEquals(TEST_BITMAP_LARGE_SIZE / TEST_SIZE_RATIO_AFTER_DOWNSAMPLING,data);
 }

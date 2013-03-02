@@ -1,0 +1,11 @@
+{
+  spiceManager.start(getInstrumentation().getTargetContext());
+  SpiceRequestStub<Integer> spiceRequestStub=new SpiceRequestFailingStub<Integer>(TEST_CLASS2);
+  RequestListenerStub<Integer> requestListenerStub=new RequestListenerStub<Integer>();
+  spiceManager.execute(spiceRequestStub,requestListenerStub);
+  spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
+  requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
+  assertTrue(spiceRequestStub.isLoadDataFromNetworkCalled());
+  assertTrue(requestListenerStub.isExecutedInUIThread());
+  assertFalse(requestListenerStub.isSuccessful());
+}

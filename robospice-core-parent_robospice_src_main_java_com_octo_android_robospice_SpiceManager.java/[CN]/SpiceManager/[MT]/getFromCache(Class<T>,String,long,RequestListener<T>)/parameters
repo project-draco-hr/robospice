@@ -1,4 +1,0 @@
-Class<T> clazz
-String requestCacheKey
-long cacheExpiryDuration
-RequestListener<T> requestListener

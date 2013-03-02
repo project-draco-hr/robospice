@@ -2,6 +2,6 @@
   testPersister.saveDataToCacheAndReturnData(TEST_DATA,TEST_CACHE_KEY_1);
   testPersister.saveDataToCacheAndReturnData(TEST_DATA,TEST_CACHE_KEY_2);
   testPersister.saveDataToCacheAndReturnData(TEST_DATA,TEST_CACHE_KEY_3);
-  String data=testPersister.loadDataFromCache(TEST_CACHE_KEY_1,DurationInMillis.ALWAYS);
+  String data=testPersister.loadDataFromCache(TEST_CACHE_KEY_1,DurationInMillis.ALWAYS_RETURNED);
   assertNull("Cache loaded old data that should have been purged by the LRUCache.",data);
 }

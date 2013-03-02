@@ -1,0 +1,4 @@
+SpiceRequest<T> request
+Object requestCacheKey
+long cacheExpiryDuration
+RequestListener<T> requestListener

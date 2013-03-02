@@ -1,6 +1,6 @@
 {
   try {
-    spiceManager.execute(new CachedSpiceRequest<String>((SpiceRequest<String>)null,null,DurationInMillis.ALWAYS),null);
+    spiceManager.execute(new CachedSpiceRequest<String>((SpiceRequest<String>)null,null,DurationInMillis.ALWAYS_RETURNED),null);
     fail();
   }
  catch (  Exception ex) {

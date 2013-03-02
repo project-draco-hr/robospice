@@ -2,7 +2,7 @@
   List<Object> allCacheKeys=getAllCacheKeys();
   List<T> result=new ArrayList<T>(allCacheKeys.size());
   for (  Object key : allCacheKeys) {
-    result.add(loadDataFromCache(key,DurationInMillis.ALWAYS));
+    result.add(loadDataFromCache(key,DurationInMillis.ALWAYS_RETURNED));
   }
   return result;
 }

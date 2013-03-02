@@ -1,6 +1,6 @@
 {
   WeatherResult weatherRequestStatus=buildWeather(TEST_TEMP,TEST_TEMP_UNIT);
   dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,FILE_NAME);
-  WeatherResult weatherReturned=dataPersistenceManager.loadDataFromCache(FILE_NAME,DurationInMillis.ALWAYS);
+  WeatherResult weatherReturned=dataPersistenceManager.loadDataFromCache(FILE_NAME,DurationInMillis.ALWAYS_RETURNED);
   assertEquals(TEST_TEMP,weatherReturned.getWeather().getCurren_weather().get(0).getTemp());
 }

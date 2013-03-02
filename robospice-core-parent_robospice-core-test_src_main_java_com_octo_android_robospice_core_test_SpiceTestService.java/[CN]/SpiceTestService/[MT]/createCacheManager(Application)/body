@@ -1,6 +1,8 @@
 {
   CacheManager cacheManager=new CacheManager();
   StringPersisterStub stringPersisterStub=new StringPersisterStub(application);
+  IntegerPersisterStub integerPersisterStub=new IntegerPersisterStub(application);
   cacheManager.addPersister(stringPersisterStub);
+  cacheManager.addPersister(integerPersisterStub);
   return cacheManager;
 }

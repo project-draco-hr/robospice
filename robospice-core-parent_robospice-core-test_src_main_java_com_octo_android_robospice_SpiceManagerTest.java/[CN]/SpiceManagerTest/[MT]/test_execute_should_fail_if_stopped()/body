@@ -1,8 +1,8 @@
 {
   spiceManager.start(getInstrumentation().getTargetContext());
-  spiceManager.shouldStopAndJoin(CONTENT_MANAGER_WAIT_TIMEOUT);
+  spiceManager.shouldStopAndJoin(SPICE_MANAGER_WAIT_TIMEOUT);
   try {
-    spiceManager.execute(new CachedSpiceRequest<String>((SpiceRequest<String>)null,null,DurationInMillis.ALWAYS),null);
+    spiceManager.execute(new CachedSpiceRequest<String>((SpiceRequest<String>)null,null,DurationInMillis.ALWAYS_RETURNED),null);
     fail();
   }
  catch (  Exception ex) {
