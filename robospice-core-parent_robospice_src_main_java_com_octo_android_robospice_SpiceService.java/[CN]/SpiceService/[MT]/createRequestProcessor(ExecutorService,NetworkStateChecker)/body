@@ -1,0 +1,3 @@
+{
+  return new RequestProcessor(getApplicationContext(),cacheManager,executorService,requestProcessorListener,networkStateChecker);
+}
