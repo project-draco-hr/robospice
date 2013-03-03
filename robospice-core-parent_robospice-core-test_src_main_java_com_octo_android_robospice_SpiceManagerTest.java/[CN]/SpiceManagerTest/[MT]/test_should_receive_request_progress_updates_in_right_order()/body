@@ -6,10 +6,16 @@
   requestListenerStub.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
   assertTrue(requestListenerStub.isComplete());
   assertTrue(requestListenerStub.isSuccessful());
-  assertEquals(5,requestListenerStub.getRequestProgressesHistory().size());
-  assertEquals(RequestStatus.PENDING,requestListenerStub.getRequestProgressesHistory().get(0).getStatus());
-  assertEquals(RequestStatus.READING_FROM_CACHE,requestListenerStub.getRequestProgressesHistory().get(1).getStatus());
-  assertEquals(RequestStatus.LOADING_FROM_NETWORK,requestListenerStub.getRequestProgressesHistory().get(2).getStatus());
-  assertEquals(RequestStatus.WRITING_TO_CACHE,requestListenerStub.getRequestProgressesHistory().get(3).getStatus());
-  assertEquals(RequestStatus.COMPLETE,requestListenerStub.getRequestProgressesHistory().get(4).getStatus());
+  final int expectedRequestProgressCount=4;
+synchronized (requestListenerStub.getRequestProgressesHistory()) {
+    for (    RequestProgress requestProgress : requestListenerStub.getRequestProgressesHistory()) {
+      Ln.d("RequestProgress received : %s",requestProgress.getStatus());
+    }
+  }
+  assertEquals(expectedRequestProgressCount,requestListenerStub.getRequestProgressesHistory().size());
+  int progressStatusIndex=0;
+  assertEquals(RequestStatus.PENDING,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
+  assertEquals(RequestStatus.LOADING_FROM_NETWORK,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
+  assertEquals(RequestStatus.WRITING_TO_CACHE,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
+  assertEquals(RequestStatus.COMPLETE,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
 }

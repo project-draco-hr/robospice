@@ -1,4 +1,4 @@
 {
-  super.onRequestProgressUpdate(progress);
   requestProgressesHistory.add(progress);
+  super.onRequestProgressUpdate(progress);
 }
