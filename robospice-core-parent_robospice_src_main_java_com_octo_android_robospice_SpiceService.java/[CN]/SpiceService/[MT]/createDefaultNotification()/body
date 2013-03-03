@@ -1,5 +1,9 @@
 {
-  @SuppressWarnings("deprecation") final Notification note=new Notification(0,null,System.currentTimeMillis());
+  NotificationCompat.Builder builder=new NotificationCompat.Builder(this);
+  builder.setSmallIcon(0);
+  builder.setTicker(null);
+  builder.setWhen(System.currentTimeMillis());
+  final Notification note=builder.getNotification();
   note.flags|=Notification.FLAG_NO_CLEAR;
   return note;
 }
