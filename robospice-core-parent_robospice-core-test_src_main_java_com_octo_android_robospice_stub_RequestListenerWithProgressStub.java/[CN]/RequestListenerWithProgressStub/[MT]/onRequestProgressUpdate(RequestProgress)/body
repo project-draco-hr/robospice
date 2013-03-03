@@ -5,6 +5,7 @@
       isComplete=true;
       if (isSuccessful != null) {
         requestFinishedCondition.signal();
+        requestCompleteCondition.signal();
       }
     }
   }

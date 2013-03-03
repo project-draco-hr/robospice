@@ -1,0 +1,9 @@
+{
+  lock.lock();
+  try {
+    requestCompleteCondition.await(millisecond,TimeUnit.MILLISECONDS);
+  }
+  finally {
+    lock.unlock();
+  }
+}
