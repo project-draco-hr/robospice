@@ -1,0 +1,5 @@
+{
+  final CachedSpiceRequest<T> cachedSpiceRequest=new CachedSpiceRequest<T>(request,requestCacheKey,cacheExpiryDuration);
+  cachedSpiceRequest.setAcceptingDirtyCache(true);
+  execute(cachedSpiceRequest,requestListener);
+}
