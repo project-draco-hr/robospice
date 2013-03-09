@@ -1,15 +1,12 @@
 {
-  lock.lock();
+  lockComplete.lock();
   try {
     if (progress.getStatus() == RequestStatus.COMPLETE) {
       isComplete=true;
-      if (isSuccessful != null) {
-        requestFinishedCondition.signal();
-        requestCompleteCondition.signal();
-      }
+      requestCompleteCondition.signal();
     }
   }
   finally {
-    lock.unlock();
+    lockComplete.unlock();
   }
 }

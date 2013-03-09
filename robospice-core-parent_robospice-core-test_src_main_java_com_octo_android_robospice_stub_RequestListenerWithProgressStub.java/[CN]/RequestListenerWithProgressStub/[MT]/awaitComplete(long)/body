@@ -1,12 +1,12 @@
 {
-  if (isComplete) {
-    return;
-  }
-  lock.lock();
+  lockComplete.lock();
   try {
+    if (isComplete) {
+      return;
+    }
     requestCompleteCondition.await(millisecond,TimeUnit.MILLISECONDS);
   }
   finally {
-    lock.unlock();
+    lockComplete.unlock();
   }
 }

@@ -6,7 +6,6 @@
   requestListenerStub.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
   requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
   assertTrue(requestListenerStub.isComplete());
-  assertTrue(requestListenerStub.isSuccessful());
   final int expectedRequestProgressCount=4;
 synchronized (requestListenerStub.getRequestProgressesHistory()) {
     for (    RequestProgress requestProgress : requestListenerStub.getRequestProgressesHistory()) {
@@ -19,4 +18,5 @@ synchronized (requestListenerStub.getRequestProgressesHistory()) {
   assertEquals(RequestStatus.LOADING_FROM_NETWORK,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
   assertEquals(RequestStatus.WRITING_TO_CACHE,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
   assertEquals(RequestStatus.COMPLETE,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
+  assertTrue(requestListenerStub.isSuccessful());
 }

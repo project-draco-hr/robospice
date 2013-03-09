@@ -1,9 +1,9 @@
 {
-  if (isSuccessful != null) {
-    return;
-  }
   lock.lock();
   try {
+    if (isSuccessful != null) {
+      return;
+    }
     requestFinishedCondition.await(millisecond,TimeUnit.MILLISECONDS);
   }
   finally {
