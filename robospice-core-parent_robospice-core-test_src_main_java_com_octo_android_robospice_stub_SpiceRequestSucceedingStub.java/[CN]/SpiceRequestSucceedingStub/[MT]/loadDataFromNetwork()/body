@@ -2,7 +2,12 @@
   isLoadDataFromNetworkCalled=true;
   signalStopWaiting();
   if (sleepTimeBeforeAnswering != 0) {
-    Thread.sleep(sleepTimeBeforeAnswering);
+    try {
+      Thread.sleep(sleepTimeBeforeAnswering);
+    }
+ catch (    InterruptedException e) {
+      Ln.d(e,"Interrupted while sleeping.");
+    }
   }
   return returnedData;
 }

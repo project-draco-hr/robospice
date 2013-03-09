@@ -16,6 +16,7 @@
   requestListenerSet.clear();
   requestListenerSet.add(mockRequestListener);
   requestProcessorUnderTest.addRequest(stubRequest,requestListenerSet);
+  mockRequestListener.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
   mockRequestListener.await(REQUEST_COMPLETION_TIME_OUT);
   assertTrue(stubRequest.isLoadDataFromNetworkCalled());
   assertTrue(mockRequestListener.isExecutedInUIThread());
