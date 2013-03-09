@@ -1,0 +1,6 @@
+{
+  super.setUp();
+  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  Jackson2ObjectPersisterFactory factory=new Jackson2ObjectPersisterFactory(application);
+  dataPersistenceManager=factory.createObjectPersister(WeatherResult.class);
+}

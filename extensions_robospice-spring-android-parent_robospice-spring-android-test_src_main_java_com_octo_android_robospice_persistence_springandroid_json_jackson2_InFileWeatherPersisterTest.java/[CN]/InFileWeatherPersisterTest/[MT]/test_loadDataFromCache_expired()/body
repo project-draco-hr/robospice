@@ -1,0 +1,8 @@
+{
+  WeatherResult weatherRequestStatus=buildWeather(TEST_TEMP2,TEST_TEMP_UNIT);
+  dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,FILE_NAME);
+  File cachedFile=((Jackson2ObjectPersister<?>)dataPersistenceManager).getCacheFile(FILE_NAME);
+  cachedFile.setLastModified(System.currentTimeMillis() - FIVE_SECONDS);
+  WeatherResult weatherReturned=dataPersistenceManager.loadDataFromCache(FILE_NAME,DurationInMillis.ONE_SECOND);
+  assertNull(weatherReturned);
+}

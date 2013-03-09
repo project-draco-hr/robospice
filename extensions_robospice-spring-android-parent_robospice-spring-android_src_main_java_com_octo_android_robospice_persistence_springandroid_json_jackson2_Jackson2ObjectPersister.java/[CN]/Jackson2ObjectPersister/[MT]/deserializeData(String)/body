@@ -1,0 +1,8 @@
+{
+  try {
+    return mJsonMapper.readValue(json,getHandledClass());
+  }
+ catch (  Exception e) {
+    throw new CacheLoadingException(e);
+  }
+}

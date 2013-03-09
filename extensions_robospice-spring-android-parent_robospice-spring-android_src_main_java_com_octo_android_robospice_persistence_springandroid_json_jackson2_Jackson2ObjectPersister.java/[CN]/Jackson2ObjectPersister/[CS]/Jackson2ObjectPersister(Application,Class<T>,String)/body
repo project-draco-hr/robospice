@@ -1,0 +1,4 @@
+{
+  super(application,clazz,factoryPrefix);
+  this.mJsonMapper=new ObjectMapper();
+}
