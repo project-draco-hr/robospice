@@ -1,4 +1,7 @@
 {
+  if (isSuccessful != null) {
+    return;
+  }
   lock.lock();
   try {
     requestFinishedCondition.await(millisecond,TimeUnit.MILLISECONDS);

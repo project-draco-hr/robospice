@@ -5,6 +5,7 @@
   spiceManager.getFromCacheAndLoadFromNetworkIfExpired(spiceRequestStub,"",DurationInMillis.ONE_SECOND,requestListenerStub);
   spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
   requestListenerStub.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
+  requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
   assertFalse(spiceRequestStub.isLoadDataFromNetworkCalled());
   assertTrue(requestListenerStub.isSuccessful());
   assertTrue(requestListenerStub.isComplete());

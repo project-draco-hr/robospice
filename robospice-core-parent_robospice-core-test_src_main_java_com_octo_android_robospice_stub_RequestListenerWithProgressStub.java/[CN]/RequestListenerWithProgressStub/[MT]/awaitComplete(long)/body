@@ -1,4 +1,7 @@
 {
+  if (isComplete) {
+    return;
+  }
   lock.lock();
   try {
     requestCompleteCondition.await(millisecond,TimeUnit.MILLISECONDS);

@@ -4,6 +4,7 @@
   RequestListenerWithProgressHistoryStub<String> requestListenerStub=new RequestListenerWithProgressHistoryStub<String>();
   spiceManager.execute(spiceRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
   requestListenerStub.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
+  requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
   assertTrue(requestListenerStub.isComplete());
   assertTrue(requestListenerStub.isSuccessful());
   final int expectedRequestProgressCount=4;
