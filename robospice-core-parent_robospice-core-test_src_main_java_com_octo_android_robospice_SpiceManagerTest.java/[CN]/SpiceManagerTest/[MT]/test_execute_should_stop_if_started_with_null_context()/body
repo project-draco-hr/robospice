@@ -1,0 +1,5 @@
+{
+  spiceManager.start(null);
+  assertNull(spiceManager.getException(SERVICE_TIME_OUT_WHEN_THROW_EXCEPTION));
+  assertFalse(spiceManager.isStarted());
+}

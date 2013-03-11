@@ -4,6 +4,7 @@
     fail();
   }
  catch (  Exception ex) {
+    Ln.d(ex);
     assertTrue(true);
   }
 }
