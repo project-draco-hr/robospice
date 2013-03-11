@@ -26,5 +26,8 @@
  else   if (!requestCacheKey.equals(other.requestCacheKey)) {
     return false;
   }
+  if (!isCancelled() && other.isCancelled()) {
+    return false;
+  }
   return true;
 }

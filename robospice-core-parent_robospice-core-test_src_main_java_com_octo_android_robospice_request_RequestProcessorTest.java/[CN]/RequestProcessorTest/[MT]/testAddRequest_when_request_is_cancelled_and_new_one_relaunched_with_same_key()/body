@@ -1,5 +1,5 @@
 {
-  CachedSpiceRequestStub<String> stubRequest=createSuccessfulRequest(TEST_CLASS,TEST_CACHE_KEY,TEST_DURATION,TEST_RETURNED_DATA);
+  CachedSpiceRequestStub<String> stubRequest=createSuccessfulRequest(TEST_CLASS,TEST_CACHE_KEY,TEST_DURATION,TEST_RETURNED_DATA,WAIT_BEFORE_REQUEST_EXECUTION);
   RequestListenerWithProgressStub<String> mockRequestListener=new RequestListenerWithProgressStub<String>();
   Set<RequestListener<?>> requestListenerSet=new HashSet<RequestListener<?>>();
   requestListenerSet.add(mockRequestListener);
@@ -19,8 +19,10 @@
   requestProcessorUnderTest.addRequest(stubRequest,requestListenerSet);
   mockRequestListener.await(REQUEST_COMPLETION_TIME_OUT);
   mockRequestListener.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
+  assertFalse(stubRequest.isCancelled());
   assertTrue(stubRequest.isLoadDataFromNetworkCalled());
   assertTrue(mockRequestListener.isExecutedInUIThread());
   assertTrue(mockRequestListener.isComplete());
+  System.out.println(mockRequestListener.getReceivedException());
   assertTrue(mockRequestListener.isSuccessful());
 }

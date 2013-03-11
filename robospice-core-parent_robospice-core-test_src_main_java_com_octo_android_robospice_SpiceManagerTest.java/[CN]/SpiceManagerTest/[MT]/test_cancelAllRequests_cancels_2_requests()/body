@@ -17,6 +17,7 @@
   assertTrue(requestListenerStub2.isComplete());
   assertFalse(requestListenerStub.isSuccessful());
   assertFalse(requestListenerStub2.isSuccessful());
+  System.out.println(requestListenerStub.getReceivedException());
   System.out.println(requestListenerStub2.getReceivedException());
   assertTrue(requestListenerStub.getReceivedException() instanceof RequestCancelledException);
   assertTrue(requestListenerStub2.getReceivedException() instanceof RequestCancelledException);
