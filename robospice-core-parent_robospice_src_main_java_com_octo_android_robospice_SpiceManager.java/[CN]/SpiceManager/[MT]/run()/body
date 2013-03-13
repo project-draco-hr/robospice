@@ -8,6 +8,7 @@
  else {
     Ln.d("Service was not started as Activity died prematurely");
     isStopped=true;
+    return;
   }
   bindToService(contextWeakReference.get());
   try {
