@@ -5,7 +5,7 @@
     spiceListItemView=(SpiceListItemView<T>)convertView;
   }
  else {
-    spiceListItemView=createView(getContext());
+    spiceListItemView=createView(getContext(),parent);
   }
   spiceListItemView.update(currentItem);
   updateListItemViewAsynchronously(currentItem,spiceListItemView);
