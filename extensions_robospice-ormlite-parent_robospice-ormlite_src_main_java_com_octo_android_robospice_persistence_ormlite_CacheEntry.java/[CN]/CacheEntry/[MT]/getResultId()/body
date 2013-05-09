@@ -6,13 +6,16 @@
     return resultIdChar;
   }
  else   if (resultIdDouble != null) {
-    return resultIdChar;
+    return resultIdDouble;
   }
  else   if (resultIdFloat != null) {
     return resultIdFloat;
   }
  else   if (resultIdInteger != null) {
     return resultIdInteger;
+  }
+ else   if (resultIdLong != null) {
+    return resultIdLong;
   }
  else   if (resultIdShort != null) {
     return resultIdShort;
