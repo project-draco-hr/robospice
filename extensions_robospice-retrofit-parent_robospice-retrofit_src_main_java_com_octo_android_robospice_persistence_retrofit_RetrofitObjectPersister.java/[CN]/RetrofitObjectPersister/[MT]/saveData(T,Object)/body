@@ -1,5 +1,5 @@
 {
-  TypedBytes typedBytes=converter.from(data);
+  TypedOutput typedBytes=converter.toBody(data);
   FileOutputStream out=null;
   try {
     out=new FileOutputStream(getCacheFile(cacheKey));

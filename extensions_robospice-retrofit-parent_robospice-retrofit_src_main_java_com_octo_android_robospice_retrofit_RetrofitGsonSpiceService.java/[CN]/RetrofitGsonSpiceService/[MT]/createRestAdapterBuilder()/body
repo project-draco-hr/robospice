@@ -1,4 +1,4 @@
 {
-  RestAdapter.Builder restAdapter=new RestAdapter.Builder().setClient(new DefaultHttpClient()).setConverter(converter);
+  RestAdapter.Builder restAdapter=new RestAdapter.Builder().setConverter(converter);
   return restAdapter;
 }
