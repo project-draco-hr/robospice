@@ -7,6 +7,7 @@
 ;
   final CachedSpiceRequest<T> cachedSpiceRequest=new CachedSpiceRequest<T>(request,requestCacheKey,DurationInMillis.ALWAYS_EXPIRED);
   cachedSpiceRequest.setProcessable(false);
+  cachedSpiceRequest.setOffline(true);
   cachedSpiceRequest.cancel();
   execute(cachedSpiceRequest,null);
 }

@@ -41,7 +41,7 @@
     }
   }
   Ln.d("Cache content not available or expired or disabled");
-  if (!isNetworkAvailable(applicationContext)) {
+  if (!isNetworkAvailable(applicationContext) && !request.isOffline()) {
     Ln.e("Network is down.");
     notifyListenersOfRequestFailure(request,new NoNetworkException());
     return;

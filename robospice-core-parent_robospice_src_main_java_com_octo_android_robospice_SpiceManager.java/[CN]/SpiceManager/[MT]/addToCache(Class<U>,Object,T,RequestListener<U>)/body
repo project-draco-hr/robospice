@@ -5,5 +5,7 @@
     }
   }
 ;
-  execute(spiceRequest,requestCacheKey,DurationInMillis.ALWAYS_EXPIRED,listener);
+  CachedSpiceRequest<U> cachedSpiceRequest=new CachedSpiceRequest<U>(spiceRequest,requestCacheKey,DurationInMillis.ALWAYS_EXPIRED);
+  cachedSpiceRequest.setOffline(true);
+  execute(cachedSpiceRequest,listener);
 }
