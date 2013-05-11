@@ -1,0 +1,9 @@
+{
+  @SuppressWarnings({"unchecked","rawtypes"}) final SpiceRequest<U> spiceRequest=new SpiceRequest(clazz){
+    @Override public U loadDataFromNetwork() throws Exception {
+      return data;
+    }
+  }
+;
+  execute(spiceRequest,requestCacheKey,DurationInMillis.ALWAYS_EXPIRED,listener);
+}

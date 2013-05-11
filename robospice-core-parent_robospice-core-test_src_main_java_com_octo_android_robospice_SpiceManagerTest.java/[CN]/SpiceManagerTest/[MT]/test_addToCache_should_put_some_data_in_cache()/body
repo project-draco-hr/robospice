@@ -1,0 +1,8 @@
+{
+  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.removeDataFromCache(TEST_CLASS3);
+  RequestListenerStub<Double> requestListenerStub=new RequestListenerStub<Double>();
+  spiceManager.addToCache(TEST_CLASS3,TEST_CACHE_KEY,TEST_RETURNED_DATA3,requestListenerStub);
+  requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
+  assertEquals(TEST_RETURNED_DATA3,spiceManager.getDataFromCache(TEST_CLASS3,TEST_CACHE_KEY).get());
+}

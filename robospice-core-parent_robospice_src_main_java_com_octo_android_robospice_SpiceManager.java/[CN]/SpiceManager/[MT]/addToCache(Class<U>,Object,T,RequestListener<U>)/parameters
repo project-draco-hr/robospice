@@ -1,0 +1,4 @@
+Class<U> clazz
+Object requestCacheKey
+T data
+RequestListener<U> listener

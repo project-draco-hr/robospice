@@ -2,7 +2,9 @@
   CacheManager cacheManager=new CacheManager();
   StringPersisterStub stringPersisterStub=new StringPersisterStub(application);
   IntegerPersisterStub integerPersisterStub=new IntegerPersisterStub(application);
+  DoubleInMemoryPersisterStub doubleInMemoryPersisterStub=new DoubleInMemoryPersisterStub(application);
   cacheManager.addPersister(stringPersisterStub);
   cacheManager.addPersister(integerPersisterStub);
+  cacheManager.addPersister(doubleInMemoryPersisterStub);
   return cacheManager;
 }

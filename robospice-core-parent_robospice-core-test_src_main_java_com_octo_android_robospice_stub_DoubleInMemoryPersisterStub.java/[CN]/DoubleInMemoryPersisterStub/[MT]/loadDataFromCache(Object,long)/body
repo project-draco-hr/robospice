@@ -1,0 +1,6 @@
+{
+  if (maxTimeInCache == DurationInMillis.ALWAYS_EXPIRED || maxTimeInCache > DurationInMillis.ONE_MINUTE) {
+    return null;
+  }
+  return map.get(cacheKey);
+}

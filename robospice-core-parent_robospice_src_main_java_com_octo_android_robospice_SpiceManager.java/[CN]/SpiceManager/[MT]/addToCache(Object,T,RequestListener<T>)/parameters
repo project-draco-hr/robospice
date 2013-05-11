@@ -1,0 +1,3 @@
+Object requestCacheKey
+T data
+RequestListener<T> listener
