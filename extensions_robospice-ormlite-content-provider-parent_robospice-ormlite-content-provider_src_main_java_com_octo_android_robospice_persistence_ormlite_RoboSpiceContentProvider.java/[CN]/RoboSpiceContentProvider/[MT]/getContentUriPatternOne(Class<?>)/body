@@ -1,0 +1,3 @@
+{
+  return contractClass.getField("CONTENT_URI_PATTERN_ONE").getInt(null);
+}

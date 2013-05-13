@@ -1,0 +1,9 @@
+{
+  Weather weather=new Weather();
+  weather.setId(id);
+  List<CurrenWeather> currents=new ArrayList<CurrenWeather>();
+  currents.add(currenWeather);
+  weather.setListWeather(currents);
+  weather.setListForecast(null);
+  return weather;
+}

@@ -1,0 +1,7 @@
+{
+  Weather weatherRequestStatus=buildWeather(CACHE_KEY,TEST_TEMP);
+  dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,CACHE_KEY);
+  Thread.sleep(DurationInMillis.ONE_SECOND);
+  Weather weatherReturned=dataPersistenceManager.loadDataFromCache(CACHE_KEY,DurationInMillis.ONE_SECOND);
+  assertNull(weatherReturned);
+}

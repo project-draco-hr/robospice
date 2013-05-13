@@ -1,0 +1,4 @@
+{
+  String className=clazz.getName() + "Contract";
+  return Class.forName(className);
+}

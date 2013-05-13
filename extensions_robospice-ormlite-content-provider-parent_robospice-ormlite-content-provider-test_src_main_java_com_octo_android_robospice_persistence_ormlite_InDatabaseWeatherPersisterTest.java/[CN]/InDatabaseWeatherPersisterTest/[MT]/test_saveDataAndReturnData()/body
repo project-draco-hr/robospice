@@ -1,0 +1,5 @@
+{
+  Weather weatherRequestStatus=buildWeather(CACHE_KEY,TEST_TEMP);
+  Weather weatherReturned=dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,1);
+  assertTrue(weatherReturned.getListWeather().contains(TEST_TEMP));
+}
