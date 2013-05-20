@@ -1,0 +1,3 @@
+{
+  super(poolSize,poolSize,0,TimeUnit.NANOSECONDS,new PausablePriorityBlockingQueue<Runnable>());
+}

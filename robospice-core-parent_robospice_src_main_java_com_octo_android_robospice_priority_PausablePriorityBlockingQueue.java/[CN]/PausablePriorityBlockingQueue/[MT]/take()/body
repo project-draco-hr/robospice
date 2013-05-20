@@ -1,0 +1,15 @@
+{
+  pauseLock.lock();
+  try {
+    while (isPaused) {
+      unpaused.await();
+    }
+  }
+ catch (  InterruptedException ie) {
+    throw new RuntimeException("Interrupted while paused.");
+  }
+ finally {
+    pauseLock.unlock();
+  }
+  return super.take();
+}

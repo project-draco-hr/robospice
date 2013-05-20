@@ -1,0 +1,10 @@
+{
+  try {
+    ois.defaultReadObject();
+    pauseLock=new ReentrantLock();
+    pauseLock.newCondition();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

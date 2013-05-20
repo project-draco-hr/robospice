@@ -3,6 +3,7 @@
   try {
     checkIsExectuedInUIThread();
     isSuccessful=true;
+    resultHistory.add(arg0);
     requestFinishedCondition.signal();
   }
   finally {

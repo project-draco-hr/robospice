@@ -1,0 +1,9 @@
+{
+  pauseLock.lock();
+  try {
+    isPaused=true;
+  }
+  finally {
+    pauseLock.unlock();
+  }
+}

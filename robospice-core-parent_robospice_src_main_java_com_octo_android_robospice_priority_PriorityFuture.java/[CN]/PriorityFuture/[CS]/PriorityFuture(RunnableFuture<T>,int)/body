@@ -1,0 +1,4 @@
+{
+  this.src=other;
+  this.priority=priority;
+}

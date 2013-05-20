@@ -1,0 +1,12 @@
+{
+  return new PausableThreadPoolExecutor(nThreads){
+    @Override protected <T>RunnableFuture<T> newTaskFor(    Runnable runnable,    T value){
+      if (runnable == null) {
+        return null;
+      }
+      RunnableFuture<T> runnableFuture=super.newTaskFor(runnable,value);
+      return new PriorityFuture<T>(runnableFuture,((PriorityRunnable)runnable).getPriority());
+    }
+  }
+;
+}
