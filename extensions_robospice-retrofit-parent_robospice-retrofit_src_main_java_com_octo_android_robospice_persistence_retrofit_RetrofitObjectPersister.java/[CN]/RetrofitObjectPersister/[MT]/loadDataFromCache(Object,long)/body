@@ -4,7 +4,7 @@
     long timeInCache=System.currentTimeMillis() - file.lastModified();
     if (maxTimeInCacheBeforeExpiry == 0 || timeInCache <= maxTimeInCacheBeforeExpiry) {
       try {
-        final byte[] body=IOUtils.toByteArray(new FileReader(getCacheFile(cacheKey)),"utf-8");
+        final byte[] body=IOUtils.toByteArray(new FileInputStream(getCacheFile(cacheKey)));
         TypedInput typedInput=new TypedInput(){
           @Override public String mimeType(){
             return "application/json";
