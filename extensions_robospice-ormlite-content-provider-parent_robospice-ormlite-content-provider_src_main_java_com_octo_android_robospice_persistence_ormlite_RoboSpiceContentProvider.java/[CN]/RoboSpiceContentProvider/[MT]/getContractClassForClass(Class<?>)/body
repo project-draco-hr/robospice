@@ -1,4 +1,13 @@
 {
-  String className=clazz.getName() + "Contract";
-  return Class.forName(className);
+  String className;
+  if (clazz.isAnnotationPresent(Contract.class)) {
+    className=clazz.getAnnotation(Contract.class).contractClassName();
+    if (className == null || className.isEmpty()) {
+      className=clazz.getName() + "Contract";
+    }
+    return Class.forName(className);
+  }
+ else {
+    return null;
+  }
 }

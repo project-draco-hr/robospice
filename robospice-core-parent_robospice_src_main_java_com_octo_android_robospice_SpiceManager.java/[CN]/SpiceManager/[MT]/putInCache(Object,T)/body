@@ -1,0 +1,3 @@
+{
+  putInCache((Class<T>)data.getClass(),requestCacheKey,data);
+}

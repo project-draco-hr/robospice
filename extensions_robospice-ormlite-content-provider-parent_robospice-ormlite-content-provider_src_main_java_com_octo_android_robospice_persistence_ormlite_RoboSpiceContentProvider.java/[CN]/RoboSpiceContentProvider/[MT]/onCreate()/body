@@ -2,12 +2,15 @@
   MatcherController controller=new MatcherController();
   for (  Class<?> clazz : getExposedClasses()) {
     try {
+      if (!clazz.isAnnotationPresent(Contract.class)) {
+        throw new Exception("Class " + clazz + " is not annotated with the @Contract annotation.");
+      }
       Class<?> contractClazz;
       contractClazz=getContractClassForClass(clazz);
       int contentUriPatternMany=getContentUriPatternMany(contractClazz);
       int contentUriPatternOne=getContentUriPatternOne(contractClazz);
-      controller.add(clazz,SubType.Directory,"",contentUriPatternMany);
-      controller.add(clazz,SubType.Directory,"#",contentUriPatternOne);
+      controller.add(clazz,SubType.DIRECTORY,"",contentUriPatternMany);
+      controller.add(clazz,SubType.DIRECTORY,"#",contentUriPatternOne);
     }
  catch (    Exception e) {
       Ln.e(e);

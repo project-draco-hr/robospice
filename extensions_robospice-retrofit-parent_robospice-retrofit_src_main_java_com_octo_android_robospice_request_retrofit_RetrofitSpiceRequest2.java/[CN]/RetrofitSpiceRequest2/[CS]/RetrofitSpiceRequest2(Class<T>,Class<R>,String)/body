@@ -1,0 +1,5 @@
+{
+  super(clazz);
+  this.retrofitedInterface=retrofitedInterface;
+  this.serverUrl=serverUrl;
+}

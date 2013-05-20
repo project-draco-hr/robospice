@@ -1,3 +1,0 @@
-{
-  addToCache((Class<T>)data.getClass(),requestCacheKey,data,listener);
-}

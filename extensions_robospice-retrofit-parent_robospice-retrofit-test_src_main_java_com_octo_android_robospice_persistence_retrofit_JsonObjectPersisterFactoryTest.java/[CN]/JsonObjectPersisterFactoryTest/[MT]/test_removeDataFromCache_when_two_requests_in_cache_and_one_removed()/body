@@ -1,11 +1,11 @@
 {
   WeatherResult weatherRequestStatus=buildWeather(TEST_TEMP,TEST_TEMP_UNIT);
-  final String FILE_NAME="toto";
-  inFileObjectPersister.saveDataToCacheAndReturnData(weatherRequestStatus,FILE_NAME);
+  final String fileName="toto";
+  inFileObjectPersister.saveDataToCacheAndReturnData(weatherRequestStatus,fileName);
   WeatherResult weatherRequestStatus2=buildWeather(TEST_TEMP2,TEST_TEMP_UNIT);
-  final String FILE_NAME2="tutu";
-  inFileObjectPersister.saveDataToCacheAndReturnData(weatherRequestStatus2,FILE_NAME2);
-  inFileObjectPersister.removeDataFromCache(FILE_NAME2);
+  final String fileName2="tutu";
+  inFileObjectPersister.saveDataToCacheAndReturnData(weatherRequestStatus2,fileName2);
+  inFileObjectPersister.removeDataFromCache(fileName2);
   List<WeatherResult> listWeatherResult=inFileObjectPersister.loadAllDataFromCache();
   assertNotNull(listWeatherResult);
   assertEquals(1,listWeatherResult.size());

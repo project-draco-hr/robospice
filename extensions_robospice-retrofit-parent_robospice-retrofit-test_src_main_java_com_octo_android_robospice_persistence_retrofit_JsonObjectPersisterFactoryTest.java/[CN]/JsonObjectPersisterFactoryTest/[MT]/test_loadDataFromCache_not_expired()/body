@@ -1,7 +1,7 @@
 {
   WeatherResult weatherRequestStatus=buildWeather(TEST_TEMP,TEST_TEMP_UNIT);
-  final String FILE_NAME="toto";
-  inFileObjectPersister.saveDataToCacheAndReturnData(weatherRequestStatus,FILE_NAME);
-  WeatherResult weatherReturned=inFileObjectPersister.loadDataFromCache(FILE_NAME,DurationInMillis.ONE_SECOND);
+  final String fileName="toto";
+  inFileObjectPersister.saveDataToCacheAndReturnData(weatherRequestStatus,fileName);
+  WeatherResult weatherReturned=inFileObjectPersister.loadDataFromCache(fileName,DurationInMillis.ONE_SECOND);
   assertEquals(TEST_TEMP,weatherReturned.getWeather().getCurren_weather().get(0).getTemp());
 }

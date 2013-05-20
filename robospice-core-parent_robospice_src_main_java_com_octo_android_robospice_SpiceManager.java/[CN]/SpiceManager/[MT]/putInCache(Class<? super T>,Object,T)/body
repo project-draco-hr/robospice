@@ -1,0 +1,3 @@
+{
+  putInCache(clazz,requestCacheKey,data,null);
+}
