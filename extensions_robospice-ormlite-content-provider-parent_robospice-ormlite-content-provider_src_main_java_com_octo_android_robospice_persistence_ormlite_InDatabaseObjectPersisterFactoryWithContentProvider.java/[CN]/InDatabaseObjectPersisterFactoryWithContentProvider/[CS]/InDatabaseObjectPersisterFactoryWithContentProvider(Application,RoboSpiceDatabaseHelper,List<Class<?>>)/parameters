@@ -1,0 +1,3 @@
+Application application
+RoboSpiceDatabaseHelper databaseHelper
+List<Class<?>> listHandledClasses

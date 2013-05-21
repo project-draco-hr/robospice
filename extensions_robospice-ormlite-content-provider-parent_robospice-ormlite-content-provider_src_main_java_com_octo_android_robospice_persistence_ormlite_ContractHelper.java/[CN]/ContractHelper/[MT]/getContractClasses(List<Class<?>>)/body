@@ -1,0 +1,15 @@
+{
+  Map<Class<?>,Uri> mapHandledClassesToNotificationUri=new HashMap<Class<?>,Uri>();
+  for (  Class<?> clazz : classList) {
+    Uri uri=null;
+    try {
+      Class<?> contractClass=getContractClassForClass(clazz);
+      uri=getContentUri(contractClass);
+    }
+ catch (    Exception e) {
+      Ln.v("Contract class not found for " + clazz.getName());
+    }
+    mapHandledClassesToNotificationUri.put(clazz,uri);
+  }
+  return mapHandledClassesToNotificationUri;
+}

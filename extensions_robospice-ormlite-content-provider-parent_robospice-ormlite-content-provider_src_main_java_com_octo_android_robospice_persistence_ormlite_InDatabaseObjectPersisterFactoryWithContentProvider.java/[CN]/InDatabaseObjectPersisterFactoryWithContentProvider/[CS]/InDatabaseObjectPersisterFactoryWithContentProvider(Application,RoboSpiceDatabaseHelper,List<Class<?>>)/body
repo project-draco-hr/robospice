@@ -1,0 +1,3 @@
+{
+  super(application,databaseHelper,ContractHelper.getContractClasses(listHandledClasses));
+}

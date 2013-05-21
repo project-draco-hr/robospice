@@ -17,6 +17,11 @@
           }
           CacheEntry cacheEntry=new CacheEntry(String.valueOf(cacheKey),System.currentTimeMillis(),data.getClass(),id);
           databaseHelper.createOrUpdateCacheEntryInDatabase(cacheEntry);
+          if (notificationUri != null) {
+            getApplication().getContentResolver().notifyChange(notificationUri,null);
+            Uri itemNotificationUri=notificationUri.buildUpon().appendPath(id.toString()).build();
+            getApplication().getContentResolver().notifyChange(itemNotificationUri,null);
+          }
         }
  catch (        Exception e) {
           Ln.d(e,"Exception occured during saveDataToCacheAndReturnData");

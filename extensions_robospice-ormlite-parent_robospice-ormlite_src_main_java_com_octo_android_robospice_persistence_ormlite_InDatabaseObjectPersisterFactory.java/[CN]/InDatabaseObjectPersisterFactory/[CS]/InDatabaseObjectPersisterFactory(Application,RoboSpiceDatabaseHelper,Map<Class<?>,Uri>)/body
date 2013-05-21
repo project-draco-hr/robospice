@@ -1,0 +1,5 @@
+{
+  super(application,new ArrayList<Class<?>>(mapHandledClassesToNotificationUri.keySet()));
+  this.databaseHelper=databaseHelper;
+  this.mapHandledClassesToNotificationUri=mapHandledClassesToNotificationUri;
+}

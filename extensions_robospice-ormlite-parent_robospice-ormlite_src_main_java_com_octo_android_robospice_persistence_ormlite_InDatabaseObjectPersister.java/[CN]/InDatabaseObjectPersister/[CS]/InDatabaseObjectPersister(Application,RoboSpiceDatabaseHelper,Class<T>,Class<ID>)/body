@@ -1,17 +1,3 @@
 {
-  super(application,modelObjectType);
-  this.databaseHelper=databaseHelper;
-  this.idType=idType;
-  try {
-    TableUtils.createTableIfNotExists(databaseHelper.getConnectionSource(),modelObjectType);
-  }
- catch (  SQLException e1) {
-    Ln.e(e1,"SQL Error while creating table for " + modelObjectType);
-  }
-  try {
-    dao=databaseHelper.getRuntimeExceptionDao(modelObjectType);
-  }
- catch (  Throwable e) {
-    Ln.e(e,"SQL Error");
-  }
+  this(application,databaseHelper,modelObjectType,idType,null);
 }
