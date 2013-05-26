@@ -1,6 +1,7 @@
 {
   if (request.getSpiceRequest() instanceof RetrofitSpiceRequest) {
-    ((RetrofitSpiceRequest<?>)request.getSpiceRequest()).setRestAdapterBuilder(restAdapterBuilder);
+    RetrofitSpiceRequest retrofitSpiceRequest=(RetrofitSpiceRequest)request.getSpiceRequest();
+    retrofitSpiceRequest.setService(getRetrofitService(retrofitSpiceRequest.getRetrofitedInterfaceClass()));
   }
   super.addRequest(request,listRequestListener);
 }

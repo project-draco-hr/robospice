@@ -1,3 +1,0 @@
-{
-  return getRestAdapterBuilder().setServer(serverUrl).build().create(retrofitedInterface);
-}

@@ -1,7 +1,0 @@
-{
-  spiceManager.start(getContext());
-  RetrofitSpiceRequestStub googleHttpClientSpiceRequest=new RetrofitSpiceRequestStub(WeatherResult.class);
-  spiceManager.execute(googleHttpClientSpiceRequest,new RequestListenerStub<WeatherResult>());
-  googleHttpClientSpiceRequest.await(REQUEST_COMPLETION_TIMEOUT);
-  assertNotNull(googleHttpClientSpiceRequest.getRestAdapterBuilder());
-}

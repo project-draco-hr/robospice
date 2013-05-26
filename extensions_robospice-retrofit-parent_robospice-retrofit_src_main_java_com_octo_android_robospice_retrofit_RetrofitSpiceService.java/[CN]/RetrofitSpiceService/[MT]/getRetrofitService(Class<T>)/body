@@ -1,0 +1,8 @@
+{
+  T service=(T)retrofitInterfaceToServiceMap.get(serviceClass);
+  if (service == null) {
+    service=restAdapter.create(serviceClass);
+    retrofitInterfaceToServiceMap.put(serviceClass,service);
+  }
+  return service;
+}
