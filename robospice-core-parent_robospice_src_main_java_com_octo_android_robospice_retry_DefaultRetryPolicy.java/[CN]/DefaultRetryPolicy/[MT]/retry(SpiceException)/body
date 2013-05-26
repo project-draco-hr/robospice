@@ -1,0 +1,4 @@
+{
+  retryCount--;
+  delayBeforeRetry=(long)(delayBeforeRetry * backOffMultiplier);
+}

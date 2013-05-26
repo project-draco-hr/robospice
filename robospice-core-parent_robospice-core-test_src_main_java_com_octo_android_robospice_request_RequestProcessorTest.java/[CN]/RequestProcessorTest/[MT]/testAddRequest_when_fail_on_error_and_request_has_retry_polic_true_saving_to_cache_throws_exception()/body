@@ -1,15 +1,20 @@
 {
   CachedSpiceRequestStub<String> stubRequest=createSuccessfulRequest(TEST_CLASS,TEST_CACHE_KEY,TEST_DURATION,TEST_RETURNED_DATA);
-  stubRequest.setRetryPolicy(null);
+  DefaultRetryPolicy retryPolicy=new DefaultRetryPolicy(TEST_RETRY_COUNT,TEST_DELAY_BEFORE_RETRY,TEST_RETRY_BACKOFF_MULTIPLIER);
+  stubRequest.setRetryPolicy(retryPolicy);
   RequestListenerWithProgressStub<String> mockRequestListener=new RequestListenerWithProgressStub<String>();
   Set<RequestListener<?>> requestListenerSet=new HashSet<RequestListener<?>>();
   requestListenerSet.add(mockRequestListener);
   EasyMock.expect(mockCacheManager.loadDataFromCache(EasyMock.eq(TEST_CLASS),EasyMock.eq(TEST_CACHE_KEY),EasyMock.eq(TEST_DURATION))).andReturn(null);
+  EasyMock.expectLastCall().anyTimes();
   EasyMock.expect(mockCacheManager.saveDataToCacheAndReturnData(EasyMock.eq(TEST_RETURNED_DATA),EasyMock.eq(TEST_CACHE_KEY))).andThrow(new CacheSavingException(""));
+  EasyMock.expectLastCall().anyTimes();
   EasyMock.replay(mockCacheManager);
   requestProcessorUnderTest.setFailOnCacheError(true);
   requestProcessorUnderTest.addRequest(stubRequest,requestListenerSet);
   mockRequestListener.await(REQUEST_COMPLETION_TIME_OUT);
+  assertNotNull(stubRequest.getRetryPolicy());
+  assertEquals(0,stubRequest.getRetryPolicy().getRetryCount());
   EasyMock.verify(mockCacheManager);
   assertTrue(stubRequest.isLoadDataFromNetworkCalled());
   assertTrue(mockRequestListener.isExecutedInUIThread());

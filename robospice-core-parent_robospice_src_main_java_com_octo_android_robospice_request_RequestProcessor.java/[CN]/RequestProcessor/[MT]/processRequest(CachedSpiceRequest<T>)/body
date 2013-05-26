@@ -33,7 +33,7 @@
  catch (    final CacheLoadingException e) {
       Ln.d(e,"Cache file could not be read.");
       if (failOnCacheError) {
-        notifyListenersOfRequestFailure(request,e);
+        handleRetry(request,e);
         return;
       }
       cacheManager.removeDataFromCache(request.getResultType(),request.getRequestCacheKey());
@@ -43,7 +43,7 @@
   Ln.d("Cache content not available or expired or disabled");
   if (!isNetworkAvailable(applicationContext) && !request.isOffline()) {
     Ln.e("Network is down.");
-    notifyListenersOfRequestFailure(request,new NoNetworkException());
+    handleRetry(request,new NoNetworkException());
     return;
   }
   try {
@@ -58,7 +58,7 @@
  catch (  final Exception e) {
     if (!request.isCancelled()) {
       Ln.e(e,"An exception occured during request network execution :" + e.getMessage());
-      notifyListenersOfRequestFailure(request,new NetworkException("Exception occured during invocation of web service.",e));
+      handleRetry(request,new NetworkException("Exception occured during invocation of web service.",e));
     }
  else {
       Ln.e("An exception occured during request network execution but request was cancelled, so listeners are not called.");
@@ -82,7 +82,7 @@
  catch (    final CacheSavingException e) {
       Ln.d("An exception occured during service execution :" + e.getMessage(),e);
       if (failOnCacheError) {
-        notifyListenersOfRequestFailure(request,e);
+        handleRetry(request,e);
         return;
       }
  else {

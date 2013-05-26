@@ -1,0 +1,21 @@
+{
+  if (request.getRetryPolicy() != null) {
+    request.getRetryPolicy().retry(e);
+    if (request.getRetryPolicy().getRetryCount() > 0) {
+      new Thread(new Runnable(){
+        @Override public void run(){
+          try {
+            Thread.sleep(request.getRetryPolicy().getDelayBeforeRetry());
+            planRequestExecution(request);
+          }
+ catch (          InterruptedException e) {
+            Ln.e(e,"Retry attempt failed for request " + request);
+          }
+        }
+      }
+).start();
+      return;
+    }
+  }
+  notifyListenersOfRequestFailure(request,e);
+}
