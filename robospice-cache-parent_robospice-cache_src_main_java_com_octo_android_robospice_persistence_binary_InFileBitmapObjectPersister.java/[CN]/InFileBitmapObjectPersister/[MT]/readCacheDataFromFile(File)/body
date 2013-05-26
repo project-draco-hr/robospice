@@ -1,5 +1,18 @@
 {
-  Bitmap data=BitmapFactory.decodeFile(file.getAbsolutePath(),decodingOptions);
+  Bitmap data;
+  FileInputStream is=null;
+  try {
+    is=new FileInputStream(file.getAbsolutePath());
+    data=BitmapFactory.decodeStream(is,null,decodingOptions);
+  }
+ catch (  Throwable ex) {
+    throw new CacheLoadingException(String.format("Found the file %s but could not decode bitmap.",file.getAbsolutePath()),ex);
+  }
+ finally {
+    if (is != null) {
+      IOUtils.closeQuietly(is);
+    }
+  }
   if (data == null) {
     throw new CacheLoadingException(String.format("Found the file %s but could not decode bitmap.",file.getAbsolutePath()));
   }
