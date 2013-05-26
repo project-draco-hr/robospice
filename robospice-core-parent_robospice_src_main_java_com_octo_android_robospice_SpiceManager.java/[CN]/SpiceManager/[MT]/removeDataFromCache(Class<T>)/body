@@ -1,4 +1,7 @@
 {
+  if (clazz == null) {
+    throw new IllegalArgumentException("Both parameters must be non null.");
+  }
   executorService.execute(new Runnable(){
     @Override public void run(){
       try {
