@@ -1,5 +1,6 @@
 {
   CachedSpiceRequestStub<String> stubRequest=createSuccessfulRequest(TEST_CLASS,TEST_CACHE_KEY,TEST_DURATION,TEST_RETURNED_DATA);
+  stubRequest.setRetryPolicy(null);
   RequestListenerWithProgressStub<String> mockRequestListener=new RequestListenerWithProgressStub<String>();
   Set<RequestListener<?>> requestListenerSet=new HashSet<RequestListener<?>>();
   requestListenerSet.add(mockRequestListener);

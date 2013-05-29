@@ -1,0 +1,5 @@
+{
+  this.retryCount=retryCount;
+  this.delayBeforeRetry=delayBeforeRetry;
+  this.backOffMultiplier=backOffMultiplier;
+}

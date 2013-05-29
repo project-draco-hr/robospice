@@ -1,4 +1,5 @@
 {
   super.onCreate();
-  restAdapterBuilder=createRestAdapterBuilder();
+  builder=createRestAdapterBuilder();
+  restAdapter=builder.build();
 }

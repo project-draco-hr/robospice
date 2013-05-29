@@ -1,0 +1,9 @@
+{
+  SpiceRequestStub<String> spiceRequestStub=new SpiceRequestSucceedingStub<String>(TEST_CLASS,TEST_RETURNED_DATA);
+  spiceRequestStub.setPriority(SpiceRequest.PRIORITY_LOW);
+  SpiceRequestStub<String> spiceRequestStub2=new SpiceRequestSucceedingStub<String>(TEST_CLASS,TEST_RETURNED_DATA);
+  spiceRequestStub2.setPriority(SpiceRequest.PRIORITY_HIGH);
+  spiceManager.execute(spiceRequestStub,null);
+  spiceManager.execute(spiceRequestStub2,null);
+  assertEquals(spiceRequestStub2,spiceManager.getNextRequest().getSpiceRequest());
+}

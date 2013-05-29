@@ -1,0 +1,3 @@
+int retryCount
+long delayBeforeRetry
+float backOffMultiplier

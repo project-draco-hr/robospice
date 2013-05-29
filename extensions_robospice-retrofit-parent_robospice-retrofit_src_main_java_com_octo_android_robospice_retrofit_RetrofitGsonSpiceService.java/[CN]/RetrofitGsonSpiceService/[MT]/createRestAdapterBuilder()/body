@@ -1,4 +1,5 @@
 {
-  RestAdapter.Builder restAdapter=new RestAdapter.Builder().setConverter(converter);
+  RestAdapter.Builder restAdapter=super.createRestAdapterBuilder();
+  restAdapter.setConverter(converter);
   return restAdapter;
 }

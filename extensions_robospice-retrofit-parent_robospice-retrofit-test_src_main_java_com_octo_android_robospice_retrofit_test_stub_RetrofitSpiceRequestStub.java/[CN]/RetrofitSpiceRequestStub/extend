@@ -1,1 +1,1 @@
-RetrofitSpiceRequest<WeatherResult>
+RetrofitSpiceRequest<WeatherResult,FakeWeatherService>
