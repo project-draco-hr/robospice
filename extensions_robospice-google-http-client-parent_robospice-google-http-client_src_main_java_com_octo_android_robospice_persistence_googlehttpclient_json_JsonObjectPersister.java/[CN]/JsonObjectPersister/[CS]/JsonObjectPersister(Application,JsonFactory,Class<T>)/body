@@ -1,0 +1,4 @@
+{
+  super(application,clazz);
+  this.jsonFactory=jsonFactory;
+}

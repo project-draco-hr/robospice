@@ -1,0 +1,5 @@
+{
+  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  inFileObjectPersister=new InFileObjectPersisterWithCustomFolderUnderTest(application);
+  super.setUp(inFileObjectPersister);
+}

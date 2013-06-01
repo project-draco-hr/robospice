@@ -30,7 +30,7 @@
         }
       }
     }
- catch (    final CacheLoadingException e) {
+ catch (    final SpiceException e) {
       Ln.d(e,"Cache file could not be read.");
       if (failOnCacheError) {
         handleRetry(request,e);
@@ -79,7 +79,7 @@
       notifyListenersOfRequestSuccess(request,result);
       return;
     }
- catch (    final CacheSavingException e) {
+ catch (    final SpiceException e) {
       Ln.d("An exception occured during service execution :" + e.getMessage(),e);
       if (failOnCacheError) {
         handleRetry(request,e);

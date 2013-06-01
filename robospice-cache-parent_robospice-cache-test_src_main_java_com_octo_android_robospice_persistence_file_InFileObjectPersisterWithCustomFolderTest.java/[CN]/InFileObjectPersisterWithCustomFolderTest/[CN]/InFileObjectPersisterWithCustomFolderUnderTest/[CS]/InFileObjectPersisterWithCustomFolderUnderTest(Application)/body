@@ -1,0 +1,4 @@
+{
+  super(application);
+  setCacheFolder(new File(application.getCacheDir(),TEST_CACHE_FOLDER));
+}

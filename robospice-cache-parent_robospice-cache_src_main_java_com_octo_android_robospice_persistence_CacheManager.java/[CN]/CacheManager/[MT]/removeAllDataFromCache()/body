@@ -1,9 +1,9 @@
 {
   for (  Persister persister : this.listPersister) {
-    if (persister instanceof ObjectPersister) {
-      ((ObjectPersister<?>)persister).removeAllDataFromCache();
+    if (persister instanceof CacheCleaner) {
+      ((CacheCleaner)persister).removeAllDataFromCache();
     }
- else     if (persister instanceof ObjectPersisterFactory) {
+    if (persister instanceof ObjectPersisterFactory) {
       ObjectPersisterFactory factory=(ObjectPersisterFactory)persister;
       List<ObjectPersister<?>> listPersisterForFactory=mapFactoryToPersister.get(factory);
       for (      ObjectPersister<?> objectPersister : listPersisterForFactory) {

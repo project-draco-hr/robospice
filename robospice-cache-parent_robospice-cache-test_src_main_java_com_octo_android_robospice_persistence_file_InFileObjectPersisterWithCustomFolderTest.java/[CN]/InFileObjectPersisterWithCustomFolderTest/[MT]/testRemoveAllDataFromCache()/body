@@ -1,0 +1,6 @@
+{
+  Map<Object,Object> mapDataToCacheKey=new HashMap<Object,Object>();
+  mapDataToCacheKey.put(new Object(),TEST_CACHE_KEY);
+  mapDataToCacheKey.put(new Object(),TEST_CACHE_KEY2);
+  super.testRemoveAllDataFromCache(mapDataToCacheKey);
+}

@@ -1,3 +1,9 @@
 {
-  return getObjectPersister(clazz).getAllCacheKeys();
+  try {
+    return getObjectPersister(clazz).getAllCacheKeys();
+  }
+ catch (  CacheCreationException e) {
+    Ln.e(e);
+    return Collections.emptyList();
+  }
 }

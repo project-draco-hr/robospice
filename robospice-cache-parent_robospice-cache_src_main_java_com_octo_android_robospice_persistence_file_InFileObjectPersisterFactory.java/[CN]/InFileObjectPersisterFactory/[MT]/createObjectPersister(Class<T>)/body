@@ -1,0 +1,12 @@
+{
+  InFileObjectPersister<T> inFileObjectPersister;
+  try {
+    inFileObjectPersister=createInFileObjectPersister(clazz,cacheFolder);
+    inFileObjectPersister.setFactoryCachePrefix(cachePrefix);
+    inFileObjectPersister.setKeySanitizer(keySanitizer);
+    return inFileObjectPersister;
+  }
+ catch (  CacheCreationException e) {
+    throw new RuntimeException("Could not create cache folder of factory.",e);
+  }
+}

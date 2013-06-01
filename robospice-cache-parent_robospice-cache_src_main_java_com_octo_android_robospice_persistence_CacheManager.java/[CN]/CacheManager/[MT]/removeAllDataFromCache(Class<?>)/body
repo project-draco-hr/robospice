@@ -1,3 +1,8 @@
 {
-  getObjectPersister(clazz).removeAllDataFromCache();
+  try {
+    getObjectPersister(clazz).removeAllDataFromCache();
+  }
+ catch (  CacheCreationException e) {
+    Ln.e(e);
+  }
 }

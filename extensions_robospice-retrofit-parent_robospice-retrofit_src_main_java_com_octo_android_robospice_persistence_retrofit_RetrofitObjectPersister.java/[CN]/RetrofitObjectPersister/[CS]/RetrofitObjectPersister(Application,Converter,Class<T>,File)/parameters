@@ -1,0 +1,4 @@
+Application application
+Converter converter
+Class<T> clazz
+File cacheFolder

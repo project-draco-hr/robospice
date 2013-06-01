@@ -1,0 +1,4 @@
+{
+  super(application,listHandledClasses,cacheFolder);
+  this.jsonFactory=jsonFactory;
+}

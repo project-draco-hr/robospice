@@ -1,4 +1,3 @@
 {
-  super(application);
-  this.jsonFactory=jsonFactory;
+  this(application,jsonFactory,null,null);
 }

@@ -1,0 +1,3 @@
+{
+  return new RetrofitObjectPersister<DATA>(getApplication(),converter,clazz,cacheFolder);
+}

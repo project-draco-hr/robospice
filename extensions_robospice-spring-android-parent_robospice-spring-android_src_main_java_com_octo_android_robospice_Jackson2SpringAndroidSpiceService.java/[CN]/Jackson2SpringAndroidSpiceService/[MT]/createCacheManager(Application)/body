@@ -1,5 +1,5 @@
 {
   CacheManager cacheManager=new CacheManager();
-  cacheManager.addPersister(new com.octo.android.robospice.persistence.springandroid.json.jackson2.Jackson2ObjectPersisterFactory(application));
+  cacheManager.addPersister(new Jackson2ObjectPersisterFactory(application));
   return cacheManager;
 }

@@ -1,5 +1,0 @@
-{
-  InFileObjectPersister<DATA> inFileObjectPersister=new Jackson2ObjectPersister<DATA>(getApplication(),clazz,getCachePrefix());
-  inFileObjectPersister.setAsyncSaveEnabled(isAsyncSaveEnabled());
-  return inFileObjectPersister;
-}

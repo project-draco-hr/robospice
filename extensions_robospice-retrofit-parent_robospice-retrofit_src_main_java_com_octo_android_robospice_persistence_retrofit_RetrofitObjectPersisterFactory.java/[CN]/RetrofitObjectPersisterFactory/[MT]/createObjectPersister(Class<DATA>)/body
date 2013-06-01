@@ -1,5 +1,0 @@
-{
-  InFileObjectPersister<DATA> inFileObjectPersister=new RetrofitObjectPersister<DATA>(getApplication(),clazz,getCachePrefix(),converter);
-  inFileObjectPersister.setAsyncSaveEnabled(isAsyncSaveEnabled());
-  return inFileObjectPersister;
-}

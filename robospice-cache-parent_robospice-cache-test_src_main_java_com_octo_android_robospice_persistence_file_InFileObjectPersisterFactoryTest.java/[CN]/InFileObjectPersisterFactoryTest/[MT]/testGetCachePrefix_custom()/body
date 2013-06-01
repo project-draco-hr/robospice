@@ -1,0 +1,6 @@
+{
+  final String cachePrefix="foo";
+  inFileObjectPersisterFactory.setCachePrefix(cachePrefix);
+  String actual2=inFileObjectPersisterFactory.getCachePrefix();
+  assertEquals(cachePrefix,actual2);
+}

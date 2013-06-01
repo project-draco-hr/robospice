@@ -1,0 +1,3 @@
+{
+  super.testRemoveDataFromCache(new Object(),TEST_CACHE_KEY);
+}

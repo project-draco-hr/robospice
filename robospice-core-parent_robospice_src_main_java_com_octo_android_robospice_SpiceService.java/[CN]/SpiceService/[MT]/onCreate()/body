@@ -1,8 +1,17 @@
 {
   super.onCreate();
-  cacheManager=createCacheManager(getApplication());
+  try {
+    cacheManager=createCacheManager(getApplication());
+  }
+ catch (  CacheCreationException e) {
+    Ln.e(e);
+    stopSelf();
+    return;
+  }
   if (cacheManager == null) {
-    throw new IllegalArgumentException("createCacheManager() can't create a null cacheManager");
+    Ln.e(new CacheCreationException("createCacheManager() can't create a null cacheManager"));
+    stopSelf();
+    return;
   }
   final ExecutorService executorService=getExecutorService();
   final NetworkStateChecker networkStateChecker=getNetworkStateChecker();

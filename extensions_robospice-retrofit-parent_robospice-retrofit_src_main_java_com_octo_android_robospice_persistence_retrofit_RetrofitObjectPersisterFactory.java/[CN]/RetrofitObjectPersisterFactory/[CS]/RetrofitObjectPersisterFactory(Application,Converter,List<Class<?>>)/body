@@ -1,4 +1,3 @@
 {
-  super(application,listHandledClasses);
-  this.converter=converter;
+  this(application,converter,listHandledClasses,null);
 }

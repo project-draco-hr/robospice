@@ -1,0 +1,9 @@
+{
+  if (cacheFolder == null) {
+    cacheFolder=new File(getApplication().getCacheDir(),InFileObjectPersister.DEFAULT_ROOT_CACHE_DIR);
+  }
+  this.cacheFolder=cacheFolder;
+  if (!cacheFolder.exists() && !cacheFolder.mkdirs()) {
+    throw new CacheCreationException("The cache folder " + cacheFolder.getAbsolutePath() + " could not be created.");
+  }
+}

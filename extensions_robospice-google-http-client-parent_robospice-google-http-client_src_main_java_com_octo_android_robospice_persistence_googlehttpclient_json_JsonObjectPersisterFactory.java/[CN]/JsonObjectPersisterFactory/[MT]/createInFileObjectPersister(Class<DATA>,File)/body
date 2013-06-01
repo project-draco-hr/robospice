@@ -1,0 +1,3 @@
+{
+  return new JsonObjectPersister<DATA>(getApplication(),jsonFactory,clazz,cacheFolder);
+}

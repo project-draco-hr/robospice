@@ -1,0 +1,4 @@
+Application application
+JsonFactory jsonFactory
+Class<T> clazz
+File cacheFolder

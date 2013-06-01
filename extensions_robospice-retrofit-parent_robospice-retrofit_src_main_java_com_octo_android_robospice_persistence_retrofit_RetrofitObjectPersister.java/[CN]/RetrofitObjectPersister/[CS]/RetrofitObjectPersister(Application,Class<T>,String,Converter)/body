@@ -1,5 +1,0 @@
-{
-  super(application,clazz);
-  this.converter=converter;
-  this.mFactoryPrefix=factoryPrefix;
-}

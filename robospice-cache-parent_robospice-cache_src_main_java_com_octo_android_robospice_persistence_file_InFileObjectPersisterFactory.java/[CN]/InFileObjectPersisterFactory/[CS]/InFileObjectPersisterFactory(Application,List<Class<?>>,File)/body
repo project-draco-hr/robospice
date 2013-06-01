@@ -1,0 +1,5 @@
+{
+  super(application,listHandledClasses);
+  setCacheFolder(cacheFolder);
+  setCachePrefix(getClass().getSimpleName() + InFileObjectPersister.CACHE_PREFIX_END);
+}

@@ -1,5 +1,0 @@
-{
-  JsonObjectPersister<DATA> inFileObjectPersister=new JsonObjectPersister<DATA>(getApplication(),clazz,getCachePrefix(),jsonFactory);
-  inFileObjectPersister.setAsyncSaveEnabled(isAsyncSaveEnabled());
-  return inFileObjectPersister;
-}

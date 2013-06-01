@@ -1,0 +1,4 @@
+Application application
+Converter converter
+List<Class<?>> listHandledClasses
+File cacheFolder

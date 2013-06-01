@@ -1,0 +1,4 @@
+Application application
+JsonFactory jsonFactory
+List<Class<?>> listHandledClasses
+File cacheFolder
