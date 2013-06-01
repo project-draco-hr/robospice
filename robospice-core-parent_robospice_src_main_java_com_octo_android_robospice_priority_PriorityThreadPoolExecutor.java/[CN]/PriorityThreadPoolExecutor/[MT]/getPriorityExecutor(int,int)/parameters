@@ -1,0 +1,2 @@
+int nThreads
+int threadPriority

@@ -1,9 +1,10 @@
 {
   final int threadCount=getThreadCount();
+  final int threadPriority=getThreadPriority();
   if (threadCount <= 0) {
     throw new IllegalArgumentException("Thread count must be >= 1");
   }
  else {
-    return PriorityThreadPoolExecutor.getPriorityExecutor(threadCount);
+    return PriorityThreadPoolExecutor.getPriorityExecutor(threadCount,threadPriority);
   }
 }

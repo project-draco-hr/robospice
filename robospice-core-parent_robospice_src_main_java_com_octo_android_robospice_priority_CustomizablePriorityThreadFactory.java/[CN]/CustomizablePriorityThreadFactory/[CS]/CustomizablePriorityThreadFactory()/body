@@ -1,0 +1,3 @@
+{
+  this(Thread.MIN_PRIORITY);
+}

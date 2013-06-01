@@ -1,0 +1,6 @@
+{
+  final int priority=Thread.MAX_PRIORITY;
+  threadFactory=new CustomizablePriorityThreadFactory(priority);
+  Thread t=threadFactory.newThread(new DummyRunnable());
+  assertEquals(priority,t.getPriority());
+}
