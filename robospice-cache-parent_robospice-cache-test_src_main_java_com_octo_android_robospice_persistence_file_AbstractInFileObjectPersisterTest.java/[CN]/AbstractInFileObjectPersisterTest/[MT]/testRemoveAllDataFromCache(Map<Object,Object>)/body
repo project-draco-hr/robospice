@@ -1,0 +1,14 @@
+{
+  for (  Map.Entry<Object,Object> entry : mapDataToCacheKey.entrySet()) {
+    inFileObjectPersister.saveDataToCacheAndReturnData(entry.getKey(),entry.getValue());
+  }
+  for (  Map.Entry<Object,Object> entry : mapDataToCacheKey.entrySet()) {
+    File cacheFile=inFileObjectPersister.getCacheFile(entry.getValue());
+    assertTrue(cacheFile.exists());
+  }
+  inFileObjectPersister.removeAllDataFromCache();
+  for (  Map.Entry<Object,Object> entry : mapDataToCacheKey.entrySet()) {
+    File cacheFile=inFileObjectPersister.getCacheFile(entry.getValue());
+    assertFalse(cacheFile.exists());
+  }
+}

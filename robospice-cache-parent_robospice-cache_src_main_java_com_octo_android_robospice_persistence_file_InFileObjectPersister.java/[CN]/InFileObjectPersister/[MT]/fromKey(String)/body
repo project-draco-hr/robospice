@@ -1,0 +1,8 @@
+{
+  if (isUsingKeySanitizer()) {
+    return (String)keySanitizer.desanitizeKey(cacheKey);
+  }
+ else {
+    return cacheKey;
+  }
+}

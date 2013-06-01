@@ -1,0 +1,7 @@
+{
+  inFileObjectPersister.saveDataToCacheAndReturnData(data,cacheKey);
+  File cacheFile=inFileObjectPersister.getCacheFile(cacheKey);
+  assertTrue(cacheFile.exists());
+  inFileObjectPersister.removeDataFromCache(cacheKey);
+  assertFalse(cacheFile.exists());
+}

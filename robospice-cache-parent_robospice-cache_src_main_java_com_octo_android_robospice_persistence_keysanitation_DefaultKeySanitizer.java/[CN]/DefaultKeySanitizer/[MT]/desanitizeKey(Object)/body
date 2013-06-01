@@ -1,0 +1,6 @@
+{
+  if (!(sanitzedCacheKey instanceof String)) {
+    throw new RuntimeException(DefaultKeySanitizer.class.getSimpleName() + " can only be used with Strings cache keys.");
+  }
+  return new String(Base64.decode((String)sanitzedCacheKey,BASE64_FLAGS),UTF8_CHARSET);
+}

@@ -1,5 +1,5 @@
 {
   Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
-  inFileObjectPersister=new InFileObjectPersisterUnderTest(application);
+  inFileObjectPersister=new InFileObjectPersisterWithSanitationUnderTest(application);
   super.setUp(inFileObjectPersister);
 }

@@ -1,0 +1,9 @@
+{
+  for (  Map.Entry<Object,Object> entry : mapDataToCacheKey.entrySet()) {
+    inFileObjectPersister.saveDataToCacheAndReturnData(entry.getKey(),entry.getValue());
+  }
+  List<Object> allCacheKeys=inFileObjectPersister.getAllCacheKeys();
+  assertEquals(mapDataToCacheKey.values().size(),allCacheKeys.size());
+  allCacheKeys.removeAll(mapDataToCacheKey.values());
+  assertTrue(allCacheKeys.isEmpty());
+}

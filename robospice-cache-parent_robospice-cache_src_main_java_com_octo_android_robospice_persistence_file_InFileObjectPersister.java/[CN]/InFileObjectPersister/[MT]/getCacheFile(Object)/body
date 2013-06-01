@@ -1,3 +1,3 @@
 {
-  return new File(getCacheFolder(),getCachePrefix() + cacheKey.toString());
+  return new File(getCacheFolder(),getCachePrefix() + toKey(cacheKey.toString()));
 }

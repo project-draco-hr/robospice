@@ -1,0 +1,9 @@
+{
+  try {
+    keySanitizer.sanitizeKey(TEST_BAD_KEY);
+    fail();
+  }
+ catch (  RuntimeException ex) {
+    assertTrue(true);
+  }
+}

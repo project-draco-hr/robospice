@@ -1,0 +1,3 @@
+{
+  super.testSanitizeKey(TEST_SANITIZED_KEY,TEST_UNSANITIZED_KEY);
+}

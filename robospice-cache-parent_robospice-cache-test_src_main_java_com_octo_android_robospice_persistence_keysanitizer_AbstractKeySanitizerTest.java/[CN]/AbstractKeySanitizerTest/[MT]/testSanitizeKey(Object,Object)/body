@@ -1,0 +1,4 @@
+{
+  Object sanitized=keySanitizer.sanitizeKey(cacheKeyToSanitize);
+  assertEquals(expectedSanitizedKey,sanitized);
+}
