@@ -18,4 +18,5 @@
   assertFalse(stubRequest.isLoadDataFromNetworkCalled());
   assertTrue(mockRequestListener.isExecutedInUIThread());
   assertFalse(mockRequestListener.isSuccessful());
+  assertTrue(mockRequestListener.getReceivedException() instanceof NoNetworkException);
 }
