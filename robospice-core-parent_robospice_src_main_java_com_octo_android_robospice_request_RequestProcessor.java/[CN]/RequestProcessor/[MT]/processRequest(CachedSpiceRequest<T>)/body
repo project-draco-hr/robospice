@@ -1,10 +1,6 @@
 {
   Ln.d("Processing request : " + request);
   T result=null;
-  if (!request.isProcessable()) {
-    notifyOfRequestProcessed(request);
-    return;
-  }
   final RequestProgressListener requestProgressListener=new RequestProgressListener(){
     @Override public void onRequestProgressUpdate(    final RequestProgress progress){
       final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);

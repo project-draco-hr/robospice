@@ -5,7 +5,7 @@
   if (obj == null) {
     return false;
   }
-  if (getClass() != obj.getClass()) {
+  if (!(obj instanceof CachedSpiceRequest)) {
     return false;
   }
   final CachedSpiceRequest<?> other=(CachedSpiceRequest<?>)obj;

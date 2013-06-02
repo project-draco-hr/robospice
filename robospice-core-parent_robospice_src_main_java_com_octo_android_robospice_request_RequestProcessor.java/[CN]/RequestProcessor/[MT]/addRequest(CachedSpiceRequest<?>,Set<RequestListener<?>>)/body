@@ -14,14 +14,19 @@ synchronized (mapRequestToRequestListener) {
   if (listRequestListener != null) {
     Set<RequestListener<?>> listRequestListenerForThisRequest=mapRequestToRequestListener.get(request);
     if (listRequestListenerForThisRequest == null) {
-      listRequestListenerForThisRequest=new HashSet<RequestListener<?>>();
-      this.mapRequestToRequestListener.put(request,listRequestListenerForThisRequest);
+      if (request.isProcessable()) {
+        Ln.d(String.format("Adding entry for type %s and cacheKey %s.",request.getResultType(),request.getRequestCacheKey()));
+        listRequestListenerForThisRequest=new HashSet<RequestListener<?>>();
+        this.mapRequestToRequestListener.put(request,listRequestListenerForThisRequest);
+      }
     }
  else {
       Ln.d(String.format("Request for type %s and cacheKey %s already exists.",request.getResultType(),request.getRequestCacheKey()));
       aggregated=true;
     }
-    listRequestListenerForThisRequest.addAll(listRequestListener);
+    if (listRequestListenerForThisRequest != null) {
+      listRequestListenerForThisRequest.addAll(listRequestListener);
+    }
     if (request.isProcessable()) {
       notifyListenersOfRequestProgress(request,listRequestListener,request.getProgress());
     }
@@ -40,6 +45,10 @@ synchronized (mapRequestToRequestListener) {
   if (request.isCancelled()) {
     mapRequestToRequestListener.remove(request);
     notifyListenersOfRequestCancellation(request,listRequestListener);
+    return;
+  }
+ else   if (!request.isProcessable()) {
+    notifyOfRequestProcessed(request);
     return;
   }
  else {
