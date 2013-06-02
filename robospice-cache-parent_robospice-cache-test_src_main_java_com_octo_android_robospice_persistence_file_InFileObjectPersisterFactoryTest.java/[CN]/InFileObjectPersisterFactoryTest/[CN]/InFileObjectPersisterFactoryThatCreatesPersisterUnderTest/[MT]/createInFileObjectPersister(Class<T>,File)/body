@@ -1,0 +1,8 @@
+{
+  if (clazz.equals(String.class)) {
+    return (InFileObjectPersister<T>)new InFileStringObjectPersister(getApplication());
+  }
+ else {
+    return null;
+  }
+}
