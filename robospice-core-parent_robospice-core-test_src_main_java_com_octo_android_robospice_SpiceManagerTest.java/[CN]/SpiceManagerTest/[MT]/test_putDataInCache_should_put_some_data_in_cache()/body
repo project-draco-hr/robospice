@@ -1,0 +1,7 @@
+{
+  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.removeDataFromCache(TEST_CLASS3);
+  Double dataInCache=spiceManager.putDataInCache(TEST_CACHE_KEY,TEST_RETURNED_DATA3).get();
+  assertEquals(TEST_RETURNED_DATA3,dataInCache);
+  assertEquals(TEST_RETURNED_DATA3,spiceManager.getDataFromCache(TEST_CLASS3,TEST_CACHE_KEY).get());
+}
