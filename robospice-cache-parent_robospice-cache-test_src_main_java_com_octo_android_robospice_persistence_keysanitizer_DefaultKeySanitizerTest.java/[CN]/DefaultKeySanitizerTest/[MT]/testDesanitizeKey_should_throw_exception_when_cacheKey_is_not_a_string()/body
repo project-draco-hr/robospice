@@ -3,7 +3,7 @@
     keySanitizer.desanitizeKey(TEST_BAD_KEY);
     fail();
   }
- catch (  RuntimeException ex) {
+ catch (  KeySanitationExcepion ex) {
     assertTrue(true);
   }
 }

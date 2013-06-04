@@ -1,12 +1,11 @@
 {
   if (!(sanitzedCacheKey instanceof String)) {
-    throw new RuntimeException(DefaultKeySanitizer.class.getSimpleName() + " can only be used with Strings cache keys.");
+    throw new KeySanitationExcepion(DefaultKeySanitizer.class.getSimpleName() + " can only be used with Strings cache keys.");
   }
   try {
     return new String(Base64.decode((String)sanitzedCacheKey,BASE64_FLAGS),UTF8_CHARSET_NAME);
   }
  catch (  UnsupportedEncodingException e) {
-    Ln.e(e,"Key could not be desanitized.");
-    return null;
+    throw new KeySanitationExcepion(e);
   }
 }
