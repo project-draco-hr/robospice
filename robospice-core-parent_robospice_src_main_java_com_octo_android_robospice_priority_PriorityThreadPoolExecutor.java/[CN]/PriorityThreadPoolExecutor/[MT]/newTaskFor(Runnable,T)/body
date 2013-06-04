@@ -2,6 +2,5 @@
   if (runnable == null) {
     return null;
   }
-  RunnableFuture<T> runnableFuture=super.newTaskFor(runnable,value);
-  return new PriorityFuture<T>(runnableFuture,((PriorityRunnable)runnable).getPriority());
+  return new PriorityFuture<T>(runnable,((PriorityRunnable)runnable).getPriority(),value);
 }

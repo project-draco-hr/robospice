@@ -1,4 +1,4 @@
 {
-  this.src=other;
+  super(other,result);
   this.priority=priority;
 }
