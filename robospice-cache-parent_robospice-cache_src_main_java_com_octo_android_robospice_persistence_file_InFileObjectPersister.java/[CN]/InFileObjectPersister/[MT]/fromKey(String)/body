@@ -1,6 +1,12 @@
 {
   if (isUsingKeySanitizer()) {
-    return (String)keySanitizer.desanitizeKey(cacheKey);
+    try {
+      return (String)keySanitizer.desanitizeKey(cacheKey);
+    }
+ catch (    KeySanitationExcepion e) {
+      Ln.e(e,"Key could not be desanitized, falling back on original key.");
+      return cacheKey;
+    }
   }
  else {
     return cacheKey;

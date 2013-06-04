@@ -1,0 +1,3 @@
+{
+  super("A problem occured during sanitation/desanitation of a key.");
+}
