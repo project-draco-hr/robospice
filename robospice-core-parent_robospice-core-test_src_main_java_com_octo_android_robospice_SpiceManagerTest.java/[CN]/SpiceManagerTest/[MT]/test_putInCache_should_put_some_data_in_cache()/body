@@ -1,8 +1,10 @@
 {
   spiceManager.start(getInstrumentation().getTargetContext());
-  spiceManager.removeDataFromCache(TEST_CLASS3);
+  spiceManager.removeDataFromCache(TEST_CLASS3,true);
   RequestListenerStub<Double> requestListenerStub=new RequestListenerStub<Double>();
   spiceManager.putInCache(TEST_CLASS3,TEST_CACHE_KEY,TEST_RETURNED_DATA3,requestListenerStub);
-  requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
+  requestListenerStub.await(100 * REQUEST_COMPLETION_TIME_OUT);
+  assertTrue(requestListenerStub.isExecutedInUIThread());
+  assertTrue(requestListenerStub.isSuccessful());
   assertEquals(TEST_RETURNED_DATA3,spiceManager.getDataFromCache(TEST_CLASS3,TEST_CACHE_KEY).get());
 }

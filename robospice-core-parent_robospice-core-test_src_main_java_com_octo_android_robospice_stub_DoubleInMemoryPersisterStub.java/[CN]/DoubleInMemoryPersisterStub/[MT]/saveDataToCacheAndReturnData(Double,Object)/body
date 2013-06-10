@@ -1,4 +1,5 @@
 {
+  Ln.d("Adding " + data + " to cache at "+ cacheKey);
   map.put(cacheKey,data);
   return data;
 }

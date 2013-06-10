@@ -1,0 +1,24 @@
+{
+  try {
+    waitForServiceToBeBound();
+    if (spiceService == null) {
+      return;
+    }
+  }
+ catch (  InterruptedException e) {
+    Ln.e(e);
+  }
+  if (countDownLatch == null) {
+    executeWhenBound();
+    return;
+  }
+  try {
+    executeWhenBound();
+  }
+ catch (  Exception e) {
+    Ln.e(e);
+  }
+ finally {
+    countDownLatch.countDown();
+  }
+}

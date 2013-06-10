@@ -2,5 +2,6 @@
   if (maxTimeInCache == DurationInMillis.ALWAYS_EXPIRED || maxTimeInCache > DurationInMillis.ONE_MINUTE) {
     return null;
   }
+  Ln.d("Value in cache for " + cacheKey + " is "+ map.get(cacheKey));
   return map.get(cacheKey);
 }

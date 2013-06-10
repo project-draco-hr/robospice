@@ -1,0 +1,20 @@
+{
+  if (clazz == null) {
+    throw new IllegalArgumentException("Clazz must be non null.");
+  }
+  final CountDownLatch latch=new CountDownLatch(1);
+  executorService.execute(new SpiceManagerCommand(latch){
+    @Override protected void executeWhenBound(){
+      spiceService.removeAllDataFromCache(clazz);
+    }
+  }
+);
+  if (wait) {
+    try {
+      latch.await();
+    }
+ catch (    InterruptedException e) {
+      Ln.e(e);
+    }
+  }
+}

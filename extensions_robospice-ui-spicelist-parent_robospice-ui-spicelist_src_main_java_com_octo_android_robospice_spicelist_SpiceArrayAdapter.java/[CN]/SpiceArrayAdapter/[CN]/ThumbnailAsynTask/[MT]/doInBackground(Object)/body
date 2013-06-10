@@ -1,15 +1,17 @@
 {
   data=(T)params[0];
   spiceListItemView=(SpiceListItemView<T>)params[1];
-  File tempThumbnailImageFile=bitmapRequest.getCacheFile();
-  tempThumbnailImageFileName=tempThumbnailImageFile.getAbsolutePath();
-  Ln.d("Filename : " + tempThumbnailImageFileName);
-  if (!tempThumbnailImageFile.exists()) {
-    if (isNetworkFetchingAllowed) {
-      OctoImageRequestListener octoImageRequestListener=new OctoImageRequestListener(data,spiceListItemView,tempThumbnailImageFileName);
-      spiceManagerBinary.execute(bitmapRequest,"THUMB_IMAGE_" + data.hashCode(),DurationInMillis.ALWAYS_EXPIRED,octoImageRequestListener);
+  if (bitmapRequest != null) {
+    File tempThumbnailImageFile=bitmapRequest.getCacheFile();
+    tempThumbnailImageFileName=tempThumbnailImageFile.getAbsolutePath();
+    Ln.d("Filename : " + tempThumbnailImageFileName);
+    if (!tempThumbnailImageFile.exists()) {
+      if (isNetworkFetchingAllowed) {
+        OctoImageRequestListener octoImageRequestListener=new OctoImageRequestListener(data,spiceListItemView,tempThumbnailImageFileName);
+        spiceManagerBinary.execute(bitmapRequest,"THUMB_IMAGE_" + data.hashCode(),DurationInMillis.ALWAYS_EXPIRED,octoImageRequestListener);
+      }
+      return false;
     }
-    return false;
   }
   return true;
 }

@@ -1,3 +1,4 @@
 {
+  Ln.d("Clearing all cache");
   map.clear();
 }

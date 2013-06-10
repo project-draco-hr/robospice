@@ -1,5 +1,6 @@
 {
   super.setUp();
+  getInstrumentation().waitForIdleSync();
   mockCacheManager=EasyMock.createMock(ICacheManager.class);
   requestProcessorListener=new RequestProcessorListener(){
     @Override public void allRequestComplete(){

@@ -5,6 +5,7 @@
     while (spiceService == null && !isStopped) {
       conditionServiceBound.await();
     }
+    Ln.d("Bound ok.");
   }
   finally {
     lockAcquireService.unlock();

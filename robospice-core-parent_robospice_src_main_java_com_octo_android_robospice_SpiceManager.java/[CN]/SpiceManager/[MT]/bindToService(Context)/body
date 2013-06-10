@@ -8,10 +8,21 @@
       final Intent intentService=new Intent(context,spiceServiceClass);
       Ln.v("Binding to service.");
       spiceServiceConnection=new SpiceServiceConnection();
-      context.getApplicationContext().bindService(intentService,spiceServiceConnection,Context.BIND_AUTO_CREATE);
+      boolean bound=context.getApplicationContext().bindService(intentService,spiceServiceConnection,Context.BIND_AUTO_CREATE);
+      if (!bound) {
+        Ln.v("Binding to service failed.");
+      }
+ else {
+        Ln.v("Binding to service succeeded.");
+      }
     }
   }
-  finally {
+ catch (  Exception t) {
+    Ln.d(t,"Binding to service failed.");
+    Ln.d("Context is" + context);
+    Ln.d("ApplicationContext is " + context.getApplicationContext() + context.getApplicationContext());
+  }
+ finally {
     lockAcquireService.unlock();
   }
 }

@@ -1,3 +1,5 @@
 {
   super(application,Double.class);
+  Ln.d("New memory cache created");
+  setAsyncSaveEnabled(false);
 }
