@@ -5,6 +5,7 @@
   }
  else {
     runner=new Thread(this);
+    runner.setPriority(Thread.MIN_PRIORITY);
     isStopped=false;
     runner.start();
     Ln.d("SpiceManager started.");

@@ -1,0 +1,6 @@
+{
+  if (executorService.isShutdown()) {
+    return null;
+  }
+  return executorService.submit(spiceManagerCommand);
+}

@@ -1,0 +1,4 @@
+{
+  spiceService.removeAllDataFromCache();
+  return null;
+}

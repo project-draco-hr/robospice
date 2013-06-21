@@ -1,0 +1,4 @@
+{
+  spiceService.removeDataFromCache(clazz,cacheKey);
+  return null;
+}

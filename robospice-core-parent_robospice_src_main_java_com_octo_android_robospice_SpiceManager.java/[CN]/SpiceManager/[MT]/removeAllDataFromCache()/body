@@ -1,17 +1,3 @@
 {
-  executorService.execute(new Runnable(){
-    @Override public void run(){
-      try {
-        waitForServiceToBeBound();
-        if (spiceService == null) {
-          return;
-        }
-        spiceService.removeAllDataFromCache();
-      }
- catch (      final InterruptedException e) {
-        Ln.e(e,"Interrupted while waiting for acquiring service.");
-      }
-    }
-  }
-);
+  return executeCommand(new RemoveAllDataFromCacheCommand(this));
 }

@@ -2,19 +2,5 @@
   if (clazz == null || cacheKey == null) {
     throw new IllegalArgumentException("Both parameters must be non null.");
   }
-  executorService.execute(new Runnable(){
-    @Override public void run(){
-      try {
-        waitForServiceToBeBound();
-        if (spiceService == null) {
-          return;
-        }
-        spiceService.removeDataFromCache(clazz,cacheKey);
-      }
- catch (      final InterruptedException e) {
-        Ln.e(e,"Interrupted while waiting for acquiring service.");
-      }
-    }
-  }
-);
+  executeCommand(new RemoveDataFromCacheCommand(this,clazz,cacheKey));
 }

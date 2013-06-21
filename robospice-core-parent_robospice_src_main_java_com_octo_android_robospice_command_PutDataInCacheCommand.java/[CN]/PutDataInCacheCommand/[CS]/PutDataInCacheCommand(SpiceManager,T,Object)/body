@@ -1,0 +1,5 @@
+{
+  super(spiceManager);
+  this.data=data;
+  this.cacheKey=cacheKey;
+}

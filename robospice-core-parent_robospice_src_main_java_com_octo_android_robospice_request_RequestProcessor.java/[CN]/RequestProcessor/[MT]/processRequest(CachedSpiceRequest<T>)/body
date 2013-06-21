@@ -1,4 +1,5 @@
 {
+  final long startTime=System.currentTimeMillis();
   Ln.d("Processing request : " + request);
   T result=null;
   final RequestProgressListener requestProgressListener=new RequestProgressListener(){
@@ -17,6 +18,7 @@
       if (result != null) {
         Ln.d("Request loaded from cache : " + request + " result="+ result);
         notifyListenersOfRequestSuccess(request,result);
+        printRequestProcessingDuration(startTime,request);
         return;
       }
  else       if (request.isAcceptingDirtyCache()) {
@@ -30,6 +32,7 @@
       Ln.d(e,"Cache file could not be read.");
       if (failOnCacheError) {
         handleRetry(request,e);
+        printRequestProcessingDuration(startTime,request);
         return;
       }
       cacheManager.removeDataFromCache(request.getResultType(),request.getRequestCacheKey());
@@ -40,10 +43,12 @@
   if (!isNetworkAvailable(applicationContext) && !request.isOffline()) {
     Ln.e("Network is down.");
     handleRetry(request,new NoNetworkException());
+    printRequestProcessingDuration(startTime,request);
     return;
   }
   try {
     if (request.isCancelled()) {
+      printRequestProcessingDuration(startTime,request);
       return;
     }
     Ln.d("Calling netwok request.");
@@ -59,30 +64,36 @@
  else {
       Ln.e("An exception occured during request network execution but request was cancelled, so listeners are not called.");
     }
+    printRequestProcessingDuration(startTime,request);
     return;
   }
   if (result != null && request.getRequestCacheKey() != null) {
     try {
       if (request.isCancelled()) {
+        printRequestProcessingDuration(startTime,request);
         return;
       }
       Ln.d("Start caching content...");
       request.setStatus(RequestStatus.WRITING_TO_CACHE);
       result=saveDataToCacheAndReturnData(result,request.getRequestCacheKey());
       if (request.isCancelled()) {
+        printRequestProcessingDuration(startTime,request);
         return;
       }
       notifyListenersOfRequestSuccess(request,result);
+      printRequestProcessingDuration(startTime,request);
       return;
     }
  catch (    final SpiceException e) {
       Ln.d("An exception occured during service execution :" + e.getMessage(),e);
       if (failOnCacheError) {
         handleRetry(request,e);
+        printRequestProcessingDuration(startTime,request);
         return;
       }
  else {
         if (request.isCancelled()) {
+          printRequestProcessingDuration(startTime,request);
           return;
         }
         notifyListenersOfRequestSuccess(request,result);
@@ -93,6 +104,7 @@
   }
  else {
     notifyListenersOfRequestSuccess(request,result);
+    printRequestProcessingDuration(startTime,request);
     return;
   }
 }

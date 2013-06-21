@@ -1,0 +1,3 @@
+{
+  Ln.d("It tooks %s to process request %s.",getTimeString(System.currentTimeMillis() - startTime),request.toString());
+}

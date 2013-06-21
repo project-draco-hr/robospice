@@ -1,0 +1,26 @@
+{
+synchronized (spiceManager) {
+    if (spiceManager.isStopped) {
+      return null;
+    }
+    try {
+      spiceManager.waitForServiceToBeBound();
+      if (spiceManager.spiceService == null) {
+        return null;
+      }
+    }
+ catch (    InterruptedException e) {
+      Ln.e(e,"Spice command %s couldn't bind to service.",getClass().getName());
+    }
+    try {
+      T result=executeWhenBound(spiceManager.spiceService);
+      successFull=true;
+      return result;
+    }
+ catch (    Exception e) {
+      Ln.e(e);
+      this.exception=e;
+      return null;
+    }
+  }
+}

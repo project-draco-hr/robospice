@@ -1,2 +1,6 @@
 {
+  if (clazz == null) {
+    throw new IllegalArgumentException("Clazz must be non null.");
+  }
+  return executeCommand(new RemoveDataClassFromCacheCommand(this,clazz));
 }

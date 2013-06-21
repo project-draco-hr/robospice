@@ -1,0 +1,4 @@
+{
+  spiceService.setFailOnCacheError(failOnCacheError);
+  return null;
+}
