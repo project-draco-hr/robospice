@@ -1,0 +1,3 @@
+{
+  return executeCommand(new GetDateOfDataInCacheCommand(this,clazz,cacheKey));
+}

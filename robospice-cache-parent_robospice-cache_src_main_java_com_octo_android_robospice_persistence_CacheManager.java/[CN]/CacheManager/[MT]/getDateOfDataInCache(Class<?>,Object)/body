@@ -1,0 +1,3 @@
+{
+  return new Date(getObjectPersister(clazz).getCreationDateInCache(cacheKey));
+}

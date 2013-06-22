@@ -1,0 +1,5 @@
+{
+  inFileObjectPersister.saveDataToCacheAndReturnData(data,cacheKey);
+  inFileObjectPersister.getCacheFile(cacheKey).setLastModified(TEST_DATE_IN_CACHE);
+  assertEquals(TEST_DATE_IN_CACHE,inFileObjectPersister.getCreationDateInCache(cacheKey));
+}

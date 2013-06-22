@@ -1,0 +1,3 @@
+{
+  super.testGetDateOfDataInCache_when_there_is_some_data_in_cache(new Object(),TEST_CACHE_KEY);
+}

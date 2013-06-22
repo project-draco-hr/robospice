@@ -1,0 +1,10 @@
+{
+  inFileObjectPersister.removeDataFromCache(cacheKey);
+  try {
+    inFileObjectPersister.getCreationDateInCache(cacheKey);
+    fail("Should have thrown an exception");
+  }
+ catch (  Exception ex) {
+    assertTrue(true);
+  }
+}

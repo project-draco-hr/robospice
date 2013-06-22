@@ -1,0 +1,3 @@
+SpiceManager spiceManager
+Class<?> clazz
+Object cacheKey

@@ -1,0 +1,5 @@
+{
+  super(spiceManager);
+  this.clazz=clazz;
+  this.cacheKey=cacheKey;
+}
