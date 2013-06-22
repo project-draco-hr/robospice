@@ -1,7 +1,7 @@
 {
-  File cachedFile=inputStreamCacheManager.getCacheFile(TEST_CACHE_KEY);
+  File cachedFile=inputStreamPersister.getCacheFile(TEST_CACHE_KEY);
   IOUtils.write("coucou",new FileOutputStream(cachedFile));
   cachedFile.setLastModified(System.currentTimeMillis() - FIVE_SECONDS);
-  InputStream inputStream=inputStreamCacheManager.loadDataFromCache(TEST_CACHE_KEY,DurationInMillis.ONE_SECOND);
+  InputStream inputStream=inputStreamPersister.loadDataFromCache(TEST_CACHE_KEY,DurationInMillis.ONE_SECOND);
   assertNull(inputStream);
 }

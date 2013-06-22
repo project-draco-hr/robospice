@@ -1,0 +1,14 @@
+{
+  CacheItem<T> cacheItem=lruCache.get(cacheKey);
+  if (cacheItem == null) {
+    if (decoratedPersister != null) {
+      return decoratedPersister.isDataInCache(cacheKey,maxTimeInCacheBeforeExpiry);
+    }
+    return false;
+  }
+ else {
+    boolean dataCanExpire=maxTimeInCacheBeforeExpiry != DurationInMillis.ALWAYS_RETURNED;
+    boolean dataIsNotExpired=System.currentTimeMillis() - cacheItem.getCreationDate() <= maxTimeInCacheBeforeExpiry;
+    return !dataCanExpire || dataIsNotExpired;
+  }
+}

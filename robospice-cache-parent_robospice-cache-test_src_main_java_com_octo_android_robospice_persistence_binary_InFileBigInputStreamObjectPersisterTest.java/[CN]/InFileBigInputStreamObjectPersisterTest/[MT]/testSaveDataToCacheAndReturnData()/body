@@ -1,6 +1,6 @@
 {
-  inputStreamCacheManager.saveDataToCacheAndReturnData(new ByteArrayInputStream("coucou".getBytes()),TEST_CACHE_KEY);
-  File cachedFile=inputStreamCacheManager.getCacheFile(TEST_CACHE_KEY);
+  inputStreamPersister.saveDataToCacheAndReturnData(new ByteArrayInputStream("coucou".getBytes()),TEST_CACHE_KEY);
+  File cachedFile=inputStreamPersister.getCacheFile(TEST_CACHE_KEY);
   assertTrue(cachedFile.exists());
   ByteArrayOutputStream bos=new ByteArrayOutputStream();
   IOUtils.copy(new FileInputStream(cachedFile),bos);

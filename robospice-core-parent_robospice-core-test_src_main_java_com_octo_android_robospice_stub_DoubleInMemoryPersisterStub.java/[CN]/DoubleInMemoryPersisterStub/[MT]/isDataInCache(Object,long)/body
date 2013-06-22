@@ -1,0 +1,3 @@
+{
+  return maxTimeInCache != DurationInMillis.ALWAYS_EXPIRED && maxTimeInCache < DurationInMillis.ONE_MINUTE;
+}

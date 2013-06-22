@@ -1,0 +1,4 @@
+{
+  File file=getCacheFile(cacheKey);
+  return isCachedAndNotExpired(file,maxTimeInCacheBeforeExpiry);
+}

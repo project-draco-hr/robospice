@@ -1,0 +1,5 @@
+{
+  inFileObjectPersister.saveDataToCacheAndReturnData(data,cacheKey);
+  Thread.sleep(TEST_EXPIRATION_DURATION);
+  assertFalse(inFileObjectPersister.isDataInCache(cacheKey,TEST_EXPIRATION_DURATION));
+}

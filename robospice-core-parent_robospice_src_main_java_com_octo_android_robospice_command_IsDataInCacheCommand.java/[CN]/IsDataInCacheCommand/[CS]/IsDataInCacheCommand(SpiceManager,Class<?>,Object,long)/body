@@ -1,0 +1,6 @@
+{
+  super(spiceManager);
+  this.clazz=clazz;
+  this.cacheExpiryDuration=cacheExpiryDuration;
+  this.cacheKey=cacheKey;
+}

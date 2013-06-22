@@ -1,0 +1,6 @@
+{
+  inFileObjectPersister.saveDataToCacheAndReturnData(data,cacheKey);
+  assertTrue(inFileObjectPersister.isDataInCache(cacheKey,TEST_EXPIRATION_DURATION));
+  inFileObjectPersister.removeDataFromCache(cacheKey);
+  assertFalse(inFileObjectPersister.isDataInCache(cacheKey,Long.MAX_VALUE));
+}

@@ -1,0 +1,4 @@
+{
+  inFileObjectPersister.saveDataToCacheAndReturnData(data,cacheKey);
+  assertTrue(inFileObjectPersister.isDataInCache(cacheKey,Long.MAX_VALUE));
+}

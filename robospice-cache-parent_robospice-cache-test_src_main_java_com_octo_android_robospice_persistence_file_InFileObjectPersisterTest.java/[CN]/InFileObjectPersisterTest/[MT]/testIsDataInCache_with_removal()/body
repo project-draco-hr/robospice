@@ -1,0 +1,3 @@
+{
+  super.testIsDataInCache_with_removal(new Object(),TEST_CACHE_KEY);
+}

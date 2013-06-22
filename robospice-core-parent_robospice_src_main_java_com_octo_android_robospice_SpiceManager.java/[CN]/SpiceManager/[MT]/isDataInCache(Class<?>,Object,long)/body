@@ -1,0 +1,3 @@
+{
+  return executeCommand(new IsDataInCacheCommand(this,clazz,cacheKey,cacheExpiryDuration));
+}
