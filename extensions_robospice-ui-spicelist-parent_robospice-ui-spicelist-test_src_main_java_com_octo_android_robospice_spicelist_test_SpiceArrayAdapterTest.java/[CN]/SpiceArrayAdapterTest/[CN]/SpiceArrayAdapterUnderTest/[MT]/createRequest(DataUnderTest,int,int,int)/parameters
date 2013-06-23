@@ -1,3 +1,4 @@
 DataUnderTest data
+int imageIndex
 int reqWidth
 int reqHeight

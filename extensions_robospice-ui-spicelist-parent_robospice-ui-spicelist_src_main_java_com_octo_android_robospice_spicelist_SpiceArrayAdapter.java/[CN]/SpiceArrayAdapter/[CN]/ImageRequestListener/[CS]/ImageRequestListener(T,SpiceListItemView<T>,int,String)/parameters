@@ -1,3 +1,4 @@
 T data
 SpiceListItemView<T> spiceListItemView
+int imageIndex
 String imageFileName

@@ -1,6 +1,6 @@
 {
   this.data=data;
   this.spiceListItemView=spiceListItemView;
-  this.thumbImageView=spiceListItemView.getImageView();
+  this.thumbImageView=spiceListItemView.getImageView(imageIndex);
   this.imageFileName=imageFileName;
 }

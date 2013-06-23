@@ -2,7 +2,9 @@
   if (!registered(spiceListItemView)) {
     addSpiceListItemView(spiceListItemView);
   }
-  imageWidth=Math.max(imageWidth,spiceListItemView.getImageView().getWidth());
-  imageHeight=Math.max(imageHeight,spiceListItemView.getImageView().getHeight());
-  new ThumbnailAsynTask(createRequest(data,imageWidth,imageHeight)).execute(data,spiceListItemView);
+  for (int imageIndex=0; imageIndex < spiceListItemView.getImageViewCount(); imageIndex++) {
+    imageWidth=Math.max(imageWidth,spiceListItemView.getImageView(imageIndex).getWidth());
+    imageHeight=Math.max(imageHeight,spiceListItemView.getImageView(imageIndex).getHeight());
+    new ThumbnailAsynTask(createRequest(data,imageIndex,imageWidth,imageHeight)).execute(data,spiceListItemView,imageIndex);
+  }
 }

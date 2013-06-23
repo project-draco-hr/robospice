@@ -2,6 +2,8 @@
   SpiceListItemView<T> spiceListItemView=weakReferenceSpiceListItemView.get();
   if (spiceListItemView != null) {
     T data=spiceListItemView.getData();
-    new ThumbnailAsynTask(createRequest(data,imageWidth,imageHeight)).execute(data,spiceListItemView);
+    for (int imageIndex=0; imageIndex < spiceListItemView.getImageViewCount(); imageIndex++) {
+      new ThumbnailAsynTask(createRequest(data,imageIndex,imageWidth,imageHeight)).execute(data,spiceListItemView,imageIndex);
+    }
   }
 }
