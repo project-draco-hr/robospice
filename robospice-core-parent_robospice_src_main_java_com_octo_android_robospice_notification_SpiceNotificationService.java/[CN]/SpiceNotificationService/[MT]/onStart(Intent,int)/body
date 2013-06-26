@@ -10,6 +10,6 @@
   spiceManager.start(this);
   spiceManager.addListenerIfPending(requestClass,requestCacheKey,new NotificationRequestListener());
   if (foreground) {
-    startForeground(startId,onCreateForegroundNotification());
+    startForeground(notificationId,onCreateForegroundNotification());
   }
 }
