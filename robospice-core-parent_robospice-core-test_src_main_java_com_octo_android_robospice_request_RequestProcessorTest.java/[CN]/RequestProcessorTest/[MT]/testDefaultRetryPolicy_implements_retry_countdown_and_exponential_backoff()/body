@@ -1,0 +1,12 @@
+{
+  final long localDelayBeforeRetry=200;
+  final float localRetryBackoffMultiplier=5.0f;
+  final int localRetryCount=3;
+  DefaultRetryPolicy retryPolicy=new DefaultRetryPolicy(localRetryCount,localDelayBeforeRetry,localRetryBackoffMultiplier);
+  assertEquals(localRetryCount,retryPolicy.getRetryCount());
+  assertEquals(localDelayBeforeRetry,retryPolicy.getDelayBeforeRetry());
+  SpiceException e=null;
+  retryPolicy.retry(e);
+  assertEquals(localRetryCount - 1,retryPolicy.getRetryCount());
+  assertEquals(((long)(localDelayBeforeRetry * localRetryBackoffMultiplier)),retryPolicy.getDelayBeforeRetry());
+}
