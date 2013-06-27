@@ -1,3 +1,25 @@
 {
-  return null;
+  try {
+    final byte[] body=IOUtils.toByteArray(new FileInputStream(file));
+    TypedInput typedInput=new TypedInput(){
+      @Override public String mimeType(){
+        return "application/json";
+      }
+      @Override public long length(){
+        return body.length;
+      }
+      @Override public InputStream in() throws IOException {
+        return new ByteArrayInputStream(body);
+      }
+    }
+;
+    return (T)converter.fromBody(typedInput,getHandledClass());
+  }
+ catch (  FileNotFoundException e) {
+    Ln.w("file " + file.getAbsolutePath() + " does not exists",e);
+    return null;
+  }
+catch (  Exception e) {
+    throw new CacheLoadingException(e);
+  }
 }
