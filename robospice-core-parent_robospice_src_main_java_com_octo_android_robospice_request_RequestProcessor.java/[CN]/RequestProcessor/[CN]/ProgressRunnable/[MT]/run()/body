@@ -3,10 +3,12 @@
     return;
   }
   Ln.v("Notifying " + listeners.size() + " listeners of progress "+ progress);
-  for (  final RequestListener<?> listener : listeners) {
-    if (listener != null && listener instanceof RequestProgressListener) {
-      Ln.v("Notifying %s",listener.getClass().getSimpleName());
-      ((RequestProgressListener)listener).onRequestProgressUpdate(progress);
+synchronized (listeners) {
+    for (    final RequestListener<?> listener : listeners) {
+      if (listener != null && listener instanceof RequestProgressListener) {
+        Ln.v("Notifying %s",listener.getClass().getSimpleName());
+        ((RequestProgressListener)listener).onRequestProgressUpdate(progress);
+      }
     }
   }
 }
