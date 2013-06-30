@@ -1,0 +1,13 @@
+{
+  Ln.d("Request was not found when adding request listeners to existing requests. Now try and call onRequestNotFound");
+  for (  final RequestListener<?> listener : listRequestListener) {
+    if (listener instanceof RequestNotFoundListener) {
+      post(new Runnable(){
+        @Override public void run(){
+          ((RequestNotFoundListener)listener).onRequestNotFound();
+        }
+      }
+,request.getRequestCacheKey());
+    }
+  }
+}

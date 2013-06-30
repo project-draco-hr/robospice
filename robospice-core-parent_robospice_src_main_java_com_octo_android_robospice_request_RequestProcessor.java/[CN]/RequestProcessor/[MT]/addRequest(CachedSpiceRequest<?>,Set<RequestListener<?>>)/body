@@ -30,6 +30,9 @@ synchronized (mapRequestToRequestListener) {
     if (request.isProcessable()) {
       notifyListenersOfRequestProgress(request,listRequestListener,request.getProgress());
     }
+ else     if (listRequestListenerForThisRequest == null) {
+      notifyListenersOfRequestNofFound(request,listRequestListener);
+    }
   }
   if (aggregated) {
     return;
