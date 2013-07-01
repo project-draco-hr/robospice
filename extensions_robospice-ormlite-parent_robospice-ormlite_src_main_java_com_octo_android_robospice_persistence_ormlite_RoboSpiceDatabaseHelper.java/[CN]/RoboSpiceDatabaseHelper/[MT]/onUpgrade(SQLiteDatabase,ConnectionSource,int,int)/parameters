@@ -1,4 +1,4 @@
-SQLiteDatabase arg0
-ConnectionSource arg1
-int arg2
-int arg3
+SQLiteDatabase database
+ConnectionSource connectionSource
+int oldVersion
+int newVersion
