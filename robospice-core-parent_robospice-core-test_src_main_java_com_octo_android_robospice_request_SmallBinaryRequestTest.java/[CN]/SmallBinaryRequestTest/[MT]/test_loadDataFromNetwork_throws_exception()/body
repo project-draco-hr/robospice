@@ -1,0 +1,12 @@
+{
+  mockWebServer.enqueue(new MockResponse().setResponseCode(HttpStatus.SC_NOT_FOUND));
+  mockWebServer.play();
+  SmallBinaryRequest binaryRequest=new SmallBinaryRequest(mockWebServer.getUrl("/").toString());
+  try {
+    InputStream binaryReturned=binaryRequest.loadDataFromNetwork();
+    fail();
+  }
+ catch (  FileNotFoundException e) {
+    return;
+  }
+}
