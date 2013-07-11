@@ -1,5 +1,6 @@
 {
   Ln.d("Sending progress %s",progress.getStatus());
+  observerManager.notifyObserversOfRequestProgress(request,listeners,progress);
   post(new ProgressRunnable(listeners,progress),request.getRequestCacheKey());
   checkAllRequestComplete();
 }

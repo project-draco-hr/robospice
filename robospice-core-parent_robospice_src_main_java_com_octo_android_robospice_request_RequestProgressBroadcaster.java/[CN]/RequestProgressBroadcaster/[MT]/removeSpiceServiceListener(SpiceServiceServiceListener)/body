@@ -1,0 +1,3 @@
+{
+  this.spiceServiceListenerSet.remove(spiceServiceServiceListener);
+}

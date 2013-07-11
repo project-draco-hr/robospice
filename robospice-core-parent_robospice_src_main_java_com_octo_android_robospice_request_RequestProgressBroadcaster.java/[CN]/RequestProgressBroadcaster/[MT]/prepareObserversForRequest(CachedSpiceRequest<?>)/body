@@ -1,0 +1,3 @@
+{
+  observerManager.prepareObserversForRequest(request);
+}

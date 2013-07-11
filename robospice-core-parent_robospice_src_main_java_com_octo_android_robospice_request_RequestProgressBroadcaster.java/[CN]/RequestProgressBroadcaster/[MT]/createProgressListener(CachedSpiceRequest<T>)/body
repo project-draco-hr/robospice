@@ -1,0 +1,10 @@
+{
+  final RequestProgressListener requestProgressListener=new RequestProgressListener(){
+    @Override public void onRequestProgressUpdate(    final RequestProgress progress){
+      final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
+      notifyListenersOfRequestProgress(request,listeners,progress);
+    }
+  }
+;
+  return requestProgressListener;
+}

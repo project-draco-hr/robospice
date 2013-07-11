@@ -2,13 +2,7 @@
   final long startTime=System.currentTimeMillis();
   Ln.d("Processing request : " + request);
   T result=null;
-  final RequestProgressListener requestProgressListener=new RequestProgressListener(){
-    @Override public void onRequestProgressUpdate(    final RequestProgress progress){
-      final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
-      notifyListenersOfRequestProgress(request,listeners,progress);
-    }
-  }
-;
+  final RequestProgressListener requestProgressListener=progressMonitor.createProgressListener(request);
   request.setRequestProgressListener(requestProgressListener);
   if (request.getRequestCacheKey() != null && request.getCacheDuration() != DurationInMillis.ALWAYS_EXPIRED) {
     try {
@@ -17,14 +11,14 @@
       result=loadDataFromCache(request.getResultType(),request.getRequestCacheKey(),request.getCacheDuration());
       if (result != null) {
         Ln.d("Request loaded from cache : " + request + " result="+ result);
-        notifyListenersOfRequestSuccess(request,result);
+        progressMonitor.notifyListenersOfRequestSuccess(request,result);
         printRequestProcessingDuration(startTime,request);
         return;
       }
  else       if (request.isAcceptingDirtyCache()) {
         result=loadDataFromCache(request.getResultType(),request.getRequestCacheKey(),DurationInMillis.ALWAYS_RETURNED);
         if (result != null) {
-          notifyListenersOfRequestSuccessButDontCompleteRequest(request,result);
+          progressMonitor.notifyListenersOfRequestSuccessButDontCompleteRequest(request,result);
         }
       }
     }
@@ -80,7 +74,7 @@
         printRequestProcessingDuration(startTime,request);
         return;
       }
-      notifyListenersOfRequestSuccess(request,result);
+      progressMonitor.notifyListenersOfRequestSuccess(request,result);
       printRequestProcessingDuration(startTime,request);
       return;
     }
@@ -96,14 +90,14 @@
           printRequestProcessingDuration(startTime,request);
           return;
         }
-        notifyListenersOfRequestSuccess(request,result);
+        progressMonitor.notifyListenersOfRequestSuccess(request,result);
       }
       cacheManager.removeDataFromCache(request.getResultType(),request.getRequestCacheKey());
       Ln.d(e,"Cache file deleted.");
     }
   }
  else {
-    notifyListenersOfRequestSuccess(request,result);
+    progressMonitor.notifyListenersOfRequestSuccess(request,result);
     printRequestProcessingDuration(startTime,request);
     return;
   }

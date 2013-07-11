@@ -1,10 +1,7 @@
 {
-  this.applicationContext=context;
-  this.cacheManager=cacheManager;
   this.requestProcessorListener=requestProcessorListener;
-  this.networkStateChecker=networkStateChecker;
+  this.mapRequestToRequestListener=mapRequestToRequestListener;
   handlerResponse=new Handler(Looper.getMainLooper());
   spiceServiceListenerSet=Collections.synchronizedSet(new HashSet<SpiceServiceServiceListener>());
-  this.executorService=executorService;
-  this.networkStateChecker.checkPermissions(context);
+  this.observerManager=observerManager;
 }

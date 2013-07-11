@@ -1,0 +1,8 @@
+{
+  this.progressMonitor=new RequestProgressBroadcaster(observerManager,requestProcessorListener,mapRequestToRequestListener);
+  this.applicationContext=context;
+  this.cacheManager=cacheManager;
+  this.networkStateChecker=networkStateChecker;
+  this.executorService=executorService;
+  this.networkStateChecker.checkPermissions(context);
+}

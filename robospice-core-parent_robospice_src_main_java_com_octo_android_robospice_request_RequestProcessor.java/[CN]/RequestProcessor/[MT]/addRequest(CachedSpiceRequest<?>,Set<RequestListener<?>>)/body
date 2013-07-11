@@ -28,7 +28,11 @@ synchronized (mapRequestToRequestListener) {
       listRequestListenerForThisRequest.addAll(listRequestListener);
     }
     if (request.isProcessable()) {
-      notifyListenersOfRequestProgress(request,listRequestListener,request.getProgress());
+      progressMonitor.prepareObserversForRequest(request);
+      progressMonitor.notifyListenersOfRequestProgress(request,listRequestListener,request.getProgress());
+    }
+ else     if (listRequestListenerForThisRequest == null) {
+      progressMonitor.notifyListenersOfRequestNofFound(request,listRequestListener);
     }
   }
   if (aggregated) {
@@ -37,18 +41,18 @@ synchronized (mapRequestToRequestListener) {
   final RequestCancellationListener requestCancellationListener=new RequestCancellationListener(){
     @Override public void onRequestCancelled(){
       mapRequestToRequestListener.remove(request);
-      notifyListenersOfRequestCancellation(request,listRequestListener);
+      progressMonitor.notifyListenersOfRequestCancellation(request,listRequestListener);
     }
   }
 ;
   request.setRequestCancellationListener(requestCancellationListener);
   if (request.isCancelled()) {
     mapRequestToRequestListener.remove(request);
-    notifyListenersOfRequestCancellation(request,listRequestListener);
+    progressMonitor.notifyListenersOfRequestCancellation(request,listRequestListener);
     return;
   }
  else   if (!request.isProcessable()) {
-    notifyOfRequestProcessed(request);
+    progressMonitor.notifyOfRequestProcessed(request);
     return;
   }
  else {
