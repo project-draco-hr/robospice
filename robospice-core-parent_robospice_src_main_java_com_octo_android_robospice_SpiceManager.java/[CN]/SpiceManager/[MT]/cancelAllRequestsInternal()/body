@@ -1,6 +1,6 @@
 {
+  lockSendRequestsToService.lock();
   try {
-    lockSendRequestsToService.lock();
 synchronized (mapRequestToLaunchToRequestListener) {
       for (      final CachedSpiceRequest<?> cachedSpiceRequest : mapRequestToLaunchToRequestListener.keySet()) {
         cachedSpiceRequest.cancel();

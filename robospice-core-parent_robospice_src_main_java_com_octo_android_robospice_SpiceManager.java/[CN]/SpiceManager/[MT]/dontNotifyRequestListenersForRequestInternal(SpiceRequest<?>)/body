@@ -1,6 +1,6 @@
 {
+  lockSendRequestsToService.lock();
   try {
-    lockSendRequestsToService.lock();
     final boolean requestNotPassedToServiceYet=removeListenersOfCachedRequestToLaunch(request);
     Ln.v("Removed from requests to launch list : " + requestNotPassedToServiceYet);
     if (!requestNotPassedToServiceYet) {

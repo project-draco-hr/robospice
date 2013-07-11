@@ -2,9 +2,10 @@
   if (context == null) {
     return;
   }
+  lockAcquireService.lock();
+  lockSendRequestsToService.lock();
   try {
     Ln.v("Unbinding from service start.");
-    lockAcquireService.lock();
     if (spiceService != null && !isUnbinding) {
       isUnbinding=true;
       spiceService.removeSpiceServiceListener(removerSpiceServiceListener);
@@ -19,6 +20,7 @@
     Ln.e(e,"Could not unbind from service.");
   }
  finally {
+    lockSendRequestsToService.unlock();
     lockAcquireService.unlock();
   }
 }

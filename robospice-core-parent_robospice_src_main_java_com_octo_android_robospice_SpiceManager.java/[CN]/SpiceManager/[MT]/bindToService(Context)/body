@@ -2,8 +2,9 @@
   if (context == null || isStopped) {
     return;
   }
+  lockAcquireService.lock();
+  lockSendRequestsToService.lock();
   try {
-    lockAcquireService.lock();
     if (spiceService == null) {
       final Intent intentService=new Intent(context,spiceServiceClass);
       Ln.v("Binding to service.");
@@ -23,6 +24,7 @@
     Ln.d("ApplicationContext is " + context.getApplicationContext() + context.getApplicationContext());
   }
  finally {
+    lockSendRequestsToService.unlock();
     lockAcquireService.unlock();
   }
 }

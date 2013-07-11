@@ -8,5 +8,5 @@
   SpiceException e=null;
   retryPolicy.retry(e);
   assertEquals(localRetryCount - 1,retryPolicy.getRetryCount());
-  assertEquals(((long)(localDelayBeforeRetry * localRetryBackoffMultiplier)),retryPolicy.getDelayBeforeRetry());
+  assertEquals((long)(localDelayBeforeRetry * localRetryBackoffMultiplier),retryPolicy.getDelayBeforeRetry());
 }
