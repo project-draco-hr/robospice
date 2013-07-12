@@ -1,6 +1,5 @@
 Context context
 ICacheManager cacheManager
 ExecutorService executorService
-IObserverManager observerManager
-RequestProcessorListener requestProcessorListener
+RequestProgressBroadcaster requestProgressBroadcaster
 NetworkStateChecker networkStateChecker

@@ -1,5 +1,4 @@
 {
-  observerManager.notifyObserversOfRequestSuccess(request,result);
   final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
   notifyListenersOfRequestProgress(request,listeners,RequestStatus.COMPLETE);
   post(new ResultRunnable(listeners,result),request.getRequestCacheKey());

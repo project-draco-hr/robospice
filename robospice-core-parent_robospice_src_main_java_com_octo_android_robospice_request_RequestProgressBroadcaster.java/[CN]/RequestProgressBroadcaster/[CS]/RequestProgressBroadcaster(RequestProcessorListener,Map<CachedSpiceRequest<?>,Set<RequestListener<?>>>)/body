@@ -3,5 +3,4 @@
   this.mapRequestToRequestListener=mapRequestToRequestListener;
   handlerResponse=new Handler(Looper.getMainLooper());
   spiceServiceListenerSet=Collections.synchronizedSet(new HashSet<SpiceServiceServiceListener>());
-  this.observerManager=observerManager;
 }
