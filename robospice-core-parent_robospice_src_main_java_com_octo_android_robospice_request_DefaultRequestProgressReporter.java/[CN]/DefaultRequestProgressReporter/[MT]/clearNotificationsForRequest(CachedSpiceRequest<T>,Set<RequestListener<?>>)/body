@@ -1,0 +1,3 @@
+{
+  handlerResponse.removeCallbacksAndMessages(request.getRequestCacheKey());
+}

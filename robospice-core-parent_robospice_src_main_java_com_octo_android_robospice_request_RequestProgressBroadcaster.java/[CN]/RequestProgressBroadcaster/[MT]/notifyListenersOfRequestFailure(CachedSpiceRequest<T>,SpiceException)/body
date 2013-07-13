@@ -1,6 +1,0 @@
-{
-  final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
-  notifyListenersOfRequestProgress(request,listeners,RequestStatus.COMPLETE);
-  post(new ResultRunnable(listeners,e),request.getRequestCacheKey());
-  notifyOfRequestProcessed(request);
-}

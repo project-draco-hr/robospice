@@ -28,7 +28,7 @@ synchronized (mapRequestToRequestListener) {
       listRequestListenerForThisRequest.addAll(listRequestListener);
     }
     if (request.isProcessable()) {
-      progressMonitor.notifyListenersOfRequestProgress(request,listRequestListener,request.getProgress());
+      progressMonitor.notifyListenersOfRequestAdded(request,listRequestListener);
     }
   }
   if (aggregated) {
@@ -52,6 +52,6 @@ synchronized (mapRequestToRequestListener) {
     return;
   }
  else {
-    requestRunner.planRequestExecution(request);
+    requestRunner.executeRequest(request);
   }
 }

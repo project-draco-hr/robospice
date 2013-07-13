@@ -1,0 +1,8 @@
+{
+  final Set<RequestListener<?>> setRequestListener=mapRequestToRequestListener.get(request);
+  requestProgressReporter.clearNotificationsForRequest(request,setRequestListener);
+  if (setRequestListener != null && listRequestListener != null) {
+    Ln.d("Removing listeners of request : " + request.toString() + " : "+ setRequestListener.size());
+    setRequestListener.removeAll(listRequestListener);
+  }
+}

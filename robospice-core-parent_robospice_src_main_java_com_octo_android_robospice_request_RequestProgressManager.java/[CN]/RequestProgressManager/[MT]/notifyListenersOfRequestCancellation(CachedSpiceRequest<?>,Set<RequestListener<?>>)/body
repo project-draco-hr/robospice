@@ -1,0 +1,6 @@
+{
+  Ln.d("Not calling network request : " + request + " as it is cancelled. ");
+  notifyListenersOfRequestProgress(request,listeners,RequestStatus.COMPLETE);
+  requestProgressReporter.notifyListenersOfRequestCancellation(request,listeners);
+  notifyOfRequestProcessed(request);
+}

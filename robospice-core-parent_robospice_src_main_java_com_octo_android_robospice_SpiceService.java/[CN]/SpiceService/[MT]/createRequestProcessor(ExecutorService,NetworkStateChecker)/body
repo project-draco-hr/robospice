@@ -1,3 +1,4 @@
 {
-  return new RequestProcessor(getApplicationContext(),cacheManager,executorService,requestProcessorListener,networkStateChecker);
+  RequestProgressReporter progressReporter=createRequestProgressReporter();
+  return new RequestProcessor(getApplicationContext(),cacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter);
 }

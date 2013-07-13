@@ -1,5 +1,0 @@
-{
-  Ln.d("Sending progress %s",progress.getStatus());
-  post(new ProgressRunnable(listeners,progress),request.getRequestCacheKey());
-  checkAllRequestComplete();
-}

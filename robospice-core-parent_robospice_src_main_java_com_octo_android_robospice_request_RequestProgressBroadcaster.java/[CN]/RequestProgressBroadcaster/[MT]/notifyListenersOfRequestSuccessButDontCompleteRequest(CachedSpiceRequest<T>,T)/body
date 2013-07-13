@@ -1,4 +1,0 @@
-{
-  final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
-  post(new ResultRunnable(listeners,result),request.getRequestCacheKey());
-}

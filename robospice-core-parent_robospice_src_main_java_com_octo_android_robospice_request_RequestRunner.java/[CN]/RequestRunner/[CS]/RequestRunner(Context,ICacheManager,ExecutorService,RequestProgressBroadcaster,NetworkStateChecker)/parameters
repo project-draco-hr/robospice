@@ -1,5 +1,0 @@
-Context context
-ICacheManager cacheManager
-ExecutorService executorService
-RequestProgressBroadcaster requestProgressBroadcaster
-NetworkStateChecker networkStateChecker

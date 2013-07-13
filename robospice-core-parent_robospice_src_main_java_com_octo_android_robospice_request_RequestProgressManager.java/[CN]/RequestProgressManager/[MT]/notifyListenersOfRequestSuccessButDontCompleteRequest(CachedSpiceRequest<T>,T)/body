@@ -1,0 +1,4 @@
+{
+  final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
+  requestProgressReporter.notifyListenersOfRequestSuccess(request,result,listeners);
+}

@@ -1,0 +1,4 @@
+{
+  requestProgressReporter.notifyListenersOfRequestAdded(request,listeners);
+  notifyListenersOfRequestProgress(request,listeners,request.getProgress());
+}
