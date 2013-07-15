@@ -1,0 +1,3 @@
+{
+  addListenerIfPending(clazz,requestCacheKey,(RequestListener<T>)requestListener);
+}

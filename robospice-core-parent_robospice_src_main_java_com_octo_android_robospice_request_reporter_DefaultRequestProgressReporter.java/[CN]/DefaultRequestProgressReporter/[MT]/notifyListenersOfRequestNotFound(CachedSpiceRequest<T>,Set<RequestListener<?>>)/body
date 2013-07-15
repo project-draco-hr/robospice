@@ -1,0 +1,12 @@
+{
+  for (  final RequestListener<?> listener : listRequestListener) {
+    if (listener instanceof PendingRequestListener) {
+      post(new Runnable(){
+        @Override public void run(){
+          ((PendingRequestListener<?>)listener).onRequestNotFound();
+        }
+      }
+,request.getRequestCacheKey());
+    }
+  }
+}
