@@ -1,6 +1,9 @@
 {
   try {
-    String resultJson=FileUtils.readFileToString(file,CharEncoding.UTF_8);
+    String resultJson=null;
+synchronized (file.getAbsolutePath().intern()) {
+      resultJson=FileUtils.readFileToString(file,CharEncoding.UTF_8);
+    }
     if (!StringUtils.isEmpty(resultJson)) {
       T result=deserializeData(resultJson);
       return result;

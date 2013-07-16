@@ -1,4 +1,4 @@
 {
-  Ln.d("Request was not found when adding request listeners to existing requests. Now try and call onRequestNotFound");
+  Ln.d("Request was *NOT* found when adding request listeners to existing requests.");
   requestProgressReporter.notifyListenersOfRequestNotFound(request,listeners);
 }

@@ -3,6 +3,6 @@
   this.cacheManager=cacheManager;
   this.networkStateChecker=networkStateChecker;
   this.executorService=executorService;
-  this.progressMonitor=requestProgressBroadcaster;
+  this.requestProgressManager=requestProgressBroadcaster;
   this.networkStateChecker.checkPermissions(context);
 }

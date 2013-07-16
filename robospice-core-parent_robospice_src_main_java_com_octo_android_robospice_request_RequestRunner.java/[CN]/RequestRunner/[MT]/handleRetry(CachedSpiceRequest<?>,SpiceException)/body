@@ -17,5 +17,5 @@
       return;
     }
   }
-  progressMonitor.notifyListenersOfRequestFailure(request,e);
+  requestProgressManager.notifyListenersOfRequestFailure(request,e);
 }
