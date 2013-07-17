@@ -1,0 +1,3 @@
+{
+  this(application,databaseHelper,modelObjectType,null);
+}

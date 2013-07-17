@@ -1,17 +1,10 @@
 {
   initializeTablesIfNeeded();
-  Class<?> idType;
-  try {
-    idType=getIdType(clazz);
-  }
- catch (  SQLException e) {
-    throw new RuntimeException("Impossible to determine the type of the ID used in class " + clazz.getName(),e);
-  }
   if (mapHandledClassesToNotificationUri != null && mapHandledClassesToNotificationUri.containsKey(clazz)) {
     Uri notificationUri=mapHandledClassesToNotificationUri.get(clazz);
-    return new InDatabaseObjectPersister(getApplication(),databaseHelper,clazz,idType,notificationUri);
+    return new InDatabaseObjectPersister(getApplication(),databaseHelper,clazz,notificationUri);
   }
  else {
-    return new InDatabaseObjectPersister(getApplication(),databaseHelper,clazz,idType);
+    return new InDatabaseObjectPersister(getApplication(),databaseHelper,clazz);
   }
 }

@@ -1,3 +1,0 @@
-{
-  this(application,databaseHelper,modelObjectType,idType,null);
-}
