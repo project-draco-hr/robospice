@@ -3,7 +3,7 @@
   mockWebServer.play();
   SmallBinaryRequest binaryRequest=new SmallBinaryRequest(mockWebServer.getUrl("/").toString());
   try {
-    InputStream binaryReturned=binaryRequest.loadDataFromNetwork();
+    binaryRequest.loadDataFromNetwork();
     fail();
   }
  catch (  FileNotFoundException e) {

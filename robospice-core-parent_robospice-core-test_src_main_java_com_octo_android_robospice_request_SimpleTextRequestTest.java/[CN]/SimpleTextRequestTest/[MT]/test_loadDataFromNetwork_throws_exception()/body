@@ -3,7 +3,7 @@
   mockWebServer.play();
   SimpleTextRequest loremIpsumTextRequest=new SimpleTextRequest(mockWebServer.getUrl("/").toString());
   try {
-    String stringReturned=loremIpsumTextRequest.loadDataFromNetwork();
+    loremIpsumTextRequest.loadDataFromNetwork();
     fail();
   }
  catch (  FileNotFoundException e) {
