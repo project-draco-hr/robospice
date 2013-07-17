@@ -4,6 +4,14 @@
     throw new IllegalStateException("Already started.");
   }
  else {
+    executorService=Executors.newFixedThreadPool(getThreadCount(),new ThreadFactory(){
+      @Override public Thread newThread(      Runnable arg0){
+        Thread t=new Thread(arg0);
+        t.setPriority(Thread.MIN_PRIORITY);
+        return t;
+      }
+    }
+);
     runner=new Thread(this);
     runner.setPriority(Thread.MIN_PRIORITY);
     isStopped=false;
