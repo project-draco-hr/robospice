@@ -1,7 +1,4 @@
 {
-  if (!this.idType.equals(cacheKey.getClass())) {
-    throw new IllegalArgumentException("cacheKey must be a " + idType.getSimpleName());
-  }
   try {
     dao.callBatchTasks(new Callable<Void>(){
       @Override public Void call() throws Exception {
