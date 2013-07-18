@@ -1,5 +1,5 @@
 Context context
-ICacheManager cacheManager
+CacheManager cacheManager
 ExecutorService executorService
 RequestProgressManager requestProgressBroadcaster
 NetworkStateChecker networkStateChecker
