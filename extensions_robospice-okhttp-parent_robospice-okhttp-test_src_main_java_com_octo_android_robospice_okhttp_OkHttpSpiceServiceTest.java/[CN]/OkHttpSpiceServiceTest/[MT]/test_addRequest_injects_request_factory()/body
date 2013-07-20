@@ -1,0 +1,7 @@
+{
+  spiceManager.start(getContext());
+  OkHttpSpiceRequestStub okHttpSpiceRequestStub=new OkHttpSpiceRequestStub();
+  spiceManager.execute(okHttpSpiceRequestStub,new RequestListenerStub<String>());
+  okHttpSpiceRequestStub.await(REQUEST_COMPLETION_TIMEOUT);
+  assertNotNull(okHttpSpiceRequestStub.getOkHttpClient());
+}

@@ -1,0 +1,7 @@
+{
+  if (request.getSpiceRequest() instanceof OkHttpSpiceRequest) {
+    OkHttpSpiceRequest okHttpSpiceRequest=(OkHttpSpiceRequest)request.getSpiceRequest();
+    okHttpSpiceRequest.setOkHttpClient(okHttpClient);
+  }
+  super.addRequest(request,listRequestListener);
+}

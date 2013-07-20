@@ -1,0 +1,9 @@
+{
+  try {
+    reentrantLock.lock();
+    loadDataFromNetworkHasBeenExecuted.await(timeout,TimeUnit.MILLISECONDS);
+  }
+  finally {
+    reentrantLock.unlock();
+  }
+}
