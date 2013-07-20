@@ -1,0 +1,3 @@
+SpiceListItemView<T> spiceListItemView
+T data
+int imageIndex

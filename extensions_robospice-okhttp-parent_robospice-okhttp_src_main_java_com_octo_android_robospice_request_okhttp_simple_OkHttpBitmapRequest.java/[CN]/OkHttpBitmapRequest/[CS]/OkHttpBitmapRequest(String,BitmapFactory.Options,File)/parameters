@@ -1,0 +1,3 @@
+String url
+BitmapFactory.Options options
+File cacheFile

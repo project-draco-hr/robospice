@@ -1,0 +1,14 @@
+{
+  OutputStream fileOutputStream=null;
+  try {
+    boolean isTouchedNow=cacheFile.setLastModified(System.currentTimeMillis());
+    if (!isTouchedNow) {
+      Ln.d("Modification time of file %s could not be changed normally ",cacheFile.getAbsolutePath());
+    }
+    fileOutputStream=new FileOutputStream(cacheFile);
+    readBytes(inputStream,new ProgressByteProcessor(this,fileOutputStream,contentLength));
+  }
+  finally {
+    IOUtils.closeQuietly(fileOutputStream);
+  }
+}

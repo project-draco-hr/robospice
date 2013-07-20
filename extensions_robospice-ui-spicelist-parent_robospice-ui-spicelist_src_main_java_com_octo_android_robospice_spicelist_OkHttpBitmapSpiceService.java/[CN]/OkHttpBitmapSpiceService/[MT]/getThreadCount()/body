@@ -1,0 +1,3 @@
+{
+  return DEFAULT_NUM_THREADS;
+}

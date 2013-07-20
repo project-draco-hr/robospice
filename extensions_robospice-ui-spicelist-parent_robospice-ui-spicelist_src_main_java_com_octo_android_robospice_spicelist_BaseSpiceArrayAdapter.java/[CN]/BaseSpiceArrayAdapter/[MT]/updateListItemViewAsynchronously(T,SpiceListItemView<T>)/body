@@ -1,0 +1,10 @@
+{
+  if (!registered(spiceListItemView)) {
+    addSpiceListItemView(spiceListItemView);
+  }
+  for (int imageIndex=0; imageIndex < spiceListItemView.getImageViewCount(); imageIndex++) {
+    imageWidth=Math.max(imageWidth,spiceListItemView.getImageView(imageIndex).getWidth());
+    imageHeight=Math.max(imageHeight,spiceListItemView.getImageView(imageIndex).getHeight());
+    performBitmapRequestAsync(spiceListItemView,data,imageIndex);
+  }
+}
