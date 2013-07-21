@@ -1,0 +1,18 @@
+{
+  data=(T)params[0];
+  spiceListItemView=(SpiceListItemView<T>)params[1];
+  imageIndex=(Integer)params[2];
+  if (bitmapRequest != null) {
+    File tempThumbnailImageFile=bitmapRequest.getCacheFile();
+    tempThumbnailImageFileName=tempThumbnailImageFile.getAbsolutePath();
+    Ln.d("Filename : " + tempThumbnailImageFileName);
+    if (!tempThumbnailImageFile.exists()) {
+      if (isNetworkFetchingAllowed) {
+        ImageRequestListener imageRequestListener=new ImageRequestListener(data,spiceListItemView,imageIndex,tempThumbnailImageFileName);
+        spiceManagerBinary.execute((SpiceRequest<Bitmap>)bitmapRequest,"THUMB_IMAGE_" + data.hashCode(),DurationInMillis.ALWAYS_EXPIRED,imageRequestListener);
+      }
+      return false;
+    }
+  }
+  return true;
+}

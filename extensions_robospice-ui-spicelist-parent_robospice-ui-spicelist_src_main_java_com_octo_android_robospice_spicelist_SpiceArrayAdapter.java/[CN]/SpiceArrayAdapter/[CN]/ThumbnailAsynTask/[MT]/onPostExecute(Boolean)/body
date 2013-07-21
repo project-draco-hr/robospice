@@ -1,8 +1,0 @@
-{
-  if (isImageAvailableInCache) {
-    loadBitmapAsynchronously(data,spiceListItemView.getImageView(imageIndex),tempThumbnailImageFileName);
-  }
- else {
-    spiceListItemView.getImageView(imageIndex).setImageDrawable(defaultDrawable);
-  }
-}

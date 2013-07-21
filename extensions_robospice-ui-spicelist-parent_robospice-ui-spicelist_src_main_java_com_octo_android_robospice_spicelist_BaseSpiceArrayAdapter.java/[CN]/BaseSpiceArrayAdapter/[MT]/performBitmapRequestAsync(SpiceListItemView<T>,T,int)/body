@@ -1,0 +1,3 @@
+{
+  new ThumbnailAsynTask(createRequest(data,imageIndex,imageWidth,imageHeight)).execute(data,spiceListItemView,imageIndex);
+}
