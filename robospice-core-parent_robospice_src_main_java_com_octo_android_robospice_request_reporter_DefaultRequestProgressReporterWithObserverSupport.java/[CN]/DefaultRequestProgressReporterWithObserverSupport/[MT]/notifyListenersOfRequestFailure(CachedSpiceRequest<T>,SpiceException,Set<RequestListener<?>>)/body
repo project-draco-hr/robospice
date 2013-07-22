@@ -1,0 +1,4 @@
+{
+  observerManager.notifyObserversOfRequestFailure(request,e);
+  super.notifyListenersOfRequestFailure(request,e,listeners);
+}

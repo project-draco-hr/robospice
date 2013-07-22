@@ -1,0 +1,3 @@
+CachedSpiceRequest<?> request
+RequestProgress progress
+List<RequestObserver> observersForRequest

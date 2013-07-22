@@ -1,0 +1,6 @@
+{
+  Ln.d("Processing request cancelled: %s",request);
+  for (  RequestObserver observer : observersForRequest) {
+    observer.onRequestCancelled(request);
+  }
+}

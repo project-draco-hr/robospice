@@ -1,0 +1,4 @@
+{
+  observerTestHelper.createObserversForSuccess(THREE_OBSERVERS,1,request,RETURNED_DATA);
+  executeSuccessfulRequestSequence(request,RETURNED_DATA);
+}

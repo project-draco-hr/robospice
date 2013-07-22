@@ -1,0 +1,3 @@
+{
+  activeRequestStatus.put(request,progress.getStatus());
+}

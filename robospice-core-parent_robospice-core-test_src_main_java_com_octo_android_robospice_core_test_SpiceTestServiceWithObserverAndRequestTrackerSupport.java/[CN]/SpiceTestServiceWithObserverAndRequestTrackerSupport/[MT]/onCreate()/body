@@ -1,0 +1,9 @@
+{
+  super.onCreate();
+  try {
+    enableRequestTracking();
+  }
+ catch (  ObserversNotSupportedException e) {
+    throw new RuntimeException(e);
+  }
+}

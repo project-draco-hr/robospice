@@ -1,0 +1,6 @@
+{
+  assertEquals(0,requestMonitor.getActiveRequests().size());
+  requestMonitor.onRequestProgressUpdated(cachedRequest,new RequestProgress(RequestStatus.PENDING));
+  assertEquals(1,requestMonitor.getActiveRequests().size());
+  assertEquals(RequestStatus.PENDING,requestMonitor.getActiveRequests().values().toArray()[0]);
+}

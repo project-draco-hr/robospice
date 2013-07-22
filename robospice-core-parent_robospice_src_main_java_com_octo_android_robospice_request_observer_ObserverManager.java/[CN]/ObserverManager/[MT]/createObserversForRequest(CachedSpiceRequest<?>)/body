@@ -1,0 +1,15 @@
+{
+  Ln.d("Creating observers for request");
+  List<RequestObserver> observersForRequest=new ArrayList<RequestObserver>();
+  RequestObserver newObserver;
+synchronized (observerFactories) {
+    for (    RequestObserverFactory observerFactory : observerFactories) {
+      newObserver=observerFactory.create(request);
+      if (newObserver != null) {
+        observersForRequest.add(newObserver);
+      }
+    }
+  }
+  Ln.d("Created %d observers",observersForRequest.size());
+  return observersForRequest;
+}

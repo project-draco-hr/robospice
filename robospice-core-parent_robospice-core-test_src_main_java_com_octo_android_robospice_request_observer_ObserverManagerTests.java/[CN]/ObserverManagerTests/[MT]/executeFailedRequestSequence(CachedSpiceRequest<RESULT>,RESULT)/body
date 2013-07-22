@@ -1,0 +1,4 @@
+{
+  executeMainRequestSequence(request);
+  observerManager.notifyObserversOfRequestFailure(request,new SpiceException("FAILED"));
+}

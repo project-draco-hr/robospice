@@ -1,0 +1,19 @@
+{
+  spiceManager=new SpiceManagerUnderTest(SpiceTestServiceWithObserverAndRequestTrackerSupport.class);
+  spiceManager.start(getInstrumentation().getTargetContext());
+  SpiceRequestSucceedingWithSemaphoresStub<String> spiceRequestStub=new SpiceRequestSucceedingWithSemaphoresStub<String>(TEST_CLASS,TEST_RETURNED_DATA);
+  RequestListenerStub<String> requestListenerStub=new RequestListenerStub<String>();
+  CachedSpiceRequest<String> cachedRequest=new CachedSpiceRequest<String>(spiceRequestStub,TEST_CACHE_KEY,TEST_DURATION);
+  SpiceRequestStub<String> spiceRequestStub2=new SpiceRequestSucceedingStub<String>(TEST_CLASS,TEST_RETURNED_DATA);
+  RequestListenerStub<String> requestListenerStub2=new RequestListenerStub<String>();
+  CachedSpiceRequest<String> cachedRequest2=new CachedSpiceRequest<String>(spiceRequestStub,TEST_CACHE_KEY2,TEST_DURATION);
+  spiceManager.execute(spiceRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
+  spiceManager.execute(spiceRequestStub2,TEST_CACHE_KEY2,TEST_DURATION,requestListenerStub2);
+  spiceRequestStub.waitForLoadFromNetwork();
+  Thread.sleep(SPICE_MANAGER_WAIT_TIMEOUT);
+  Map<CachedSpiceRequest<?>,RequestStatus> activeRequests=spiceManager.getActiveRequests().get();
+  assertEquals(2,activeRequests.size());
+  assertEquals(RequestStatus.LOADING_FROM_NETWORK,activeRequests.get(cachedRequest));
+  assertEquals(RequestStatus.PENDING,activeRequests.get(cachedRequest2));
+  spiceRequestStub.allowRequestToFinish();
+}

@@ -1,0 +1,13 @@
+{
+  requestMonitor=new RequestTrackerService();
+  SpiceRequest<String> request=new SpiceRequest<String>(String.class){
+    @Override public String loadDataFromNetwork() throws Exception {
+      return null;
+    }
+  }
+;
+  cachedRequest=new CachedSpiceRequest<String>(request,"123",0);
+  cachedRequest2=new CachedSpiceRequest<String>(request,"345",0);
+  uncachedRequest=new CachedSpiceRequest<String>(request,null,0);
+  uncachedRequest2=new CachedSpiceRequest<String>(request,null,0);
+}

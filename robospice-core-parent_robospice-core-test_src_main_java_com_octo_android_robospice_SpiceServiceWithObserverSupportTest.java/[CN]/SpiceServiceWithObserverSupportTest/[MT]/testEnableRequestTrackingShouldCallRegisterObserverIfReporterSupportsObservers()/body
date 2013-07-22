@@ -1,0 +1,10 @@
+{
+  Intent startIntent=new Intent();
+  startIntent.setClass(getContext(),SpiceTestService.class);
+  startService(startIntent);
+  ObserverManager observerManager=getService().getObserverManager();
+  observerManager.registerObserver(RequestTrackerService.getRequestTrackerFactory());
+  EasyMock.replay(observerManager);
+  getService().enableRequestTracking();
+  EasyMock.verify(observerManager);
+}

@@ -1,0 +1,6 @@
+RequestObserver[] observers
+int observerIndex
+CachedSpiceRequest<RESULT> activeRequest
+RESULT resultData
+RequestStatus[] expectedStatuses
+ObserverResult result

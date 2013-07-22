@@ -1,0 +1,28 @@
+{
+  CachedSpiceRequestStub<String> stubRequest=createSuccessfulRequest(TEST_CLASS,TEST_CACHE_KEY,TEST_DURATION,TEST_RETURNED_DATA,WAIT_BEFORE_REQUEST_EXECUTION);
+  ObserverTestHelper observerTest=new ObserverTestHelper();
+  observerTest.createObserversForCancellation(1,0,stubRequest,null);
+  RequestProgressReporterWithObserverSupport progressReporter=new DefaultRequestProgressReporterWithObserverSupport();
+  progressReporter.setObserverManager(observerTest.getObserverManager());
+  ExecutorService executorService=PriorityThreadPoolExecutor.getPriorityExecutor(1);
+  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter);
+  RequestListenerWithProgressStub<String> mockRequestListener=new RequestListenerWithProgressStub<String>();
+  Set<RequestListener<?>> requestListenerSet=new HashSet<RequestListener<?>>();
+  requestListenerSet.add(mockRequestListener);
+  EasyMock.expect(mockCacheManager.loadDataFromCache(EasyMock.eq(TEST_CLASS),EasyMock.eq(TEST_CACHE_KEY),EasyMock.eq(TEST_DURATION))).andReturn(null);
+  EasyMock.expectLastCall().anyTimes();
+  EasyMock.expect(mockCacheManager.saveDataToCacheAndReturnData(EasyMock.eq(TEST_RETURNED_DATA),EasyMock.eq(TEST_CACHE_KEY))).andReturn(TEST_RETURNED_DATA);
+  EasyMock.expectLastCall().anyTimes();
+  EasyMock.replay(mockCacheManager);
+  requestProcessorUnderTest.addRequest(stubRequest,requestListenerSet);
+  stubRequest.cancel();
+  mockRequestListener.await(REQUEST_COMPLETION_TIME_OUT);
+  mockRequestListener.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
+  assertTrue(stubRequest.isCancelled());
+  assertFalse(stubRequest.isLoadDataFromNetworkCalled());
+  assertTrue(mockRequestListener.isExecutedInUIThread());
+  assertTrue(mockRequestListener.isComplete());
+  System.out.println(mockRequestListener.getReceivedException());
+  assertFalse(mockRequestListener.isSuccessful());
+  observerTest.shutdownObserverManagerAndWaitAndVerifyObservers();
+}

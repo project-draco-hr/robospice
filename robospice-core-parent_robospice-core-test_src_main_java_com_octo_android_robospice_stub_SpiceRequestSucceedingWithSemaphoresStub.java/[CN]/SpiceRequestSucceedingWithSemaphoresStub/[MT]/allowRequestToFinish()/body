@@ -1,0 +1,3 @@
+{
+  allowRequestToFinish.release();
+}

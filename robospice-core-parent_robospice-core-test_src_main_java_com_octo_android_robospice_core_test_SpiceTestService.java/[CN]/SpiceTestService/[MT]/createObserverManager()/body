@@ -1,0 +1,4 @@
+{
+  observerManagerCreated=true;
+  return super.createObserverManager();
+}

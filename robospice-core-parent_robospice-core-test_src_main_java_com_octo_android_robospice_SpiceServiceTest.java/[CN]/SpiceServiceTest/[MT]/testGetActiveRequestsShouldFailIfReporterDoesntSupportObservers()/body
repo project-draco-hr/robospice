@@ -1,0 +1,12 @@
+{
+  Intent startIntent=new Intent();
+  startIntent.setClass(getContext(),SpiceTestService.class);
+  startService(startIntent);
+  try {
+    getService().getActiveRequests();
+    fail();
+  }
+ catch (  IllegalStateException e) {
+    return;
+  }
+}

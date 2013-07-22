@@ -1,0 +1,10 @@
+{
+  observerManager.stop();
+  observerManagerThreadSemaphore.acquire();
+  if (observers != null) {
+    for (    RequestObserver observer : observers) {
+      verify(observer);
+    }
+  }
+  Assert.assertEquals("There should be no requests still being stored",0,observerManager.getRequestToObserverMapCount());
+}

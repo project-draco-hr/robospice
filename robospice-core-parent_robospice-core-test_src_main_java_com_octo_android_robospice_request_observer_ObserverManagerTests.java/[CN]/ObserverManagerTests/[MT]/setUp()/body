@@ -1,0 +1,4 @@
+{
+  observerTestHelper=new ObserverTestHelper();
+  observerManager=observerTestHelper.getObserverManager();
+}

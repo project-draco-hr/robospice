@@ -1,0 +1,8 @@
+{
+  isLoadDataFromNetworkCalled=true;
+  Ln.d("Request is now in LoadDataFromNetwork");
+  requestStarted.release();
+  Ln.d("Request is waiting to be told to finish");
+  allowRequestToFinish.acquire();
+  return returnedData;
+}

@@ -1,0 +1,23 @@
+{
+  RequestObserver observer=createStrictMock(RequestObserver.class);
+  observer.onRequestAdded(activeRequest);
+  for (  RequestStatus expectedStatus : expectedStatuses) {
+    observer.onRequestProgressUpdated(activeRequest,eqStatus(expectedStatus));
+  }
+switch (result) {
+case SUCCESS:
+    observer.onRequestCompleted(activeRequest,resultData);
+  break;
+case FAILED:
+observer.onRequestFailed(activeRequest,new AnySpiceException());
+break;
+case CANCELLED:
+observer.onRequestCancelled(activeRequest);
+break;
+default :
+break;
+}
+replay(observer);
+observers[observerIndex]=observer;
+return observer;
+}

@@ -1,0 +1,6 @@
+{
+  if (requestTracker == null) {
+    throw new IllegalStateException("Request Tracker not enabled, please call enableRequestTracking");
+  }
+  return requestTracker.getActiveRequests();
+}

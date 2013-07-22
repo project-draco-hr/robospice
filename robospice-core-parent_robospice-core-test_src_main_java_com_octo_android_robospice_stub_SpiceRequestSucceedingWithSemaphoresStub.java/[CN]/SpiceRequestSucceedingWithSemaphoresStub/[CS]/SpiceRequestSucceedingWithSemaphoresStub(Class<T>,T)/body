@@ -1,0 +1,6 @@
+{
+  super(clazz);
+  this.returnedData=returnedData;
+  requestStarted.acquire();
+  allowRequestToFinish.acquire();
+}

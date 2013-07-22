@@ -1,0 +1,5 @@
+{
+  super.createObserverManager();
+  mockObserverManager=EasyMock.createNiceMock(ObserverManager.class);
+  return mockObserverManager;
+}

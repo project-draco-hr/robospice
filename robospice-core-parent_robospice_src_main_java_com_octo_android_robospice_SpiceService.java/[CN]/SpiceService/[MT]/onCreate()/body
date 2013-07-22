@@ -13,6 +13,11 @@
     stopSelf();
     return;
   }
+  progressReporter=createRequestProgressReporter();
+  if (progressReporter instanceof RequestProgressReporterWithObserverSupport) {
+    observerManager=createObserverManager();
+    ((RequestProgressReporterWithObserverSupport)progressReporter).setObserverManager(observerManager);
+  }
   final ExecutorService executorService=getExecutorService();
   final NetworkStateChecker networkStateChecker=getNetworkStateChecker();
   requestProcessor=createRequestProcessor(executorService,networkStateChecker);

@@ -1,0 +1,22 @@
+{
+  String cacheKey=null;
+  CachedSpiceRequestStub<String> stubRequest=createSuccessfulRequest(TEST_CLASS,cacheKey,TEST_DURATION,TEST_RETURNED_DATA);
+  ObserverTestHelper observerTest=new ObserverTestHelper();
+  observerTest.createObserversForSuccess(1,0,stubRequest,TEST_RETURNED_DATA);
+  RequestProgressReporterWithObserverSupport progressReporter=new DefaultRequestProgressReporterWithObserverSupport();
+  progressReporter.setObserverManager(observerTest.getObserverManager());
+  ExecutorService executorService=PriorityThreadPoolExecutor.getPriorityExecutor(1);
+  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter);
+  RequestListenerWithProgressStub<String> mockRequestListener=new RequestListenerWithProgressStub<String>();
+  Set<RequestListener<?>> requestListenerSet=new HashSet<RequestListener<?>>();
+  requestListenerSet.add(mockRequestListener);
+  EasyMock.replay(mockCacheManager);
+  requestProcessorUnderTest.addRequest(stubRequest,requestListenerSet);
+  mockRequestListener.await(REQUEST_COMPLETION_TIME_OUT);
+  EasyMock.verify(mockCacheManager);
+  assertTrue(stubRequest.isLoadDataFromNetworkCalled());
+  assertTrue(mockRequestListener.isExecutedInUIThread());
+  assertTrue(mockRequestListener.isSuccessful());
+  assertTrue(mockRequestListener.isComplete());
+  observerTest.shutdownObserverManagerAndWaitAndVerifyObservers();
+}

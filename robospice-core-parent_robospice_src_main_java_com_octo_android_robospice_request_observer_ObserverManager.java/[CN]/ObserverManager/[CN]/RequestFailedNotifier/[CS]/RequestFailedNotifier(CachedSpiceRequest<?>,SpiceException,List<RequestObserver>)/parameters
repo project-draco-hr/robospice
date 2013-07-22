@@ -1,0 +1,3 @@
+CachedSpiceRequest<?> request
+SpiceException e
+List<RequestObserver> observersForRequest

@@ -1,0 +1,7 @@
+{
+  testOneUncachedPendingRequestAndThenMarkAsLoadingFromNetworkThenAddAnotherRequest();
+  requestMonitor.onRequestCancelled(uncachedRequest);
+  Map<CachedSpiceRequest<?>,RequestStatus> activeRequests=requestMonitor.getActiveRequests();
+  assertEquals(1,activeRequests.size());
+  assertEquals(RequestStatus.PENDING,activeRequests.get(uncachedRequest2));
+}

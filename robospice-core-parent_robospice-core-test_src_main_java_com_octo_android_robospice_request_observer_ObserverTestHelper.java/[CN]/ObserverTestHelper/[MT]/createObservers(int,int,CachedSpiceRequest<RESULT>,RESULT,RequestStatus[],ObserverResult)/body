@@ -1,0 +1,9 @@
+{
+  observers=new RequestObserver[activeObserverCount];
+  for (int i=0; i < activeObserverCount; i++) {
+    observerManager.registerObserver(new MyObserverFactory<RESULT>(observers,i,activeRequest,resultData,expectedStatuses,result));
+  }
+  for (int i=activeObserverCount; i < activeObserverCount + inactiveObserverCount; i++) {
+    observerManager.registerObserver(new MyInactiveObserverFactory());
+  }
+}

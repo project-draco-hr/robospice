@@ -1,0 +1,7 @@
+{
+  if (!(obj instanceof RequestProgress)) {
+    return false;
+  }
+  RequestProgress other=(RequestProgress)obj;
+  return getStatus().equals(other.getStatus());
+}

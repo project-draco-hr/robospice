@@ -1,0 +1,9 @@
+{
+  Map<CachedSpiceRequest<?>,RequestStatus> activeRequestsSnapshot=new HashMap<CachedSpiceRequest<?>,RequestStatus>();
+synchronized (activeRequestStatus) {
+    for (    Entry<CachedSpiceRequest<?>,RequestStatus> mapEntry : activeRequestStatus.entrySet()) {
+      activeRequestsSnapshot.put(mapEntry.getKey(),mapEntry.getValue());
+    }
+  }
+  return activeRequestsSnapshot;
+}

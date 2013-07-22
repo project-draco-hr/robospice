@@ -1,0 +1,11 @@
+{
+  observers=null;
+  observerManagerThreadSemaphore=new Semaphore(1);
+  observerManagerThreadSemaphore.acquire();
+  observerManager=new ObserverManager(){
+    @Override protected void onStopped(){
+      observerManagerThreadSemaphore.release();
+    }
+  }
+;
+}

@@ -1,0 +1,6 @@
+{
+  Ln.d("Processing request failed: %s due to %s",request,ExceptionUtils.getRootCause(e));
+  for (  RequestObserver observer : observersForRequest) {
+    observer.onRequestFailed(request,e);
+  }
+}

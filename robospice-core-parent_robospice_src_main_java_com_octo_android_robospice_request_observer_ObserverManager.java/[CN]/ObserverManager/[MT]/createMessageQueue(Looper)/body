@@ -1,0 +1,14 @@
+{
+  messageQueue=new Handler(looper){
+    public void handleMessage(    android.os.Message msg){
+      if (msg.what == MESSAGE_QUIT) {
+        Ln.d("Observer Message Thread stopped");
+        if (isQuitLooperRequired) {
+          getLooper().quit();
+        }
+        onStopped();
+      }
+    }
+  }
+;
+}

@@ -1,0 +1,4 @@
+{
+  observerManager.notifyObserversOfRequestAdded(request);
+  super.notifyListenersOfRequestAdded(request,listeners);
+}

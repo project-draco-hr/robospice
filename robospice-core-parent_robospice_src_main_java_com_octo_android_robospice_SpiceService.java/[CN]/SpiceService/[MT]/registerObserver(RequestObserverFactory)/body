@@ -1,0 +1,8 @@
+{
+  if (!(progressReporter instanceof RequestProgressReporterWithObserverSupport)) {
+    throw new ObserversNotSupportedException();
+  }
+ else {
+    ((RequestProgressReporterWithObserverSupport)progressReporter).registerObserver(observerFactory);
+  }
+}

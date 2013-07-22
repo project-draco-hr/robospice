@@ -1,0 +1,7 @@
+{
+  Ln.d("Started Observer Thread");
+  HandlerThread thread=new HandlerThread(ObserverManager.class.getName());
+  thread.start();
+  isQuitLooperRequired=true;
+  createMessageQueue(thread.getLooper());
+}

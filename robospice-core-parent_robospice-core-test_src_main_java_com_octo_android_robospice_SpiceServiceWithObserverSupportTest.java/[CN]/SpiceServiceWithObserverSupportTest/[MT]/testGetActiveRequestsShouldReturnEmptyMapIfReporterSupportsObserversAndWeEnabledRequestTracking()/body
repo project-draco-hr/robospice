@@ -1,0 +1,8 @@
+{
+  Intent startIntent=new Intent();
+  startIntent.setClass(getContext(),SpiceTestService.class);
+  startService(startIntent);
+  getService().enableRequestTracking();
+  Map<CachedSpiceRequest<?>,RequestStatus> activeRequests=getService().getActiveRequests();
+  assertEquals(0,activeRequests.size());
+}
