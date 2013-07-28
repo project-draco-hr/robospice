@@ -7,6 +7,13 @@
   EasyMock.expect(mockCacheManager.loadDataFromCache(EasyMock.eq(TEST_CLASS),EasyMock.eq(TEST_CACHE_KEY),EasyMock.eq(TEST_DURATION))).andReturn(null);
   EasyMock.expect(mockCacheManager.saveDataToCacheAndReturnData(EasyMock.eq(TEST_RETURNED_DATA),EasyMock.eq(TEST_CACHE_KEY))).andReturn(TEST_RETURNED_DATA);
   EasyMock.replay(mockCacheManager);
+  SpiceServiceListener mockSpiceServiceListener=EasyMock.createMock(SpiceServiceListener.class);
+  mockSpiceServiceListener.onRequestAdded((CachedSpiceRequest<?>)EasyMock.anyObject(),(Thread)EasyMock.anyObject());
+  mockSpiceServiceListener.onRequestProgressUpdated((CachedSpiceRequest<?>)EasyMock.anyObject(),(Thread)EasyMock.anyObject());
+  EasyMock.expectLastCall().anyTimes();
+  mockSpiceServiceListener.onRequestSucceeded((CachedSpiceRequest<?>)EasyMock.anyObject(),(Thread)EasyMock.anyObject());
+  EasyMock.replay(mockSpiceServiceListener);
+  requestProcessorUnderTest.addSpiceServiceListener(mockSpiceServiceListener);
   requestProcessorUnderTest.setFailOnCacheError(true);
   networkStateChecker.setNetworkAvailable(false);
   requestProcessorUnderTest.addRequest(stubRequest,requestListenerSet);
@@ -15,4 +22,5 @@
   assertTrue(stubRequest.isLoadDataFromNetworkCalled());
   assertTrue(mockRequestListener.isExecutedInUIThread());
   assertTrue(mockRequestListener.isSuccessful());
+  EasyMock.verify(mockSpiceServiceListener);
 }
