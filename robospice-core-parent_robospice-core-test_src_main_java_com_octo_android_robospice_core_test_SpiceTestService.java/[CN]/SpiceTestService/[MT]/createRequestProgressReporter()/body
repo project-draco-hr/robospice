@@ -1,4 +1,0 @@
-{
-  requestReporterCreated=true;
-  return super.createRequestProgressReporter();
-}

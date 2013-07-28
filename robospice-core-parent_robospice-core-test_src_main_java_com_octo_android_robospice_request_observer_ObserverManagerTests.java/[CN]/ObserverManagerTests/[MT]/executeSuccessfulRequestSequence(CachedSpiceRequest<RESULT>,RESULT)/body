@@ -1,4 +1,0 @@
-{
-  executeMainRequestSequence(request);
-  observerManager.notifyObserversOfRequestSuccess(request,returnedData);
-}

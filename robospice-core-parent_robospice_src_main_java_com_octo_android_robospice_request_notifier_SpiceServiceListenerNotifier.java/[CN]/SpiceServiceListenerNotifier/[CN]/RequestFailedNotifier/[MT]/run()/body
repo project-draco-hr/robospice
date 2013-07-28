@@ -1,0 +1,5 @@
+{
+  for (  SpiceServiceListener listener : spiceServiceListenerList) {
+    listener.onRequestFailed(request,currentThread);
+  }
+}

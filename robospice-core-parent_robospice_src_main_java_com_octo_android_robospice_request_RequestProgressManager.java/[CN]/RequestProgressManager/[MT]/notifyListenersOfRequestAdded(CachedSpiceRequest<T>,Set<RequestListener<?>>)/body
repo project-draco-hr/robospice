@@ -1,6 +1,6 @@
 {
-  Ln.d("Added a new request ready for executing");
-  requestProcessorListener.requestsInProgress();
-  requestProgressReporter.notifyListenersOfRequestAdded(request,listeners);
-  notifyListenersOfRequestProgress(request,listeners,request.getProgress().getStatus());
+  Ln.d("Sending Request was added to queue.");
+  spiceServiceListenerNotifier.notifyObserversOfRequestAdded(request);
+  requestListenerNotifier.notifyListenersOfRequestAdded(request,listeners);
+  notifyListenersOfRequestProgress(request,listeners,request.getProgress());
 }

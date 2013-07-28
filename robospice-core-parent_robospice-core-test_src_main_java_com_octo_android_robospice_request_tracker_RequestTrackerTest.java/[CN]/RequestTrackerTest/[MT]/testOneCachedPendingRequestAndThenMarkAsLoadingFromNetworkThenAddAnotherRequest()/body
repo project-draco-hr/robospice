@@ -1,7 +1,0 @@
-{
-  testOneCachedPendingRequestAndThenMarkAsLoadingFromNetwork();
-  requestMonitor.onRequestProgressUpdated(cachedRequest2,new RequestProgress(RequestStatus.PENDING));
-  assertEquals(2,requestMonitor.getActiveRequests().size());
-  assertEquals(RequestStatus.LOADING_FROM_NETWORK,requestMonitor.getActiveRequests().get(cachedRequest));
-  assertEquals(RequestStatus.PENDING,requestMonitor.getActiveRequests().get(cachedRequest2));
-}

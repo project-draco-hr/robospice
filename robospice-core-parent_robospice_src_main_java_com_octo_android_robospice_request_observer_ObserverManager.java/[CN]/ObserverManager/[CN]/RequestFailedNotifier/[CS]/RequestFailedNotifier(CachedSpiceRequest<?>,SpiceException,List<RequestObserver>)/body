@@ -1,5 +1,0 @@
-{
-  this.observersForRequest=observersForRequest;
-  this.request=request;
-  this.e=e;
-}

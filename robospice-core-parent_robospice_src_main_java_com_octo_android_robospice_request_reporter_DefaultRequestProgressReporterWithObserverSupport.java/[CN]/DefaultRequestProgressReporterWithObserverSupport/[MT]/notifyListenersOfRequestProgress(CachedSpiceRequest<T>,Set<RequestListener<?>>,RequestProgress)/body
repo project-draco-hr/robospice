@@ -1,4 +1,0 @@
-{
-  observerManager.notifyObserversOfRequestProgress(request,progress);
-  super.notifyListenersOfRequestProgress(request,listeners,progress);
-}

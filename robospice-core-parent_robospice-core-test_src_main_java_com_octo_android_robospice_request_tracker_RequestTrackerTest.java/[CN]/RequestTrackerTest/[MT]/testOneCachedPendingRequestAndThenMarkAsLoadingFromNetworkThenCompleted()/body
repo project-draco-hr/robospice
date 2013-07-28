@@ -1,5 +1,0 @@
-{
-  testOneCachedPendingRequestAndThenMarkAsLoadingFromNetwork();
-  requestMonitor.onRequestCompleted(cachedRequest,"Result!");
-  assertEquals(0,requestMonitor.getActiveRequests().size());
-}

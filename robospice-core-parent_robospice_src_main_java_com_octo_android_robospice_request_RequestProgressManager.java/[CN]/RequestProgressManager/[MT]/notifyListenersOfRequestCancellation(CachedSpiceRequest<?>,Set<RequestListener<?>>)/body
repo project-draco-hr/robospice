@@ -1,6 +1,7 @@
 {
   Ln.d("Not calling network request : " + request + " as it is cancelled. ");
   notifyListenersOfRequestProgress(request,listeners,RequestStatus.COMPLETE);
-  requestProgressReporter.notifyListenersOfRequestCancellation(request,listeners);
+  spiceServiceListenerNotifier.notifyObserversOfRequestCancellation(request);
+  requestListenerNotifier.notifyListenersOfRequestCancellation(request,listeners);
   notifyOfRequestProcessed(request);
 }

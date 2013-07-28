@@ -1,6 +1,0 @@
-{
-  Intent startIntent=new Intent();
-  startIntent.setClass(getContext(),SpiceTestServiceWithObserverSupport.class);
-  startService(startIntent);
-  getService().registerObserver(new MyObserverFactory(null,0,null,null,null,null));
-}

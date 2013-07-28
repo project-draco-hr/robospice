@@ -1,6 +1,0 @@
-{
-  Ln.d("Processing request progress: %s with %f",request,progress.getProgress());
-  for (  RequestObserver observer : observersForRequest) {
-    observer.onRequestProgressUpdated(request,progress);
-  }
-}

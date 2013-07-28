@@ -1,6 +1,0 @@
-{
-  Ln.d("Processing request added: %s",request);
-  for (  RequestObserver observer : observersForRequest) {
-    observer.onRequestAdded(request);
-  }
-}

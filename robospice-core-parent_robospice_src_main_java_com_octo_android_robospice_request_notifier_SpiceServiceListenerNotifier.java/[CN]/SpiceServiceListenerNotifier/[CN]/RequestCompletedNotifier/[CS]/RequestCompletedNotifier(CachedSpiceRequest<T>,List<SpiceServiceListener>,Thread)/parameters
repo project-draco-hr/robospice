@@ -1,0 +1,3 @@
+CachedSpiceRequest<T> request
+List<SpiceServiceListener> spiceServiceListenerList
+Thread currentThread

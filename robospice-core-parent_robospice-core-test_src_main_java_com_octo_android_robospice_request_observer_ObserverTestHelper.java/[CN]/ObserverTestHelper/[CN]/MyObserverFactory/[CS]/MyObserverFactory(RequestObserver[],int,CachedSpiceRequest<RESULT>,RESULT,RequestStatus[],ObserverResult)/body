@@ -1,8 +1,0 @@
-{
-  this.observers=observers;
-  this.observerIndex=observerIndex;
-  this.activeRequest=activeRequest;
-  this.resultData=resultData;
-  this.expectedStatuses=expectedStatuses;
-  this.result=result;
-}

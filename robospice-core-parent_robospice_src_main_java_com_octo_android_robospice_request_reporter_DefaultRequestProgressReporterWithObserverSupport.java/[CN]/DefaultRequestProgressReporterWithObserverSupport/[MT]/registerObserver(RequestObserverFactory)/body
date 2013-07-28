@@ -1,3 +1,0 @@
-{
-  observerManager.registerObserver(observerFactory);
-}

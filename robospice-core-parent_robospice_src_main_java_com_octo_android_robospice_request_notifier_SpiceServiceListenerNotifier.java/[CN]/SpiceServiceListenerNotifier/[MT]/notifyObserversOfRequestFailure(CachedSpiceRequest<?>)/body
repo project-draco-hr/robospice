@@ -1,0 +1,3 @@
+{
+  post(new RequestFailedNotifier(request,spiceServiceListenerList,Thread.currentThread()));
+}

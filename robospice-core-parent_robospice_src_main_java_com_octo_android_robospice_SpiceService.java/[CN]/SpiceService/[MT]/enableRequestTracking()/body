@@ -1,6 +1,0 @@
-{
-  if (requestTracker == null) {
-    registerObserver(RequestTrackerService.getRequestTrackerFactory());
-    requestTracker=RequestTrackerService.getRequestTracker();
-  }
-}

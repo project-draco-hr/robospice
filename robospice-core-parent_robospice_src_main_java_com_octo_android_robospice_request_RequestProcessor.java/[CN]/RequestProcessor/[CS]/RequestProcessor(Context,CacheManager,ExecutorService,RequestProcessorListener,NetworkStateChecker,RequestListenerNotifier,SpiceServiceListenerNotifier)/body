@@ -1,0 +1,5 @@
+{
+  this.cacheManager=cacheManager;
+  this.requestProgressManager=new RequestProgressManager(requestProcessorListener,mapRequestToRequestListener,requestListenerNotifier,spiceServiceListenerNotifier);
+  this.requestRunner=new RequestRunner(context,cacheManager,executorService,requestProgressManager,networkStateChecker);
+}

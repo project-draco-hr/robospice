@@ -1,7 +1,0 @@
-{
-  List<RequestObserver> observersForRequest=mapRequestToObservers.get(request);
-  if (observersForRequest != null) {
-    post(new RequestCompletedNotifier<T>(request,result,observersForRequest));
-    mapRequestToObservers.remove(request);
-  }
-}

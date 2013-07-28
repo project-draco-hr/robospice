@@ -1,6 +1,0 @@
-int activeObserverCount
-int inactiveObserverCount
-CachedSpiceRequest<RESULT> activeRequest
-RESULT resultData
-RequestStatus[] expectedStatuses
-ObserverResult result

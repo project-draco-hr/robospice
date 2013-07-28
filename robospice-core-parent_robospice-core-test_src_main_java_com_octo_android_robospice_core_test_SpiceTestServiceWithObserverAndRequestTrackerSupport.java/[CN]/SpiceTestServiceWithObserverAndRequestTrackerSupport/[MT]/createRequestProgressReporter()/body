@@ -1,4 +1,0 @@
-{
-  super.createRequestProgressReporter();
-  return new DefaultRequestProgressReporterWithObserverSupport();
-}

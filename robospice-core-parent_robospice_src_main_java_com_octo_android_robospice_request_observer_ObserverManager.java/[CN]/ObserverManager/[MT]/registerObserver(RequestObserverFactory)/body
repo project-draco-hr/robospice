@@ -1,6 +1,0 @@
-{
-  observerFactories.add(observerFactory);
-  if (messageQueue == null) {
-    startThread();
-  }
-}

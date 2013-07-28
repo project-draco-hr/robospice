@@ -1,3 +1,0 @@
-CachedSpiceRequest<T> request
-T result
-Set<RequestListener<?>> listeners

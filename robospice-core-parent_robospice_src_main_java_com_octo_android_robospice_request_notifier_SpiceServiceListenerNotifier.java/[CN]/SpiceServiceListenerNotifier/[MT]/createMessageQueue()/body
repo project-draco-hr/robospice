@@ -1,0 +1,3 @@
+{
+  messageQueue=new Handler(Looper.getMainLooper());
+}

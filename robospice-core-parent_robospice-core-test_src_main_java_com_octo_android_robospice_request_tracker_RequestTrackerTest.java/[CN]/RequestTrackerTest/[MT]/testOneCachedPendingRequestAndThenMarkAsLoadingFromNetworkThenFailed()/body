@@ -1,5 +1,0 @@
-{
-  testOneCachedPendingRequestAndThenMarkAsLoadingFromNetwork();
-  requestMonitor.onRequestFailed(cachedRequest,new SpiceException("ERROR"));
-  assertEquals(0,requestMonitor.getActiveRequests().size());
-}

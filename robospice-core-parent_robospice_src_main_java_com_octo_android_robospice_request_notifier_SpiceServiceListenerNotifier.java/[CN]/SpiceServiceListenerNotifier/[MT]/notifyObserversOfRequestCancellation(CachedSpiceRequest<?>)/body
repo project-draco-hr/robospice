@@ -1,0 +1,3 @@
+{
+  post(new RequestCancelledNotifier(request,spiceServiceListenerList,Thread.currentThread()));
+}

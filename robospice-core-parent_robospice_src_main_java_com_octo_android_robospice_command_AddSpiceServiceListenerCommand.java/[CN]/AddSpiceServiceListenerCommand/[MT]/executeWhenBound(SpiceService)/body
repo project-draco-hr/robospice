@@ -1,0 +1,4 @@
+{
+  spiceService.addSpiceServiceListener(spiceServiceListener);
+  return null;
+}

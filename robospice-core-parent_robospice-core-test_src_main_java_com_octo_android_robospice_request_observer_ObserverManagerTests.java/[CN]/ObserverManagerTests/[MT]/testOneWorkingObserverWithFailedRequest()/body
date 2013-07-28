@@ -1,4 +1,0 @@
-{
-  observerTestHelper.createObserversForFailure(1,0,request,RETURNED_DATA);
-  executeFailedRequestSequence(request,RETURNED_DATA);
-}

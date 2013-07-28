@@ -1,4 +1,0 @@
-{
-  observerManager.notifyObserversOfRequestCancellation(request);
-  super.notifyListenersOfRequestCancellation(request,listeners);
-}

@@ -1,7 +1,4 @@
 {
   Ln.d("SpiceService instance destroyed.");
-  if (observerManager != null) {
-    observerManager.stop();
-  }
   super.onDestroy();
 }

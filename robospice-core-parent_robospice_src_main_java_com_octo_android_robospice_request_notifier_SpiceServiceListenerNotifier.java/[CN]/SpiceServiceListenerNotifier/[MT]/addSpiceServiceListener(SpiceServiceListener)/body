@@ -1,0 +1,7 @@
+{
+  spiceServiceListenerList.add(spiceServiceListener);
+  if (messageQueue == null) {
+    Ln.d("Message Queue starting");
+    messageQueue=new Handler(Looper.getMainLooper());
+  }
+}

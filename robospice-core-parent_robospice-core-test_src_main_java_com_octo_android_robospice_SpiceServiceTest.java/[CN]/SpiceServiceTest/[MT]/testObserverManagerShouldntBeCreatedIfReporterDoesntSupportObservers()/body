@@ -1,7 +1,0 @@
-{
-  Intent startIntent=new Intent();
-  startIntent.setClass(getContext(),SpiceTestService.class);
-  startService(startIntent);
-  assertTrue(getService().isRequestReporterCreated());
-  assertFalse(getService().isObserverManagerCreated());
-}

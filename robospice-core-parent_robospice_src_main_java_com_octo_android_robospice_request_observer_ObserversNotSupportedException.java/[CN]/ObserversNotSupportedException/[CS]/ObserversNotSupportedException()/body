@@ -1,3 +1,0 @@
-{
-  super("You've tried registering an Observer but you also need to override createRequestProgressReporter and return a reporter like DefaultRequestProgressReporterWithObserverSupport");
-}

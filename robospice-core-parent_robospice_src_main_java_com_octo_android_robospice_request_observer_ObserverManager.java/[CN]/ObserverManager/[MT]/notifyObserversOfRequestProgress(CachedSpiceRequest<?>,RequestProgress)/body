@@ -1,6 +1,0 @@
-{
-  List<RequestObserver> observersForRequest=mapRequestToObservers.get(request);
-  if (observersForRequest != null) {
-    post(new RequestProgressNotifier(request,progress,observersForRequest));
-  }
-}

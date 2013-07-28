@@ -1,3 +1,0 @@
-{
-  activeRequestStatus.remove(request);
-}

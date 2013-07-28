@@ -1,0 +1,4 @@
+{
+  spiceService.removeSpiceServiceListener(spiceServiceListener);
+  return null;
+}

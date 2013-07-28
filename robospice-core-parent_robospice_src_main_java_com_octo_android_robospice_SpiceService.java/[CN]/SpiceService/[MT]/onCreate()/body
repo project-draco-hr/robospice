@@ -13,11 +13,8 @@
     stopSelf();
     return;
   }
-  progressReporter=createRequestProgressReporter();
-  if (progressReporter instanceof RequestProgressReporterWithObserverSupport) {
-    observerManager=createObserverManager();
-    ((RequestProgressReporterWithObserverSupport)progressReporter).setObserverManager(observerManager);
-  }
+  progressReporter=createRequestRequestListenerNotifier();
+  spiceServiceListenerNotifier=createSpiceServiceListenerNotifier();
   final ExecutorService executorService=getExecutorService();
   final NetworkStateChecker networkStateChecker=getNetworkStateChecker();
   requestProcessor=createRequestProcessor(executorService,networkStateChecker);

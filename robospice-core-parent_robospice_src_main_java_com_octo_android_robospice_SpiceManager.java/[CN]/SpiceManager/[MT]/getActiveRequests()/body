@@ -1,3 +1,0 @@
-{
-  return executeCommand(new GetActiveRequestsCommand(this));
-}

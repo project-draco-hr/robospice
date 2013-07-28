@@ -1,7 +1,0 @@
-{
-  List<RequestObserver> observersForRequest=createObserversForRequest(request);
-  if (observersForRequest.size() > 0) {
-    mapRequestToObservers.put(request,observersForRequest);
-    post(new RequestAddedNotifier(request,observersForRequest));
-  }
-}

@@ -1,4 +1,5 @@
 {
   Ln.d("Request was *NOT* found when adding request listeners to existing requests.");
-  requestProgressReporter.notifyListenersOfRequestNotFound(request,listeners);
+  spiceServiceListenerNotifier.notifyObserversOfRequestNotFound(request);
+  requestListenerNotifier.notifyListenersOfRequestNotFound(request,listeners);
 }

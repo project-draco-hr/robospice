@@ -12,6 +12,7 @@
 ;
   ExecutorService executorService=PriorityThreadPoolExecutor.getPriorityExecutor(1);
   networkStateChecker=new MockNetworkStateChecker();
-  progressReporter=new DefaultRequestProgressReporter();
-  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter);
+  progressReporter=new DefaultRequestListenerNotifier();
+  spiceServiceListenerNotifier=new SpiceServiceListenerNotifier();
+  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter,spiceServiceListenerNotifier);
 }

@@ -1,4 +1,0 @@
-{
-  RequestStatus[] expectedProgressStatuses=new RequestStatus[]{RequestStatus.PENDING,RequestStatus.COMPLETE};
-  createObservers(activeObserverCount,inactiveObserverCount,activeRequest,resultData,expectedProgressStatuses,ObserverResult.CANCELLED);
-}

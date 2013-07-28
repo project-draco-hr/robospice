@@ -1,5 +1,6 @@
 {
   if (mapRequestToRequestListener.isEmpty()) {
+    Ln.d("Sending all request complete.");
     requestProcessorListener.allRequestComplete();
   }
 }

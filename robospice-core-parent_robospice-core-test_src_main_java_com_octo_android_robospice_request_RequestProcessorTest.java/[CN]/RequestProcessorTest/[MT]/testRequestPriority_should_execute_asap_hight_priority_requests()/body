@@ -1,8 +1,7 @@
 {
-  requestProcessorListener=EasyMock.createNiceMock(RequestProcessorListener.class);
   PausableThreadPoolExecutor executorService=PriorityThreadPoolExecutor.getPriorityExecutor(1);
   networkStateChecker=new MockNetworkStateChecker();
-  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter);
+  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter,spiceServiceListenerNotifier);
   CachedSpiceRequestStub<String> stubRequestHighPriority=createSuccessfulRequest(TEST_CLASS,TEST_CACHE_KEY2,TEST_DURATION,TEST_RETURNED_DATA2);
   stubRequestHighPriority.setPriority(SpiceRequest.PRIORITY_HIGH);
   RequestListenerStub<String> mockRequestListener=new RequestListenerStub<String>();
@@ -32,7 +31,6 @@
   EasyMock.verify(mockCacheManager);
   assertTrue(stubRequestHighPriority.isLoadDataFromNetworkCalled());
   assertTrue(mockRequestListener.isExecutedInUIThread());
-  assertTrue(mockRequestListener.isSuccessful());
   assertEquals(lowRequestCount + 1,mockRequestListener.getResultHistory().size());
   assertNotSame(TEST_RETURNED_DATA2,mockRequestListener.getResultHistory().get(lowRequestCount));
 }

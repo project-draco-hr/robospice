@@ -1,6 +1,0 @@
-Context context
-CacheManager cacheManager
-ExecutorService executorService
-RequestProcessorListener requestProcessorListener
-NetworkStateChecker networkStateChecker
-RequestProgressReporter requestProgressReporter

@@ -1,6 +1,0 @@
-{
-  Ln.d("Processing request completed: %s with result %s",request,result);
-  for (  RequestObserver observer : observersForRequest) {
-    observer.onRequestCompleted(request,result);
-  }
-}

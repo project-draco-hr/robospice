@@ -1,0 +1,3 @@
+{
+  post(new RequestProgressNotifier(request,spiceServiceListenerList,Thread.currentThread()));
+}

@@ -1,8 +1,0 @@
-{
-  if (messageQueue != null) {
-    messageQueue.sendEmptyMessageAtTime(MESSAGE_QUIT,SystemClock.uptimeMillis());
-  }
- else {
-    onStopped();
-  }
-}

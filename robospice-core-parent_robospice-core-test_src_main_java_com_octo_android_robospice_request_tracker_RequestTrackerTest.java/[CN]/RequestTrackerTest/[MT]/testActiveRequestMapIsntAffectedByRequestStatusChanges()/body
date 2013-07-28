@@ -1,7 +1,0 @@
-{
-  testOneCachedPendingRequest();
-  Map<CachedSpiceRequest<?>,RequestStatus> activeRequests=requestMonitor.getActiveRequests();
-  requestMonitor.onRequestProgressUpdated(cachedRequest,new RequestProgress(RequestStatus.LOADING_FROM_NETWORK));
-  assertEquals(1,activeRequests.size());
-  assertEquals(RequestStatus.PENDING,activeRequests.values().toArray()[0]);
-}

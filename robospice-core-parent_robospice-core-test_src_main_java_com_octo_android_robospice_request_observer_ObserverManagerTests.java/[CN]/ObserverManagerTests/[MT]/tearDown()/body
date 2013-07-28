@@ -1,3 +1,0 @@
-{
-  observerTestHelper.shutdownObserverManagerAndWaitAndVerifyObservers();
-}

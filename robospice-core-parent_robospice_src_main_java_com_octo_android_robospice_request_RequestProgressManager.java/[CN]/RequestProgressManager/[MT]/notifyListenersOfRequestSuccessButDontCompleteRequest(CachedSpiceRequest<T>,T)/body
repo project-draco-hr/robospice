@@ -1,4 +1,5 @@
 {
   final Set<RequestListener<?>> listeners=mapRequestToRequestListener.get(request);
-  requestProgressReporter.notifyListenersOfRequestSuccess(request,result,listeners);
+  spiceServiceListenerNotifier.notifyObserversOfRequestSuccess(request);
+  requestListenerNotifier.notifyListenersOfRequestSuccess(request,result,listeners);
 }

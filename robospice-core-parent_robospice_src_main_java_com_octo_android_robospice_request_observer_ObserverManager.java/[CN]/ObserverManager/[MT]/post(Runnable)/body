@@ -1,3 +1,0 @@
-{
-  messageQueue.postAtTime(runnable,SystemClock.uptimeMillis());
-}

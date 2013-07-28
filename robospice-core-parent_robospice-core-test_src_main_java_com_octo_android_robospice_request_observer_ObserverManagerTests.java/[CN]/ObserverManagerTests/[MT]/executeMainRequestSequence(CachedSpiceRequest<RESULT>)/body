@@ -1,6 +1,0 @@
-{
-  observerManager.notifyObserversOfRequestAdded(request);
-  observerManager.notifyObserversOfRequestProgress(request,eqStatus(RequestStatus.PENDING));
-  observerManager.notifyObserversOfRequestProgress(request,eqStatus(RequestStatus.LOADING_FROM_NETWORK));
-  observerManager.notifyObserversOfRequestProgress(request,eqStatus(RequestStatus.COMPLETE));
-}

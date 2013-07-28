@@ -1,6 +1,0 @@
-{
-  this.requestProcessorListener=requestProcessorListener;
-  this.mapRequestToRequestListener=mapRequestToRequestListener;
-  this.requestProgressReporter=requestProgressReporter;
-  spiceServiceListenerSet=Collections.synchronizedSet(new HashSet<SpiceServiceServiceListener>());
-}

@@ -1,0 +1,3 @@
+{
+  requestProcessor.addSpiceServiceListener(spiceServiceListener);
+}

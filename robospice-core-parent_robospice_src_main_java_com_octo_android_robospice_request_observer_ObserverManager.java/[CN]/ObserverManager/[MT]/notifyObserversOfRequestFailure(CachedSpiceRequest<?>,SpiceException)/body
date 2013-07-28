@@ -1,7 +1,0 @@
-{
-  List<RequestObserver> observersForRequest=mapRequestToObservers.get(request);
-  if (observersForRequest != null) {
-    post(new RequestFailedNotifier(request,e,observersForRequest));
-    mapRequestToObservers.remove(request);
-  }
-}

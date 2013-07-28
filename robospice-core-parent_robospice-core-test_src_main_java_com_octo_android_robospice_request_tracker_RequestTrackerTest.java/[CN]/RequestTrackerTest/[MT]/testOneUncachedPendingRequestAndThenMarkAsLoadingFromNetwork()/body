@@ -1,6 +1,0 @@
-{
-  testOneUncachedPendingRequest();
-  requestMonitor.onRequestProgressUpdated(uncachedRequest,new RequestProgress(RequestStatus.LOADING_FROM_NETWORK));
-  assertEquals(1,requestMonitor.getActiveRequests().size());
-  assertEquals(RequestStatus.LOADING_FROM_NETWORK,requestMonitor.getActiveRequests().values().toArray()[0]);
-}

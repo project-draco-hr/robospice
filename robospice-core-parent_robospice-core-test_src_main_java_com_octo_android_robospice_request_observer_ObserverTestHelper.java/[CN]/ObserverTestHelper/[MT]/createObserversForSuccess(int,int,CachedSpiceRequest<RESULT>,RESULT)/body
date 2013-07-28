@@ -1,7 +1,0 @@
-{
-  RequestStatus[] expectedProgressStatuses=null;
-  if (activeRequest != null) {
-    expectedProgressStatuses=(activeRequest.getRequestCacheKey() != null ? SUCCESSFUL_STATUSES_WITH_CACHE_KEY : SUCCESSFUL_STATUSES_WITHOUT_CACHE_KEY);
-  }
-  createObservers(activeObserverCount,inactiveObserverCount,activeRequest,resultData,expectedProgressStatuses,ObserverResult.SUCCESS);
-}

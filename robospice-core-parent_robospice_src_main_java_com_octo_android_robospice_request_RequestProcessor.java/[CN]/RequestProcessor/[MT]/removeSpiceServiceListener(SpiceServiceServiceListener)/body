@@ -1,3 +1,0 @@
-{
-  requestProgressManager.removeSpiceServiceListener(spiceServiceServiceListener);
-}
