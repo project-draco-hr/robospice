@@ -2,6 +2,9 @@
   super.onStart(intent,startId);
   notificationId=intent.getIntExtra(BUNDLE_KEY_NOTIFICATION_ID,DEFAULT_ROBOSPICE_NOTIFICATION_ID);
   spiceServiceClass=(Class<? extends SpiceService>)intent.getSerializableExtra(BUNDLE_KEY_SERVICE_CLASS);
+  if (spiceServiceClass == null) {
+    throw new RuntimeException("Please specify a service class to monitor. Use #createIntent as helper.");
+  }
   foreground=intent.getBooleanExtra(BUNDLE_KEY_FOREGROUND,true);
   spiceManager=new SpiceManager(spiceServiceClass);
   notificationManager=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
@@ -10,4 +13,5 @@
   if (foreground) {
     startForeground(notificationId,onCreateForegroundNotification());
   }
+  Ln.d(getClass().getSimpleName() + " started.");
 }

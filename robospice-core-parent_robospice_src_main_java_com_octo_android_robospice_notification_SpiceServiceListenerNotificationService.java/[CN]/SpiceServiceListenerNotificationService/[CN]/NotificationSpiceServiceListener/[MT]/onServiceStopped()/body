@@ -1,5 +1,5 @@
 {
   final SpiceNotification notification=onCreateNotificationForServiceStopped();
-  notificationManager.notify(notification.getId(),notification);
+  notificationManager.notify(notification.getId(),notification.getNotification());
   stopSelf();
 }
