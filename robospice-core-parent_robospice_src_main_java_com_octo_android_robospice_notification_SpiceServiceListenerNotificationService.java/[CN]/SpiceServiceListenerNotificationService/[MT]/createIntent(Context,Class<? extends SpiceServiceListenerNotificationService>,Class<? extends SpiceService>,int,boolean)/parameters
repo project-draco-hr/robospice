@@ -1,0 +1,5 @@
+Context context
+Class<? extends SpiceServiceListenerNotificationService> clazz
+Class<? extends SpiceService> spiceServiceClass
+int notificationId
+boolean foreground

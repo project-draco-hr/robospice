@@ -1,0 +1,4 @@
+{
+  final SpiceNotification notification=onCreateNotificationForRequestFailed(request,thread);
+  notificationManager.notify(notification.getId(),notification);
+}
