@@ -1,3 +1,4 @@
 {
   notifyListenersOfRequestProgress(request,listeners,new RequestProgress(status));
+  checkAllRequestComplete();
 }

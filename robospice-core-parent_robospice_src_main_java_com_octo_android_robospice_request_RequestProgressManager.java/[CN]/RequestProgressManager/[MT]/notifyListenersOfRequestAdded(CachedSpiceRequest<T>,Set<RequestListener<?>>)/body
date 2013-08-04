@@ -1,5 +1,6 @@
 {
-  Ln.d("Request was found when adding request listeners to existing requests.");
+  Ln.d("Added a new request ready for executing");
+  requestProcessorListener.requestsInProgress();
   requestProgressReporter.notifyListenersOfRequestAdded(request,listeners);
-  notifyListenersOfRequestProgress(request,listeners,request.getProgress());
+  notifyListenersOfRequestProgress(request,listeners,request.getProgress().getStatus());
 }

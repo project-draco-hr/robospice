@@ -5,6 +5,8 @@
   requestProcessorListener=new RequestProcessorListener(){
     @Override public void allRequestComplete(){
     }
+    @Override public void requestsInProgress(){
+    }
   }
 ;
   ExecutorService executorService=PriorityThreadPoolExecutor.getPriorityExecutor(1);

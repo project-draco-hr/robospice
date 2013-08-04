@@ -1,5 +1,4 @@
 {
   Ln.d("Sending progress %s",progress.getStatus());
   requestProgressReporter.notifyListenersOfRequestProgress(request,listeners,progress);
-  checkAllRequestComplete();
 }

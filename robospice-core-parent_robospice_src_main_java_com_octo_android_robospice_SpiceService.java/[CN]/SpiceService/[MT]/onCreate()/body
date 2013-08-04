@@ -18,6 +18,5 @@
   requestProcessor=createRequestProcessor(executorService,networkStateChecker);
   requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
   notification=createDefaultNotification();
-  startForeground(notification);
   Ln.d("SpiceService instance created.");
 }
