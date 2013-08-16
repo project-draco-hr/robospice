@@ -1,0 +1,14 @@
+{
+  if (notification == null) {
+    return;
+  }
+  Ln.v("Pending requests : " + currentPendingRequestCount);
+  if (isBound || currentPendingRequestCount == 0) {
+    Ln.v("Stop foreground");
+    stopForeground(true);
+  }
+ else {
+    Ln.v("Start foreground");
+    startForeground(notification);
+  }
+}

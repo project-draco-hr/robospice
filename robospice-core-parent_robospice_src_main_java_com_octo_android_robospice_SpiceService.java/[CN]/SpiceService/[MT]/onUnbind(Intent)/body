@@ -1,6 +1,6 @@
 {
-  final boolean result=super.onUnbind(intent);
   isBound=false;
+  showNotificationIfNotBoundAndHasPendingRequestsOtherwiseHideNotification();
   stopIfNotBoundAndHasNoPendingRequests();
-  return result;
+  return true;
 }

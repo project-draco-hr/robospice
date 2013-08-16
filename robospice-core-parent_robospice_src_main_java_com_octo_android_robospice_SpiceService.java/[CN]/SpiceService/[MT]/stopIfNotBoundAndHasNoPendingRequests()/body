@@ -4,8 +4,5 @@
     if (!isBound) {
       stopSelf();
     }
- else {
-      stopForeground(true);
-    }
   }
 }

@@ -1,5 +1,5 @@
 {
   isBound=true;
   showNotificationIfNotBoundAndHasPendingRequestsOtherwiseHideNotification();
-  return mSpiceServiceBinder;
+  super.onRebind(intent);
 }

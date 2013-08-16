@@ -1,4 +1,5 @@
 {
   currentPendingRequestCount++;
   requestProcessor.addRequest(request,listRequestListener);
+  showNotificationIfNotBoundAndHasPendingRequestsOtherwiseHideNotification();
 }

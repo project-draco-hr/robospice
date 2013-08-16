@@ -1,5 +1,2 @@
 {
-  if (notification != null) {
-    startForeground(notification);
-  }
 }
