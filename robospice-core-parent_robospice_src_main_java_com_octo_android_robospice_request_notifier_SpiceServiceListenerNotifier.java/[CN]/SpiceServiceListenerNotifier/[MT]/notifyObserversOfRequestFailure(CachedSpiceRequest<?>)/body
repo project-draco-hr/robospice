@@ -1,3 +1,5 @@
 {
-  post(new RequestFailedNotifier(request,spiceServiceListenerList,Thread.currentThread()));
+  RequestProcessingContext requestProcessingContext=new RequestProcessingContext();
+  requestProcessingContext.setExecutionThread(Thread.currentThread());
+  post(new RequestFailedNotifier(request,spiceServiceListenerList,requestProcessingContext));
 }

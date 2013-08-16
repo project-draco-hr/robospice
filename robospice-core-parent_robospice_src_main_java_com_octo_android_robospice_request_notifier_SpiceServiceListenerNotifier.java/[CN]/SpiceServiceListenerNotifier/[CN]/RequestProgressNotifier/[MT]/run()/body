@@ -1,5 +1,5 @@
 {
   for (  SpiceServiceListener listener : spiceServiceListenerList) {
-    listener.onRequestProgressUpdated(request,currentThread);
+    listener.onRequestProgressUpdated(request,requestProcessingContext);
   }
 }

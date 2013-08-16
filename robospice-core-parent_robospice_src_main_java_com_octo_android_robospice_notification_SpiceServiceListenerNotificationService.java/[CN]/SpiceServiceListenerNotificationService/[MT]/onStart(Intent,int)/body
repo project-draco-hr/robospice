@@ -1,5 +1,8 @@
 {
   super.onStart(intent,startId);
+  if (intent == null) {
+    return;
+  }
   notificationId=intent.getIntExtra(BUNDLE_KEY_NOTIFICATION_ID,DEFAULT_ROBOSPICE_NOTIFICATION_ID);
   spiceServiceClass=(Class<? extends SpiceService>)intent.getSerializableExtra(BUNDLE_KEY_SERVICE_CLASS);
   if (spiceServiceClass == null) {

@@ -1,6 +1,6 @@
 {
   Ln.d("Processing request cancelled: %s",request);
   for (  SpiceServiceListener listener : spiceServiceListenerList) {
-    listener.onRequestCancelled(request,currentThread);
+    listener.onRequestCancelled(request,requestProcessingContext);
   }
 }

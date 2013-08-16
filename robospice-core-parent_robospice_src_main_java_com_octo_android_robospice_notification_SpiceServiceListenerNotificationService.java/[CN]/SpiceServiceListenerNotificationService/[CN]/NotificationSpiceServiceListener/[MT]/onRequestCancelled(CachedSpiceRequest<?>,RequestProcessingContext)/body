@@ -1,0 +1,4 @@
+{
+  final SpiceNotification notification=onCreateNotificationForRequestCancelled(request,requestProcessingContext);
+  notificationManager.notify(notification.getId(),notification.getNotification());
+}

@@ -1,4 +1,0 @@
-{
-  final SpiceNotification notification=onCreateNotificationForRequestProgressUpdate(request,thread);
-  notificationManager.notify(notification.getId(),notification.getNotification());
-}

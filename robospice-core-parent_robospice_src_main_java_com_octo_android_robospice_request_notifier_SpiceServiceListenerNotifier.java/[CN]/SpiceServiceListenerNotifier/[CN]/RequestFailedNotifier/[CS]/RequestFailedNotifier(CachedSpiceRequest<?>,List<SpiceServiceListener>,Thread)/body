@@ -1,5 +1,0 @@
-{
-  this.spiceServiceListenerList=spiceServiceListenerList;
-  this.request=request;
-  this.currentThread=currentThread;
-}

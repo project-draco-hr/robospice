@@ -1,0 +1,3 @@
+CachedSpiceRequest<?> request
+List<SpiceServiceListener> spiceServiceListenerList
+RequestProcessingContext requestProcessingContext

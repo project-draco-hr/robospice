@@ -1,6 +1,6 @@
 {
   Ln.d("Sending progress %s",progress.getStatus());
-  spiceServiceListenerNotifier.notifyObserversOfRequestProgress(request);
+  spiceServiceListenerNotifier.notifyObserversOfRequestProgress(request,progress);
   requestListenerNotifier.notifyListenersOfRequestProgress(request,listeners,progress);
   checkAllRequestComplete();
 }

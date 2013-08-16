@@ -1,0 +1,4 @@
+{
+  final SpiceNotification notification=onCreateNotificationForRequestNotFound(request,requestProcessingContext);
+  notificationManager.notify(notification.getId(),notification.getNotification());
+}

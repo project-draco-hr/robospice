@@ -1,0 +1,5 @@
+{
+  this.spiceServiceListenerList=spiceServiceListenerList;
+  this.request=request;
+  this.requestProcessingContext=requestProcessingContext;
+}
