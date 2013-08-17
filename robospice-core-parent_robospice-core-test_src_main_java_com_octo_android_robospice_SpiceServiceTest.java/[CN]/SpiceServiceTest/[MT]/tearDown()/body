@@ -1,0 +1,4 @@
+{
+  SpiceService.isJUnit=false;
+  super.tearDown();
+}

@@ -1,5 +1,5 @@
 {
-  if (notification == null) {
+  if (notification == null || isJUnit) {
     return;
   }
   Ln.v("Pending requests : " + currentPendingRequestCount);

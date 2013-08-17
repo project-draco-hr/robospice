@@ -1,5 +1,6 @@
 {
   super.setUp();
+  System.setProperty("dexmaker.dexcache",getInstrumentation().getTargetContext().getCacheDir().getPath());
   getInstrumentation().waitForIdleSync();
   mockCacheManager=EasyMock.createMock(CacheManager.class);
   requestProcessorListener=new RequestProcessorListener(){
