@@ -4,7 +4,7 @@
   checkAllRequestComplete();
 synchronized (spiceServiceListenerSet) {
     for (    final SpiceServiceServiceListener spiceServiceServiceListener : spiceServiceListenerSet) {
-      spiceServiceServiceListener.onRequestProcessed(request);
+      spiceServiceServiceListener.onRequestProcessed(request,listeners);
     }
   }
 }
