@@ -3,5 +3,5 @@
   notifyListenersOfRequestProgress(request,listeners,RequestStatus.COMPLETE);
   spiceServiceListenerNotifier.notifyObserversOfRequestSuccess(request);
   requestListenerNotifier.notifyListenersOfRequestSuccess(request,result,listeners);
-  notifyOfRequestProcessed(request);
+  notifyOfRequestProcessed(request,listeners);
 }

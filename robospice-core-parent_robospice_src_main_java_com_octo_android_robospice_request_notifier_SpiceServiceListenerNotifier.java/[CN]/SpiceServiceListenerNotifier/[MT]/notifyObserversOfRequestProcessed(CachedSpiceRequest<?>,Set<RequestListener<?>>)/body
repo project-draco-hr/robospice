@@ -1,0 +1,6 @@
+{
+  RequestProcessingContext requestProcessingContext=new RequestProcessingContext();
+  requestProcessingContext.setExecutionThread(Thread.currentThread());
+  requestProcessingContext.setRequestListeners(requestListeners);
+  post(new RequestProcessedNotifier(request,spiceServiceListenerList,requestProcessingContext));
+}

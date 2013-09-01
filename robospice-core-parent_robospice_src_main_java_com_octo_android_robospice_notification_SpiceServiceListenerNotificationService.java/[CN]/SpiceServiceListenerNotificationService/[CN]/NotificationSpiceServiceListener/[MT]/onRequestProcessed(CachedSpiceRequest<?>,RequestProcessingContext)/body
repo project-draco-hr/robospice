@@ -1,0 +1,4 @@
+{
+  final SpiceNotification notification=onCreateNotificationForRequestProcessed(cachedSpiceRequest,requestProcessingContext);
+  notificationManager.notify(notification.getId(),notification.getNotification());
+}

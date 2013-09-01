@@ -3,5 +3,4 @@
   this.mapRequestToRequestListener=mapRequestToRequestListener;
   this.requestListenerNotifier=requestListenerNotifier;
   this.spiceServiceListenerNotifier=spiceServiceListenerNotifier;
-  spiceServiceListenerSet=Collections.synchronizedSet(new HashSet<SpiceServiceListener>());
 }

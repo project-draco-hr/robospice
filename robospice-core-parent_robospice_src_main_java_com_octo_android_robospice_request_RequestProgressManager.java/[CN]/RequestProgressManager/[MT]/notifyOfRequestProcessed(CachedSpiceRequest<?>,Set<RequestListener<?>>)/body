@@ -1,0 +1,6 @@
+{
+  Ln.v("Removing %s  size is %d",request,mapRequestToRequestListener.size());
+  mapRequestToRequestListener.remove(request);
+  checkAllRequestComplete();
+  spiceServiceListenerNotifier.notifyObserversOfRequestProcessed(request,listeners);
+}
