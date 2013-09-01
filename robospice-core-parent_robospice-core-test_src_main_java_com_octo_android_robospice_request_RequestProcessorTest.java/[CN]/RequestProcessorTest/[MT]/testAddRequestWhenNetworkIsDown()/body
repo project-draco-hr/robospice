@@ -7,10 +7,10 @@
   EasyMock.expect(mockCacheManager.loadDataFromCache(EasyMock.eq(TEST_CLASS),EasyMock.eq(TEST_CACHE_KEY),EasyMock.eq(TEST_DURATION))).andReturn(null);
   EasyMock.replay(mockCacheManager);
   SpiceServiceListener mockSpiceServiceListener=EasyMock.createMock(SpiceServiceListener.class);
-  mockSpiceServiceListener.onRequestAdded((CachedSpiceRequest<?>)EasyMock.anyObject(),(Thread)EasyMock.anyObject());
-  mockSpiceServiceListener.onRequestProgressUpdated((CachedSpiceRequest<?>)EasyMock.anyObject(),(Thread)EasyMock.anyObject());
+  mockSpiceServiceListener.onRequestAdded((CachedSpiceRequest<?>)EasyMock.anyObject(),(RequestProcessingContext)EasyMock.anyObject());
+  mockSpiceServiceListener.onRequestProgressUpdated((CachedSpiceRequest<?>)EasyMock.anyObject(),(RequestProcessingContext)EasyMock.anyObject());
   EasyMock.expectLastCall().anyTimes();
-  mockSpiceServiceListener.onRequestFailed((CachedSpiceRequest<?>)EasyMock.anyObject(),(Thread)EasyMock.anyObject());
+  mockSpiceServiceListener.onRequestFailed((CachedSpiceRequest<?>)EasyMock.anyObject(),(RequestProcessingContext)EasyMock.anyObject());
   EasyMock.replay(mockSpiceServiceListener);
   requestProcessorUnderTest.addSpiceServiceListener(mockSpiceServiceListener);
   requestProcessorUnderTest.setFailOnCacheError(true);
