@@ -28,7 +28,12 @@ synchronized (mapRequestToRequestListener) {
       listRequestListenerForThisRequest.addAll(listRequestListener);
     }
     if (request.isProcessable()) {
-      requestProgressManager.notifyListenersOfRequestAdded(request,listRequestListener);
+      if (aggregated) {
+        requestProgressManager.notifyListenersOfRequestAggregated(request,listRequestListener);
+      }
+ else {
+        requestProgressManager.notifyListenersOfRequestAdded(request,listRequestListener);
+      }
     }
  else     if (listRequestListenerForThisRequest == null) {
       requestProgressManager.notifyListenersOfRequestNotFound(request,listRequestListener);

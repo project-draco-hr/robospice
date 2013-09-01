@@ -3,7 +3,6 @@
   try {
     if (spiceRequest != null && spiceService != null) {
       final Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.remove(spiceRequest);
-      mapPendingRequestToRequestListener.put(spiceRequest,listRequestListener);
       Ln.d("Sending request to service : " + spiceRequest.getClass().getSimpleName());
       spiceService.addRequest(spiceRequest,listRequestListener);
     }

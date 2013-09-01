@@ -1,6 +1,6 @@
 {
-  Ln.d("Sending Request was added to queue.");
-  spiceServiceListenerNotifier.notifyObserversOfRequestAdded(request);
+  Ln.d("Request was added to queue.");
+  spiceServiceListenerNotifier.notifyObserversOfRequestAdded(request,listeners);
   requestListenerNotifier.notifyListenersOfRequestAdded(request,listeners);
   notifyListenersOfRequestProgress(request,listeners,request.getProgress());
 }

@@ -1,0 +1,3 @@
+{
+  mapPendingRequestToRequestListener.put(cachedSpiceRequest,requestProcessingContext.getRequestListeners());
+}

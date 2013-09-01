@@ -1,0 +1,6 @@
+{
+  Ln.d("Processing request added: %s",request);
+  for (  SpiceServiceListener listener : spiceServiceListenerList) {
+    listener.onRequestAggregated(request,requestProcessingContext);
+  }
+}

@@ -1,0 +1,12 @@
+{
+  spiceManager.start(getInstrumentation().getTargetContext());
+  SpiceRequestStub<String> spiceRequestStub=new SpiceRequestFailingStub<String>(TEST_CLASS,WAIT_BEFORE_EXECUTING_REQUEST_SHORT);
+  RequestListenerStub<String> requestListenerStub=new RequestListenerStub<String>();
+  for (int requestIndex=0; requestIndex < SEQUENTIAL_AGGREGATION_COUNT; requestIndex++) {
+    spiceManager.execute(spiceRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
+  }
+  requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
+  assertTrue(spiceManager.getPendingRequestCount() <= 1);
+  assertTrue(requestListenerStub.isExecutedInUIThread());
+  assertFalse(requestListenerStub.isSuccessful());
+}

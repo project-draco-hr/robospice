@@ -1,17 +1,3 @@
 {
-synchronized (mapPendingRequestToRequestListener) {
-    ArrayList<CachedSpiceRequest<?>> toRemove=new ArrayList<CachedSpiceRequest<?>>();
-    for (    final CachedSpiceRequest<?> cachedSpiceRequestTemp : mapPendingRequestToRequestListener.keySet()) {
-      if (cachedSpiceRequest.equals(cachedSpiceRequestTemp)) {
-        final Set<RequestListener<?>> setRequestListeners=mapPendingRequestToRequestListener.get(cachedSpiceRequestTemp);
-        setRequestListeners.removeAll(requestProcessingContext.getRequestListeners());
-        if (setRequestListeners.isEmpty()) {
-          toRemove.add(cachedSpiceRequestTemp);
-        }
-      }
-    }
-    for (    CachedSpiceRequest<?> cachedSpiceRequestToRemove : toRemove) {
-      mapPendingRequestToRequestListener.remove(cachedSpiceRequestToRemove);
-    }
-  }
+  mapPendingRequestToRequestListener.remove(cachedSpiceRequest);
 }

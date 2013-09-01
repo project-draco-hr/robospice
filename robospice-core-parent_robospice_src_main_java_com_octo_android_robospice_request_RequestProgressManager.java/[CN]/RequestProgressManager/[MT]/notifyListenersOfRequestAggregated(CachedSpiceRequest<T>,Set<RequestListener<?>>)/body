@@ -1,0 +1,6 @@
+{
+  Ln.d("Request was aggregated in queue.");
+  spiceServiceListenerNotifier.notifyObserversOfRequestAggregated(request,listeners);
+  requestListenerNotifier.notifyListenersOfRequestAggregated(request,listeners);
+  notifyListenersOfRequestProgress(request,listeners,request.getProgress());
+}
