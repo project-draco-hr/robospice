@@ -2,5 +2,5 @@
   if (clazz == null || cacheKey == null) {
     throw new IllegalArgumentException("Both parameters must be non null.");
   }
-  executeCommand(new RemoveDataFromCacheCommand(this,clazz,cacheKey));
+  return executeCommand(new RemoveDataFromCacheCommand(this,clazz,cacheKey));
 }
