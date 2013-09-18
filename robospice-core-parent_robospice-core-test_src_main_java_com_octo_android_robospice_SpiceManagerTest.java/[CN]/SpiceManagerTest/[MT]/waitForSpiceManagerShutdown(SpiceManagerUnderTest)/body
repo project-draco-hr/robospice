@@ -1,0 +1,8 @@
+{
+  if (spiceManager != null && spiceManager.isStarted()) {
+    spiceManager.cancelAllRequests();
+    spiceManager.removeAllDataFromCache();
+    spiceManager.shouldStopAndJoin(SPICE_MANAGER_WAIT_TIMEOUT);
+    spiceManager=null;
+  }
+}

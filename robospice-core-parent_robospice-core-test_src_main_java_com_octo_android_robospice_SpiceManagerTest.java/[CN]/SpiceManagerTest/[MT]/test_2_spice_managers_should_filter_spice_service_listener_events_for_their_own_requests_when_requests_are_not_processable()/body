@@ -1,0 +1,23 @@
+{
+  SpiceManagerUnderTest spiceManager2=new SpiceManagerUnderTest(SpiceTestService.class);
+  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager2.start(getInstrumentation().getTargetContext());
+  SpiceRequestStub<String> spiceRequestStub=new SpiceRequestSucceedingStub<String>(TEST_CLASS,TEST_RETURNED_DATA,WAIT_BEFORE_EXECUTING_REQUEST_SHORT);
+  SpiceRequestStub<String> spiceRequestStub2=new SpiceRequestSucceedingStub<String>(TEST_CLASS,TEST_RETURNED_DATA,WAIT_BEFORE_EXECUTING_REQUEST_SHORT);
+  RequestListenerWithProgressStub<String> requestListenerStub=new RequestListenerWithProgressStub<String>();
+  RequestListenerWithProgressStub<String> requestListenerStub2=new RequestListenerWithProgressStub<String>();
+  spiceManager.execute(spiceRequestStub,TEST_CACHE_KEY,DurationInMillis.ALWAYS_EXPIRED,requestListenerStub);
+  spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
+  CachedSpiceRequest<String> cachedSpiceRequest2=new CachedSpiceRequest<String>(spiceRequestStub2,TEST_CACHE_KEY,DurationInMillis.ALWAYS_EXPIRED);
+  cachedSpiceRequest2.setProcessable(false);
+  spiceManager2.execute(cachedSpiceRequest2,requestListenerStub2);
+  requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
+  requestListenerStub.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
+  requestListenerStub2.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
+  assertTrue(requestListenerStub.isSuccessful());
+  assertEquals(0,spiceManager.getRequestToLaunchCount());
+  assertEquals(1,spiceManager.getPendingRequestCount());
+  assertEquals(0,spiceManager2.getRequestToLaunchCount());
+  assertEquals(0,spiceManager2.getPendingRequestCount());
+  waitForSpiceManagerShutdown(spiceManager2);
+}
