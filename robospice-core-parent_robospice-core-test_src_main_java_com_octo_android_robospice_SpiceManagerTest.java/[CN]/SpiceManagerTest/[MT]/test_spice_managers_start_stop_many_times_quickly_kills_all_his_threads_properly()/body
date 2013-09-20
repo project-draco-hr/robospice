@@ -1,0 +1,19 @@
+{
+  final int startStopCycleCount=100;
+  for (int startStopCycleIndex=0; startStopCycleIndex < startStopCycleCount; startStopCycleIndex++) {
+    spiceManager.start(getInstrumentation().getTargetContext());
+    if (startStopCycleIndex != startStopCycleCount - 1) {
+      spiceManager.shouldStop();
+    }
+  }
+  spiceManager.shouldStopAndJoin(REQUEST_COMPLETION_TIME_OUT);
+  Thread.sleep(REQUEST_COMPLETION_TIME_OUT);
+  Set<Thread> threadSet=Thread.getAllStackTraces().keySet();
+  int spiceManagerThreadCount=0;
+  for (  Thread thread : threadSet) {
+    if (thread.getName().startsWith(SpiceManager.SPICE_MANAGER_THREAD_NAM_PREFIX)) {
+      spiceManagerThreadCount++;
+    }
+  }
+  assertEquals(0,spiceManagerThreadCount);
+}

@@ -12,7 +12,7 @@
       }
     }
 );
-    runner=new Thread(this);
+    runner=new Thread(this,SPICE_MANAGER_THREAD_NAM_PREFIX + spiceManagerThreadIndex++);
     runner.setPriority(Thread.MIN_PRIORITY);
     isStopped=false;
     runner.start();
