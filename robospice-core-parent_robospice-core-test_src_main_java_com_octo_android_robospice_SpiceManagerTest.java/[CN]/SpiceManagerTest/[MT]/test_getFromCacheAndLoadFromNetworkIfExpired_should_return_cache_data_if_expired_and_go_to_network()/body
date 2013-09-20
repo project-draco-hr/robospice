@@ -1,11 +1,16 @@
 {
   spiceManager.start(getInstrumentation().getTargetContext());
-  SpiceRequestStub<Integer> spiceRequestStub=new SpiceRequestFailingStub<Integer>(TEST_CLASS2);
+  SpiceRequestStub<Integer> spiceRequestStub=new SpiceRequestFailingStub<Integer>(TEST_CLASS2,WAIT_BEFORE_EXECUTING_REQUEST_LARGE);
   RequestListenerWithProgressStub<Integer> requestListenerStub=new RequestListenerWithProgressStub<Integer>();
   spiceManager.getFromCacheAndLoadFromNetworkIfExpired(spiceRequestStub,"",DurationInMillis.ONE_MINUTE * 2,requestListenerStub);
   spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
+  requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
+  assertTrue(requestListenerStub.isSuccessful());
+  requestListenerStub.resetSuccess();
   requestListenerStub.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
+  requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
   assertTrue(spiceRequestStub.isLoadDataFromNetworkCalled());
   assertTrue(requestListenerStub.isExecutedInUIThread());
   assertTrue(requestListenerStub.isComplete());
+  assertFalse(requestListenerStub.isSuccessful());
 }
