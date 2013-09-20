@@ -1,0 +1,5 @@
+{
+  Thread t=new Thread(arg0);
+  t.setPriority(Thread.MIN_PRIORITY);
+  return t;
+}
