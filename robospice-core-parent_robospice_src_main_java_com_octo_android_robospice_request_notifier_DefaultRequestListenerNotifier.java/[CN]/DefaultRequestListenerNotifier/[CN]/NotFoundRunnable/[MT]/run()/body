@@ -1,0 +1,14 @@
+{
+  if (listeners == null) {
+    return;
+  }
+  Ln.v("Notifying " + listeners.size() + " listeners of request not found");
+synchronized (listeners) {
+    for (    final RequestListener<?> listener : listeners) {
+      if (listener != null && listener instanceof PendingRequestListener) {
+        Ln.v("Notifying %s",listener.getClass().getSimpleName());
+        ((PendingRequestListener<?>)listener).onRequestNotFound();
+      }
+    }
+  }
+}
