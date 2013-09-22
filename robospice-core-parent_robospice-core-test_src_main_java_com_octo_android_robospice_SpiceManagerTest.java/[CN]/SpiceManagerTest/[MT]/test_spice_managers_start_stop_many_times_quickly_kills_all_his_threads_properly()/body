@@ -1,7 +1,8 @@
 {
   final int startStopCycleCount=100;
   for (int startStopCycleIndex=0; startStopCycleIndex < startStopCycleCount; startStopCycleIndex++) {
-    spiceManager.start(getInstrumentation().getTargetContext());
+    spiceManager.start(getContext());
+    Thread.sleep(SMALL_THREAD_SLEEP);
     if (startStopCycleIndex != startStopCycleCount - 1) {
       spiceManager.shouldStop();
     }

@@ -1,7 +1,7 @@
 {
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   spiceManager.shouldStopAndJoin(SPICE_MANAGER_WAIT_TIMEOUT);
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   SpiceRequestStub<String> spiceRequestStub=new SpiceRequestFailingStub<String>(TEST_CLASS,WAIT_BEFORE_EXECUTING_REQUEST_LARGE);
   RequestListenerStub<String> requestListenerStub=new RequestListenerStub<String>();
   spiceManager.execute(spiceRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);

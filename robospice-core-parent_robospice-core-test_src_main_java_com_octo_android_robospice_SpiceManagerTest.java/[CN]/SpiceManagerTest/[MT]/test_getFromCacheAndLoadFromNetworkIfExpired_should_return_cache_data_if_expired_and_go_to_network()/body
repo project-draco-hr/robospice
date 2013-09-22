@@ -1,5 +1,5 @@
 {
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   SpiceRequestStub<Integer> spiceRequestStub=new SpiceRequestFailingStub<Integer>(TEST_CLASS2,WAIT_BEFORE_EXECUTING_REQUEST_LARGE);
   RequestListenerWithProgressStub<Integer> requestListenerStub=new RequestListenerWithProgressStub<Integer>();
   spiceManager.getFromCacheAndLoadFromNetworkIfExpired(spiceRequestStub,"",DurationInMillis.ONE_MINUTE * 2,requestListenerStub);

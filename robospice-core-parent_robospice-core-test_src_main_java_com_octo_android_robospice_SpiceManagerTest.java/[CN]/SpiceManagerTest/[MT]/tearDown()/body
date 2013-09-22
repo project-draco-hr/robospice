@@ -1,5 +1,5 @@
 {
   waitForSpiceManagerShutdown(spiceManager);
-  getInstrumentation().getTargetContext().stopService(new Intent(getInstrumentation().getTargetContext(),SpiceTestService.class));
+  getContext().stopService(new Intent(getContext(),SpiceTestService.class));
   super.tearDown();
 }

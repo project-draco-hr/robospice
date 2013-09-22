@@ -1,4 +1,4 @@
 {
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   spiceManager.cancel(TEST_CLASS,TEST_CACHE_KEY);
 }

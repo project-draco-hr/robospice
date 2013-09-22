@@ -1,5 +1,5 @@
 {
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   spiceManager.removeDataFromCache(TEST_CLASS3,true);
   RequestListenerStub<Double> requestListenerStub=new RequestListenerStub<Double>();
   spiceManager.putInCache(TEST_CLASS3,TEST_CACHE_KEY,TEST_RETURNED_DATA3,requestListenerStub);

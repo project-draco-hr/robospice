@@ -1,5 +1,5 @@
 {
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   SpiceRequestStub<String> spiceRequestStub=new SpiceRequestFailingStub<String>(TEST_CLASS,WAIT_BEFORE_EXECUTING_REQUEST_LARGE);
   SpiceRequestStub<String> spiceRequestStub2=new SpiceRequestFailingStub<String>(TEST_CLASS);
   RequestListenerStub<String> requestListenerStub=new RequestListenerStub<String>();

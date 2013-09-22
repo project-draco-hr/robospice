@@ -1,9 +1,9 @@
 {
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   SpiceRequestStub<String> spiceRequestStub=new SpiceRequestFailingStub<String>(TEST_CLASS);
   PendingRequestListenerWithProgressStub<String> requestListenerStub=new PendingRequestListenerWithProgressStub<String>();
   spiceManager.addListenerIfPending(TEST_CLASS,TEST_CACHE_KEY,requestListenerStub);
-  spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(WAIT_BEFORE_EXECUTING_REQUEST_LARGE + REQUEST_COMPLETION_TIME_OUT);
+  spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(WAIT_BEFORE_EXECUTING_REQUEST_LARGE);
   assertNull(requestListenerStub.isSuccessful());
   assertFalse(requestListenerStub.isComplete());
   assertNull(requestListenerStub.getReceivedException());

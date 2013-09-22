@@ -1,5 +1,5 @@
 {
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   spiceManager.removeDataFromCache(TEST_CLASS,true);
   assertNull(spiceManager.getDateOfDataInCache(TEST_CLASS,TEST_CACHE_KEY).get(SPICE_MANAGER_WAIT_TIMEOUT,TimeUnit.MILLISECONDS));
 }

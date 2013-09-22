@@ -1,5 +1,5 @@
 {
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   SpiceRequestStub<Integer> spiceRequestStub=new SpiceRequestFailingStub<Integer>(TEST_CLASS2);
   RequestListenerStub<Integer> requestListenerStub=new RequestListenerStub<Integer>();
   spiceManager.execute(spiceRequestStub,"",DurationInMillis.ALWAYS_EXPIRED,requestListenerStub);

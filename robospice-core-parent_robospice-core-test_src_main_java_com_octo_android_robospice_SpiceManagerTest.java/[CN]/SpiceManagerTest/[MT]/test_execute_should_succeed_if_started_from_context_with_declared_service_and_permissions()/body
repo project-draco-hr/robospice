@@ -1,4 +1,4 @@
 {
-  spiceManager.start(getInstrumentation().getContext());
+  spiceManager.start(getContext());
   assertNull(spiceManager.getException(SERVICE_TIME_OUT_WHEN_THROW_EXCEPTION));
 }

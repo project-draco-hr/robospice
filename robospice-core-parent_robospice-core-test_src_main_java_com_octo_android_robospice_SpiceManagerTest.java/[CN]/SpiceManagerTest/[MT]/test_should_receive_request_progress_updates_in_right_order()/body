@@ -1,5 +1,5 @@
 {
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   SpiceRequestStub<String> spiceRequestStub=new SpiceRequestSucceedingStub<String>(TEST_CLASS,TEST_RETURNED_DATA);
   RequestListenerWithProgressHistoryStub<String> requestListenerStub=new RequestListenerWithProgressHistoryStub<String>();
   spiceManager.execute(spiceRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
