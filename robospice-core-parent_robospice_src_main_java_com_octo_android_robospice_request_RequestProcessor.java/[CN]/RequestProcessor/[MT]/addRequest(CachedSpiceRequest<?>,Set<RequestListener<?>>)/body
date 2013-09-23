@@ -5,7 +5,7 @@ synchronized (mapRequestToRequestListener) {
       for (      final CachedSpiceRequest<?> cachedSpiceRequest : mapRequestToRequestListener.keySet()) {
         if (cachedSpiceRequest.equals(request)) {
           cachedSpiceRequest.cancel();
-          requestProgressManager.notifyListenersOfRequestCancellation(request,null);
+          requestProgressManager.notifyListenersOfRequestCancellation(request);
           return;
         }
       }
@@ -42,15 +42,15 @@ synchronized (mapRequestToRequestListener) {
   }
   final RequestCancellationListener requestCancellationListener=new RequestCancellationListener(){
     @Override public void onRequestCancelled(){
+      requestProgressManager.notifyListenersOfRequestCancellation(request);
       mapRequestToRequestListener.remove(request);
-      requestProgressManager.notifyListenersOfRequestCancellation(request,listRequestListener);
     }
   }
 ;
   request.setRequestCancellationListener(requestCancellationListener);
   if (request.isCancelled()) {
+    requestProgressManager.notifyListenersOfRequestCancellation(request);
     mapRequestToRequestListener.remove(request);
-    requestProgressManager.notifyListenersOfRequestCancellation(request,listRequestListener);
     return;
   }
  else {
