@@ -9,6 +9,7 @@
   spiceManager.execute(spiceRequestStub,TEST_CACHE_KEY,DurationInMillis.ALWAYS_EXPIRED,requestListenerStub);
   spiceManager2.execute(spiceRequestStub2,TEST_CACHE_KEY,DurationInMillis.ALWAYS_EXPIRED,requestListenerStub2);
   spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
+  spiceRequestStub2.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
   assertEquals(0,spiceManager.getRequestToLaunchCount());
   assertTrue(spiceManager.getPendingRequestCount() <= 1);
   assertEquals(0,spiceManager2.getRequestToLaunchCount());

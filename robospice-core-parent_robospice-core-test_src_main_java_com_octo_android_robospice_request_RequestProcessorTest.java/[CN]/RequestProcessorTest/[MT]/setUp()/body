@@ -1,7 +1,6 @@
 {
   super.setUp();
-  System.setProperty("dexmaker.dexcache",getInstrumentation().getTargetContext().getCacheDir().getPath());
-  getInstrumentation().waitForIdleSync();
+  System.setProperty("dexmaker.dexcache",getContext().getCacheDir().getPath());
   mockCacheManager=EasyMock.createMock(CacheManager.class);
   requestProcessorListener=new RequestProcessorListener(){
     @Override public void allRequestComplete(){
@@ -14,5 +13,5 @@
   networkStateChecker=new MockNetworkStateChecker();
   progressReporter=new DefaultRequestListenerNotifier();
   spiceServiceListenerNotifier=new SpiceServiceListenerNotifier();
-  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter,spiceServiceListenerNotifier);
+  requestProcessorUnderTest=new RequestProcessor(getContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter,spiceServiceListenerNotifier);
 }

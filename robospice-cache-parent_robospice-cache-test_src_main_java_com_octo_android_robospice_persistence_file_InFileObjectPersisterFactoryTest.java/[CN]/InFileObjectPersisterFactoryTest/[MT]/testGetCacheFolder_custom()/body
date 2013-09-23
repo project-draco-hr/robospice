@@ -1,5 +1,5 @@
 {
-  final File cacheFolder=getInstrumentation().getTargetContext().getCacheDir();
+  final File cacheFolder=getContext().getCacheDir();
   inFileObjectPersisterFactory.setCacheFolder(cacheFolder);
   File actual2=inFileObjectPersisterFactory.getCacheFolder();
   assertEquals(cacheFolder,actual2);

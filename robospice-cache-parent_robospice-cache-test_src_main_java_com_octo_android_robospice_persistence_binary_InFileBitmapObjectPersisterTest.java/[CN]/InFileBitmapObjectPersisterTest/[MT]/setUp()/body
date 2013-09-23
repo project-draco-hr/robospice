@@ -1,6 +1,6 @@
 {
   super.setUp();
-  application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  application=(Application)getContext().getApplicationContext();
   testPersister=new InFileBitmapObjectPersister(application);
   testPersister.removeAllDataFromCache();
 }

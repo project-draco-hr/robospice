@@ -1,7 +1,7 @@
 {
   PausableThreadPoolExecutor executorService=PriorityThreadPoolExecutor.getPriorityExecutor(1);
   networkStateChecker=new MockNetworkStateChecker();
-  requestProcessorUnderTest=new RequestProcessor(getInstrumentation().getTargetContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter,spiceServiceListenerNotifier);
+  requestProcessorUnderTest=new RequestProcessor(getContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter,spiceServiceListenerNotifier);
   EasyMock.expect(mockCacheManager.loadDataFromCache(EasyMock.eq(TEST_CLASS),EasyMock.eq(TEST_CACHE_KEY),EasyMock.eq(TEST_DURATION))).andReturn(null);
   EasyMock.expect(mockCacheManager.saveDataToCacheAndReturnData(EasyMock.eq(TEST_RETURNED_DATA),EasyMock.eq(TEST_CACHE_KEY))).andReturn(TEST_RETURNED_DATA);
   EasyMock.expect(mockCacheManager.loadDataFromCache(EasyMock.eq(TEST_CLASS),EasyMock.eq(TEST_CACHE_KEY2),EasyMock.eq(TEST_DURATION))).andReturn(null);

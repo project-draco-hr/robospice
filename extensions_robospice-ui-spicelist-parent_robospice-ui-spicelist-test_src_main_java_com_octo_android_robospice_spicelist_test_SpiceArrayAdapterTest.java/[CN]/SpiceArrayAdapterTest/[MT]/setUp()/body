@@ -1,10 +1,10 @@
 {
   super.setUp();
-  cacheFile=new File(getInstrumentation().getTargetContext().getCacheDir(),"Foo");
+  cacheFile=new File(getContext().getCacheDir(),"Foo");
   cacheFile.delete();
   mockWebServer=new MockWebServer();
   spiceManager=new BitmapSpiceManagerUnderTest();
-  spiceManager.start(getInstrumentation().getTargetContext());
+  spiceManager.start(getContext());
   data=new ArrayList<DataUnderTest>();
   data1=new DataUnderTest();
   data1.setFoo("data1");
@@ -14,5 +14,5 @@
   data2.setImageUrl("data2.png");
   data.add(data1);
   data.add(data2);
-  adapter=new SpiceArrayAdapterUnderTest(getInstrumentation().getTargetContext(),spiceManager,data);
+  adapter=new SpiceArrayAdapterUnderTest(getContext(),spiceManager,data);
 }

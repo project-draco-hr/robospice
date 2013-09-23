@@ -1,4 +1,4 @@
 {
   File actual=inFileObjectPersisterFactory.getCacheFolder();
-  assertEquals(new File(getInstrumentation().getTargetContext().getCacheDir(),InFileObjectPersister.DEFAULT_ROOT_CACHE_DIR),actual);
+  assertEquals(new File(getContext().getCacheDir(),InFileObjectPersister.DEFAULT_ROOT_CACHE_DIR),actual);
 }

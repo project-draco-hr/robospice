@@ -1,5 +1,5 @@
 {
   testPersister=new LruCacheStringObjectPersister(TEST_LRU_CACHE_SIZE);
-  Application application=(Application)getInstrumentation().getTargetContext().getApplicationContext();
+  Application application=(Application)getContext().getApplicationContext();
   testPersisterWithFallback=new LruCacheStringObjectPersister(new InFileStringObjectPersister(application),TEST_LRU_CACHE_SIZE);
 }

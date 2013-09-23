@@ -1,6 +1,6 @@
 {
-  InFileObjectPersister<String> inFileStringObjectPersister=new InFileStringObjectPersister((Application)getInstrumentation().getTargetContext().getApplicationContext());
-  InFileObjectPersisterFactoryThatCreatesPersisterUnderTest mockFactoryPersister=new InFileObjectPersisterFactoryThatCreatesPersisterUnderTest((Application)getInstrumentation().getTargetContext().getApplicationContext());
+  InFileObjectPersister<String> inFileStringObjectPersister=new InFileStringObjectPersister((Application)getContext().getApplicationContext());
+  InFileObjectPersisterFactoryThatCreatesPersisterUnderTest mockFactoryPersister=new InFileObjectPersisterFactoryThatCreatesPersisterUnderTest((Application)getContext().getApplicationContext());
   inFileStringObjectPersister.setFactoryCachePrefix(mockFactoryPersister.getCachePrefix());
   inFileStringObjectPersister.saveDataToCacheAndReturnData(TEST_PERSISTED_STRING,TEST_CACHE_KEY);
   String dataInCache=inFileStringObjectPersister.loadDataFromCache(TEST_CACHE_KEY,DurationInMillis.ALWAYS_RETURNED);

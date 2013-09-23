@@ -1,5 +1,5 @@
 {
-  byte[] data=IOUtils.toByteArray(getInstrumentation().getContext().getResources().openRawResource(R.raw.binary));
+  byte[] data=IOUtils.toByteArray(getContext().getResources().openRawResource(R.raw.binary));
   mockWebServer.enqueue(new MockResponse().setBody(data));
   mockWebServer.play();
   View view=adapter.getView(0,null,null);
@@ -15,5 +15,5 @@
   RecordedRequest first=mockWebServer.takeRequest();
   assertEquals("GET /" + data1.getImageUrl() + " HTTP/1.1",first.getRequestLine());
   InputStream cacheInputStream=new FileInputStream(cacheFile);
-  assertTrue(IOUtils.contentEquals(cacheInputStream,getInstrumentation().getContext().getResources().openRawResource(R.raw.binary)));
+  assertTrue(IOUtils.contentEquals(cacheInputStream,getContext().getResources().openRawResource(R.raw.binary)));
 }

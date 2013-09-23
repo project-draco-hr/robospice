@@ -1,11 +1,11 @@
 {
-  byte[] data=IOUtils.toByteArray(getInstrumentation().getContext().getResources().openRawResource(R.raw.binary));
+  byte[] data=IOUtils.toByteArray(getContext().getResources().openRawResource(R.raw.binary));
   mockWebServer.enqueue(new MockResponse().setBody(data));
   mockWebServer.play();
   BitmapRequest binaryRequest=new BitmapRequest(mockWebServer.getUrl("/").toString(),TEST_BITMAP_REDUCED_WIDTH,TEST_BITMAP_REDUCED_HEIGHT,cacheFile);
   Bitmap bitmapReturned=binaryRequest.loadDataFromNetwork();
   InputStream cacheInputStream=new FileInputStream(cacheFile);
-  assertTrue(IOUtils.contentEquals(cacheInputStream,getInstrumentation().getContext().getResources().openRawResource(R.raw.binary)));
+  assertTrue(IOUtils.contentEquals(cacheInputStream,getContext().getResources().openRawResource(R.raw.binary)));
   assertEquals(TEST_BITMAP_REDUCED_WIDTH,bitmapReturned.getWidth());
   assertEquals(TEST_BITMAP_REDUCED_HEIGHT,bitmapReturned.getHeight());
 }
