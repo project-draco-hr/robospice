@@ -1,5 +1,3 @@
 {
-  if (mapRequestToLaunchToRequestListener.containsKey(cachedSpiceRequest)) {
-    mapRequestToLaunchToRequestListener.remove(cachedSpiceRequest);
-  }
+  mapRequestToLaunchToRequestListener.remove(cachedSpiceRequest);
 }

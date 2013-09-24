@@ -1,6 +1,6 @@
 {
-  if (mapRequestToLaunchToRequestListener.containsKey(cachedSpiceRequest)) {
-    mapRequestToLaunchToRequestListener.remove(cachedSpiceRequest);
-    mapPendingRequestToRequestListener.put(cachedSpiceRequest,requestProcessingContext.getRequestListeners());
+  Set<RequestListener<?>> listeners=mapRequestToLaunchToRequestListener.remove(cachedSpiceRequest);
+  if (listeners != null) {
+    mapPendingRequestToRequestListener.put(cachedSpiceRequest,listeners);
   }
 }
