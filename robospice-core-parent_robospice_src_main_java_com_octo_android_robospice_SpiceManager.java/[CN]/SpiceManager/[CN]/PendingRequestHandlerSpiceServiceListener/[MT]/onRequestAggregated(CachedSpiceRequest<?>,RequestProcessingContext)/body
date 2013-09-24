@@ -1,11 +1,13 @@
 {
   Set<RequestListener<?>> listeners=mapPendingRequestToRequestListener.get(cachedSpiceRequest);
   if (listeners == null) {
-    listeners=new HashSet<RequestListener<?>>();
+    listeners=Collections.synchronizedSet(new HashSet<RequestListener<?>>());
     mapPendingRequestToRequestListener.put(cachedSpiceRequest,listeners);
   }
   Set<RequestListener<?>> listenersToLaunch=mapRequestToLaunchToRequestListener.remove(cachedSpiceRequest);
   if (listenersToLaunch != null) {
-    listeners.addAll(listenersToLaunch);
+synchronized (mapPendingRequestToRequestListener) {
+      listeners.addAll(listenersToLaunch);
+    }
   }
 }

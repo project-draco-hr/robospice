@@ -1,9 +1,6 @@
 {
 synchronized (mapPendingRequestToRequestListener) {
     if (!mapPendingRequestToRequestListener.isEmpty()) {
-      if (spiceService == null) {
-        return;
-      }
       for (      final CachedSpiceRequest<?> cachedSpiceRequest : mapPendingRequestToRequestListener.keySet()) {
         final Set<RequestListener<?>> setRequestListeners=mapPendingRequestToRequestListener.get(cachedSpiceRequest);
         if (setRequestListeners != null) {
@@ -13,6 +10,6 @@ synchronized (mapPendingRequestToRequestListener) {
       }
       mapPendingRequestToRequestListener.clear();
     }
-    Ln.v("Cleared listeners of all pending requests");
   }
+  Ln.v("Cleared listeners of all pending requests");
 }
