@@ -1,16 +1,15 @@
 {
-  NotificationCompat.Builder builder=new NotificationCompat.Builder(this);
+  Notification notification=new Notification();
   if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH && android.os.Build.VERSION.SDK_INT <= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
-    builder.setSmallIcon(getApplicationInfo().icon);
+    notification.icon=getApplicationInfo().icon;
   }
  else {
-    builder.setSmallIcon(0);
+    notification.icon=0;
   }
-  builder.setTicker(null);
-  builder.setWhen(System.currentTimeMillis());
-  final Notification note=builder.getNotification();
+  notification.tickerText=null;
+  notification.when=System.currentTimeMillis();
   if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-    note.priority=Notification.PRIORITY_MIN;
+    notification.priority=Notification.PRIORITY_MIN;
   }
-  return note;
+  return notification;
 }
