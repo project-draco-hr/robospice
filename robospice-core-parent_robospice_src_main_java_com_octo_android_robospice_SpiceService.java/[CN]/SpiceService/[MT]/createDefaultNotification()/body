@@ -2,6 +2,8 @@
   Notification notification=new Notification();
   if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH && android.os.Build.VERSION.SDK_INT <= Build.VERSION_CODES.ICE_CREAM_SANDWICH_MR1) {
     notification.icon=getApplicationInfo().icon;
+    PendingIntent pendingIntent=PendingIntent.getActivity(getApplicationContext(),0,new Intent(),0);
+    notification.setLatestEventInfo(this,"","",pendingIntent);
   }
  else {
     notification.icon=0;
