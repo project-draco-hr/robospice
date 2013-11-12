@@ -1,6 +1,6 @@
 {
   this.contextWeakReference=new WeakReference<Context>(context);
-  if (runner != null) {
+  if (isStarted()) {
     throw new IllegalStateException("Already started.");
   }
  else {
