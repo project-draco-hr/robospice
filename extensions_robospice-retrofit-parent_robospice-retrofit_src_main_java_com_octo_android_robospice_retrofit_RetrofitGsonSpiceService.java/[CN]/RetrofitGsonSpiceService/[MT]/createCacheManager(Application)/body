@@ -1,5 +1,5 @@
 {
   CacheManager cacheManager=new CacheManager();
-  cacheManager.addPersister(new RetrofitObjectPersisterFactory(application,converter,getCacheFolder()));
+  cacheManager.addPersister(new RetrofitObjectPersisterFactory(application,getConverter(),getCacheFolder()));
   return cacheManager;
 }
