@@ -1,0 +1,3 @@
+{
+  super(application,new JacksonConverter(new ObjectMapper()));
+}
