@@ -1,0 +1,7 @@
+{
+  shutdownService();
+  if (spiceManager.isStarted()) {
+    spiceManager.shouldStopAndJoin(REQUEST_COMPLETION_TIMEOUT);
+  }
+  super.tearDown();
+}
