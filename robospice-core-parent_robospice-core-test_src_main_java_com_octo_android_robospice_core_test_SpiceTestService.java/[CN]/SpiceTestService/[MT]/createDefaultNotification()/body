@@ -1,0 +1,5 @@
+{
+  Notification notification=super.createDefaultNotification();
+  notification.icon=android.R.drawable.stat_sys_download;
+  return notification;
+}
