@@ -1,6 +1,6 @@
 {
   Intent startIntent=new Intent();
-  startIntent.setClass(getContext(),RetrofitGsonSpiceTestService.class);
+  startIntent.setClass(getContext(),RetrofitJackson2SpiceTestService.class);
   startService(startIntent);
   assertNotNull(getService().createRestAdapterBuilder());
 }

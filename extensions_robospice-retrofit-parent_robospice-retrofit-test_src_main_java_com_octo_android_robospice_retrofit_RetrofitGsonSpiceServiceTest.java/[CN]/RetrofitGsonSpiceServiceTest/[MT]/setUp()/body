@@ -1,4 +1,4 @@
 {
   super.setUp();
-  spiceManager=new SpiceManager(RetrofitSpiceTestService.class);
+  spiceManager=new SpiceManager(RetrofitGsonSpiceTestService.class);
 }

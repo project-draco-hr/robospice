@@ -1,1 +1,1 @@
-ServiceTestCase<RetrofitSpiceTestService>
+ServiceTestCase<RetrofitGsonSpiceTestService>

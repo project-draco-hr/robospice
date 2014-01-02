@@ -1,0 +1,3 @@
+{
+  super(RetrofitJackson2SpiceTestService.class);
+}
