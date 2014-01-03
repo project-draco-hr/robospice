@@ -39,6 +39,7 @@ synchronized (mapRequestToRequestListener) {
       requestProgressManager.notifyListenersOfRequestNotFound(request,listRequestListener);
     }
     requestProgressManager.notifyOfRequestProcessed(request,listRequestListener);
+    return;
   }
   final RequestCancellationListener requestCancellationListener=new RequestCancellationListener(){
     @Override public void onRequestCancelled(){
