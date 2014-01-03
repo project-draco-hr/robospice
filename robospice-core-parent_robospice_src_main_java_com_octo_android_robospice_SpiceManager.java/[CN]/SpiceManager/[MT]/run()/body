@@ -1,11 +1,5 @@
 {
-  Context context=contextWeakReference.get();
-  if (context != null) {
-    checkServiceIsProperlyDeclaredInAndroidManifest(context);
-    final Intent intent=new Intent(context,spiceServiceClass);
-    context.startService(intent);
-  }
- else {
+  if (!tryToStartService()) {
     Ln.d("Service was not started as Activity died prematurely");
     isStopped=true;
     return;
