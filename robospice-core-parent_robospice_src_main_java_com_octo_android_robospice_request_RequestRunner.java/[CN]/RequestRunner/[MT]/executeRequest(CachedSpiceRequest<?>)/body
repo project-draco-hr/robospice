@@ -1,3 +1,7 @@
 {
+  if (isStopped) {
+    Ln.d("Dropping request : " + request + " as runner is stopped.");
+    return;
+  }
   planRequestExecution(request);
 }

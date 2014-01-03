@@ -1,0 +1,4 @@
+{
+  requestProcessorUnderTest.shouldStop();
+  super.tearDown();
+}

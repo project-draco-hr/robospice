@@ -1,4 +1,8 @@
 {
+  if (isStopped) {
+    Ln.d("Dropping request : " + request + " as processor is stopped.");
+    return;
+  }
   Ln.d("Adding request to queue " + hashCode() + ": "+ request+ " size is "+ mapRequestToRequestListener.size());
   if (request.isCancelled()) {
 synchronized (mapRequestToRequestListener) {

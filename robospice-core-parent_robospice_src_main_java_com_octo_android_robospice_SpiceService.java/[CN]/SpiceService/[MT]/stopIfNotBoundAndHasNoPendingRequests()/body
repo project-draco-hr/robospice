@@ -1,6 +1,7 @@
 {
   Ln.v("Pending requests : " + currentPendingRequestCount);
   if (currentPendingRequestCount == 0 && !isBound) {
+    requestProcessor.shouldStop();
     stopSelf();
   }
 }

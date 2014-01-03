@@ -1,0 +1,4 @@
+{
+  isStopped=true;
+  executorService.shutdown();
+}
