@@ -1,4 +1,5 @@
 {
   super.setUp();
+  Thread.sleep(SMALL_THREAD_SLEEP);
   spiceManager=new SpiceManager(OkHttpSpiceTestService.class);
 }

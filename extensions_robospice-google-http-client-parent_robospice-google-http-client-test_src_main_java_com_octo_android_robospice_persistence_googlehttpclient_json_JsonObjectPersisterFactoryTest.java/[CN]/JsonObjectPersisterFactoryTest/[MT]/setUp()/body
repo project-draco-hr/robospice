@@ -1,5 +1,6 @@
 {
   super.setUp();
+  Thread.sleep(SMALL_THREAD_SLEEP);
   Application application=(Application)getContext().getApplicationContext();
   JsonObjectPersisterFactory factory=getJsonObjectPersisterFactory(application);
   inFileObjectPersister=factory.createInFileObjectPersister(WeatherResult.class,null);
