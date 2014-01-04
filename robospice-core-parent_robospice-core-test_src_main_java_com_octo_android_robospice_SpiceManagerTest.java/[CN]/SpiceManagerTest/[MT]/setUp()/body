@@ -1,4 +1,5 @@
 {
   super.setUp();
   spiceManager=new SpiceManagerUnderTest(SpiceTestService.class);
+  Thread.sleep(SMALL_THREAD_SLEEP);
 }
