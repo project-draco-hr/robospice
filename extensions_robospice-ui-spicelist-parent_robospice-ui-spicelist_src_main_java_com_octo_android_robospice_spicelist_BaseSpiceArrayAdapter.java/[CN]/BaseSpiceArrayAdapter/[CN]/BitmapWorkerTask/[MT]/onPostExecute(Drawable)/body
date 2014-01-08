@@ -1,0 +1,26 @@
+{
+  if (isCancelled()) {
+    drawable=null;
+  }
+  if (imageViewReference != null && drawable != null) {
+    final ImageView imageView=imageViewReference.get();
+    final BitmapWorkerTask bitmapWorkerTask=getBitmapWorkerTask(imageView);
+    if (this == bitmapWorkerTask) {
+      if (freshDrawableSet.remove(data)) {
+        animation.setAnimationListener(new AnimationListener(){
+          @Override public void onAnimationStart(          Animation animation){
+            imageView.setHasTransientState(true);
+          }
+          @Override public void onAnimationRepeat(          Animation animation){
+          }
+          @Override public void onAnimationEnd(          Animation animation){
+            imageView.setHasTransientState(false);
+          }
+        }
+);
+        imageView.startAnimation(animation);
+      }
+      imageView.setImageDrawable(drawable);
+    }
+  }
+}

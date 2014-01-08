@@ -2,5 +2,5 @@
   animation=AnimationUtils.loadAnimation(getContext(),android.R.anim.fade_in);
   animation.setDuration(getContext().getResources().getInteger(android.R.integer.config_mediumAnimTime));
   fileName=params[0];
-  return BitmapFactory.decodeFile(fileName,null);
+  return new BitmapDrawable(getContext().getResources(),BitmapFactory.decodeFile(fileName,null));
 }
