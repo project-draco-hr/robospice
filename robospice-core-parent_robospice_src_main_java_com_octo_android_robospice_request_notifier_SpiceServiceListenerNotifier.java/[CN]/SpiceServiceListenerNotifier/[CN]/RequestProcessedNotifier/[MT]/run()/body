@@ -1,5 +1,7 @@
 {
-  for (  SpiceServiceListener listener : spiceServiceListenerList) {
-    listener.onRequestProcessed(request,requestProcessingContext);
+synchronized (spiceServiceListenerList) {
+    for (    SpiceServiceListener listener : spiceServiceListenerList) {
+      listener.onRequestProcessed(request,requestProcessingContext);
+    }
   }
 }

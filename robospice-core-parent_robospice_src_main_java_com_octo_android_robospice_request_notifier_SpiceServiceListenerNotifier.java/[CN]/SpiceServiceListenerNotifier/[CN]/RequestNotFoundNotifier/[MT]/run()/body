@@ -1,6 +1,8 @@
 {
   Ln.d("Processing request not found: %s",request);
-  for (  SpiceServiceListener listener : spiceServiceListenerList) {
-    listener.onRequestNotFound(request,requestProcessingContext);
+synchronized (spiceServiceListenerList) {
+    for (    SpiceServiceListener listener : spiceServiceListenerList) {
+      listener.onRequestNotFound(request,requestProcessingContext);
+    }
   }
 }
