@@ -5,7 +5,8 @@
   if (animationOut != null) {
     animationOut.cancel();
   }
-  if (imageViewReference.get() != null) {
-    imageViewReference.get().setHasTransientState(false);
+  ImageView imageView=imageViewReference.get();
+  if (imageView != null) {
+    imageView.setHasTransientState(false);
   }
 }

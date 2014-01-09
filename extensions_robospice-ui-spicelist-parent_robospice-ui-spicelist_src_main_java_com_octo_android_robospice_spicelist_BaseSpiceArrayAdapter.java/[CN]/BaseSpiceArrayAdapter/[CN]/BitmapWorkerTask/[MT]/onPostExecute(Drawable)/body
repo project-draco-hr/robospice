@@ -11,6 +11,9 @@
         animationOut.setAnimationListener(new TransientStateOutAnimationListener(imageView,animationIn,drawable));
         imageView.startAnimation(animationOut);
       }
+ else {
+        imageView.setImageDrawable(drawable);
+      }
     }
   }
 }
