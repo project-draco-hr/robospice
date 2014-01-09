@@ -1,3 +1,4 @@
 {
   imageView.startAnimation(animationIn);
+  imageView.setImageDrawable(drawable);
 }
