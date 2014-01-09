@@ -1,0 +1,4 @@
+{
+  this.imageView=imageView;
+  this.animationIn=animationIn;
+}

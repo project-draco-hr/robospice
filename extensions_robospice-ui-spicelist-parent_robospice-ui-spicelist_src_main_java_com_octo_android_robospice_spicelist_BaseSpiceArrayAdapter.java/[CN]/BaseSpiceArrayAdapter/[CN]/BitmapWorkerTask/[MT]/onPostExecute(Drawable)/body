@@ -7,8 +7,9 @@
     final BitmapWorkerTask bitmapWorkerTask=getBitmapWorkerTask(imageView);
     if (this == bitmapWorkerTask) {
       if (freshDrawableSet.remove(data)) {
-        animation.setAnimationListener(new TransientStateAnimationListener(imageView));
-        imageView.startAnimation(animation);
+        animationIn.setAnimationListener(new TransientStateInAnimationListener(imageView));
+        animationOut.setAnimationListener(new TransientStateOutAnimationListener(imageView,animationIn));
+        imageView.startAnimation(animationOut);
       }
       imageView.setImageDrawable(drawable);
     }
