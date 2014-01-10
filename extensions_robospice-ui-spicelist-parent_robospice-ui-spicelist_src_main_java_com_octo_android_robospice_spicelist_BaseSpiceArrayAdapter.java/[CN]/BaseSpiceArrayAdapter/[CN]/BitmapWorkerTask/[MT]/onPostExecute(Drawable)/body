@@ -7,9 +7,11 @@
     final BitmapWorkerTask bitmapWorkerTask=getBitmapWorkerTask(imageView);
     if (this == bitmapWorkerTask) {
       if (freshDrawableSet.remove(data)) {
-        animationIn.setAnimationListener(new TransientStateInAnimationListener(imageView));
-        animationOut.setAnimationListener(new TransientStateOutAnimationListener(imageView,animationIn,drawable));
-        imageView.startAnimation(animationOut);
+        Drawable[] layers=new Drawable[]{defaultDrawable,drawable};
+        TransitionDrawable transitionDrawable=new TransitionDrawable(layers);
+        transitionDrawable.setCrossFadeEnabled(true);
+        transitionDrawable.startTransition(getContext().getResources().getInteger(android.R.integer.config_longAnimTime));
+        imageView.setImageDrawable(transitionDrawable);
       }
  else {
         imageView.setImageDrawable(drawable);

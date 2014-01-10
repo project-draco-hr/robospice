@@ -1,8 +1,4 @@
 {
-  animationOut=AnimationUtils.loadAnimation(getContext(),android.R.anim.fade_out);
-  animationOut.setDuration(getContext().getResources().getInteger(android.R.integer.config_longAnimTime));
-  animationIn=AnimationUtils.loadAnimation(getContext(),android.R.anim.fade_in);
-  animationIn.setDuration(getContext().getResources().getInteger(android.R.integer.config_longAnimTime));
   fileName=params[0];
   return new BitmapDrawable(getContext().getResources(),BitmapFactory.decodeFile(fileName,null));
 }

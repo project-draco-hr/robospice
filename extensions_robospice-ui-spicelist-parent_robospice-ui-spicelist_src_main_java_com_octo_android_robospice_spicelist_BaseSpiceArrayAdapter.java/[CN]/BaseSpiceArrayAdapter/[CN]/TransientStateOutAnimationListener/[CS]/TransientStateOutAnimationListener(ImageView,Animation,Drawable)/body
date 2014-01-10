@@ -1,5 +1,0 @@
-{
-  this.imageView=imageView;
-  this.animationIn=animationIn;
-  this.drawable=drawable;
-}
