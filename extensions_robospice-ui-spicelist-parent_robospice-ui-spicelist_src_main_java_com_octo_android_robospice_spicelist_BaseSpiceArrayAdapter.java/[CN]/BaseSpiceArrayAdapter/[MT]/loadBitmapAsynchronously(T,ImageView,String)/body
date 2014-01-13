@@ -8,6 +8,11 @@
     final AsyncDrawable asyncDrawable=new AsyncDrawable(getContext().getResources(),task);
     thumbImageView.setImageDrawable(asyncDrawable);
     thumbImageView.setTag(tempThumbnailImageFileName);
-    task.executeOnExecutor(Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors()),tempThumbnailImageFileName);
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+      task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,tempThumbnailImageFileName);
+    }
+ else {
+      task.execute(tempThumbnailImageFileName);
+    }
   }
 }
