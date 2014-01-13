@@ -1,4 +1,5 @@
 {
+  requestProcessor.shouldStop();
   Ln.d("SpiceService instance destroyed.");
   super.onDestroy();
 }
