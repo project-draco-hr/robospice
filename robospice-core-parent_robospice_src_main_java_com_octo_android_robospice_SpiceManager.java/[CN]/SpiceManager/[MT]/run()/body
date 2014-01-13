@@ -10,7 +10,7 @@
     if (spiceService == null) {
       return;
     }
-    while (!isStopped && !Thread.interrupted()) {
+    while (!requestQueue.isEmpty() || !isStopped && !Thread.interrupted()) {
       try {
         sendRequestToService(requestQueue.take());
       }

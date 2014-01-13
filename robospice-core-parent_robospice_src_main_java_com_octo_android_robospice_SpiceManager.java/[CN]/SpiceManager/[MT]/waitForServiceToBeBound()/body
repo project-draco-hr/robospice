@@ -2,7 +2,7 @@
   Ln.d("Waiting for service to be bound.");
   lockAcquireService.lock();
   try {
-    while (spiceService == null && !isStopped) {
+    while (spiceService == null && (!requestQueue.isEmpty() || !isStopped)) {
       conditionServiceBound.await();
     }
     Ln.d("Bound ok.");
