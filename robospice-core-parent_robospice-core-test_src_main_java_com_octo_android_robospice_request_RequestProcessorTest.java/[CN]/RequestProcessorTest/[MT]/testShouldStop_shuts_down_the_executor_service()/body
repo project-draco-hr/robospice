@@ -1,7 +1,7 @@
 {
   requestProcessorUnderTest.shouldStop();
   ExecutorService mockExecutorService=EasyMock.createMock(ExecutorService.class);
-  mockRequestRunner=new RequestRunner(getContext(),mockCacheManager,mockExecutorService,mockRequestProgressManager,networkStateChecker);
+  mockRequestRunner=new DefaultRequestRunner(getContext(),mockCacheManager,mockExecutorService,mockRequestProgressManager,networkStateChecker);
   requestProcessorUnderTest=new RequestProcessor(mockCacheManager,mockRequestProgressManager,mockRequestRunner);
   mockExecutorService.shutdown();
   EasyMock.replay(mockExecutorService);

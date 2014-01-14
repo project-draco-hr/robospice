@@ -1,7 +1,7 @@
 {
   PausableThreadPoolExecutor executorService=PriorityThreadPoolExecutor.getPriorityExecutor(1);
   networkStateChecker=new MockNetworkStateChecker();
-  mockRequestRunner=new RequestRunner(getContext(),mockCacheManager,executorService,mockRequestProgressManager,networkStateChecker);
+  mockRequestRunner=new DefaultRequestRunner(getContext(),mockCacheManager,executorService,mockRequestProgressManager,networkStateChecker);
   requestProcessorUnderTest=new RequestProcessor(mockCacheManager,mockRequestProgressManager,mockRequestRunner);
   CachedSpiceRequestStub<String> stubRequestLowPriority=createSuccessfulRequest(TEST_CLASS,TEST_CACHE_KEY2,TEST_DURATION,TEST_RETURNED_DATA2);
   stubRequestLowPriority.setPriority(SpiceRequest.PRIORITY_LOW);

@@ -14,6 +14,6 @@
   progressReporter=new DefaultRequestListenerNotifier();
   spiceServiceListenerNotifier=new SpiceServiceListenerNotifier();
   mockRequestProgressManager=new RequestProgressManager(requestProcessorListener,progressReporter,spiceServiceListenerNotifier);
-  mockRequestRunner=new RequestRunner(getContext(),mockCacheManager,executorService,mockRequestProgressManager,networkStateChecker);
+  mockRequestRunner=new DefaultRequestRunner(getContext(),mockCacheManager,executorService,mockRequestProgressManager,networkStateChecker);
   requestProcessorUnderTest=new RequestProcessor(mockCacheManager,mockRequestProgressManager,mockRequestRunner);
 }
