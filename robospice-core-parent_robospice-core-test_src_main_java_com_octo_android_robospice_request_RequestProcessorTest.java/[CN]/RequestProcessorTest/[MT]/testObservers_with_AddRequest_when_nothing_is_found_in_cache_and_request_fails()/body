@@ -2,7 +2,8 @@
   CachedSpiceRequestStub<String> stubRequest=createFailedRequest(TEST_CLASS,TEST_CACHE_KEY,TEST_DURATION);
   stubRequest.setRetryPolicy(null);
   ExecutorService executorService=PriorityThreadPoolExecutor.getPriorityExecutor(1);
-  requestProcessorUnderTest=new RequestProcessor(getContext(),mockCacheManager,executorService,requestProcessorListener,networkStateChecker,progressReporter,spiceServiceListenerNotifier);
+  mockRequestRunner=new RequestRunner(getContext(),mockCacheManager,executorService,mockRequestProgressManager,networkStateChecker);
+  requestProcessorUnderTest=new RequestProcessor(mockCacheManager,mockRequestProgressManager,mockRequestRunner);
   RequestListenerWithProgressStub<String> mockRequestListener=new RequestListenerWithProgressStub<String>();
   Set<RequestListener<?>> requestListenerSet=new HashSet<RequestListener<?>>();
   requestListenerSet.add(mockRequestListener);

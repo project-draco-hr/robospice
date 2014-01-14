@@ -1,6 +1,5 @@
 {
   this.requestProcessorListener=requestProcessorListener;
-  this.mapRequestToRequestListener=mapRequestToRequestListener;
   this.requestListenerNotifier=requestListenerNotifier;
   this.spiceServiceListenerNotifier=spiceServiceListenerNotifier;
 }

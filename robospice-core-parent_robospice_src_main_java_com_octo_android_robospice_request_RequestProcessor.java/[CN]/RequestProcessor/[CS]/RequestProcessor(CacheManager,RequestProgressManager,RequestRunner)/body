@@ -1,0 +1,6 @@
+{
+  this.cacheManager=cacheManager;
+  this.requestProgressManager=requestProgressManager;
+  requestProgressManager.setMapRequestToRequestListener(mapRequestToRequestListener);
+  this.requestRunner=requestRunner;
+}

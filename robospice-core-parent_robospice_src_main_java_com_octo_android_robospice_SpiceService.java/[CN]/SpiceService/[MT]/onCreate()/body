@@ -13,11 +13,14 @@
     stopSelf();
     return;
   }
-  progressReporter=createRequestRequestListenerNotifier();
-  spiceServiceListenerNotifier=createSpiceServiceListenerNotifier();
+  final RequestListenerNotifier progressReporter=createRequestRequestListenerNotifier();
+  final SpiceServiceListenerNotifier spiceServiceListenerNotifier=createSpiceServiceListenerNotifier();
+  final RequestProcessorListener requestProcessorListener=createRequestProcessorListener();
   final ExecutorService executorService=getExecutorService();
   final NetworkStateChecker networkStateChecker=getNetworkStateChecker();
-  requestProcessor=createRequestProcessor(executorService,networkStateChecker);
+  final RequestProgressManager requestProgressManager=createRequestProgressManager(requestProcessorListener,progressReporter,spiceServiceListenerNotifier);
+  final RequestRunner requestRunner=createRequestRunner(executorService,networkStateChecker,requestProgressManager);
+  requestProcessor=createRequestProcessor(cacheManager,requestProgressManager,requestRunner);
   requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
   notification=createDefaultNotification();
   Ln.d("SpiceService instance created.");
