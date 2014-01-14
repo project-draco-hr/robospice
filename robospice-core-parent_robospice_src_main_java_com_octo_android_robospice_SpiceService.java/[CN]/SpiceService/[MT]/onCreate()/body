@@ -19,7 +19,7 @@
   final ExecutorService executorService=getExecutorService();
   final NetworkStateChecker networkStateChecker=getNetworkStateChecker();
   final RequestProgressManager requestProgressManager=createRequestProgressManager(requestProcessorListener,progressReporter,spiceServiceListenerNotifier);
-  final DefaultRequestRunner requestRunner=createRequestRunner(executorService,networkStateChecker,requestProgressManager);
+  final RequestRunner requestRunner=createRequestRunner(executorService,networkStateChecker,requestProgressManager);
   requestProcessor=createRequestProcessor(cacheManager,requestProgressManager,requestRunner);
   requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
   notification=createDefaultNotification();
