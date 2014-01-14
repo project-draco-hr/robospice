@@ -2,9 +2,14 @@
   lockSendRequestsToService.lock();
   try {
     if (spiceRequest != null && spiceService != null) {
-      final Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.get(spiceRequest);
-      Ln.d("Sending request to service : " + spiceRequest.getClass().getSimpleName());
-      spiceService.addRequest(spiceRequest,listRequestListener);
+      if (isStopped) {
+        spiceService.addRequest(spiceRequest,null);
+      }
+ else {
+        final Set<RequestListener<?>> listRequestListener=mapRequestToLaunchToRequestListener.get(spiceRequest);
+        Ln.d("Sending request to service : " + spiceRequest.getClass().getSimpleName());
+        spiceService.addRequest(spiceRequest,listRequestListener);
+      }
     }
   }
   finally {

@@ -1,5 +1,5 @@
 {
-  if (context == null || isStopped) {
+  if (context == null || (requestQueue.isEmpty() && isStopped)) {
     return;
   }
   lockAcquireService.lock();

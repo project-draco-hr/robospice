@@ -1,16 +1,8 @@
 {
-  if (!isStarted()) {
-    throw new IllegalStateException("Not started yet");
+  try {
+    shouldStopAndJoin(DELAY_WAIT_FOR_RUNNER_TO_STOP);
   }
-  Ln.d("SpiceManager stopping.");
-  dontNotifyAnyRequestListenersInternal();
-  isUnbinding=false;
-  unbindFromService(contextWeakReference.get());
-  spiceServiceConnection=null;
-  this.isStopped=true;
-  this.runner.interrupt();
-  this.runner=null;
-  this.executorService.shutdown();
-  this.contextWeakReference.clear();
-  Ln.d("SpiceManager stopped.");
+ catch (  InterruptedException e) {
+    Ln.e(e,"Exception when joining the runner that was stopping.");
+  }
 }

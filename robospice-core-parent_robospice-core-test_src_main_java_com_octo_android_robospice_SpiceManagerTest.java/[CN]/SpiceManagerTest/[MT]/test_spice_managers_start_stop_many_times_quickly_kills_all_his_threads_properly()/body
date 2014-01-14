@@ -7,7 +7,7 @@
       spiceManager.shouldStop();
     }
   }
-  spiceManager.shouldStopAndJoin(REQUEST_COMPLETION_TIME_OUT);
+  spiceManager.shouldStopAndJoin(2 * REQUEST_COMPLETION_TIME_OUT);
   Thread.sleep(REQUEST_COMPLETION_TIME_OUT);
   Set<Thread> threadSet=Thread.getAllStackTraces().keySet();
   int spiceManagerThreadCount=0;
