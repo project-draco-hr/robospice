@@ -1,0 +1,5 @@
+{
+  testPersisterWithFallback.saveDataToCacheAndReturnData(TEST_DATA,TEST_CACHE_KEY_1);
+  testPersisterWithFallback.getLruCache().evictAll();
+  assertTrue(testPersisterWithFallback.getCreationDateInCache(TEST_CACHE_KEY_1) > 0);
+}
