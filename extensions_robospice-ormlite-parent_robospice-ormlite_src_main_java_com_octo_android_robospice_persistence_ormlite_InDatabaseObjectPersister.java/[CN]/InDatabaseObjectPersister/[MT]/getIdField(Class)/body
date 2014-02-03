@@ -1,0 +1,14 @@
+{
+  DatabaseTableConfig config=getDatabaseTableConfig(clazz);
+  FieldType[] fieldTypes=config.getFieldTypes(databaseHelper.getConnectionSource().getDatabaseType());
+  FieldType idFieldType=null;
+  for (  FieldType fieldType : fieldTypes) {
+    if (fieldType.isId() || fieldType.isGeneratedId() || fieldType.isGeneratedIdSequence()) {
+      idFieldType=fieldType;
+    }
+  }
+  if (idFieldType == null) {
+    throw new IllegalStateException("Cannot find id field");
+  }
+  return idFieldType;
+}

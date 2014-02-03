@@ -1,16 +1,17 @@
 {
   super.setUp();
-  Application application=(Application)getContext().getApplicationContext();
-  List<Class<?>> classCollection=new ArrayList<Class<?>>();
-  classCollection.add(Weather.class);
-  classCollection.add(CurrenWeather.class);
-  classCollection.add(Day.class);
-  classCollection.add(Forecast.class);
-  classCollection.add(Night.class);
-  classCollection.add(Wind.class);
-  RoboSpiceDatabaseHelper databaseHelper=new RoboSpiceDatabaseHelper(application,"sample_database.db",1);
+  Map<Class<?>,Uri> handledClassesToNotificationUri=new HashMap<Class<?>,Uri>();
+  handledClassesToNotificationUri.put(Weather.class,NOTIFICATION_URI1);
+  handledClassesToNotificationUri.put(CurrenWeather.class,NOTIFICATION_URI2);
+  handledClassesToNotificationUri.put(Day.class,null);
+  handledClassesToNotificationUri.put(Forecast.class,null);
+  handledClassesToNotificationUri.put(Night.class,null);
+  handledClassesToNotificationUri.put(Wind.class,null);
+  mResolver=new NotificationContentResolver();
+  mApplication=new NotificationApplication(getContext(),mResolver);
+  RoboSpiceDatabaseHelper databaseHelper=new RoboSpiceDatabaseHelper(mApplication,"sample_database.db",1);
   databaseHelper.clearTableFromDataBase(Weather.class);
-  InDatabaseObjectPersisterFactory inDatabaseObjectPersisterFactory=new InDatabaseObjectPersisterFactory(application,databaseHelper,classCollection);
+  InDatabaseObjectPersisterFactory inDatabaseObjectPersisterFactory=new InDatabaseObjectPersisterFactory(mApplication,databaseHelper,handledClassesToNotificationUri);
   dataPersistenceManager=inDatabaseObjectPersisterFactory.createObjectPersister(Weather.class);
   TEST_TEMP.setTemp("28");
   TEST_TEMP.setTemp_unit("C");

@@ -1,8 +1,7 @@
 {
   initializeTablesIfNeeded();
-  if (mapHandledClassesToNotificationUri != null && mapHandledClassesToNotificationUri.containsKey(clazz)) {
-    Uri notificationUri=mapHandledClassesToNotificationUri.get(clazz);
-    return new InDatabaseObjectPersister(getApplication(),databaseHelper,clazz,notificationUri);
+  if (mapHandledClassesToNotificationUri != null) {
+    return new InDatabaseObjectPersister(getApplication(),databaseHelper,clazz,mapHandledClassesToNotificationUri);
   }
  else {
     return new InDatabaseObjectPersister(getApplication(),databaseHelper,clazz);

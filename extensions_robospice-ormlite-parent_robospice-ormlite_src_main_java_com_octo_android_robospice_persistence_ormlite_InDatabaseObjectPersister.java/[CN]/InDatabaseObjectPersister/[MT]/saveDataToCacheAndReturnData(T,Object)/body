@@ -5,20 +5,9 @@
         try {
           databaseHelper.createOrUpdateInDatabase(data,getHandledClass());
           saveAllForeignObjectsToCache(data);
-          Object id=null;
-          @SuppressWarnings("unchecked") DatabaseTableConfig<T> childDatabaseTableConfig=(DatabaseTableConfig<T>)DatabaseTableConfig.fromClass(databaseHelper.getConnectionSource(),data.getClass());
-          for (          FieldType childFieldType : childDatabaseTableConfig.getFieldTypes(null)) {
-            if (childFieldType.isId()) {
-              id=childFieldType.extractJavaFieldValue(data);
-            }
-          }
+          Object id=getIdField(data.getClass()).extractJavaFieldValue(data);
           CacheEntry cacheEntry=new CacheEntry(String.valueOf(cacheKey),System.currentTimeMillis(),data.getClass(),id);
           databaseHelper.createOrUpdateCacheEntryInDatabase(cacheEntry);
-          if (notificationUri != null) {
-            getApplication().getContentResolver().notifyChange(notificationUri,null);
-            Uri itemNotificationUri=notificationUri.buildUpon().appendPath(id.toString()).build();
-            getApplication().getContentResolver().notifyChange(itemNotificationUri,null);
-          }
         }
  catch (        Exception e) {
           Ln.d(e,"Exception occured during saveDataToCacheAndReturnData");
