@@ -2,6 +2,7 @@
   this.applicationContext=context;
   this.cacheManager=cacheManager;
   this.networkStateChecker=networkStateChecker;
+  this.executorLock=new ReentrantLock();
   this.executorService=executorService;
   this.requestProgressManager=requestProgressBroadcaster;
   this.networkStateChecker.checkPermissions(context);

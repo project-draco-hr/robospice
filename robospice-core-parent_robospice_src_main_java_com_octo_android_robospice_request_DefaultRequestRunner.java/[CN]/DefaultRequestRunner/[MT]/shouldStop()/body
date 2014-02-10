@@ -1,4 +1,10 @@
 {
-  isStopped=true;
-  executorService.shutdown();
+  executorLock.lock();
+  try {
+    isStopped=true;
+    executorService.shutdown();
+  }
+  finally {
+    executorLock.unlock();
+  }
 }

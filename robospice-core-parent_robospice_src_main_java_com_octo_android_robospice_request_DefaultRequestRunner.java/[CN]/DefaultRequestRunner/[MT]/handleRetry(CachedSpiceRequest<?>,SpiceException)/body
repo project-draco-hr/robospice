@@ -6,7 +6,7 @@
         @Override public void run(){
           try {
             Thread.sleep(request.getRetryPolicy().getDelayBeforeRetry());
-            planRequestExecution(request);
+            executeRequest(request);
           }
  catch (          InterruptedException e) {
             Ln.e(e,"Retry attempt failed for request " + request);
