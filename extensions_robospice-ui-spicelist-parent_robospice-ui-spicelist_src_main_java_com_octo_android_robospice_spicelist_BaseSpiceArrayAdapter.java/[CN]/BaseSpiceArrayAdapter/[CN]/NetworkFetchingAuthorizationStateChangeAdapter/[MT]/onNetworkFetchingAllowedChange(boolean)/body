@@ -1,6 +1,6 @@
 {
   SpiceListItemView<T> spiceListItemView=weakReferenceSpiceListItemView.get();
-  if (spiceListItemView != null) {
+  if (spiceListItemView != null && networkFetchingAllowed) {
     T data=spiceListItemView.getData();
     for (int imageIndex=0; imageIndex < spiceListItemView.getImageViewCount(); imageIndex++) {
       performBitmapRequestAsync(spiceListItemView,data,imageIndex);

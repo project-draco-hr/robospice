@@ -1,6 +1,7 @@
 {
   if (!registered(spiceListItemView)) {
     addSpiceListItemView(spiceListItemView);
+    freshDrawableSet.add(data);
   }
   for (int imageIndex=0; imageIndex < spiceListItemView.getImageViewCount(); imageIndex++) {
     imageWidth=Math.max(imageWidth,spiceListItemView.getImageView(imageIndex).getWidth());
