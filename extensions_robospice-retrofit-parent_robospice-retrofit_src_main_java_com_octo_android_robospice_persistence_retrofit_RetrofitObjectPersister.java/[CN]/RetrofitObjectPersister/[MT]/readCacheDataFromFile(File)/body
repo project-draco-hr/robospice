@@ -1,6 +1,8 @@
 {
+  InputStream fileInputStream=null;
   try {
-    final byte[] body=IOUtils.toByteArray(new FileInputStream(file));
+    fileInputStream=new FileInputStream(file);
+    final byte[] body=IOUtils.toByteArray(fileInputStream);
     TypedInput typedInput=new TypedInput(){
       @Override public String mimeType(){
         return "application/json";
@@ -21,5 +23,8 @@
   }
 catch (  Exception e) {
     throw new CacheLoadingException(e);
+  }
+ finally {
+    IOUtils.closeQuietly(fileInputStream);
   }
 }
