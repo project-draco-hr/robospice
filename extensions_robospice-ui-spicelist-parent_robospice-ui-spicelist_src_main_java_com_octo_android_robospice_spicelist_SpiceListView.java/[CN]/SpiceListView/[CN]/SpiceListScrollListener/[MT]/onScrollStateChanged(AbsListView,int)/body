@@ -1,5 +1,16 @@
 {
-  if (getAdapter() != null) {
-    getAdapter().setNetworkFetchingAllowed(scrollState == SCROLL_STATE_IDLE);
+  if (wrappedListener != null) {
+    wrappedListener.onScrollStateChanged(view,scrollState);
+  }
+  ListAdapter adapter=getAdapter();
+  if (adapter != null) {
+    BaseSpiceArrayAdapter<?> spiceArrayAdapter;
+    if (adapter instanceof BaseSpiceArrayAdapter<?>) {
+      spiceArrayAdapter=(BaseSpiceArrayAdapter<?>)adapter;
+    }
+ else {
+      spiceArrayAdapter=(BaseSpiceArrayAdapter<?>)((HeaderViewListAdapter)adapter).getWrappedAdapter();
+    }
+    spiceArrayAdapter.setNetworkFetchingAllowed(scrollState == SCROLL_STATE_IDLE);
   }
 }
