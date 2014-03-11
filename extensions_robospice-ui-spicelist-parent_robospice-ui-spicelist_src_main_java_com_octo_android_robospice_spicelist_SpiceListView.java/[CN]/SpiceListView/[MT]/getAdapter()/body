@@ -1,0 +1,12 @@
+{
+  ListAdapter adapter=super.getAdapter();
+  if (adapter == null) {
+    return null;
+  }
+ else   if (adapter instanceof BaseSpiceArrayAdapter<?>) {
+    return (BaseSpiceArrayAdapter<?>)adapter;
+  }
+ else {
+    return (BaseSpiceArrayAdapter<?>)((HeaderViewListAdapter)adapter).getWrappedAdapter();
+  }
+}

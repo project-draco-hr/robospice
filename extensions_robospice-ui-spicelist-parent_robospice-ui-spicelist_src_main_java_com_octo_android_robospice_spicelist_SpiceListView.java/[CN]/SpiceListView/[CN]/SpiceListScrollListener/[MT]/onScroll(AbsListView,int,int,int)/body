@@ -1,5 +1,2 @@
 {
-  if (wrappedListener != null) {
-    wrappedListener.onScroll(view,firstVisibleItem,visibleItemCount,totalItemCount);
-  }
 }
