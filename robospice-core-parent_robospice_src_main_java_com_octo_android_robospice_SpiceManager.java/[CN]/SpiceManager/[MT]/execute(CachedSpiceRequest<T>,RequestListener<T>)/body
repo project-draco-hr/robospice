@@ -1,5 +1,5 @@
 {
   addRequestListenerToListOfRequestListeners(cachedSpiceRequest,requestListener);
-  System.out.println("adding request to request queue");
+  Ln.d("adding request to request queue");
   this.requestQueue.add(cachedSpiceRequest);
 }
