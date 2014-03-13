@@ -1,4 +1,4 @@
 {
   String actual=inFileObjectPersister.getCachePrefix();
-  assertEquals(inFileObjectPersister.getClass().getSimpleName() + "_",actual);
+  assertEquals(inFileObjectPersister.getClass().getSimpleName() + "_" + inFileObjectPersister.getHandledClass().getSimpleName()+ "_",actual);
 }
