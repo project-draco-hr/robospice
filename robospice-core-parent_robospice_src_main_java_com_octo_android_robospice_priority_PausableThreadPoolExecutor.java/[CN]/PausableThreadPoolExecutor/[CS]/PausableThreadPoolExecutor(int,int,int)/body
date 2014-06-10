@@ -1,0 +1,3 @@
+{
+  super(corePoolSize,maxPoolSize,0,TimeUnit.NANOSECONDS,new PausablePriorityBlockingQueue<Runnable>(),new CustomizablePriorityThreadFactory(threadPriority));
+}
