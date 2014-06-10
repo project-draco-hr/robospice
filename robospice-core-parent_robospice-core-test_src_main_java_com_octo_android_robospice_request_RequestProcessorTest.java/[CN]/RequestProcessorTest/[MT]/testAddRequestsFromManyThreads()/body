@@ -33,5 +33,6 @@ synchronized (listeners) {
       listenersCalled++;
     }
   }
+  assertEquals(threadCount,listeners.size());
   assertEquals(threadCount,listenersCalled);
 }
