@@ -2,5 +2,6 @@
   Intent startIntent=new Intent();
   startIntent.setClass(getContext(),GoogleHttpClientSpiceTestService.class);
   startService(startIntent);
-  assertNotNull(getService().createRequestFactory());
+  getService();
+  assertNotNull(GoogleHttpClientSpiceService.createRequestFactory());
 }
