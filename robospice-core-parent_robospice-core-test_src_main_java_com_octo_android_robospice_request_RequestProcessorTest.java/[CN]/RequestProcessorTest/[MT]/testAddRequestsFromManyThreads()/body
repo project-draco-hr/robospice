@@ -1,16 +1,14 @@
 {
-  final ArrayList<RequestListenerWithProgressStub> listeners=new ArrayList<RequestListenerWithProgressStub>();
+  final ArrayList<RequestListenerStub> listeners=new ArrayList<RequestListenerStub>();
   final ArrayList<Thread> threads=new ArrayList<Thread>();
   final int threadCount=100;
-  for (int i=0; i < threadCount; i++) {
-    EasyMock.expect(mockCacheManager.loadDataFromCache(EasyMock.eq(TEST_CLASS),EasyMock.eq(TEST_CACHE_KEY),EasyMock.eq(TEST_DURATION))).andReturn(TEST_RETURNED_DATA);
-  }
+  EasyMock.expect(mockCacheManager.loadDataFromCache(EasyMock.eq(TEST_CLASS),EasyMock.eq(TEST_CACHE_KEY),EasyMock.eq(TEST_DURATION))).andReturn(TEST_RETURNED_DATA);
   EasyMock.replay(mockCacheManager);
   for (int i=0; i < threadCount; i++) {
     Thread thread=new Thread(new Runnable(){
       @Override public void run(){
         CachedSpiceRequestStub<String> stubRequest=createSuccessfulRequest(TEST_CLASS,TEST_CACHE_KEY,TEST_DURATION,TEST_RETURNED_DATA);
-        RequestListenerWithProgressStub<String> mockRequestListener=new RequestListenerWithProgressStub<String>();
+        RequestListenerStub<String> mockRequestListener=new RequestListenerStub<String>();
 synchronized (listeners) {
           listeners.add(mockRequestListener);
         }
@@ -26,13 +24,14 @@ synchronized (listeners) {
   for (  Thread thread : threads) {
     thread.join(REQUEST_COMPLETION_TIME_OUT);
   }
-  Thread.sleep(REQUEST_COMPLETION_TIME_OUT);
-  int listenersCalled=0;
-  for (  RequestListenerWithProgressStub listener : listeners) {
+  int listenersCalledCount=0;
+  for (  RequestListenerStub listener : listeners) {
+    listener.await(REQUEST_COMPLETION_TIME_OUT);
     if (listener.isSuccessful() != null) {
-      listenersCalled++;
+      listenersCalledCount++;
     }
   }
+  EasyMock.verify(mockCacheManager);
   assertEquals(threadCount,listeners.size());
-  assertEquals(threadCount,listenersCalled);
+  assertEquals(threadCount,listenersCalledCount);
 }
