@@ -1,0 +1,3 @@
+int nCoreThreads
+int maxPoolSize
+int threadPriority
