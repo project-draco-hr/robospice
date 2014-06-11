@@ -1,4 +1,5 @@
 {
+  Context context=getContextReference();
   if (context == null || requestQueue.isEmpty() && isStopped) {
     return;
   }
@@ -21,7 +22,7 @@
  catch (  Exception t) {
     Ln.d(t,"Binding to service failed.");
     Ln.d("Context is" + context);
-    Ln.d("ApplicationContext is " + context.getApplicationContext() + context.getApplicationContext());
+    Ln.d("ApplicationContext is " + context.getApplicationContext());
   }
  finally {
     lockSendRequestsToService.unlock();
