@@ -1,18 +1,14 @@
 {
-synchronized (spiceManager) {
-    if (spiceManager.isStopped) {
+  try {
+    spiceManager.waitForServiceToBeBound();
+    if (spiceManager.spiceService == null) {
       return null;
     }
+    spiceManager.lockSendRequestsToService.lock();
     try {
-      spiceManager.waitForServiceToBeBound();
-      if (spiceManager.spiceService == null) {
+      if (spiceManager.spiceService == null || spiceManager.isStopped) {
         return null;
       }
-    }
- catch (    InterruptedException e) {
-      Ln.e(e,"Spice command %s couldn't bind to service.",getClass().getName());
-    }
-    try {
       T result=executeWhenBound(spiceManager.spiceService);
       successFull=true;
       return result;
@@ -22,5 +18,12 @@ synchronized (spiceManager) {
       this.exception=e;
       return null;
     }
+ finally {
+      spiceManager.lockSendRequestsToService.unlock();
+    }
+  }
+ catch (  InterruptedException e) {
+    Ln.e(e,"Spice command %s couldn't bind to service.",getClass().getName());
+    return null;
   }
 }
