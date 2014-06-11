@@ -1,5 +1,5 @@
 {
   CacheManager cacheManager=new CacheManager();
-  cacheManager.addPersister(new RetrofitObjectPersisterFactory(application,getConverter(),getCacheFolder()));
+  cacheManager.addPersister(new GsonRetrofitObjectPersisterFactory(application,getConverter(),getCacheFolder()));
   return cacheManager;
 }
