@@ -1,0 +1,5 @@
+{
+  InvalidSpiceTestService invalidSpiceTestService=new InvalidSpiceTestService();
+  invalidSpiceTestService.onCreate();
+  assertFalse(invalidSpiceTestService.isCreated());
+}

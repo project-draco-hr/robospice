@@ -23,5 +23,6 @@
   requestProcessor=createRequestProcessor(cacheManager,requestProgressManager,requestRunner);
   requestProcessor.setFailOnCacheError(DEFAULT_FAIL_ON_CACHE_ERROR);
   notification=createDefaultNotification();
+  isCreated=true;
   Ln.d("SpiceService instance created.");
 }
