@@ -3,6 +3,6 @@
   dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,FILE_NAME);
   File cachedFile=((GsonObjectPersister<?>)dataPersistenceManager).getCacheFile(FILE_NAME);
   cachedFile.setLastModified(System.currentTimeMillis() - FIVE_SECONDS);
-  WeatherResult weatherReturned=dataPersistenceManager.loadDataFromCache(FILE_NAME,DurationInMillis.ONE_SECOND);
+  WeatherResult weatherReturned=dataPersistenceManager.loadDataFromCache(FILE_NAME,FIVE_SECONDS);
   assertNull(weatherReturned);
 }
