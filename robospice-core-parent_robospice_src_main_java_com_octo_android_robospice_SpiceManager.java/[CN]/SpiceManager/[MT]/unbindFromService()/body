@@ -1,4 +1,5 @@
 {
+  Context context=getContextReference();
   if (context == null) {
     return;
   }

@@ -4,7 +4,7 @@
     isStopped=true;
     return;
   }
-  bindToService(contextWeakReference.get());
+  bindToService();
   try {
     waitForServiceToBeBound();
     if (spiceService == null) {
@@ -22,8 +22,5 @@
   }
  catch (  final InterruptedException e) {
     Ln.d(e,"Interrupted while waiting for acquiring service.");
-  }
- finally {
-    unbindFromService(contextWeakReference.get());
   }
 }

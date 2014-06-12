@@ -1,6 +1,6 @@
 {
   boolean success=false;
-  Context context=contextWeakReference.get();
+  Context context=getContextReference();
   if (context != null) {
     checkServiceIsProperlyDeclaredInAndroidManifest(context);
     final Intent intent=new Intent(context,spiceServiceClass);

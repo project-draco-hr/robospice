@@ -19,7 +19,7 @@
     long end=System.currentTimeMillis();
     Ln.d("Runner join time (ms) when should stop %d",end - start);
   }
-  unbindFromService(contextWeakReference.get());
+  unbindFromService();
   this.runner=null;
   this.executorService.shutdown();
   this.contextWeakReference.clear();
