@@ -1,5 +1,7 @@
 {
   waitForSpiceManagerShutdown(spiceManager);
   getContext().stopService(new Intent(getContext(),SpiceTestService.class));
+  scrubClass(SpiceManager.class);
+  scrubClass(SpiceTestService.class);
   super.tearDown();
 }

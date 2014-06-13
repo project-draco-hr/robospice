@@ -6,4 +6,6 @@
   spiceManager.execute(spiceRequestStub,null);
   spiceManager.execute(spiceRequestStub2,null);
   assertEquals(spiceRequestStub2,spiceManager.getNextRequest().getSpiceRequest());
+  spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
+  spiceRequestStub2.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
 }

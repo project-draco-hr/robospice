@@ -12,8 +12,9 @@
   Set<Thread> threadSet=Thread.getAllStackTraces().keySet();
   int spiceManagerThreadCount=0;
   for (  Thread thread : threadSet) {
-    if (thread.getName().startsWith(SpiceManager.SPICE_MANAGER_THREAD_NAM_PREFIX)) {
+    if (thread.getName().startsWith(SpiceManager.SPICE_MANAGER_THREAD_NAME_PREFIX) && thread.isAlive() && !thread.isInterrupted()) {
       spiceManagerThreadCount++;
+      Ln.d("A spice manager thread is not dead : %s",thread.getName());
     }
   }
   assertEquals(0,spiceManagerThreadCount);

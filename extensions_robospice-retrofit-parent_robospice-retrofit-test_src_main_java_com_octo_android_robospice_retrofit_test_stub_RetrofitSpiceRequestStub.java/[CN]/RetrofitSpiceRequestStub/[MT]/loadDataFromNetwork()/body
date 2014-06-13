@@ -1,6 +1,6 @@
 {
+  reentrantLock.lock();
   try {
-    reentrantLock.lock();
     loadDataFromNetworkHasBeenExecuted.signal();
   }
   finally {

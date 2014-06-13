@@ -12,11 +12,11 @@ synchronized (requestListenerStub.getRequestProgressesHistory()) {
       Ln.d("RequestProgress received : %s",requestProgress.getStatus());
     }
   }
-  assertEquals(expectedRequestProgressCount,requestListenerStub.getRequestProgressesHistory().size());
   int progressStatusIndex=0;
   assertEquals(RequestStatus.PENDING,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
   assertEquals(RequestStatus.LOADING_FROM_NETWORK,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
   assertEquals(RequestStatus.WRITING_TO_CACHE,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
   assertEquals(RequestStatus.COMPLETE,requestListenerStub.getRequestProgressesHistory().get(progressStatusIndex++).getStatus());
+  assertEquals(expectedRequestProgressCount,requestListenerStub.getRequestProgressesHistory().size());
   assertTrue(requestListenerStub.isSuccessful());
 }

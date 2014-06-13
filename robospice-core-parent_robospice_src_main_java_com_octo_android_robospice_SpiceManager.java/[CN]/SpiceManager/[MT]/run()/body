@@ -8,6 +8,7 @@
   try {
     waitForServiceToBeBound();
     if (spiceService == null) {
+      Ln.d("No spice service bound.");
       return;
     }
     while (!requestQueue.isEmpty() || !isStopped && !Thread.interrupted()) {
@@ -19,6 +20,7 @@
         break;
       }
     }
+    Ln.d("SpiceManager request runner terminated. Requests count: %d, stopped %b, interrupted %b",requestQueue.size(),isStopped,Thread.interrupted());
   }
  catch (  final InterruptedException e) {
     Ln.d(e,"Interrupted while waiting for acquiring service.");

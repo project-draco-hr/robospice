@@ -7,7 +7,7 @@
     spiceManager.start(getContext());
     spiceManager.shouldStopAndJoin(REQUEST_COMPLETION_TIME_OUT);
     spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
-    assertTrue(spiceRequestStub.isLoadDataFromNetworkCalled());
+    assertTrue("Inside thread attempt " + i,spiceRequestStub.isLoadDataFromNetworkCalled());
     Thread.sleep(SMALL_THREAD_SLEEP);
   }
 }

@@ -11,6 +11,7 @@
   CachedSpiceRequest<String> cachedSpiceRequest2=new CachedSpiceRequest<String>(spiceRequestStub2,TEST_CACHE_KEY,DurationInMillis.ALWAYS_EXPIRED);
   cachedSpiceRequest2.setProcessable(false);
   spiceManager2.execute(cachedSpiceRequest2,requestListenerStub2);
+  spiceRequestStub2.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
   requestListenerStub.await(REQUEST_COMPLETION_TIME_OUT);
   requestListenerStub.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
   requestListenerStub2.awaitComplete(REQUEST_COMPLETION_TIME_OUT);

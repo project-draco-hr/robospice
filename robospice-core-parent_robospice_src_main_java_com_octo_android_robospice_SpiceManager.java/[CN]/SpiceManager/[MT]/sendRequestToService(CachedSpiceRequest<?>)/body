@@ -3,6 +3,7 @@
   try {
     if (spiceRequest != null && spiceService != null) {
       if (isStopped) {
+        Ln.d("Sending request to service without listeners : " + spiceRequest.getClass().getSimpleName());
         spiceService.addRequest(spiceRequest,null);
       }
  else {
@@ -10,6 +11,9 @@
         Ln.d("Sending request to service : " + spiceRequest.getClass().getSimpleName());
         spiceService.addRequest(spiceRequest,listRequestListener);
       }
+    }
+ else {
+      Ln.d("Service or request was null");
     }
   }
   finally {

@@ -5,9 +5,9 @@
   RequestListenerStub<String> requestListenerStub=new RequestListenerStub<String>();
   RequestListenerStub<String> requestListenerStub2=new RequestListenerStub<String>();
   spiceManager.execute(spiceRequestStub,TEST_CACHE_KEY,TEST_DURATION,requestListenerStub);
+  spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
   spiceManager.dontNotifyRequestListenersForRequestInternal(spiceRequestStub);
   spiceManager.execute(spiceRequestStub2,TEST_CACHE_KEY2,TEST_DURATION,requestListenerStub2);
-  spiceRequestStub.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
   spiceRequestStub2.awaitForLoadDataFromNetworkIsCalled(REQUEST_COMPLETION_TIME_OUT);
   requestListenerStub2.await(REQUEST_COMPLETION_TIME_OUT);
   assertTrue(spiceRequestStub.isLoadDataFromNetworkCalled());

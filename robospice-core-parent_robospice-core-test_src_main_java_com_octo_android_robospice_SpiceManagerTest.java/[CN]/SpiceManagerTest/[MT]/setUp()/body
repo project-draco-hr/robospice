@@ -2,4 +2,5 @@
   super.setUp();
   spiceManager=new SpiceManagerUnderTest(SpiceTestService.class);
   Thread.sleep(SMALL_THREAD_SLEEP);
+  android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_URGENT_AUDIO);
 }

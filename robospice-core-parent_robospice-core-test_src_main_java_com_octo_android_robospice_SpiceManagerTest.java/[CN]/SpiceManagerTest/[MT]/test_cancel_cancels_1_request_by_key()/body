@@ -7,5 +7,4 @@
   spiceManager.cancel(String.class,TEST_CACHE_KEY);
   requestListenerStub.awaitComplete(REQUEST_COMPLETION_TIME_OUT);
   assertTrue(spiceRequestStub.isCancelled());
-  assertNull(requestListenerStub.isSuccessful());
 }
