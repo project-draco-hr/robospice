@@ -7,6 +7,9 @@
       Ln.d("Bound to service : " + spiceService.getClass().getSimpleName());
       conditionServiceBound.signalAll();
     }
+ else {
+      Ln.e("Unexpected IBinder service at onServiceConnected :%s ",service.getClass().getName());
+    }
   }
   finally {
     lockAcquireService.unlock();
