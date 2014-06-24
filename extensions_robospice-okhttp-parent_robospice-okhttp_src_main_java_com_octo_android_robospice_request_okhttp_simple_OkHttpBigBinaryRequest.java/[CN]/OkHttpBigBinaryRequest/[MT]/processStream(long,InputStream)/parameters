@@ -1,2 +1,2 @@
-int contentLength
+long contentLength
 InputStream inputStream
