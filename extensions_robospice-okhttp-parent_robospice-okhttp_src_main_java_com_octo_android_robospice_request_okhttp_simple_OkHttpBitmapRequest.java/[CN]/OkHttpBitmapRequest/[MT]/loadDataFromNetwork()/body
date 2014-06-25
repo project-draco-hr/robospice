@@ -1,8 +1,8 @@
 {
   try {
-    Request request=new Request.Builder().url(url).build();
-    Response response=getOkHttpClient().newCall(request).execute();
-    processStream(response.body().contentLength(),response.body().byteStream());
+    OkUrlFactory urlFactory=new OkUrlFactory(getOkHttpClient());
+    HttpURLConnection connection=urlFactory.open(new URL(url));
+    processStream(connection.getContentLength(),connection.getInputStream());
     if (width != -1 && height != -1) {
       this.options=new BitmapFactory.Options();
       options.inJustDecodeBounds=true;

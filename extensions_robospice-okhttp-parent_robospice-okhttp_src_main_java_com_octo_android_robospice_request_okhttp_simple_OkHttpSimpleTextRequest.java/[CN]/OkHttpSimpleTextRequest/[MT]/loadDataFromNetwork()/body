@@ -1,9 +1,9 @@
 {
   try {
     Ln.d("Call web service " + url);
-    Request request=new Request.Builder().url(url).build();
-    Response response=getOkHttpClient().newCall(request).execute();
-    return response.body().string();
+    OkUrlFactory urlFactory=new OkUrlFactory(getOkHttpClient());
+    HttpURLConnection connection=urlFactory.open(new URL(url));
+    return IOUtils.toString(connection.getInputStream());
   }
  catch (  final MalformedURLException e) {
     Ln.e(e,"Unable to create URL");

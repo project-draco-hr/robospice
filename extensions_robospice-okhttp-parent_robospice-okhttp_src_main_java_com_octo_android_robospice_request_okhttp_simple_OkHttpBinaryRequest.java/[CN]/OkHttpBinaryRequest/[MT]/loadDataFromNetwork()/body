@@ -1,8 +1,8 @@
 {
   try {
-    Request request=new Request.Builder().url(url).build();
-    Response response=getOkHttpClient().newCall(request).execute();
-    return processStream(response.body().contentLength(),response.body().byteStream());
+    OkUrlFactory urlFactory=new OkUrlFactory(getOkHttpClient());
+    HttpURLConnection connection=urlFactory.open(new URL(url));
+    return processStream(connection.getContentLength(),connection.getInputStream());
   }
  catch (  final MalformedURLException e) {
     Ln.e(e,"Unable to create URL");
