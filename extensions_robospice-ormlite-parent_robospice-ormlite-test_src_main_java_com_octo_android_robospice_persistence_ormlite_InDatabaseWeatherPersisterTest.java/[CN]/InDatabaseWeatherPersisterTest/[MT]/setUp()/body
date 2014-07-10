@@ -7,8 +7,8 @@
   handledClassesToNotificationUri.put(Forecast.class,null);
   handledClassesToNotificationUri.put(Night.class,null);
   handledClassesToNotificationUri.put(Wind.class,null);
-  mResolver=new NotificationContentResolver();
-  mApplication=new NotificationApplication(getContext(),mResolver);
+  mResolver=new MockNotificationContentResolver();
+  mApplication=new MockNotificationApplicaiton(getContext(),mResolver);
   RoboSpiceDatabaseHelper databaseHelper=new RoboSpiceDatabaseHelper(mApplication,"sample_database.db",1);
   databaseHelper.clearTableFromDataBase(Weather.class);
   InDatabaseObjectPersisterFactory inDatabaseObjectPersisterFactory=new InDatabaseObjectPersisterFactory(mApplication,databaseHelper,handledClassesToNotificationUri);
