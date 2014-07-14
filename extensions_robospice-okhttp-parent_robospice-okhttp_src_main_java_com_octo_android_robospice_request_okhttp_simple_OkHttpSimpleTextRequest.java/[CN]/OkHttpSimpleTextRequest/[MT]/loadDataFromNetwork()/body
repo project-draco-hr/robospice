@@ -1,7 +1,8 @@
 {
   try {
     Ln.d("Call web service " + url);
-    HttpURLConnection connection=getOkHttpClient().open(new URL(url));
+    OkUrlFactory urlFactory=new OkUrlFactory(getOkHttpClient());
+    HttpURLConnection connection=urlFactory.open(new URL(url));
     return IOUtils.toString(connection.getInputStream());
   }
  catch (  final MalformedURLException e) {

@@ -1,6 +1,7 @@
 {
   try {
-    HttpURLConnection connection=getOkHttpClient().open(new URL(url));
+    OkUrlFactory urlFactory=new OkUrlFactory(getOkHttpClient());
+    HttpURLConnection connection=urlFactory.open(new URL(url));
     return processStream(connection.getContentLength(),connection.getInputStream());
   }
  catch (  final MalformedURLException e) {

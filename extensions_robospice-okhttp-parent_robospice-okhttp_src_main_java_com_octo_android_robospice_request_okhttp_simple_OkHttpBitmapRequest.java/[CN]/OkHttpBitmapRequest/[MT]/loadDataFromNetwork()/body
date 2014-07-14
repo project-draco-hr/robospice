@@ -1,6 +1,7 @@
 {
   try {
-    HttpURLConnection connection=getOkHttpClient().open(new URL(url));
+    OkUrlFactory urlFactory=new OkUrlFactory(getOkHttpClient());
+    HttpURLConnection connection=urlFactory.open(new URL(url));
     processStream(connection.getContentLength(),connection.getInputStream());
     if (width != -1 && height != -1) {
       this.options=new BitmapFactory.Options();
