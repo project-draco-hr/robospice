@@ -2,4 +2,7 @@
   if (getAdapter() != null) {
     getAdapter().setNetworkFetchingAllowed(scrollState == SCROLL_STATE_IDLE);
   }
+  if (wrappedListener != null) {
+    wrappedListener.onScrollStateChanged(view,scrollState);
+  }
 }
