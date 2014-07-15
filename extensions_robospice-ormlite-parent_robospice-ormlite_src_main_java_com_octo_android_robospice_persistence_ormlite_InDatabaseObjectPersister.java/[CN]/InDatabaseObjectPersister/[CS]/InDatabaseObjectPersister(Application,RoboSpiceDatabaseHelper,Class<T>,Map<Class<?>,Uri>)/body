@@ -1,7 +1,7 @@
 {
   super(application,modelObjectType);
   this.databaseHelper=databaseHelper;
-  this.notificationUri=notificationUri;
+  this.mapHandledClassesToNotificationUri=mapHandledClassesToNotificationUri;
   try {
     TableUtils.createTableIfNotExists(databaseHelper.getConnectionSource(),modelObjectType);
   }

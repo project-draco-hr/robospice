@@ -42,4 +42,13 @@
       saveAllForeignObjectsToCache(object);
     }
   }
+  if (mapHandledClassesToNotificationUri != null && mapHandledClassesToNotificationUri.containsKey(parentClass)) {
+    Uri notificationUri=mapHandledClassesToNotificationUri.get(parentClass);
+    if (notificationUri != null) {
+      getApplication().getContentResolver().notifyChange(notificationUri,null);
+      Object id=getIdField(data.getClass()).extractJavaFieldValue(data);
+      Uri itemNotificationUri=notificationUri.buildUpon().appendPath(id.toString()).build();
+      getApplication().getContentResolver().notifyChange(itemNotificationUri,null);
+    }
+  }
 }

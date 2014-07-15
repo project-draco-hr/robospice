@@ -1,0 +1,6 @@
+{
+  Weather weatherRequestStatus=buildWeather(WEATHER_ID,TEST_TEMP);
+  dataPersistenceManager.saveDataToCacheAndReturnData(weatherRequestStatus,CACHE_KEY3_STRING);
+  assertTrue(mResolver.getNotificationUris().contains(NOTIFICATION_URI1));
+  assertTrue(mResolver.getNotificationUris().contains(NOTIFICATION_URI2));
+}

@@ -1,0 +1,4 @@
+String name
+int mode
+SQLiteDatabase.CursorFactory factory
+DatabaseErrorHandler errorHandler

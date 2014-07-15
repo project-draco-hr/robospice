@@ -1,0 +1,11 @@
+{
+  DatabaseTableConfig config=mTableConfigs.get(clazz);
+  if (config == null) {
+    config=DatabaseTableConfigUtil.fromClass(databaseHelper.getConnectionSource(),clazz);
+    if (config != null) {
+      config.extractFieldTypes(databaseHelper.getConnectionSource());
+      mTableConfigs.put(clazz,config);
+    }
+  }
+  return config;
+}

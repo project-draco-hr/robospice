@@ -1,4 +1,4 @@
 Application application
 RoboSpiceDatabaseHelper databaseHelper
 Class<T> modelObjectType
-Uri notificationUri
+Map<Class<?>,Uri> mapHandledClassesToNotificationUri
