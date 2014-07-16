@@ -1,3 +1,4 @@
 {
-  super.setOnScrollListener(new SpiceListScrollListener(l));
+  onScrollListener.setWrappedListener(l);
+  super.setOnScrollListener(onScrollListener);
 }
