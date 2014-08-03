@@ -1,0 +1,8 @@
+{
+  mockOnScrollListener.onScroll(spiceListView,0,0,0);
+  mockOnScrollListener.onScrollStateChanged(spiceListView,OnScrollListener.SCROLL_STATE_FLING);
+  EasyMock.replay(mockOnScrollListener);
+  spiceListView.setOnScrollListener(mockOnScrollListener);
+  spiceListView.onScrollListener.onScrollStateChanged(spiceListView,OnScrollListener.SCROLL_STATE_FLING);
+  EasyMock.verify(mockOnScrollListener);
+}

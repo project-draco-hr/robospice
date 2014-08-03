@@ -1,0 +1,5 @@
+{
+  super.setUp();
+  spiceListView=new SpiceListView(getInstrumentation().getContext());
+  mockOnScrollListener=EasyMock.createMock(OnScrollListener.class);
+}
