@@ -7,6 +7,9 @@
     }
   }
 );
+  if (cacheFileNameList == null) {
+    return Collections.emptyList();
+  }
   List<Object> result=new ArrayList<Object>(cacheFileNameList.length);
   for (  String cacheFileName : cacheFileNameList) {
     String cacheKey=cacheFileName.substring(prefixLength);
